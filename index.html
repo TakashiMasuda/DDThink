@@ -139,11 +139,11 @@
 	$(document).ready(function(){
 		var hash = location.hash;	//URLからハッシュ部分を取得する
 		//募集要項ページのハッシュが含まれていれば
-		if (hash.indexOf('reqruit_guideline') != -1) {
+		if (hash.indexOf('recruit_guideline') != -1) {
 			//募集要項ページへ遷移する
 			pagemove(null, 'ddt-regular/gideline.html');
 		//求人応募ページのハッシュが含まれていたら
-		} else if (hash.indexOf('reqruit_entry_form') != -1) {
+		} else if (hash.indexOf('recruit_entry_form') != -1) {
 			//求人応募ページへ遷移する
 			pagemove(null, 'ddt-regular/entry.html');
 		//特になにもなければ
