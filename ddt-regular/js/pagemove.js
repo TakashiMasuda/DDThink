@@ -215,6 +215,7 @@
           type: 'GET',						//データを取得する
           url: contenturl,					//コンテンツのURLを設定
           dataType: 'html',					//htmlを取得する
+　 		  cache : false,				//通信結果をキャッシュしない
           success: function(data) {		//データの取得に成功したら
 	          $('#main').html($(data));	
 			  //読み込んだコンテンツに応じて独自の処理を行う
@@ -249,6 +250,7 @@
 	       	type: 'GET',	//データを取得する
 			url: xmlurl,	//xmlurlに格納されたパスからデータを取得
   	        dataType: 'xml',	//xml形式のデータを取得する
+			cache : false,				//通信結果をキャッシュしない
  			success: function(xml) {		//ajax通信に成功した時の処理の記述
 				//1～2桁目に男性、3～4桁目に女性の画像番号を示す数値を格納する変数sexcountを宣言
 				var sexcount = 0;
@@ -371,6 +373,7 @@
 	       	type: 'GET',	//データを取得する
 			url: xmlurl,	//xmlurlに格納されたパスからデータを取得
   	        dataType: 'xml',	//xml形式のデータを取得する
+			cache : false,				//通信結果をキャッシュしない
  			success: function(xml) {		//ajax通信に成功した時の処理の記述
 				var atopic = '';			//現在指すtopicタグのセレクタを格納する変数atopic
 				$('article#simplearticle')

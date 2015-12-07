@@ -7,7 +7,13 @@
 <!-- UTF-8でエンコード -->
 <meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
 <meta charset="utf-8">
+<!-- デフォルトの画面サイズを機器に依存する -->
 <meta name="viewport" content="width=device-width">
+<!-- キャッシュ無効のためのメタタグ * 3 -->
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+
 <!-- 表示用タイトル -->
 <title>DDThink - 株式会社デジタルデザインシンク</title>
 <!-- このページのファイルと同じ階層にcssファイルを置く。css名はstyle.css -->
@@ -133,9 +139,13 @@
 	$(document).ready(function(){
 		var hash = location.hash;	//URLからハッシュ部分を取得する
 		//募集要項ページのハッシュが含まれていれば
-		if (hash.indexOf('guideline') != -1) {
+		if (hash.indexOf('reqruit_guideline') != -1) {
 			//募集要項ページへ遷移する
 			pagemove(null, 'ddt-regular/gideline.html');
+		//求人応募ページのハッシュが含まれていたら
+		} else if (hash.indexOf('reqruit_entry_form') != -1) {
+			//求人応募ページへ遷移する
+			pagemove(null, 'ddt-regular/entry.html');
 		//特になにもなければ
 		} else {
 			//トップページを表示する

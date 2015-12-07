@@ -25,6 +25,7 @@ var imgClick = function(e){
           type: 'GET',
           url: 'ddt-regular/outline.html',
           dataType: 'html',
+		cache : false,				//通信結果をキャッシュしない
           success: function(data) {
           $('#main').html($(data));
         },

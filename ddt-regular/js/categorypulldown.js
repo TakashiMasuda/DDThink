@@ -45,6 +45,7 @@ $(function() {							//jQueryを開始
    		url: "ddt-regular/assets/pulldownmenu.xml",	//pulldownmenu.xmlを読み込む
         type:'get',					//XMLからデータを取得する
         dataType:'xml',  			//XMLデータを扱う
+		cache : false,				//通信結果をキャッシュしない
         timeout:1000, 				//1000ミリ秒以内に通信が成立しなければ通信を切る
   		error: function(){			//通信に失敗した場合の処理を設定
        	 console.log('Error loading XML document');	/* XMLの取得に失敗したということをコンソールに出力 */

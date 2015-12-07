@@ -1124,3 +1124,12 @@ span.text-red{
 }
 
 
+/* 
+ * セレクタ:.guidelineTitle, .guidelineDetailTh
+ * 概要   :募集要項見出し系クラス
+ * 作成者 :T.Masuda
+ * 作成日 :2015.12.08
+ */
+.guidelineTitle, .guidelineDetailTh {
+	font-weight : bold;		/* 太字にする */
+}

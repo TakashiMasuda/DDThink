@@ -71,16 +71,18 @@
     //募集要項の外側を作る
     creator.outputTag('guidlineContentOutline', 'guidlineContentOutline', '#onlyimg-content');
     //研修生の募集要項コンテントを作る
-    creator.outputTag('student', 'guidelineContent', '.guidlineContentOutline');
+    creator.outputTag('trainee', 'guidelineContent', '.guidlineContentOutline');
     //研修生の募集要項コンテントテーブルを作る
-    creator.outputTag('studentGuideline', 'guidelineTable', '.guidelineContent');
+    creator.outputTag('traineeGuideline', 'guidelineTable', '.guidelineContent');
 
     //中途採用の募集コンテントを作る
     creator.outputTag('mid-career', 'guidelineContent', '.guidlineContentOutline');
     //エンジニアの募集要項コンテントテーブルを作る
-    creator.outputTag('engineerGuideline', 'guidelineTableEngineer', '.mid-career');
+    creator.outputTag('engineerGuideline', 'guidelineTable', '.mid-career');
     //営業の募集要項コンテントテーブルを作る
-    creator.outputTag('salesGuideline', 'guidelineTableSales', '.mid-career');
+    creator.outputTag('salesGuideline', 'guidelineTable', '.mid-career');
+	//研修制度ページへのリンクを追加する
+    creator.outputTag('linkToTrainee', 'link', '.guidelineTable.trainee .guidelineDetailTd5 .guidelineDetailTd');
 
     //mid-careerの線の色を変えて線を補足する
     $('.mid-career .guideTitleDetail1').css('border-bottom', '1px solid #DB8887');
@@ -96,22 +98,22 @@
 	var hash = location.hash;	//URLからハッシュ部分を取得する
 	
 	//募集要項ページのハッシュが含まれていれば
-	if (hash.indexOf('guideline') != -1) {
+	if (hash.indexOf('reqruit_guideline') != -1) {
 		//スクロール位置の変数を用意する
 		var scrollTo = 0;
 		//スクロール位置の補正値
 		var scrollFix = -150;
 		
 		//研修生項目であれば
-		if (hash.indexOf('student') != -1) {
+		if (hash.indexOf('trainee_engineer') != -1) {
 			//その座標を取得する
-			scrollTo = $('.guidelineTable.student').offset().top;
+			scrollTo = $('.guidelineTable.trainee').offset().top;
 		//エンジニアであれば
-		} else if (hash.indexOf('engineer') != -1) {
+		} else if (hash.indexOf('midcareer_engineer') != -1) {
 			//その座標を取得する
 			scrollTo = $('.guidelineTable.engineer').offset().top;
 		//営業項目であれば
-		} else if (hash.indexOf('sales') != -1) {
+		} else if (hash.indexOf('midcareer_sales') != -1) {
 			//その座標を取得する
 			scrollTo = $('.guidelineTable.sales').offset().top;
 		}
