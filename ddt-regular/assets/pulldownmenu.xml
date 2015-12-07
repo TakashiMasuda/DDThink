@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- プルダウンメニューのデータを格納したXMLファイル -->
+<pulldownmenu>
+	<!-- トップメニューに対する空の項目 -->
+	<category>
+	<!-- トップメニューの記述を終える -->
+	</category>
+	<!-- 企業プロフィールカテゴリー -->
+	<category>
+		<!-- 会社沿革コンテンツの要素 -->
+		<element>
+			<!-- 会社沿革のテキスト -->
+			<content>会社概要</content>
+			<!-- 会社沿革のアドレス -->
+			<url>ddt-regular/outline.html</url>
+		<!-- 会社沿革コンテンツの要素を終了 -->
+		</element>
+		<!-- 企業理念コンテンツの要素 -->
+		<element>
+			<!-- 企業理念のテキスト -->
+			<content>企業理念</content>
+			<!-- 企業理念のアドレス -->
+			<url>ddt-regular/profilephilosophy.html</url>
+		<!-- 企業理念コンテンツの要素を終了 -->
+		</element>
+		<!-- 行動指針コンテンツの要素 -->
+		<element>
+			<!-- 行動指針のテキスト -->
+			<content>行動指針</content>
+			<!-- 行動指針のアドレス -->
+			<url>ddt-regular/policy.html</url>
+		<!-- 行動指針コンテンツの要素を終了 -->
+		</element>
+		<!-- 社訓コンテンツの要素 -->
+		<element>
+			<!-- 社訓のテキスト -->
+			<content>社訓</content>
+			<!-- 社訓のアドレス -->
+			<url>ddt-regular/motto.html</url>
+		<!-- 社訓コンテンツの用を終える -->
+		</element>
+		<!-- 会社沿革コンテンツの要素 -->
+		<element>
+			<!-- 会社沿革のテキスト -->
+			<content>会社沿革</content>
+			<!-- 会社沿革のアドレス -->
+			<url>ddt-regular/history.html</url>
+		<!-- 会社沿革コンテンツの要素を終了 -->
+		</element>
+		<!-- アドレスコンテンツの要素を -->
+		<element>
+			<!-- アクセスのテキスト -->
+			<content>アクセス</content>
+			<!-- アクセスのアドレス -->
+			<url>ddt-regular/access.html</url>
+		<!-- アクセスコンテンツの要素を終える -->
+		</element>
+	<!-- 企業プロフィールカテゴリーの記述を終了 -->
+	</category>
+	<!-- 提供サービスカテゴリー -->
+	<category>
+	<!-- 提供サービスコンテンツのカテゴリーの記述を終了 -->
+	</category>
+	<!-- 採用情報カテゴリー -->
+	<category>
+		<!-- 募集要項コンテンツの要素 -->
+		<element>
+			<!-- 募集要項のテキスト -->
+			<content>募集要項</content>
+			<!-- 募集要項のアドレス -->
+			<url>ddt-regular/gideline.html</url>
+		<!-- 募集要項コンテンツの要素を終える -->
+		</element>
+		<!-- 企業理念コンテンツの要素 -->
+		<element>
+			<!-- 企業理念のテキスト -->
+			<content>企業理念</content>
+			<!-- 企業理念のアドレス -->
+			<url>ddt-regular/recruitphilosophy.html</url>
+		<!-- 企業理念コンテンツの要素を終える -->
+		</element>
+		<!-- 研修制度コンテンツの要素 -->
+		<element>
+			<!-- 研修制度のテキスト -->
+			<content>研修制度</content>
+			<!-- 研修制度のアドレス -->
+			<url>ddt-regular/induction.html</url>
+		<!-- 研修制度コンテンツの要素を終える -->
+		</element>
+		<!-- 社員の声コンテンツの要素 -->
+		<element>
+			<!-- 社員の声のテキスト -->
+			<content>社員の声</content>
+			<!-- 社員の声のアドレス -->
+			<url>ddt-regular/voice.html</url>
+		<!-- 社員の声の要素を終える -->
+		</element>
+		<!-- 求人応募(求人フォーム)コンテンツの要素 -->
+		<element>
+			<!-- 求人応募のテキスト -->
+			<content>求人応募</content>
+			<!-- 求人応募のアドレス -->
+			<url>ddt-regular/entry.html</url>
+		<!-- 求人応募コンテンツの要素を終える -->
+		</element>
+	<!-- 採用情報カテゴリーの記述を終了 -->
+	</category>
+	<!-- お問い合わせコンテンツに対する空の項目 -->
+	<category>
+	<!-- お問い合わせコンテンツの記述を終える -->
+	</category>
+<!-- XMLを閉じる -->
+</pulldownmenu>

@@ -1,0 +1,317 @@
+{
+    "guidlineContentOutline": {},
+    "student": {
+        "class":"guidelineContent student",
+        "guideTheme": {
+            "guideLogo": {
+                "text": "Student"
+            },
+            "guideTitle": {
+                "guideTitleDetail1":{
+                    "text": "研修生　募集内容"
+                },
+                "guideTitleDetail2":{
+                    "text": "研修生の応募資格・内容は以下のようになります。"
+                }
+            }
+        }
+    },
+    "studentGuideline": {
+        "class":"guidelineTable student",
+        "guidelineRow": {
+            "guidelineRowDetail": {
+                "rowspan": "16",
+                "html": "項<br>目"
+            }
+        },
+        "guidelineTitleRow":{
+            "guidelineTitle":{
+                "text":"内容"
+            }
+        },
+        "guidelineDetailTh1": {
+            "guidelineDetailTh": {
+                "text": "雇用形態"
+            }
+        },
+        "guidelineDetailTd1": {
+            "guidelineDetailTd": {
+                "text": "研修生"
+            }
+        },
+        "guidelineDetailTh2": {
+            "guidelineDetailTh": {
+                "text": "職種"
+            }
+        },
+        "guidelineDetailTd2": {
+            "guidelineDetailTd": {
+                "text": "プログラマー"
+            }
+        },
+        "guidelineDetailTh3": {
+            "guidelineDetailTh": {
+                "text": "必須条件"
+            }
+        },
+        "guidelineDetailTd3": {
+            "guidelineDetailTd": {
+                "text": "実務経験不問。30歳以下の方"
+            }
+        },
+        "guidelineDetailTh4": {
+            "guidelineDetailTh": {
+                "text": "歓迎スキル・経験"
+            }
+        },
+        "guidelineDetailTd4": {
+            "guidelineDetailTd": {
+                "html": "ソフトウェアエンジニアを目指している方で、研修をやり遂げたい<br>という情熱のある方"
+            }
+        },
+        "guidelineDetailTh5": {
+            "guidelineDetailTh": {
+                "text": "主な業務"
+            }
+        },
+        "guidelineDetailTd5": {
+            "guidelineDetailTd": {
+                "text": "研修制度を参照"
+            }
+        },
+        "guidelineDetailTh6": {
+            "guidelineDetailTh": {
+                "text": "勤務時間"
+            }
+        },
+        "guidelineDetailTd6": {
+            "guidelineDetailTd": {
+                "text": "9:30～18:30"
+            }
+        },
+        "guidelineDetailTh7": {
+            "guidelineDetailTh": {
+                "text": "給与"
+            }
+        },
+        "guidelineDetailTd7": {
+            "guidelineDetailTd": {
+                "text": "研修制度を参照"
+            }
+        }
+    },
+    "mid-career": {
+        "class":"guidelineContent mid-career",
+        "guideTheme": {
+            "guideLogo": {
+                "text": "Mid-career"
+            },
+            "guideTitle": {
+                "guideTitleDetail1":{
+                    "text": "中途採用　募集内容"
+                },
+                "guideTitleDetail2":{
+                    "text": "中途採用の応募資格・内容は以下のようになります。"
+                }
+            }
+        }
+    },
+    "engineerGuideline": {
+        "class":"guidelineTable engineer",
+        "guidelineRow": {
+            "guidelineRowDetail": {
+                "rowspan": "18",
+                "html": "項<br>目"
+            }
+        },
+        "guidelineTitleRow":{
+            "guidelineTitle":{
+                "text":"エンジニア"
+            }
+        },
+        "guidelineDetailTh1": {
+            "guidelineDetailTh": {
+                "text": "雇用形態"
+            }
+        },
+        "guidelineDetailTd1": {
+            "guidelineDetailTd": {
+                "text": "正社員"
+            }
+        },
+        "guidelineDetailTh2": {
+            "guidelineDetailTh": {
+                "text": "職種"
+            }
+        },
+        "guidelineDetailTd2": {
+            "guidelineDetailTd": {
+                "text": "プログラマー、システムエンジニア"
+            }
+        },
+        "guidelineDetailTh3": {
+            "guidelineDetailTh": {
+                "text": "必須スキル"
+            }
+        },
+        "guidelineDetailTd3": {
+            "guidelineDetailTd": {
+                "text": "C, C++, C#, Java, PHP 開発経験5年以上"
+            }
+        },
+        "guidelineDetailTh4": {
+            "guidelineDetailTh": {
+                "text": "歓迎スキル・経験"
+            }
+        },
+        "guidelineDetailTd4": {
+            "guidelineDetailTd": {
+                "html": "金融系、オープン系、制御系開発経験、アセンブラ開発経験、<br>ドキュメント作成経験、リーダー、<br>サブリーダーの経験(プロジェクト、案件などのまとめ役としての経験)"
+            }
+        },
+        "guidelineDetailTh5": {
+            "guidelineDetailTh": {
+                "text": "主な業務"
+            }
+        },
+        "guidelineDetailTd5": {
+            "guidelineDetailTd": {
+                "html": "社内での各種のシステム開発<br>クライアント企業先に出向して各種のシステムの開発"
+            }
+        },
+        "guidelineDetailTh6": {
+            "guidelineDetailTh": {
+                "text": "勤務時間"
+            }
+        },
+        "guidelineDetailTd6": {
+            "guidelineDetailTd": {
+                "html": "9:30～18:30<br>フレックスタイム制あり"
+            }
+        },
+        "guidelineDetailTh7": {
+            "guidelineDetailTh": {
+                "text": "給与"
+            }
+        },
+        "guidelineDetailTd7": {
+            "guidelineDetailTd": {
+                "html": "プログラマー　　　　　　　25万円～28万円<br>システムエンジニア　　　　29万円～35万円<br>プロジェクトリーダー　　　36万円～40万円<br>プロジェクトマネージャー　41万円～75万円"
+            }
+        },
+        "guidelineDetailTh8": {
+            "guidelineDetailTh": {
+                "text": "福利厚生"
+            }
+        },
+        "guidelineDetailTd8": {
+            "guidelineDetailTd": {
+                "text": "各種社会保険完備"
+            }
+        }
+    },
+    "salesGuideline": {
+        "class":"guidelineTable sales",
+        "guidelineRow": {
+            "guidelineRowDetail": {
+                "rowspan": "20",
+                "html": "項<br>目"
+            }
+        },
+        "guidelineTitleRow":{
+            "guidelineTitle":{
+                "text":"営業"
+            }
+        },
+        "guidelineDetailTh1": {
+            "guidelineDetailTh": {
+                "text": "雇用形態"
+            }
+        },
+        "guidelineDetailTd1": {
+            "guidelineDetailTd": {
+                "text": "正社員"
+            }
+        },
+        "guidelineDetailTh2": {
+            "guidelineDetailTh": {
+                "text": "職種"
+            }
+        },
+        "guidelineDetailTd2": {
+            "guidelineDetailTd": {
+                "text": "法人営業"
+            }
+        },
+        "guidelineDetailTh3": {
+            "guidelineDetailTh": {
+                "text": "募集特徴"
+            }
+        },
+        "guidelineDetailTd3": {
+            "guidelineDetailTd": {
+                "text": "[学歴不問] [未経験者歓迎] [経験者優遇] [第二新卒歓迎] [ブランクＯＫ] [急募求人]"
+            }
+        },
+        "guidelineDetailTh4": {
+            "guidelineDetailTh": {
+                "text": "勤務地"
+            }
+        },
+        "guidelineDetailTd4": {
+            "guidelineDetailTd": {
+                "html": "転勤なし<br>〒160-0022<br>東京都新宿区新宿2-12-4アコード新宿ビル4F<br><br>地下鉄 新宿3丁目駅 徒歩1分<br>JR 新宿駅 徒歩8分"
+            }
+        },
+        "guidelineDetailTh5": {
+            "guidelineDetailTh": {
+                "text": "主な業務"
+            }
+        },
+        "guidelineDetailTd5": {
+            "guidelineDetailTd": {
+                "html": "法人営業、その他営業<br>新宿本社を中心に首都圏のSES営業を担当いただきます。様々なIT系企業（ゲーム系、Web系、その他オープン系、金融系）に弊社人材（エンジニア、デザイナー、プランナー等）を提案、営業活動を行います。<br>経験がなくても、これまでのノウハウを元にしたOJTを実施しますので、安心して取り組んでいただけます。"
+            }
+        },
+        "guidelineDetailTh6": {
+            "guidelineDetailTh": {
+                "text": "勤務時間"
+            }
+        },
+        "guidelineDetailTd6": {
+            "guidelineDetailTd": {
+                "html": "休日出勤なし<br>9:30～18:30"
+            }
+        },
+        "guidelineDetailTh7": {
+            "guidelineDetailTh": {
+                "text": "給与"
+            }
+        },
+        "guidelineDetailTd7": {
+            "guidelineDetailTd": {
+                "html": "想定年収300万円～400万円(推定値)<br>月給：20万円～25万円<br>※経験・スキルを考慮して相談に応じます。<br>※賞与は人事考課の結果により増減します。<br><br>昇給：年1回<br>賞与：年2回"
+            }
+        },
+        "guidelineDetailTh8": {
+            "guidelineDetailTh": {
+                "text": "福利厚生"
+            }
+        },
+        "guidelineDetailTd8": {
+            "guidelineDetailTd": {
+                "html": "交通費全額支給（非課税限度枠まで）<br>社会保険完備（健康保険、厚生年金、労働保険、雇用保険）<br><br>【その他】<br>[服装]原則スーツ着用<br>[研修]座学及びOJTによる研修を受けていただきます。"
+            }
+        },
+        "guidelineDetailTh9": {
+            "guidelineDetailTh": {
+                "text": "休日休暇"
+            }
+        },
+        "guidelineDetailTd9": {
+            "guidelineDetailTd": {
+                "html": "完全週休二日制<br>夏季休暇<br>年末年始休暇<br>有給休暇<br>慶弔休暇"
+            }
+        }
+    }
+}

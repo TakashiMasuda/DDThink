@@ -1,0 +1,128 @@
+﻿<!-- InstanceBegin template="/ddt-regular/Templates/recruit.dwt" codeOutsideHTMLIsLocked="false" --><head>
+<meta charset="utf-8">
+<!-- InstanceBeginEditable name="headerregion" --><!-- InstanceEndEditable -->
+<!-- JSONとHTMLテンプレートから画面パーツを作るクラスのファイル -->
+<script type="text/javascript" src="ddt-regular/js/createTag.js"></script>
+
+</head>
+
+
+<!-- InstanceParam name="contentname" type="text" value="body" -->
+<body id="base">
+<!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
+<div id="main" class="body">
+<!-- 子ページ用のコンテンツ内メニュー -->
+<!-- 編集可能領域を編集不可にする記述。これを消すことで再びテンプレートで作成されたページのこの編集可能領域を編集できるようになる -->
+
+<nav class="sidemenu">
+  <!-- リストの外枠 -->
+  <ul id="sidemenulist">
+    <!-- Recruitカテゴリーを指す -->
+    <li>Recruit</li>
+    <!-- 募集要項ページへのリンク -->
+    <li><a href="ddt-regular/gideline.html">募集要項</a></li>
+    <!-- 企業理念ページへのリンク -->
+    <li><a href="ddt-regular/recruitphilosophy.html">企業理念</a></li>
+    <!-- 研修制度ページへのリンク -->
+    <li><a href="ddt-regular/induction.html">研修制度</a></li>
+    <!-- 社員&研修生の声ページへのリンク -->
+    <li><a href="ddt-regular/voice.html">社員の声</a></li>
+    <!-- 申し込みフォームページへのリンク -->
+    <li><a href="ddt-regular/entry.html">求人応募</a></li>
+    <!-- リストを閉じる -->
+  </ul>
+  <!-- InstanceEndEditable -->
+  <div id="success" class="sidemenu">
+    <a href="ddt-regular/induction.html"><img src="ddt-regular/img/success.gif" alt=""></a>
+  </div>
+
+<!-- コンテンツ内メニューを閉じる -->
+</nav>
+<!-- InstanceBeginEditable name="maincontents" -->
+<!-- メインコンテンツ記述部 -->
+<div id="maincontents">
+<!-- 募集要項の記事を開始 -->
+<article id="onlyimg-content">
+<!-- レスポンシブレイアウトにおけるsuccess(mini).gifの表示のためのdivタグ -->
+<div id="responsivehead">
+<!-- ページの大見出し -->
+<div class="articlehead">
+<!-- 大見出しのテキスト部 -->
+<h3>募集要項</h3>
+<!-- 大見出し終了 -->
+</div>
+<a href="ddt-regular/induction.html"><img id="successmini" src="ddt-regular/img/success(mini).gif"></a>
+<!-- レスポンシブレイアウト用見出しdivを終える -->
+</div>
+<!-- <img id="mainimg" src="ddt-regular/img/guidelines(w600).gif"> -->
+<!-- コンテンツ記事を終える -->
+</article>
+<!-- メインコンテンツ記述終了 -->
+</div>
+
+<!-- コンテンツ記述を終える -->
+</div>
+
+<script>
+    //createTagクラスのインスタンスを生成する
+    var creator = new createTag();
+    creator.getJsonFile('ddt-regular/json/guideline.json');          // ファイルのデータをjsonを用いて持ってくる
+    creator.getDomFile('ddt-regular/template/guideline.html');          // 共通パーツのDOMを取得する。
+    //募集要項の外側を作る
+    creator.outputTag('guidlineContentOutline', 'guidlineContentOutline', '#onlyimg-content');
+    //研修生の募集要項コンテントを作る
+    creator.outputTag('student', 'guidelineContent', '.guidlineContentOutline');
+    //研修生の募集要項コンテントテーブルを作る
+    creator.outputTag('studentGuideline', 'guidelineTable', '.guidelineContent');
+
+    //中途採用の募集コンテントを作る
+    creator.outputTag('mid-career', 'guidelineContent', '.guidlineContentOutline');
+    //エンジニアの募集要項コンテントテーブルを作る
+    creator.outputTag('engineerGuideline', 'guidelineTableEngineer', '.mid-career');
+    //営業の募集要項コンテントテーブルを作る
+    creator.outputTag('salesGuideline', 'guidelineTableSales', '.mid-career');
+
+    //mid-careerの線の色を変えて線を補足する
+    $('.mid-career .guideTitleDetail1').css('border-bottom', '1px solid #DB8887');
+
+    var userAgent = window.navigator.userAgent.toLowerCase();
+    //IEのときの処理
+    if (userAgent.indexOf('msie') != -1) {
+        //IEのときはフォントをメイリオに変える
+        $('.guideLogo').css('font-family', 'メイリオ').css('font-size', '18px').css('font-weight', 'bold');
+    }
+	
+	//URLハッシュに応じてスクロールする
+	var hash = location.hash;	//URLからハッシュ部分を取得する
+	
+	//募集要項ページのハッシュが含まれていれば
+	if (hash.indexOf('guideline') != -1) {
+		//スクロール位置の変数を用意する
+		var scrollTo = 0;
+		//スクロール位置の補正値
+		var scrollFix = -150;
+		
+		//研修生項目であれば
+		if (hash.indexOf('student') != -1) {
+			//その座標を取得する
+			scrollTo = $('.guidelineTable.student').offset().top;
+		//エンジニアであれば
+		} else if (hash.indexOf('engineer') != -1) {
+			//その座標を取得する
+			scrollTo = $('.guidelineTable.engineer').offset().top;
+		//営業項目であれば
+		} else if (hash.indexOf('sales') != -1) {
+			//その座標を取得する
+			scrollTo = $('.guidelineTable.sales').offset().top;
+		}
+		
+	//スクロールを行う
+	 $('html, body').animate({ scrollTop : scrollTo + scrollFix}, 0);		
+	}
+
+
+</script>
+
+<!-- bodyタグを閉じる -->
+</body>
+<!-- InstanceEnd -->

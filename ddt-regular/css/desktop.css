@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* コンテンツ内メニューの最上部以外のボタンにカーソルを重ねたときのスタイルシート */
+.sidemenu ul > li+li:hover {
+	background-color: rgba(153,15,102,0.75);		/* ボタンの背景色を透過した紫にする */
+	color: #FFF;	/* 文字を白抜きにする */
+}
+/* profileカテゴリーの表を持つコンテンツのコンテンツ領域に対するスタイルシート */
+.profiletable #maincontents{
+	width: 650px;	/* 幅を狭める */
+}
+/* GoogleMapに対するスタイルシート */
+#access .mapwrap iframe{
+	width: 420px;	/* 幅を420pxに指定 */
+	height: 300px;	/* 高さを300pxに指定 */
+}
