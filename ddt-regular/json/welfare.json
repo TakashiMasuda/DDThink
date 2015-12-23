@@ -1,0 +1,75 @@
+{
+    "guidlineContentOutline": {},
+    "welfare": {
+        "class":"guidelineContent welfare",
+        "guideTheme": {
+            "guideLogo": {
+                "text": "Welfare"
+            },
+            "guideTitle": {
+                "guideTitleDetail1":{
+                    "text": "福利厚生への取り組み"
+                },
+                "guideTitleDetail2":{
+                    "class":"guideTitleDetail2 welfareDetail",
+                    "text": "社員の多様化したニーズに対応しながら、心身の健康増進、活力の回復、心のゆとりの向上を図るために、様々な福利厚生を実施しています。"
+                }
+            }
+        }
+    },
+    "welfareTable": {
+        "class":"guidelineTable welfareTable",
+        "guidelineDetail": [
+            {
+                "class":"guidelineDetailTh",
+                "text": "保険組合直営保養所"
+            },
+            {
+                "class":"guidelineDetailTd insurancePlace",
+                "html": "<p>・伊豆さくら山荘（伊豆高原）</p><p>　〒413-0232静岡県伊東市八幡野１２６４－６０</p><p>　伊豆高原駅より徒歩３５分。タクシー7分。バス大室山荘下車、徒歩5分。</p>"
+            },
+            {
+                "class":"guidelineDetailTh",
+                "text": "レクレーション奨励金"
+            },
+            {
+                "class":"guidelineDetailTd recreationMoney",
+                "html": "<p>・レジャー施設（TDL等）の利用料　4,000円迄支給。年度1回。</p><p>・宿泊施設の利用料　4,000円迄支給。年度1回。</p>"
+            },
+            {
+                "class":"guidelineDetailTh",
+                "text": "健康管理"
+            },
+            {
+                "class":"guidelineDetailTd vaccination",
+                "html": "<p>・インフルエンザ予防接種</p><p>　指定医療機関にて年１回無料のインフルエンザ予防接種を実施します。（任意）</p><p>・一般健康診断</p><p>　３５才以下</p><p>・生活習慣病健診・婦人科健診</p><p>　３５才以上、３９才以下</p><p>・短期人間ドック・婦人科健診・特定保健指導</p>　３９才以上、４９才以下<p>・短期人間ドック・婦人科健診・脳ドック・特定保健指導</p><p>　５０才以上</p><p>・主婦健診</p><p>　３５才以下</p>"
+            },
+            {
+                "class":"guidelineDetailTh",
+                "text": "出産のとき"
+            },
+            {
+                "class":"guidelineDetailTd birth",
+                "html": "<p>・出産育児一時金</p><p>　妊娠4ヵ月以上（85日）経過した出産について、1児につき「<span class='linkToBirth'></span>」として、</p><p>　産科医療補償制度加入分娩機関で出産した場合は420,000円、それ以外の場合は404,000円が支給されます。</p>"
+            },
+            {
+                "class":"guidelineDetailTh",
+                "text": "レジャー、エンターテインメント"
+            },
+            {
+                "class":"guidelineDetailTd entertainment",
+                "html": "<span class='linkToBenefit'></span>が提供しているサービスを受けることが出来ます。以下、抜粋となります。<p>・スポーツ（月会費、施設利用料の割引）</p><p>　フィットネスクラブ、テニスコート、テニススクール、フットサルコート</p><p>・遊び（チケット、施設利用料の割引）</p><p>　映画、演劇、美術館、ボウリング、カラオケ、スポーツ観戦、遊園地、アウトドアレジャー、その他</p><p>・学ぶ（月会費、受講料等の割引）　英会話、IT・パソコン、各種資格講座、各種趣味講座</p>"
+            }
+        ]
+    },
+    "benefitOneLink":{
+        "href":"https://bs.benefit-one.co.jp/bs/pages/bs/top/top.faces",
+        "text":"ベネフィット・ワン",
+        "target":"_blank"
+    },
+    "birthLink":{
+        "href":"http://www.dnp.co.jp/kenpo/jiten/20_ikuji.htm",
+        "text":"出産育児一時金",
+        "target":"_blank"
+    }
+}

@@ -1,4 +1,5 @@
-﻿<!-- InstanceBegin template="/ddt-regular/Templates/recruit.dwt" codeOutsideHTMLIsLocked="false" --><head>
+﻿<!-- 福利厚生ページ -->
+<!-- InstanceBegin template="/ddt-regular/Templates/recruit.dwt" codeOutsideHTMLIsLocked="false" --><head>
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="headerregion" --><!-- InstanceEndEditable -->
 </head>
@@ -42,7 +43,7 @@
 <!-- ページの大見出し -->
 <div class="articlehead">
 <!-- 大見出しのテキスト部 -->
-<h3>研修制度</h3>
+<h3>福利厚生</h3>
 <!-- 大見出し終了 -->
 </div>
 <!-- 研修生募集画像 -->
@@ -65,25 +66,29 @@
 <script>
     //createTagクラスのインスタンスを生成する
     var creator = new createTag();
-    creator.getJsonFile('ddt-regular/json/induction.json');          // ファイルのデータをjsonを用いて持ってくる
-    creator.getDomFile('ddt-regular/template/induction.html');          // 共通パーツのDOMを取得する。
+    creator.getJsonFile('ddt-regular/json/welfare.json');          // ファイルのデータをjsonを用いて持ってくる
+    creator.getDomFile('ddt-regular/template/templateContent.html');          // 共通パーツのDOMを取得する。
+    creator.getDomFile('ddt-regular/template/welfare.html');          // 共通パーツのDOMを取得する。
     //コンテンツの外枠を作る
     creator.outputTag('guidlineContentOutline', 'guidlineContentOutline', '#onlyimg-content');
 
     //研修制度説明部分のタイトル部分を作る
-    creator.outputTag('Long-termTrainingMethod', 'guidelineContent', '.guidlineContentOutline');
+    creator.outputTag('welfare', 'guidelineContent', '.guidlineContentOutline');
     //研修制度説明部分コンテントテーブルを作る
-    creator.outputTag('traineeGuideline', 'guidelineTable', '.guidelineContent');
+    creator.outputTag('welfareTable', 'welfareTable', '.guidelineContent');
 
-    //研修終了後の業務についてタイトル部分を作る
-    creator.outputTag('work', 'guidelineContent', '.guidlineContentOutline');
-    //研修終了後の業務について部分コンテントテーブルを作る
-    creator.outputTag('workGuideline', 'guidelineTable', '.work');
+    //出産育児一時金のリンクを作る
+    creator.outputTag('birthLink', 'link', '.linkToBirth');
+    //ベネフィット・ワンのリンクを作る
+    creator.outputTag('benefitOneLink', 'link', '.linkToBenefit');
 
-    //研修手当および給与についてタイトル部分を作る
-    creator.outputTag('money', 'guidelineContent', '.guidlineContentOutline');
-    //研修手当および給与について部分コンテントテーブルを作る
-    creator.outputTag('moneyGuideline', 'guidelineTable', '.money');
+    //リンクをクリックしたときにページ遷移するようにする
+    $('.link').on('click', function() {
+        //リンクのURLを取得する
+        var url = $(this).attr('href');
+        //別タブでリンクを開く
+        window.open(url, '_blank');
+    });
 
     var commonFuncs = new common();                     //汎用共通関数定義クラスインスタンスを生成する
     //fantasyフォントがないブラウザではフォントを調節する
@@ -93,26 +98,17 @@
     var hash = location.hash;   //URLからハッシュ部分を取得する
     
     //研修制度ページのハッシュが含まれていれば
-    if (hash.indexOf('recruit_induction') != -1) {
+    if (hash.indexOf('recruit_welfare') != -1) {
         //スクロール位置の変数を用意する
         var scrollTo = 0;
         //スクロール位置の補正値
         var scrollFix = -150;
         
         //研修の流れについて項目であれば
-        if (hash.indexOf('Long-termTrainingMethod') != -1) {
+        if (hash.indexOf('welfare') != -1) {
             //その座標を取得する
-            scrollTo = $('.guidelineContent.Long-termTrainingMethod').offset().top;
-        //研修終了後の業務について項目であれば
-        } else if (hash.indexOf('work') != -1) {
-            //その座標を取得する
-            scrollTo = $('.guidelineContent.work').offset().top;
-        //研修手当および給与について項目であれば
-        } else if (hash.indexOf('money') != -1) {
-            //その座標を取得する
-            scrollTo = $('.guidelineContent.money').offset().top;
+            scrollTo = $('.guidelineContent.welfare').offset().top;
         }
-        
     //スクロールを行う
      $('html, body').animate({ scrollTop : scrollTo + scrollFix}, 0);       
     }

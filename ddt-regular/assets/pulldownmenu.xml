@@ -87,6 +87,14 @@
 			<url>ddt-regular/induction.html</url>
 		<!-- 研修制度コンテンツの要素を終える -->
 		</element>
+		<!-- 福利厚生コンテンツの要素 -->
+		<element>
+			<!-- 福利厚生のテキスト -->
+			<content>福利厚生</content>
+			<!-- 福利厚生のアドレス -->
+			<url>ddt-regular/welfare.html</url>
+		<!-- 福利厚生コンテンツの要素を終える -->
+		</element>
 		<!-- 社員の声コンテンツの要素 -->
 		<element>
 			<!-- 社員の声のテキスト -->

@@ -1015,7 +1015,6 @@ span.text-red{
  */
 .guideTitle li {
     padding: 7px 5px;		/* 領域の幅を広げてバランスをとる */
-    text-indent: 0.2em;		/* 文字は左から少しスペースをとる */
 }
 
 /* 
@@ -1093,7 +1092,7 @@ span.text-red{
     font-size: 12px;				/* 文字を12pxにする */
     padding : 6px 0;				/* 上下の領域幅を調整する */
     background: #F0ECEC;			/* 背景を薄いグレーにする */
-    padding-left:1em;				/* 左から1文字分スペースをとる */
+    padding-left:1em;           /* 頭をキャプションの2文字目に合わせる。 */
 }
 
 /* 
@@ -1211,4 +1210,38 @@ span.text-red{
 .logoText {
 	padding-left: 7px;		/* 余白をとる */
 	display: block;			/* ブロック要素にして余白を他の行の文字にも反映するようにする */
+}
+
+/* 
+ * セレクタ:.titleInTable
+ * 概要   :研修制度「内容」右側部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.titleInTable {
+	font-weight: normal;
+}
+
+/* 
+ * セレクタ:..guidelineDetailTd p
+ * 概要   :インデントを調節する
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.guidelineDetailTd p {
+	text-indent: -1em;	/* 1文字分はみ出して2行目のインデントをそろえる */
+    padding-left: 1em;	/* 1文字分はみ出して2行目のインデントをそろえる */
+    padding-right: 5px;	/* 右から少し余白をとる */
+    margin: 0;			/* 余白をとらない */
+}
+
+/* 
+ * セレクタ:.link
+ * 概要   :外部URLリンク要素
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.link {
+	color : blue;
+	cursor: pointer;
 }

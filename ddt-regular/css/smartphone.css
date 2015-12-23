@@ -693,6 +693,37 @@ div#container.service span.footercompanyname{
 	padding: 4px 0 4px 3px;/* 余白を少し小さめにする */
 }
 
+/* 
+ * セレクタ:.logoText
+ * 概要   :研修制度「Long-term・・・」部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.logoText {
+	padding-top: 3px;		/* 余白をとる */
+	padding-bottom: 3px;		/* 余白をとる */
+}
+
+/* 
+ * セレクタ:.welfareTable
+ * 概要   :福利厚生テーブル
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.welfareTable {
+    margin-top: 40px;
+}
+
+/* 
+ * セレクタ:.welfareDetail
+ * 概要   :福利厚生ロゴの右側部分2行目
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.welfareDetail {
+	font-size: 11px;
+}
+
 	@media(min-width: 580px) and (max-width: 604px){
 		/* 
 		 * セレクタ:.guideTheme
@@ -725,7 +756,7 @@ div#container.service span.footercompanyname{
 		 * 作成日 :2015.12.05
 		 */
 		.guidlineContentOutline {
-		    width: 100%;		/* コンテンツの幅を調整する */
+		    width: 98%;		/* コンテンツの幅を調整する */
 		}
 
 		/* 
