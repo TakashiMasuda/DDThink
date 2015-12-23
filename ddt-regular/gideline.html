@@ -88,9 +88,14 @@
     $('.mid-career .guideTitleDetail1').css('border-bottom', '1px solid #DB8887');
 
     var userAgent = window.navigator.userAgent.toLowerCase();
-    //IEのときの処理
-    if (userAgent.indexOf('msie') != -1) {
-        //IEのときはフォントをメイリオに変える
+
+    if (userAgent.indexOf('msie') != -1 ||                    //ブラウザがIE
+        navigator.userAgent.indexOf('iPhone') > 0 ||
+        navigator.userAgent.indexOf('iPad') > 0  ||
+        navigator.userAgent.indexOf('iPod') > 0 || 
+        navigator.userAgent.indexOf('Android') > 0
+        ) {
+        //フォントをメイリオに変える
         $('.guideLogo').css('font-family', 'メイリオ').css('font-size', '18px').css('font-weight', 'bold');
     }
 	
