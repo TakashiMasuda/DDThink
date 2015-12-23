@@ -146,6 +146,10 @@
 		} else if (hash.indexOf('recruit_entry_form') != -1) {
 			//求人応募ページへ遷移する
 			pagemove(null, 'ddt-regular/entry.html');
+        //研修制度ページのハッシュが含まれていたら
+        } else if (hash.indexOf('recruit_induction') != -1) {
+            //研修制度ページへ遷移する
+            pagemove(null, 'ddt-regular/induction.html');
 		//特になにもなければ
 		} else {
 			//トップページを表示する

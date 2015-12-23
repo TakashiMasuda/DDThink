@@ -1,6 +1,8 @@
 ﻿<!-- InstanceBegin template="/ddt-regular/Templates/recruit.dwt" codeOutsideHTMLIsLocked="false" --><head>
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="headerregion" --><!-- InstanceEndEditable -->
+<!-- JSONとHTMLテンプレートから画面パーツを作るクラスのファイル -->
+<script type="text/javascript" src="ddt-regular/js/createTag.js"></script>
 </head>
 
 
@@ -43,10 +45,12 @@
 <h3>研修制度</h3>
 <!-- 大見出し終了 -->
 </div>
+<!-- 研修生募集画像 -->
 <a href="ddt-regular/induction.html"><img id="successmini" src="ddt-regular/img/success(mini).gif"></a>
 <!-- レスポンシブレイアウト用見出しdivを終える -->
 </div>
-<img id="mainimg" src="ddt-regular/img/training(method-w600).gif">
+<!-- メインコンテンツ画像 -->
+<!-- <img id="mainimg" src="ddt-regular/img/training(method-w600).gif"> -->
 </article>
 <!-- メインコンテンツ記述終了 -->
 </div>
@@ -57,6 +61,75 @@
 
 <!-- コンテンツ記述を終える -->
 </div>
+
+<script>
+    //createTagクラスのインスタンスを生成する
+    var creator = new createTag();
+    creator.getJsonFile('ddt-regular/json/induction.json');          // ファイルのデータをjsonを用いて持ってくる
+    creator.getDomFile('ddt-regular/template/induction.html');          // 共通パーツのDOMを取得する。
+    //コンテンツの外枠を作る
+    creator.outputTag('guidlineContentOutline', 'guidlineContentOutline', '#onlyimg-content');
+
+    //研修制度説明部分のタイトル部分を作る
+    creator.outputTag('Long-termTrainingMethod', 'guidelineContent', '.guidlineContentOutline');
+    //研修制度説明部分コンテントテーブルを作る
+    creator.outputTag('traineeGuideline', 'guidelineTable', '.guidelineContent');
+
+    //研修終了後の業務についてタイトル部分を作る
+    creator.outputTag('work', 'guidelineContent', '.guidlineContentOutline');
+    //研修終了後の業務について部分コンテントテーブルを作る
+    creator.outputTag('workGuideline', 'guidelineTable', '.work');
+
+    //研修手当および給与についてタイトル部分を作る
+    creator.outputTag('money', 'guidelineContent', '.guidlineContentOutline');
+    //研修手当および給与について部分コンテントテーブルを作る
+    creator.outputTag('moneyGuideline', 'guidelineTable', '.money');
+
+
+    var userAgent = window.navigator.userAgent.toLowerCase();
+
+    if (userAgent.indexOf('msie') != -1 ||                    //ブラウザがIE
+        navigator.userAgent.indexOf('iPhone') > 0 ||
+        navigator.userAgent.indexOf('iPad') > 0  ||
+        navigator.userAgent.indexOf('iPod') > 0 || 
+        navigator.userAgent.indexOf('Android') > 0
+        ) {
+        //フォントをメイリオに変える
+        $('.guideLogo').css('font-family', 'メイリオ').css('font-size', '18px').css('font-weight', 'bold');
+    }
+    
+    //URLハッシュに応じてスクロールする
+    var hash = location.hash;   //URLからハッシュ部分を取得する
+    
+    //研修制度ページのハッシュが含まれていれば
+    if (hash.indexOf('recruit_induction') != -1) {
+        //スクロール位置の変数を用意する
+        var scrollTo = 0;
+        //スクロール位置の補正値
+        var scrollFix = -150;
+        
+        //研修の流れについて項目であれば
+        if (hash.indexOf('Long-termTrainingMethod') != -1) {
+            //その座標を取得する
+            scrollTo = $('.guidelineContent.Long-termTrainingMethod').offset().top;
+        //研修終了後の業務について項目であれば
+        } else if (hash.indexOf('work') != -1) {
+            //その座標を取得する
+            scrollTo = $('.guidelineContent.work').offset().top;
+        //研修手当および給与について項目であれば
+        } else if (hash.indexOf('money') != -1) {
+            //その座標を取得する
+            scrollTo = $('.guidelineContent.money').offset().top;
+        }
+        
+    //スクロールを行う
+     $('html, body').animate({ scrollTop : scrollTo + scrollFix}, 0);       
+    }
+
+
+</script>
+
+
 <!-- bodyタグを閉じる -->
 </body>
 <!-- InstanceEnd -->
