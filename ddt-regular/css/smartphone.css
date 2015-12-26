@@ -713,7 +713,7 @@ div#container.service span.footercompanyname{
  * 作成日 :2015.12.23
  */
 .welfareTable {
-    margin-top: 30px;
+    margin-top: 22px;
 }
 
 /* 
@@ -724,6 +724,7 @@ div#container.service span.footercompanyname{
  */
 .guidelineContent .guideTitle .guideTitleDetail2 {
 	font-size: 11px;
+	line-height: 14px;
 }
 
 /* 
@@ -732,7 +733,6 @@ div#container.service span.footercompanyname{
  * 作成者 :T.Yamamoto
  * 作成日 :2015.12.26
  */
-.guideTitleDetail2,
 .guidelineTable {
 	line-height: 15px;
 }
