@@ -619,7 +619,7 @@ div#container.service span.footercompanyname{
  * 作成日 :2015.12.05
  */
 .guideTitle li {
-    padding: 5px;		/* 要素を広げる幅を調節する */
+    padding: 5px 0 5px 5px;		/* 要素を広げる幅を調節する */
     text-indent: 0;		/* インデントをなくす */
 }
 
@@ -630,7 +630,7 @@ div#container.service span.footercompanyname{
  * 作成日 :2015.12.23
  */
 .contentExplain {
-    padding-right: 15px; /* 右に余白を空ける */
+    padding-right: 8px; /* 右に余白を空ける */
 }
 
 /* 
@@ -715,12 +715,12 @@ div#container.service span.footercompanyname{
 }
 
 /* 
- * セレクタ:.welfareDetail
+ * セレクタ:.guidelineContent .guideTitle .guideTitleDetail2
  * 概要   :福利厚生ロゴの右側部分2行目
  * 作成者 :T.Yamamoto
  * 作成日 :2015.12.23
  */
-.welfareDetail {
+.guidelineContent .guideTitle .guideTitleDetail2 {
 	font-size: 11px;
 }
 
