@@ -619,8 +619,109 @@ div#container.service span.footercompanyname{
  * 作成日 :2015.12.05
  */
 .guideTitle li {
-    padding: 5px;		/* 要素を広げる幅を調節する */
+    padding: 5px 0 5px 5px;		/* 要素を広げる幅を調節する */
     text-indent: 0;		/* インデントをなくす */
+}
+
+/* 
+ * セレクタ:.contentExplain
+ * 概要   :研修制度、「内容」部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.contentExplain {
+    padding-right: 8px; /* 右に余白を空ける */
+}
+
+/* 
+ * セレクタ:.addTable
+ * 概要   :研修制度、「内容」table全体
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.addTable {
+	font-size: 12px;	/* フォントサイズを指定する */
+}
+
+/* 
+ * セレクタ:.guidelineRowDetail
+ * 概要   :テーブルの「業務」部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.guidelineRowDetail {
+	padding: 0 10px;	/* 左右に余白を入れる */
+}
+
+/* 
+ * セレクタ:.guidelineRowDetail
+ * 概要   :研修制度、「内容」td部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.guidelineTitle {
+	height: 45px;		/* 高さを少し小さくする */
+}
+
+/* 
+ * セレクタ:.guidelineRowDetail
+ * 概要   :テーブルの詳細内容部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.guidelineDetail {
+	font-size: 11px;	/* fontを小さ目で設定する */
+}
+
+/* 
+ * セレクタ:.guidelineDetailTh
+ * 概要   :テーブルの詳細内容見出し部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.guidelineDetailTh {
+	padding: 5px 0 5px 3px;	/* 余白を少し小さめにする */
+}
+
+/* 
+ * セレクタ:.guidelineDetailTd
+ * 概要   :テーブルの詳細内容データ部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.guidelineDetailTd {
+	padding: 4px 0 4px 3px;/* 余白を少し小さめにする */
+}
+
+/* 
+ * セレクタ:.logoText
+ * 概要   :研修制度「Long-term・・・」部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.logoText {
+	padding-top: 4px;		/* 余白をとる */
+	padding-bottom: 4px;		/* 余白をとる */
+}
+
+/* 
+ * セレクタ:.welfareTable
+ * 概要   :福利厚生テーブル
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.welfareTable {
+    margin-top: 40px;
+}
+
+/* 
+ * セレクタ:.guidelineContent .guideTitle .guideTitleDetail2
+ * 概要   :福利厚生ロゴの右側部分2行目
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.guidelineContent .guideTitle .guideTitleDetail2 {
+	font-size: 11px;
 }
 
 	@media(min-width: 580px) and (max-width: 604px){
@@ -655,7 +756,7 @@ div#container.service span.footercompanyname{
 		 * 作成日 :2015.12.05
 		 */
 		.guidlineContentOutline {
-		    width: 100%;		/* コンテンツの幅を調整する */
+		    width: 98%;		/* コンテンツの幅を調整する */
 		}
 
 		/* 

@@ -1,8 +1,6 @@
 ﻿<!-- InstanceBegin template="/ddt-regular/Templates/recruit.dwt" codeOutsideHTMLIsLocked="false" --><head>
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="headerregion" --><!-- InstanceEndEditable -->
-<!-- JSONとHTMLテンプレートから画面パーツを作るクラスのファイル -->
-<script type="text/javascript" src="ddt-regular/js/createTag.js"></script>
 
 </head>
 
@@ -25,10 +23,12 @@
     <li><a href="ddt-regular/recruitphilosophy.html">企業理念</a></li>
     <!-- 研修制度ページへのリンク -->
     <li><a href="ddt-regular/induction.html">研修制度</a></li>
+    <!-- 福利厚生ページへのリンク -->
+    <li><a href="ddt-regular/welfare.html">福利厚生</a></li>
     <!-- 社員&研修生の声ページへのリンク -->
     <li><a href="ddt-regular/voice.html">社員の声</a></li>
     <!-- 申し込みフォームページへのリンク -->
-    <li><a href="ddt-regular/entry.html">求人応募</a></li>
+    <li><a href="ddt-regular/entry.html">応募</a></li>
     <!-- リストを閉じる -->
   </ul>
   <!-- InstanceEndEditable -->
@@ -87,12 +87,9 @@
     //mid-careerの線の色を変えて線を補足する
     $('.mid-career .guideTitleDetail1').css('border-bottom', '1px solid #DB8887');
 
-    var userAgent = window.navigator.userAgent.toLowerCase();
-    //IEのときの処理
-    if (userAgent.indexOf('msie') != -1) {
-        //IEのときはフォントをメイリオに変える
-        $('.guideLogo').css('font-family', 'メイリオ').css('font-size', '18px').css('font-weight', 'bold');
-    }
+    var commonFuncs = new common();                     //汎用共通関数定義クラスインスタンスを生成する
+    //fantasyフォントがないブラウザではフォントを調節する
+    commonFuncs.fontAdjustment();
 	
 	//URLハッシュに応じてスクロールする
 	var hash = location.hash;	//URLからハッシュ部分を取得する

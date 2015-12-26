@@ -1015,7 +1015,6 @@ span.text-red{
  */
 .guideTitle li {
     padding: 7px 5px;		/* 領域の幅を広げてバランスをとる */
-    text-indent: 0.2em;		/* 文字は左から少しスペースをとる */
 }
 
 /* 
@@ -1050,6 +1049,7 @@ span.text-red{
     width: 1%;					/* 幅を狭くとる */
     background: #EFD2E4;		/* 背景を紫にする */
     padding: 0px 20px;			/* 領域の横幅を調節する */
+    line-height: 16px;
 }
 
 /* 
@@ -1060,7 +1060,8 @@ span.text-red{
  */
 .guidelineTitle {
     background: #EFD2E4;	/* 背景を紫にする */
-    padding: 15px 0;		/* 上下の幅をとる */
+    /*padding: 15px 0;*/		/* 上下の幅をとる */
+    height: 50px;
     text-align: center;		/* 中央揃えにする */
 }
 
@@ -1091,7 +1092,7 @@ span.text-red{
     font-size: 12px;				/* 文字を12pxにする */
     padding : 6px 0;				/* 上下の領域幅を調整する */
     background: #F0ECEC;			/* 背景を薄いグレーにする */
-    padding-left:1em;				/* 左から1文字分スペースをとる */
+    padding-left:1em;           /* 頭をキャプションの2文字目に合わせる。 */
 }
 
 /* 
@@ -1100,8 +1101,10 @@ span.text-red{
  * 作成者 :T.Yamamoto
  * 作成日 :2015.12.05
  */
-.mid-career {
-    margin-top: 50px;				/* 上から50pxの幅をとる */
+.mid-career,
+.work,
+.money {
+    margin-top: 45px;				/* 上から45pxの幅をとる */
 }
 
 /* 
@@ -1113,7 +1116,6 @@ span.text-red{
 .guideTheme {
 	 height : 88px;	/* 高さを固定してズレを起きにくくする */
 }
-
 
 /* 
  * セレクタ:.guidelineTitle, .guidelineDetailTh
@@ -1143,4 +1145,103 @@ span.text-red{
   height: auto;
   overflow: hidden;
   /**/
+}
+
+/* 
+ * セレクタ:.heightString
+ * 概要   :縦文字対象文字
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.heightString {
+	display: inline-block;
+	transform : rotate(90deg);		/* 90度に回転させる */
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+}
+
+/* 
+ * セレクタ:.Long-termTrineeLogo
+ * 概要   :研修制度最初のコンテンツのロゴ部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.Long-termTrineeLogo {
+	text-align: left;	/* 文字を左寄せにする */
+	padding: 3px 0;		/* 左からの余白をとる */
+}
+
+/* 
+ * セレクタ:.addTable
+ * 概要   :研修制度「内容」のテーブル全体部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.addTable {
+	text-align: left;	/* 文字を左寄せにする */
+}
+
+/* 
+ * セレクタ:.titleInTable
+ * 概要   :研修制度「内容」のテーブル全体部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.titleInTable {
+    margin: 0 auto;		/* ブロック要素を左右について中央寄せにする */
+}
+
+/* 
+ * セレクタ:.contentExplain
+ * 概要   :研修制度「内容」部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.contentExplain {
+    padding-right: 30px;	/* 右に余白をとる */
+}
+
+/* 
+ * セレクタ:.contentExplain
+ * 概要   :研修制度「Long-term・・・」部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.logoText {
+	padding-left: 7px;		/* 余白をとる */
+	display: block;			/* ブロック要素にして余白を他の行の文字にも反映するようにする */
+}
+
+/* 
+ * セレクタ:.titleInTable
+ * 概要   :研修制度「内容」右側部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.titleInTable {
+	font-weight: normal;
+}
+
+/* 
+ * セレクタ:..guidelineDetailTd p
+ * 概要   :インデントを調節する
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.guidelineDetailTd p {
+	text-indent: -1em;	/* 1文字分はみ出して2行目のインデントをそろえる */
+    padding-left: 1em;	/* 1文字分はみ出して2行目のインデントをそろえる */
+    padding-right: 5px;	/* 右から少し余白をとる */
+    margin: 0;			/* 余白をとらない */
+}
+
+/* 
+ * セレクタ:.link
+ * 概要   :外部URLリンク要素
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.link {
+	color : blue;
+	cursor: pointer;
 }

@@ -26,6 +26,10 @@
 <link href="ddt-regular/css/desktop.css" rel="stylesheet" type="text/css" media="only screen and (min-width:950px)">
 <!-- jQueryの本体ファイルを読み込む -->
 <script type="text/javascript" src="ddt-regular/js/jquery-1.11.0.min.js" charset="utf-8"></script>
+<!-- JSONとHTMLテンプレートから画面パーツを作るクラスのファイル -->
+<script type="text/javascript" src="flower/js/createTag.js"></script>
+<!-- 汎用スクリプトを読み込む -->
+<script type="text/javascript" src="ddt-regular/js/common.js" charset="utf-8"></script>
 <!-- Ajaxによるページ切り替えスクリプトを読み込む -->
 <script type="text/javascript" src="ddt-regular/js/pagemove.js" charset="utf-8"></script>
 <!-- トップメニューにプルダウンメニューを追加するスクリプトを読み込む -->
@@ -120,6 +124,7 @@
 <li><a href="ddt-regular/service.html">事業内容</a></li>
 <li><a href="ddt-regular/gideline.html">求人情報</a></li>
 <li><a href="ddt-regular/induction.html">研修制度</a></li>
+<li><a href="ddt-regular/welfare.html">福利厚生</a></li>
 <li><a href="ddt-regular/voice.html">社員&amp;研修生の声</a></li>
 <li><a href="ddt-regular/contact.html">お問合せ</a></li>
 </ul>
@@ -146,6 +151,14 @@
 		} else if (hash.indexOf('recruit_entry_form') != -1) {
 			//求人応募ページへ遷移する
 			pagemove(null, 'ddt-regular/entry.html');
+        //研修制度ページのハッシュが含まれていたら
+        } else if (hash.indexOf('recruit_induction') != -1) {
+            //研修制度ページへ遷移する
+            pagemove(null, 'ddt-regular/induction.html');
+        //福利厚生ページのハッシュが含まれていたら
+        } else if (hash.indexOf('recruit_welfare') != -1) {
+            //福利厚生ページへ遷移する
+            pagemove(null, 'ddt-regular/welfare.html');
 		//特になにもなければ
 		} else {
 			//トップページを表示する
