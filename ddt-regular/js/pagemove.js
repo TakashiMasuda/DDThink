@@ -267,97 +267,124 @@
 				//読み込んだテキストの大きさを順次ためていく変数textsize
 				var textsize = 0;
 				//1度に表示する記事の大きさの限界
-				var pagesize = 4500;
+				var pagesize = 4000;
 				//表示するページの大きさの限界を表す変数pagelimit
 				var pagelimit = pagenum * pagesize - pagesize;
 				//記事作成が始まったら、作成回数をカウントするための変数counter
-				var counter = 0;
+				var counter = 1;
+
+				//ページング出力対象key一覧配列
+				var exportVoiceKeyList = new Array();
+				//ページングのkey
+				var paging_key = 1;
+				//デフォルトで配列を作っておく
+				exportVoiceKeyList[paging_key] = new Array();
+				//1つのページに表示する人数の数。1ページに2人ずつの社員の声を表示するように設定
+				var display_voice_count = 2;
+				//社員の声に登録されている数を取得し、ループの最終値として使う
+				var members_count = $(xml).find('member').length;
+				for(var j=0; j<members_count; j++) {
+					//対象値を指定する
+					exportVoiceKeyList[paging_key].push(j);
+					counter++;
+					//1ページに最大人数まで表示したならkeyをインクリメントする
+					if (counter > display_voice_count) {
+						paging_key++;
+						//新しい配列を作る
+						exportVoiceKeyList[paging_key] = new Array();
+						//カウンターをリセットする
+						counter = 1;
+					}
+				}
+
 				var members = $(xml).find('member');
+
 				//xmlの中から個別記事を1つずつ拾い上げ、順次処理していく。
 	    		$(xml).find('member').each(function(i) {
-					//テキストの大きさがpagelimitの数値に達したら、記事の作成に入る
-					if(textsize >= pagelimit){
-					//1つ目の記事の処理であれば
-					if(counter == 0){
-						textsize == pagesize;	//textsizeをpagesizeに代入し、記事の表示限界を正常にする
-						i++;					//iに1を加え、2度はこのブロックに入らないようにする
-					}
-					//今指しているthisのセレクターをmemberelemに保存する
-					memberelem = $(this);
-					//現在の対象が男性ならば
-					if($('sex', this).text() == '1'){
-						sexcount += 1;	//男性の番号カウントを増やす
-						//男性の番号カウントが男性の画像の数を上回ったら
-						if(sexcount % 100 > numberofmenimg){
-							sexcount -= numberofmenimg;	//番号のカウントを0にする
+	    			//表示対象でない人はループを飛ばす
+	    			if($.inArray(i, exportVoiceKeyList[pagenum]) == -1 ) {
+	    				//contiueの代わりeachのときの書き方;
+	    				return true;
+	    			}
+						//今指しているthisのセレクターをmemberelemに保存する
+						memberelem = $(this);
+						//現在の対象が男性ならば
+						if($('sex', this).text() == '1'){
+							sexcount += 1;	//男性の番号カウントを増やす
+							//男性の番号カウントが男性の画像の数を上回ったら
+							if(sexcount % 100 > numberofmenimg){
+								sexcount -= numberofmenimg;	//番号のカウントを0にする
+							}
+							if(sexcount% 100 < 10){				//カウントが1桁であれば
+							//カウントの頭に0をつけて文字列にした後imgnumに格納
+								imgnum = "0" + String(sexcount % 100);	
+							} else {							//カウントが2桁ならば
+								imgnum = String(sexcount % 100);	//カウントを文字列にしてimgnumに格納
+							}
+							//男性の画像名に番号を付け足して、変数portraitに格納
+							portrait = 'ddt-regular/img/theVoice(men'+ imgnum +').gif';
+						} else {
+							sexcount += 100;
+							//女性の番号カウントが男性の画像の数を上回ったら
+							if(sexcount / 100 > numberofmenimg){
+								sexcount -= numberofmenimg * 100;	//番号のカウントを0にする
+							}
+							if(sexcount/ 100 < 10){				//カウントが1桁であれば
+							//カウントの頭に0をつけて文字列にした後imgnumに格納
+								imgnum = "0" + String(parseInt(sexcount / 100));	
+							} else {							//カウントが2桁ならば
+								//カウントを文字列にしてimgnumに格納
+								imgnum = String(sexcount / 100);	
+							}
+							//女性の画像名に番号を付け足して、変数portraitに格納
+							portrait = 'ddt-regular/img/theVoice(wom'+ imgnum +').gif';
 						}
-						if(sexcount% 100 < 10){				//カウントが1桁であれば
-						//カウントの頭に0をつけて文字列にした後imgnumに格納
-							imgnum = "0" + String(sexcount % 100);	
-						} else {							//カウントが2桁ならば
-							imgnum = String(sexcount % 100);	//カウントを文字列にしてimgnumに格納
-						}
-						//男性の画像名に番号を付け足して、変数portraitに格納
-						portrait = 'ddt-regular/img/theVoice(men'+ imgnum +').gif';
-					} else {
-						sexcount += 100;
-						//女性の番号カウントが男性の画像の数を上回ったら
-						if(sexcount / 100 > numberofmenimg){
-							sexcount -= numberofmenimg * 100;	//番号のカウントを0にする
-						}
-						if(sexcount/ 100 < 10){				//カウントが1桁であれば
-						//カウントの頭に0をつけて文字列にした後imgnumに格納
-							imgnum = "0" + String(parseInt(sexcount / 100));	
-						} else {							//カウントが2桁ならば
-							//カウントを文字列にしてimgnumに格納
-							imgnum = String(sexcount / 100);	
-						}
-						//女性の画像名に番号を付け足して、変数portraitに格納
-						portrait = 'ddt-regular/img/theVoice(wom'+ imgnum +').gif';
-					}
-					//articleタグに記事を囲むsectionタグを追加
-					$('article#voice').append($('<section></section>')	
-									.append($('<img>')			//画像タグを追加し
-										.attr('src', portrait))	//画像ソースのパスを与える
-									.append($('<div></div>')	//記事見出しに来る個人情報を格納する
-										.addClass('voicehead')	//divタグに記事見出しとしてのクラスを追加
-										.append($('<div></div>')	//画像内に滑り込ませる文章を格納するdivタグを格納
-											.addClass('intoimg')	//それを示すintoimgクラスを追加
-											.append($('<span></span>')	//性別を格納するspanタグを追加
-												.addClass('membersex')	//そのタグを示すこととなるmembersexクラスを追加
-												//配列sextextから性別に対応する文字列を取得し格納する
-												.append(sextext[parseInt($('sex', memberelem).text()) - 1])
-												.append('<br>'))		//改行タグを挿入
-											.append($('<span></span>')	//年齢を格納するspanタグを追加
-												.addClass('memberage')	//年齢を示すmemberageクラスを追加
-												.append($('age', memberelem).text())	//年齢を取得して格納する
-												.append('<br>'))		//改行タグを挿入
-											.append($('<span></span')	//名前(イニシャル)を格納するタグを追加
-												.addClass('membername')	//名前を表すmembernameクラスを追加
-												.append($('initial', memberelem).text()))	//取得したイニシャルを格納
-												))
-									.append($('<p></p>')		//本文を格納するpタグを追加
-										.addClass('voicetext')	//本文を表すvoicetextクラスを追加
-										.append($('text', memberelem).text()))	//本文を取得して格納
-					); 
-					}
+						//articleタグに記事を囲むsectionタグを追加
+						$('article#voice').append($('<section></section>')	
+										.append($('<img>')			//画像タグを追加し
+											.attr('src', portrait))	//画像ソースのパスを与える
+										.append($('<div></div>')	//記事見出しに来る個人情報を格納する
+											.addClass('voicehead')	//divタグに記事見出しとしてのクラスを追加
+											.append($('<div></div>')	//画像内に滑り込ませる文章を格納するdivタグを格納
+												.addClass('intoimg')	//それを示すintoimgクラスを追加
+												.append($('<span></span>')	//性別を格納するspanタグを追加
+													.addClass('membersex')	//そのタグを示すこととなるmembersexクラスを追加
+													//配列sextextから性別に対応する文字列を取得し格納する
+													.append(sextext[parseInt($('sex', memberelem).text()) - 1])
+													.append('<br>'))		//改行タグを挿入
+												.append($('<span></span>')	//年齢を格納するspanタグを追加
+													.addClass('memberage')	//年齢を示すmemberageクラスを追加
+													.append($('age', memberelem).text())	//年齢を取得して格納する
+													.append('<br>'))		//改行タグを挿入
+												.append($('<span></span')	//名前(イニシャル)を格納するタグを追加
+													.addClass('membername')	//名前を表すmembernameクラスを追加
+													.append($('initial', memberelem).text()))	//取得したイニシャルを格納
+													))
+										.append($('<p></p>')		//本文を格納するpタグを追加
+											.addClass('voicetext')	//本文を表すvoicetextクラスを追加
+											.append($('text', memberelem).text()))	//本文を取得して格納
+						); 
+//					}
 					textsize += $(this).text().length;		//textsizeに今回読み込んだ情報量を足す
-					if(textsize >= pagesize * pagenum ||i == members.length){		//textsizeが読み込む記事の限界量を超えたら
-						//ページングのための領域を確保するため、idをpagingにしたdivタグをarticleタグの最後に追加
-						$('article#voice').append($('<div></div>').attr('id', 'paging'));
-						var pagernumber = 1;	//ページ尾の番号を表す変数pagernumを宣言、1で初期化
-						for(var i = 0; i < ($(xml).text().length);	 i += pagesize){
-							$('#paging')				//ページング領域に
-							.append($('<a></a>')		//アンカータグを追加して
-							.append(pagernumber)		//ページ番号を格納
-							.addClass('pager')			//ページャを表すpagerクラスを追加し
-							.attr('href', 'ddt-regular/voice.html')	//研修生の声ページのアドレスを格納し
-							.attr('id', pagernumber));	//idにもページ番号を格納
-							pagernumber++;				//ページ番号に1を加え、次のページの生成に備える
-						}
-						return false;					//ページング領域の生成が終了したら、メソッドを終える
+
+				});			//voice登録人数についてのループend
+
+				//ページングのための領域を確保するため、idをpagingにしたdivタグをarticleタグの最後に追加
+				$('article#voice').append($('<div></div>').attr('id', 'paging'));
+				var pagernumber = 1;	//ページ尾の番号を表す変数pagernumを宣言、1で初期化
+				//ページングをループで作る
+				for (pagernumber; pagernumber<=paging_key; pagernumber++) {
+					//次のページにコンテンツがある時のみ次のページングを作る
+					if (exportVoiceKeyList[pagernumber].length > 0){
+						$('#paging')				//ページング領域に
+						.append($('<a></a>')		//アンカータグを追加して
+						.append(pagernumber)		//ページ番号を格納
+						.addClass('pager')			//ページャを表すpagerクラスを追加し
+						.attr('href', 'ddt-regular/voice.html')	//研修生の声ページのアドレスを格納し
+						.attr('id', pagernumber));	//idにもページ番号を格納
 					}
-				});
+				}
+
 			},
 			error: function(){		//通信エラー時の処理
 				alert("データのロードに失敗しました。");	//ロード失敗の旨を出力
