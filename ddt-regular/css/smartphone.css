@@ -64,11 +64,12 @@ article {
 }
 /* リストの外枠タグに対するスタイルシート */
 .sidemenu ul {
-	width: 100%;			/* 幅をページ全幅に合わせる */
+	width: 99%;			/* 幅をページ全幅に合わせる */
 	height: 39px;					/* 高さを39pxに設定。上に太さ1pxの線を引く都合で、本来の想定である40pxより1px低くする */
 	padding: 3px 0 0 ;	/* 上に適正なpaddingを挿入。下に入っていたpaddingはなくす */
 	position: relative;
-	border-top: solid 1px rgba(105, 105, 105, 0.2)
+	border-top: solid 1px rgba(105, 105, 105, 0.2);
+	margin: 0 auto;
 }
 /* リストの子要素(サイドメニューを構成するボタン)に対するスタイルシート */
 .sidemenu ul li {
@@ -598,6 +599,7 @@ div#container.service span.footercompanyname{
 .guidlineContentOutline {
     margin: 0 auto;		/* 左から幅を消す */
     width: 92%;		/* コンテンツの幅を調整する */
+    font-size: 13px;
 }
 
 /* 
@@ -650,7 +652,7 @@ div#container.service span.footercompanyname{
  * 作成日 :2015.12.23
  */
 .guidelineRowDetail {
-	padding: 0 10px;	/* 左右に余白を入れる */
+	padding: 0 3px;	/* 左右に余白を入れる */
 }
 
 /* 
@@ -660,7 +662,7 @@ div#container.service span.footercompanyname{
  * 作成日 :2015.12.23
  */
 .guidelineTitle {
-	height: 45px;		/* 高さを少し小さくする */
+	height: 40px;		/* 高さを少し小さくする */
 }
 
 /* 
@@ -711,7 +713,7 @@ div#container.service span.footercompanyname{
  * 作成日 :2015.12.23
  */
 .welfareTable {
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 /* 
@@ -722,6 +724,17 @@ div#container.service span.footercompanyname{
  */
 .guidelineContent .guideTitle .guideTitleDetail2 {
 	font-size: 11px;
+}
+
+/* 
+ * セレクタ:.main .lineHeightAjast
+ * 概要   :行間を調整する
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.26
+ */
+.guideTitleDetail2,
+.guidelineTable {
+	line-height: 15px;
 }
 
 	@media(min-width: 580px) and (max-width: 604px){
