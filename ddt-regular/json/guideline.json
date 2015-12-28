@@ -348,5 +348,9 @@
 		"text" : "＊詳細は「研修制度」のページを参照してください。",
 		"href" : "ddt-regular/induction.html",
 		"onclick" : "$('html body').animate({scrollTop : 0}, 0);"	
-	}
+	},
+    "pageKeyword":{
+        "name":"keyword",
+        "content":"新宿,ソフトウェアエンジニア,営業,募集,未経験,中途採用,正社員"
+    }
 }
