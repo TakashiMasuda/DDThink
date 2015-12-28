@@ -704,6 +704,10 @@ div#container.service span.footercompanyname{
  * 作成日 :2015.12.23
  */
 .logoText {
+	/* エミュレータ表示 */
+	/*padding-top: 2px;*/		/* 余白をとる */
+	/*padding-bottom: 2px;*/		/* 余白をとる */
+	/* スマホ実機 */
 	padding-top: 5px;		/* 余白をとる */
 	padding-bottom: 5px;		/* 余白をとる */
 }
@@ -736,6 +740,9 @@ div#container.service span.footercompanyname{
  * 作成日 :2015.12.26
  */
 .guidelineTable {
+	/* エミュレータ表示 */
+	/*margin-top: 20px;*/
+	/* スマホ実機 */
 	margin-top: 10px;
 	line-height: 15px;
 }
