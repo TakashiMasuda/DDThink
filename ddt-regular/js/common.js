@@ -37,4 +37,25 @@ function common(){
 	    }
 	}
 
+	/* 
+	 * 関数名:guideThemeAdjustment
+	 * 概要  :iPhoneの場合はTraineeや「研修生　募集内容」などの部分についての高さを調整する
+	 * 引数  :なし
+	 * 作成者:T.Yamamoto
+	 * 作成日:2015.12.28
+	 */
+	 this.guideThemeAdjustment = function() {
+	    if (navigator.userAgent.indexOf('iPhone') > 0 ||
+	        navigator.userAgent.indexOf('iPad') > 0  ||
+	        navigator.userAgent.indexOf('iPod') > 0
+	    ) {
+	    	//現在の高さを取得する
+	    	var currentHeight = $('.guideTheme').css('height');
+			//iosは他の端末よりも5pxほど高さが高くなるのでコンテンツの高さを低くして調整する
+	    	var iosHeight = parseInt(currentHeight, 10) - 5;
+	    	//取得した高さを調整する
+			$('.guideTheme').css('height', iosHeight + 'px');
+	    }
+	 }
+
 }

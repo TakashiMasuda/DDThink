@@ -89,6 +89,9 @@
     //fantasyフォントがないブラウザではフォントを調節する
     commonFuncs.fontAdjustment();
 
+    //iPhoneの場合はコンテンツの高さを調整する
+    commonFuncs.guideThemeAdjustment();
+
     //URLハッシュに応じてスクロールする
     var hash = location.hash;   //URLからハッシュ部分を取得する
     
