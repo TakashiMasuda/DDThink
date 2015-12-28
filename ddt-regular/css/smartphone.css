@@ -702,8 +702,8 @@ div#container.service span.footercompanyname{
  * 作成日 :2015.12.23
  */
 .logoText {
-	padding-top: 4px;		/* 余白をとる */
-	padding-bottom: 4px;		/* 余白をとる */
+	padding-top: 5px;		/* 余白をとる */
+	padding-bottom: 5px;		/* 余白をとる */
 }
 
 /* 
@@ -713,7 +713,7 @@ div#container.service span.footercompanyname{
  * 作成日 :2015.12.23
  */
 .guidelineContent .welfareTable {
-    margin-top: 28px;
+    margin-top: 20px;
 }
 
 /* 
@@ -734,38 +734,13 @@ div#container.service span.footercompanyname{
  * 作成日 :2015.12.26
  */
 .guidelineTable {
-	margin-top: 8px;
+	margin-top: 10px;
 	line-height: 15px;
 }
 
 .mid-career, .work, .money {
     margin-top: 25px;
 }
-
-	@media(min-width: 580px) and (max-width: 604px){
-		/* 
-		 * セレクタ:.guideTheme
-		 * 概要   :募集要項タイトル領域
-		 * 作成者 :T.Yamamoto
-		 * 作成日 :2015.12.05
-		 */
-		.trainee table {
-	    	/*margin-top: 35px; */
-	 	}
-	}
-
-	@media(min-width: 604px) and (max-width: 766px){
-		/* 
-		 * セレクタ:.guideTheme
-		 * 概要   :募集要項タイトル領域
-		 * 作成者 :T.Yamamoto
-		 * 作成日 :2015.12.05
-		 */
-		.guideTheme {
-	    	/*margin-bottom: 30px; */
-	 	}
-	}
-
 	@media(max-width:620px){
 		/* 
 		 * セレクタ:.guidlineContentOutline
@@ -786,19 +761,4 @@ div#container.service span.footercompanyname{
 		.guideTitle {
 		    width: 59%;			/* 幅を調節する */
 		}
-
-
-	 	@media(max-width: 604px) {
-
-			/* 
-			 * セレクタ:.guideTheme
-			 * 概要   :募集要項タイトル領域
-			 * 作成者 :T.Yamamoto
-			 * 作成日 :2015.12.05
-			 */
-			.guideTheme {
-		    	/* margin-bottom: 15px; */
-		 	}
-	 	}
-
 	}
