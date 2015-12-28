@@ -153,7 +153,7 @@
             },
             {
                 "class":"guidelineDetailTd",
-                "html": "Facebookやmixiといった大手SNS上で動作する<br>アプリケーションの開発を行います。"
+                "html": "Facebookやmixiといった大手SNS上で動作するアプリケーションの開発を行います。"
             },
             {
                 "class":"guidelineDetailTh",
@@ -161,7 +161,7 @@
             },
             {
                 "class":"guidelineDetailTd",
-                "html": "主に企業内で使用する、もしくは企業独自機器上で動作する<br>アプリケーション開発を行います。"
+                "html": "主に企業内で使用する、もしくは企業独自機器上で動作するアプリケーション開発を行います。"
             }
         ]
     },
