@@ -75,14 +75,14 @@ function loadScriptFile (scriptName, value, callback) {
 			}
 	});
 	
-	var url = SITE_ROOT_DIRECTORY + DIR_SCRIPT_FILES + SLASH + scriptName + EXTEND_JS;
-	var req = new XMLHttpRequest();
-	req.open(METHOD_GET, url, false);
-	req.send(EMPTY_STRING);
-	 
-	// 上のreq.openでは同期通信(false)を指定しているので以下はレスポンスを待ってから実行される。
-	// 文字列をjavascriptとして実行。
-	eval(req.responseText);
+//	var url = SITE_ROOT_DIRECTORY + DIR_SCRIPT_FILES + SLASH + scriptName + EXTEND_JS;
+//	var req = new XMLHttpRequest();
+//	req.open(METHOD_GET, url, false);
+//	req.send(EMPTY_STRING);
+//	 
+//	// 上のreq.openでは同期通信(false)を指定しているので以下はレスポンスを待ってから実行される。
+//	// 文字列をjavascriptとして実行。
+//	eval(req.responseText);
 	
 	return true;	//成功を返す
 }
