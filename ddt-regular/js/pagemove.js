@@ -171,11 +171,6 @@
   $('#main').load(				//そのアンカータグからURLを抽出し、そのページを表示する
     $('a.selected').attr('href'));   
 	
-	//マップボタンからaccessコンテンツがロードされた場合に呼び出され、ボタンに応じたマップ位置へスクロールさせるメソッド
-
-	//アンカータグをクリックするとpagemoveを呼び出してコンテンツを切り替えるイベントを登録
-	$(document).on('click', 'a', pagemove);	
-
    //クラスをswitchに設定した画像タグに対する処理
        var imgSize = function(){			//メソッドimgSizeを定義
 	   		if($('.switch').length < 1){	//switchクラスを設定した要素がなければ
