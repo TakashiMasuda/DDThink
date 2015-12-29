@@ -19,9 +19,12 @@
 		};
 		
 		//画面遷移用のボタンをクリックした時のイベントコールバック
-		$(document).on(ANCHOR_TAG, function(event) {
+		$(document).on(EVENT_CLICK, ANCHOR_TAG, function(event) {
+			console.log("clicked");
+			//画面遷移をキャンセルする
+			event.preventDefault();
 			//URLを取り出す
-			var url = $(this).attr(HREF);
+			var url = $(this).attr(ATTR_HREF);
 			//画面遷移を行う
 			pagemove(event, url);
 			//pushStateに履歴を追加する

@@ -1,39 +1,34 @@
 ﻿//イベントに合わせて画像に変更を加えるJavaScript
 $(function(){
 	
-	$(document).on('mouseenter', '#longtermtraining', function(){
-		$(this).attr('src', 'ddt-regular/img/long-termTraining(push).gif');
-	});
-	$(document).on('mouseleave', '#longtermtraining', function(){
-		$(this).attr('src', 'ddt-regular/img/long-termTraining.gif');
-	});
-	
-		$(document).on('mouseenter', '#thevoice', function(){
+	$(document).on('mouseenter', '#thevoice', function(){
 		$(this).attr('src', 'ddt-regular/img/theVoice(push).gif');
 	});
+	
 	$(document).on('mouseleave', '#thevoice', function(){
 		$(this).attr('src', 'ddt-regular/img/theVoice.gif');
 	});
 
-var imgClick = function(e){
-	if($(this).attr('class') != 'clicked'){
-		$(this).addClass('clicked');
-	} else {
-		$(this).removeClass('clicked');
+	var imgClick = function(e){
+		if($(this).attr('class') != 'clicked'){
+			$(this).addClass('clicked');
+		} else {
+			$(this).removeClass('clicked');
+		}
+		
+		$.ajax({
+	          type: 'GET',
+	          url: 'ddt-regular/outline.html',
+	          dataType: 'html',
+			cache : false,				//通信結果をキャッシュしない
+	          success: function(data) {
+	          $('#main').html($(data));
+	        },
+			  error: function(){
+				  alert("ページのロードに失敗しました。");
+			  }
+	     });
 	}
-	$.ajax({
-          type: 'GET',
-          url: 'ddt-regular/outline.html',
-          dataType: 'html',
-		cache : false,				//通信結果をキャッシュしない
-          success: function(data) {
-          $('#main').html($(data));
-        },
-		  error: function(){
-			  alert("ページのロードに失敗しました。");
-		  }
-     });
-}
 
 var closeupService = function(e){		//Serviceコンテンツの項目紹介サークル表示
 	var imgwidth = 452;		//画像の幅
@@ -46,15 +41,14 @@ var closeupService = function(e){		//Serviceコンテンツの項目紹介サー
 	//幅も取得しcontentwidthに格納
 	var contentwidth = $('#main > #maincontents').width() / 2;
 	var contentid = $(this).attr('id');	//ボタンからIDを取得してcontentidに格納
-	var contentname = '';					//表示する項目のパスを格納する変数を用意
+	var contentname = SITE_ROOT_DIRECTORY;		//表示する項目のパスを格納する変数を用意。サーバルートパスを入れておく
 	var switchvalue = parseInt(contentid.substring(1, 2));	//先ほど取得したIDから数値を取り出す
-	
 	switch(switchvalue){									//取り出した数値が
-		case 0: contentname = 'ddt-regular/img/service(development).gif';	//0であれば開発内容のパスを
+		case 0: contentname += 'ddt-regular/img/service(development).gif';	//0であれば開発内容のパスを
 				break;															//contentnameに格納
-		case 1: contentname = 'ddt-regular/img/service(skills).gif'	;		//1であれば開発スキルのパスを
+		case 1: contentname += 'ddt-regular/img/service(skills).gif'	;		//1であれば開発スキルのパスを
 				break;															//contentnameに格納
-		case 2: contentname = 'ddt-regular/img/service(results).gif';		//2であれば開発実績のパスを
+		case 2: contentname += 'ddt-regular/img/service(results).gif';		//2であれば開発実績のパスを
 				break;															//contentnameに格納
 	}
 	/* スマフォレイアウト時ではコンテンツ幅が画像幅以下になるので別個に調整する */

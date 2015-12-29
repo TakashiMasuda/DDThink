@@ -1,773 +1,776 @@
 ﻿@charset "utf-8";
-/* bodyタグに対するスタイルシート。全ページに影響を及ぼす */
-body {
-	margin: 0;	/* marginをなくし、ページの横端と画面端の隙間ができないようにする */
-}
-/* メインコンテンツ領域に対するスタイルシート */
-#maincontents {
-	min-width: 320px;
-	margin: 0;
-}
-/* 画像タグに対するスタイルシート */
-img {
-	max-width: 100%;	/* 横の最大拡大率を100%に設定する */
-	height: auto;		/* 高さを伸縮に応じて自動に調節する */
-}
-/* ページの幅に対するスタイルシート */
-#main{
-	width: 100%;
-	position: relative;
-}
-#footerbg{
-	min-width: 320px;
-}
-header #mottobg{
-	min-width: 320px;
-}
-header #navigationbg{
-	min-width: 320px;
-}
-.baseinfo{
-	width: 100%;
-}
-/* ヘッダー領域に対するスタイルシート */
-header.baseinfo{
-	margin: 0px;	/* PCレイアウトでは下に挿入されいるmarginがサイドメニューとくっつけるに当たって邪魔となるので、それを消す */
-}
-#navigation{
-	width: 100%;
-	background-color: rgba(153,15,102,0.5);	/* 透過設定した濃紫色を背景色にする */
-	margin: 0 0 1px;
-}
-article {
-	width: 100%
-}
-/* メニューのリスト外枠に対するスタイルシート */
-#navigation ul {
-	margin: 0;	/* メニューのmarginを削除し、下に回り込むサイドメニューと隣接させる */
-	border-color: #c0c0c0;	/* 灰色の線で囲む */
-	position: relative;	/* 相対位置で表示し、絶対位置で表示されるコンテンツに対して座標を認識させる */
-	width: 100%;
-}
-/* トップメニューのボタンに対するスタイルシート */
-#navigation ul li {
-	width: 18%;	/* ボタンの領域を5等分する */
-	max-width: 100px;
-}
-/* コンテンツ内メニューに対するスタイルシート */
-.sidemenu {
-	padding: 0px;	/* paddingをなくしできるかぎり幅を寄せる */
-	float: left;	/* 左寄せで横並べにする */
-	width: 100%;	/* 幅を画面の外枠の100%にする */
-	margin: 0 0 10px;
-	max-width: 100%;
-}
-/* リストの外枠タグに対するスタイルシート */
-.sidemenu ul {
-	width: 99%;			/* 幅をページ全幅に合わせる */
-	height: 39px;					/* 高さを39pxに設定。上に太さ1pxの線を引く都合で、本来の想定である40pxより1px低くする */
-	padding: 3px 0 0 ;	/* 上に適正なpaddingを挿入。下に入っていたpaddingはなくす */
-	position: relative;
-	border-top: solid 1px rgba(105, 105, 105, 0.2);
-	margin: 0 auto;
-}
-/* リストの子要素(サイドメニューを構成するボタン)に対するスタイルシート */
-.sidemenu ul li {
-	margin: 0;			/* marginは入れない */
-	width: auto;		/* 要素1つにつきcontainerの幅の16%分幅を取る */
-	text-align: center;	/* 文字を中央寄せ */
-	float: left;		/* 左寄せで並べる */
-	display: block;		/* テーブルの要素扱いで表示させる */
-	padding: 0 4px 0;	/* 横に少々のmarginを入れてボタンとして見やすくする */
-	border-radius: 10px;
-}
-.sidemenu ul > li:first-child {
-	display: none;		
-}
-nav.sidemenu ul li+li:hover{
-	background-color: rgba(153,15,102,0.75);
-	color: #FFF;
-}
-/* ナビゲーションバーのリストの子要素の中にある文字と、それに貼られたリンクについてのスタイルシート */
-.sidemenu ul li a {
-	font-size: 12px;				/* フォントサイズを12pxに設定 */
-	display: inline;
-}
-#history table td{
-	padding: 0px;
-}
-#history table .historymonth {
-	width: 40px;
-}
-#outline table.twotonetable th{
-	width: 80px;
-}
-.twotonetable{
-/*	width: 97%; */
-	margin: 0 0 0 2px;
-	width: 94%;
-}
-.twotonetable .historyyear{
-	width: 50px;
-}
-/* コンテンツの見出しに関するスタイルシート */
-.articlehead {
-	/* 下のmarginをPC、タブレットより少々増やす。success(mini).gifとコンテンツの間に少しの間を取る */
-	margin: 0 0 32px 2px;
-	clear: both;		/* 真上のfloat要素であるコンテンツ内メニューバーと重ならないようにする */
-}
-/* 社員・研修生の声コンテンツの見出しに関するスタイルシート */
-#voice .articlehead {
-	/* 社員・研修生の声コンテンツではsuccess(mini).gifの右marginが増すので
-	その分こちらで最小サイズを調整する */
-	min-width: 210px; 
-}
 
-/* 社員の声の記事についてのスタイルシート */
-#voice section {
-	/* 社員の声の一人分の記事の横幅をコンテンツ幅の94%に伸ばす。同時に
-	2列表示も解消され、1つずつ記事が表示されるようになる */
-	width: 94%;	
-	margin: 0 3% 0;	/* 横marginをそれぞれ3%にし、画面端と記事の間に適切な間隔を取る */
-}
-/* 社員の声個別記事見出し部に対するスタイルシート */
-#voice section .voicehead {
-	margin-top: 20px;	/* 記事の最上部から20pxの間隔を取る */
-}
-/* 社員の声記事全体に対するスタイルシート */
-#voice {
-	width: 100%;	/* 幅を親要素と同じにする */
-}
-/* 社員の声の記事見出し部分についてのスタイルシート */
-#voice section .voicehead {
-	padding-top: 0px;	/* 上paddingをなくし、上に詰める */
-}
-#simplearticle {
-	width: 100%;
-	margin: 0;
-}
-/* simplearticleのコンテンツ内にあるリストの外枠に対するスタイルシート */
-#simplearticle ul {
-	width: auto;	/* articleと同じ幅を取る */
-}
-/* simplearticleの個別記事見出しのテキスト部に対するスタイルシート */
-#simplearticle .articlehead2 h3{
-	padding: 0 0 0 1%;;	/* 左に左に1%のpaddingを挿入 */
-	width: 99%;	/* 幅を99%にし、枠いっぱいに下線を伸ばすと同時に左paddingの分は狭く */
-}
-/* simplearticleのリストに対するスタイルシート */
-#simplearticle ul.simpletext {
-	margin: 0 5px 0 10px;	/* 左右に適当なmarginを挿入して端を整える */
-	padding-left: 16px;		/* 構成要素のナンバリング数字に合わせたpaddingを設定 */
-	width: 92%;				/* paddingの分を考慮した幅を設定 */
-}
-/* simpletextのリストの構成要素についてのスタイルシート */
-#simplearticle ul.simpletext li{
-	margin: 0 0 5px;	/* 要素ごとに適度の間隔を空ける */
-	width: 100%;		/* 幅を外枠に合わせる */
-}
-/* 行動指針記事の項目に対する内容についてのスタイルシート */
-#simplearticle .slogan {
-	width: 98%;			/* marginの幅を考慮した上でレスポンシブの幅を設定 */
-}
-/* アクセスコンテンツに関するスタイルシート */
-#access {
-	width: 100%;	/* GoogleMapの幅に合わせて固定幅で記事を展開する */
-	margin: 0;
-
-}
-/* アクセスコンテンツのGoogleMapに関するスタイルシート */
-#access iframe {
-	width: 250px;	/* GoogleMapの幅を250pxに設定 */
-	height: 210px;	/* GoogleMapの高さを210pxに指定 */
-}
-/* GoogleMapを囲む枠へのスタイルシート */
-#access .mapwrap {
-	width: 280px;		/* 幅を280pxに取る */
-	margin: 0 auto 0;	/* 左右marginを自動調整する */
-}
-/* 会社概要の見出し列についてのスタイルシート */
-#outline table th {
-	width: 30%;	/* 幅を表の横幅の40%に取る */
-}
-
-/* アクセス中のカテゴリーに対するメニューのボタン外枠に関するスタイルシート */
-#navigation li.on {
-	border-bottom-style: none;	/* ボタンの下罫線を外し、コンテンツ内メニューとのつながりを強調する */
-}
-/* 社訓のリストに対するスタイルシート */
-#motto ul li {
-	margin:0 0 5px;	/* 下に最低限のmarginを取り、見やすい間隔を取る */
-}/* 大訓に対するスタイルシート */
-#motto ul #greatermotto {
-	text-align: center;	/* テキストを中央に寄せる */
-	font-weight: bold;	/* テキストを太字にする */
-}
-/* ポップアップ形式で表示される研修制度コンテンツに対するスタイルシート */
-#recruit #ad_sub_disp {
-	clear: both;	/* スマホ向けコンテンツ内メニューの行数が増えると画像が回り込むことがあるので、回り込みを禁止する */
-	paddng: 0px;
-}
-/* 求人フォームのコンテンツ領域のスタイルシート */
-.form {
-	width: 310px;	/* 幅を300pxに取り、残りは自動調整の余白にする */
-	margin: 0 auto 0;	/* 左右の余白を自動調整する */
-}
-/* 求人フォームの各フォームに関するスタイルシート */
-.form section input {
-	max-width: 180px;	/* 各入力エリアの最大幅を180pxに取る */
-}
-/* 求人フォームのテキストエリアに関するスタイルシート */
-.form section textarea {
-	max-width: 180px;	/* 幅の最大値を180pxに指定 */
-	min-width: 180px;	/* 幅の最小値を180pxに指定し、併せて幅をユーザーに操作できないようにする */
-}
-/* 募集要項コンテンツの表に対するスタイルシート */
-#gidelineimg {
-	width: 100%;	/* 画面の横幅に合わせて表を伸ばす */
-}
-/* フッターの背景部分に対するスタイルシート */
-#footer #footerbg {
-	height: 350px;	/* 350pxの高さを取る */
-}
-/* フッターの左半分に対するスタイルシート */
-footer #footerleft{
-	width: 50%;	/* 幅をフッター全体の50%に設定 */
-}
-/* フッターの右半分に対するスタイルシート */
-footer #footerright{
-	/* 幅をフッター全体の48%に設定。左より少し狭くして、窮屈になってスタイルが崩れやすくなるのを阻止する */
-	width: 48%;	
-}
-/* フッターの会社名に対するスタイルシート */
-span.footercompanyname{
-	font-size: 10px;	/* フォントのサイズを10pxに指定 */
-	clear: both;		/* 他の要素に対し回りこまないようにする */
-	padding-top: 0px;	/* paddingを挿入して */
-	margin: 0 0 2px;		/* marginを下にだけ挿入する */
-}
-div#success {
-	display: none;
-}
-/* 各コンテンツ見出しを囲むdivタグについてのスタイルシート */
-div#responsivehead{
-	width: 100%;	/* 横幅をページいっぱいに取る */
-	height: auto;	/* 高さを自動調整 */
-}
-/* articleheadの横に配備されるsuccess(mini).gifについてのスタイルシート*/
-img#successmini{
-	float: right;	/* 右に寄せる */
-	display: block;	/* 表示する */
-}
-/* accessコンテンツの会社情報部分についてのスタイルシート */
-#access div.accessbaseinfomation{
-	width: 96%;		/* 幅を外枠の96%に取る */
-	height: auto;	/* 内包する要素の高さに合わせる */
-	padding: 0;		/* paddingをなくす */
-	background-image: none;	/* 吹き出しは不適当となるので表示しない */
-}
-/* accessコンテンツの各記事に対するスタイルシート */
-#access section{
-	padding: 0 2% 0 2%;		/* 画面の端との間に間隔を取る */
-}
-/* 新宿本社についてのスタイルシート */
-#access div.accessbaseinfomation#shinjuku{
-	background-image: none;	/* 背景を明示的に消す */
-}
-/* 相模原事業所についてのスタイルシート */
-#access div.accessbaseinfomation#sagamihara{
-	background-image: none;	/* 背景を明示的に消す */.
-}
-/* GoogleMapに対するスタイルシート */
-#access .mapwrap iframe{
-	width: 310px;	/* 幅を310pxに指定 */
-	height: 300px;	/* 高さを250pxに指定 */
-}
-/* 社員･研修生の声の背景画像についてのスタイルシート */
-.voice img#backgroundgif{
-	top: -120px;	/* ヘッダー部分に重ねる */
-}
-/* 組織図についてのスタイルシート */
-#outline div#enlargeableimg img{
-	margin: 0;	/* 余白をなくす */
-}
-#index{
-	width: 320px;
-}
-#index img#backgroundgif{
-	width: 319px;
-	top: 0px;			/* articleからのy座標。長期研修制度のボタン画像より下に配置 */
-	left: 0px;	/* 適切なx座標を指定 */
-}
-/* トップページ用の支柱に対するスタイルシート */
-#index img#prop{
-	height: 300px;			/* 高さを295pxに設定 */
-}
-/* 長期研修制度のボタン画像についてのスタイルシート */
-#index #longtermtraining{
-	top: 63px;			/* articleの開始y座標から計算したこの画像のy座標 */
-	left: 80px;		/* 同様のx座標 */
-	width: 156px;
-	height: 66px;
-}
-/* 研修生の声のボタン画像についてのスタイルシート */
-#index #thevoice{
-	top: 135px;			/* articleからのy座標。長期研修制度のボタン画像より下に配置 */
-	left: 86px;	/* 適切なx座標を指定 */
-	width: 139px;
-	height: 50px;
-}
-/* トップページの背景画像に対するスタイルシート */
-#index img#backgroundgif{
-	top: -37px;		/* y座標。ヘッダー部分へ突き抜ける */
-}
-/* トップページのコンテンツ高さを司る画像のスタイルシート */
-#index img#prop{
-	height: 220px;	/* 高さをバルーンが多少フッター、ヘッダーに進入する程度に調整 */
-}
-/* ヘッダーについてのスタイルシート */
-header.baseinfo{
-	width: 100%;	/* 画面横いっぱいに伸ばす */
-}
-/* ヘッダー内コンテンツについてのスタイルシート */
-#headercontents{
-	width: 100%;	/* 画面横いっぱいに伸ばす */
-}
-/* フッターについてのスタイルシート */
-footer.baseinfo{
-	width: 100%;	/* 画面横いっぱいに伸ばす */
-}
-/* ヘッダー内のモットー部分についてのスタイルシート */
-header h4{
-	width: 100%;	/* 画面横いっぱいに伸ばす */
-}
-/* フッター内の会社ロゴについてのスタイルシート */
-span.footerlogo{
-	font-size: 24px;	/* フォントのサイズを24pxに指定 */
-	font-family: Impact, "メイリオ", "ＭＳ Ｐゴシック";	/* フォントをImpactに指定 */
-	font-weight: normal;	/* フォントを通常サイズにする */
-	color: #800000;			/* フォントの色をmaroon(ダークレッド系)にする */
-	width: auto;		/* 幅を自動調整する */
-}
-.baseaddress{
-	clear: both;
-}
-footer{
-	background-color: rgba(105, 105, 105,0.5);			/* 背景色を透過した灰色にする */
-	z-index: 1;
-	position: relative;
-}
-#footerbg{
-	display: none;
-}
-#navigationbg{
-	display: none;
-}
-#simplearticle section{
-	width: 99%;
-	margin: 0;
-}
-#ssn-d2124{
-	background-color: rgba(245, 245, 220, 0.7);
-}
-/* 開発サービスページの記事部分に関するスタイルシート */
-/* 開発サービスの記事に関するスタイルシート */
-#service img#servicebg{
-	width: 320px;
-	top: 60px;
-	margin: 0 auto 0;
-}
-#service img#prop{
-	height: 260px;
-}
-#service {
-	width: 320px;
-	margin: 0 auto 0;
-	position: relative;
-}
-#service section{
-	width: 320px;
-}
-img#i0.servicebutton{
-	width: 120px;
-	height: 120px;
-	top: 165px;
-	left: 168px;
-}
-img#i1.servicebutton{
-	width: 75px;
-	height: 75px;
-	top: 113px;
-	left: 85px;
-}
-img#i2.servicebutton{
-	width: 92px;
-	height: 92px;
-	top: 258px;
-	left: 17px;
-}
-#service .articlehead{
-	max-width: 200px;
-}
-.form .articlehead{
-	max-width: 200px;
-}
-span.formcontent{
-	width: 100px;
-}
-/* 求人フォームの項目を囲むタグに対するスタイルシート */
-.form dl{
-	/* 横幅を設定。formタグが横のmarginを自動調整することで発生するずれを、320pxから引いて314pxに設定 */
-	width: 314px;	
-}
-/* 求人フォームの項目に対するスタイルシート */
-.form dt{
-	float: left;		/* 内容と共に左寄せで横に並べる */
-	clear: both;		/* 回り込みをさせない */
-	/* -50px分字を上げる。これを適切に設定することで項目と内容の間隔を崩さずにならべることができる */
-	text-indent: -80px;
-	display: block;		/* ブロックとして扱う */
-	margin-left: 80px;	/* 左にtext-indentと同じ分のmarginを挿入 */
-	line-height: 20px;	/* 文字の高さを20pxに設定 */
-	width: 30px;
-	font-size: 14px;
-}
-/* 求人フォームの項目に対する内容部分に対するスタイルシート */
-.form dd{
-	padding-left: 10px;			/* 線と内容との間に間隔を取る。他レイアウトより狭くなる */
-	padding-bottom: 15px;		/* 下に15pxの間隔を空け、次の項目との間に隙間を空ける 
-*/
-	margin-left: 0;	/* 左のmarginをなくしてコンテンツを詰める */
-}
-.form dd .text{
-	width: 180px;
-}
-/* 自身の名前でクラスを設定したformタグについてのスタイルシート */
-.form{
-	margin: 0 auto 0;	/* formタグと、その中にある要素を中央に寄せる */
-}
-/* 問い合わせコンテンツの見出しに対するスタイルシート */
-#contact .articlehead{
-	margin-top: 20px;	/* そのままの設定では見出しとトップメニューがくっついてしまうのでmarginを挿入 */
-}
-/* articleの幅を320pxに固定するためのクラスに対するスタイルシート */
-article.content-320fix{
-	width: 320px;		/* 幅を320pxに設定 */
-	margin: 0 auto 0;	/* コンテンツを中央に寄せる */
-}
-/* 問い合わせページのコンテンツについてのスタイルシート */
-#contact{
-	width: 100%;	/* 固定幅から自動調整の幅に切り替える */
-}
-/* コピーライトについてのスタイルシート */
-footer small{
-	font-size: 10px;	/* スマフォ表示で改行されないように小さいフォントにする */
-}
-/* 求人フォームの注意書き欄についてのスタイルシート */
-#entry div.supplement{
-	margin-top: 2px;	/* 上に少々のmarginを挿入し、 */
-}
-/* 幅固定でsuccess(mini).gifを表示するコンテンツの見出しに対するスタイルシート */
-article.content-320fix div#responsivehead div.articlehead{
-	/* 常にsuccess(mini)が見出しと隣接している状態)になるため、隣接しても
-	親要素の幅を超えないようにするために最大幅を218pxに設定 */
-	max-width: 218px;	
-}
-
-/* Serviceコンテンツのスマホレイアウトであるが、実際にスマホレイアウトとするのは
-	320px以下のときだけであり、それまではPC、タブレットと同様のレイアウトを取る */
-/* containerにserviceクラスを与えることで、smartphone.cssが適用されていてもPC
-、タブレットのレイアウトと同様になるようにする */
-div#container.service{
-	max-width: 768px;	/* 最大幅を768pxにする */
-	min-width: 768px;	/* 最小幅も768pxにする */
-	width: 100%;		/* 幅そのものも100%にし、serviceクラスがあるときは768pxで不動にする */
-}
-/* メインコンテンツ領域 */
-div#container.service div#maincontents{
-	width: 100%;		/* 外枠の幅に合わせる */
-	max-width: 600px;	/* 最大幅をタブレットのものと合わせる */
-	margin-left: 3px;	/* タブレット同様左3pxのmarginを入れる */
-}
-/* articleタグ */
-div#container.service article#service{
-	width: 600px;		/* 明示的に幅600pxに指定 */
-	margin: 0px;		/* marginをなくし、ぴったりと600pxの幅にする */
-}
-/* 見出し */
-div#container.service .articlehead{
-	max-width: 318px;	/* 最大幅318px。固定幅にする */
-	min-width: 318px;	/* 最低幅も318px */
-	/* 上に6pxのmarginを挿入し、PC、タブレットレイアウト時の間隔を再現する */
-	margin: 6px 0 0 0;
-}
-
-/* 背景画像 */
-div#container.service #service img#servicebg{
-	min-width: 600px;	/* 幅600px固定 */
-	left: 0px;			/* はっきりとコンテンツ左端から表示を開始させる */
-	top: -68px;			/* ヘッダーのほうまで画像をずらす */
-}
-/* コンテンツ表示ボタン。開発内容について */
-div#container.service img#i0.servicebutton{
-	width: 220px;	/* 幅220px */
-	height: 220px;	/* 高さも220px */
-	top: 135px;		/* 上から135pxの地点に表示 */
-	left: 315px;	/* 左から315pxの地点に表示 */
-}
-/* コンテンツ表示ボタン。開発スキルについて */
-div#container.service img#i1.servicebutton{
-	width: 150px;	/* 幅150px */
-	height: 150px;	/* 高さも150px */
-	top: 27px;		/* 上から27pxの地点に表示 */
-	left: 155px;	/* 左から155pxの地点に表示 */
-}
-/* コンテンツ表示ボタン。開発実績について */
-div#container.service img#i2.servicebutton{
-	width: 175px;	/* 幅175px */
-	height: 175px;	/* 高さも175px */
-	top: 305px;		/* 上から305pxの地点に表示 */
-	left: 30px;		/* 左から30pxの地点に表示 */
-}
-/* 高さを調整する画像 */
-div#container.service 
-#service img#prop{
-	height: 375px;	/* 高さ375px */
-}
-/* スマフォで表示するsuccess(mini).gif */
-div#container.service #successmini{
-	display: none;	/* PC、タブレット準拠であるからして、表示しない */
-}
-/* PC、タブレットで表示するsuccess.gif */
-div#container.service #success{
-	display: block;	/* こちらを表示する */
-}
-/* トップメニュー */
-div#container.service #navigation{
-	margin: 0 0 14px;	/* スマフォcssで消えたmarginを再設定 */
-}
-
- /* 子ページにおけるサイドナビゲーションバーを構成するリストの外箱に対するスタイルシート */
-div#container.service .sidemenu {
-	float: right;	/* 右floatを設定、横並べを可能にする */
-	width: 100%;	/* 幅を制限内でウィンドウにあわせ伸縮させる */
-	margin: 2px 5px 0 8px;
-	max-width: 136px;	/* 最大幅を136pxとする */
-	height: 148px;		/* 高さを指定 */
-}
-div#container.service .sidemenu ul {
-	width: auto;	/* 子要素に合わせて幅を調節する */
-	height: 146px;	/* 高さを設定 */
-	padding: 0 0 8px;			/* 左に挿入されていたpaddinを無効にし、全体の左端に合わせる。同時に最下部に余白を追加して余裕を持たせる */
-	margin: 0;		/* marginを消す */
-	background-color: rgba(153,15,102,0.5);	/* 背景色を透過した紫にする */
-}
-/* 子ページにおけるコンテンツ内メニューを構成するリストの子要素のテキスト部に対するスタイルシート */
-div#container.service .sidemenu ul li a {
-	display: block;	/* ブロックとして扱い、高さの調整が利くようにする */
-}
-/* 子ページにおけるコンテンツ内メニューの子要素に対するスタイルシート */
-div#container.service .sidemenu ul li {
-	list-style-type: none;			/* 本来リストのテキスト先頭につく点を消す */
-	text-align: center;				/* テキストを左寄せにする */
-	text-decoration: none;			/* リンク付きテキスト下の線を消す */
-	overflow: hidden;				/* 幅を超えたテキストを非表示にする */
-	line-height: 34px;	/* ボタン1個あたりの高さを40pxにする */
-	width: 129px;		/* 外枠の幅220pxに対し、幅を210pxに設定 */
-	height: 34px;
-	margin: 2px 3px 2px;
-	border-radius: 10px;	/* ボックスの角に丸みを加える */
-	display: inline-block;
-	padding: 0;
-}
-div#container.service .sidemenu ul > li:first-child {
-	display: block;
-}
-div#container.service span.footercompanyname{
-	margin: 0 0 3px 6px;	/*  */
-	float: left;
-	font-size: 15px;		/* フォントのサイズを15pxに指定 */
-	padding-top: 8px;		/* paddingを挿入して */
-}
-
-/* 
- * セレクタ:.guidlineContentOutline
- * 概要   :募集要項メインコンテンツ全体領域
- * 作成者 :T.Yamamoto
- * 作成日 :2015.12.05
- */
-.guidlineContentOutline {
-    margin: 0 auto;		/* 左から幅を消す */
-    width: 92%;		/* コンテンツの幅を調整する */
-    font-size: 13px;
-}
-
-/* 
- * セレクタ:.guideTitle
- * 概要   :募集要項タイトル領域
- * 作成者 :T.Yamamoto
- * 作成日 :2015.12.05
- */
-.guideTitle {
-    margin-left: 104px;	/* 左からの幅を調節する */
-    padding-left: 10px;	/* 左からの幅を調節する */
-    width: 75%;			/* 幅を調節する */
-}
-
-/* 
- * セレクタ:.guideTitle
- * 概要   :募集要項タイトル詳細領域
- * 作成者 :T.Yamamoto
- * 作成日 :2015.12.05
- */
-.guideTitle li {
-    padding: 5px 0 5px 5px;		/* 要素を広げる幅を調節する */
-    text-indent: 0;		/* インデントをなくす */
-}
-
-/* 
- * セレクタ:.contentExplain
- * 概要   :研修制度、「内容」部分
- * 作成者 :T.Yamamoto
- * 作成日 :2015.12.23
- */
-.contentExplain {
-    padding-right: 8px; /* 右に余白を空ける */
-}
-
-/* 
- * セレクタ:.addTable
- * 概要   :研修制度、「内容」table全体
- * 作成者 :T.Yamamoto
- * 作成日 :2015.12.23
- */
-.addTable {
-	font-size: 12px;	/* フォントサイズを指定する */
-}
-
-/* 
- * セレクタ:.guidelineRowDetail
- * 概要   :テーブルの「業務」部分
- * 作成者 :T.Yamamoto
- * 作成日 :2015.12.23
- */
-.guidelineRowDetail {
-	padding: 0 3px;	/* 左右に余白を入れる */
-}
-
-/* 
- * セレクタ:.guidelineRowDetail
- * 概要   :研修制度、「内容」td部分
- * 作成者 :T.Yamamoto
- * 作成日 :2015.12.23
- */
-.guidelineTitle {
-	height: 40px;		/* 高さを少し小さくする */
-}
-
-/* 
- * セレクタ:.guidelineRowDetail
- * 概要   :テーブルの詳細内容部分
- * 作成者 :T.Yamamoto
- * 作成日 :2015.12.23
- */
-.guidelineDetail,
-.guidelineDetailTh,
-.guidelineDetailTd {
-	font-size: 11px;	/* fontを小さ目で設定する */
-}
-
-/* 
- * セレクタ:.guidelineDetailTh
- * 概要   :テーブルの詳細内容見出し部分
- * 作成者 :T.Yamamoto
- * 作成日 :2015.12.23
- */
-.guidelineDetailTh {
-	padding: 5px 0 5px 3px;	/* 余白を少し小さめにする */
-}
-
-/* 
- * セレクタ:.guidelineDetailTd
- * 概要   :テーブルの詳細内容データ部分
- * 作成者 :T.Yamamoto
- * 作成日 :2015.12.23
- */
-.guidelineDetailTd {
-	padding: 4px 0 4px 3px;/* 余白を少し小さめにする */
-}
-
-/* 
- * セレクタ:.logoText
- * 概要   :研修制度「Long-term・・・」部分
- * 作成者 :T.Yamamoto
- * 作成日 :2015.12.23
- */
-.logoText {
-	/* エミュレータ表示 */
-	/*padding-top: 2px;*/		/* 余白をとる */
-	/*padding-bottom: 2px;*/		/* 余白をとる */
-	/* スマホ実機 */
-	padding-top: 5px;		/* 余白をとる */
-	padding-bottom: 5px;		/* 余白をとる */
-}
-
-/* 
- * セレクタ:.welfareTable
- * 概要   :福利厚生テーブル
- * 作成者 :T.Yamamoto
- * 作成日 :2015.12.23
- */
-.guidelineContent .welfareTable {
-    margin-top: 20px;
-}
-
-/* 
- * セレクタ:.guidelineContent .guideTitle .guideTitleDetail2
- * 概要   :福利厚生ロゴの右側部分2行目
- * 作成者 :T.Yamamoto
- * 作成日 :2015.12.23
- */
-.guidelineContent .guideTitle .guideTitleDetail2 {
-	font-size: 11px;
-	line-height: 14px;
-}
-
-/* 
- * セレクタ:.main .lineHeightAjast
- * 概要   :行間を調整する
- * 作成者 :T.Yamamoto
- * 作成日 :2015.12.26
- */
-.guidelineTable {
-	/* エミュレータ表示 */
-	/*margin-top: 20px;*/
-	/* スマホ実機 */
-	margin-top: 10px;
-	line-height: 15px;
-}
-
-.mid-career, .work, .money {
-    margin-top: 25px;
-}
-	@media(max-width:620px){
-		/* 
-		 * セレクタ:.guidlineContentOutline
-		 * 概要   :募集要項メインコンテンツ全体領域
-		 * 作成者 :T.Yamamoto
-		 * 作成日 :2015.12.05
-		 */
-		.guidlineContentOutline {
-		    width: 98%;		/* コンテンツの幅を調整する */
-		}
-
-		/* 
-		 * セレクタ:.guideTitle
-		 * 概要   :募集要項タイトル領域
-		 * 作成者 :T.Yamamoto
-		 * 作成日 :2015.12.05
-		 */
-		.guideTitle {
-		    width: 59%;			/* 幅を調節する */
-		}
+@media screen and (max-width:767px){
+	/* bodyタグに対するスタイルシート。全ページに影響を及ぼす */
+	body {
+		margin: 0;	/* marginをなくし、ページの横端と画面端の隙間ができないようにする */
 	}
+	/* メインコンテンツ領域に対するスタイルシート */
+	#maincontents {
+		min-width: 320px;
+		margin: 0;
+	}
+	/* 画像タグに対するスタイルシート */
+	img {
+		max-width: 100%;	/* 横の最大拡大率を100%に設定する */
+		height: auto;		/* 高さを伸縮に応じて自動に調節する */
+	}
+	/* ページの幅に対するスタイルシート */
+	#main{
+		width: 100%;
+		position: relative;
+	}
+	#footerbg{
+		min-width: 320px;
+	}
+	header #mottobg{
+		min-width: 320px;
+	}
+	header #navigationbg{
+		min-width: 320px;
+	}
+	.baseinfo{
+		width: 100%;
+	}
+	/* ヘッダー領域に対するスタイルシート */
+	header.baseinfo{
+		margin: 0px;	/* PCレイアウトでは下に挿入されいるmarginがサイドメニューとくっつけるに当たって邪魔となるので、それを消す */
+	}
+	#navigation{
+		width: 100%;
+		background-color: rgba(153,15,102,0.5);	/* 透過設定した濃紫色を背景色にする */
+		margin: 0 0 1px;
+	}
+	article {
+		width: 100%
+	}
+	/* メニューのリスト外枠に対するスタイルシート */
+	#navigation ul {
+		margin: 0;	/* メニューのmarginを削除し、下に回り込むサイドメニューと隣接させる */
+		border-color: #c0c0c0;	/* 灰色の線で囲む */
+		position: relative;	/* 相対位置で表示し、絶対位置で表示されるコンテンツに対して座標を認識させる */
+		width: 100%;
+	}
+	/* トップメニューのボタンに対するスタイルシート */
+	#navigation ul li {
+		width: 18%;	/* ボタンの領域を5等分する */
+		max-width: 100px;
+	}
+	/* コンテンツ内メニューに対するスタイルシート */
+	.sidemenu {
+		padding: 0px;	/* paddingをなくしできるかぎり幅を寄せる */
+		float: left;	/* 左寄せで横並べにする */
+		width: 100%;	/* 幅を画面の外枠の100%にする */
+		margin: 0 0 10px;
+		max-width: 100%;
+	}
+	/* リストの外枠タグに対するスタイルシート */
+	.sidemenu ul {
+		width: 99%;			/* 幅をページ全幅に合わせる */
+		height: 39px;					/* 高さを39pxに設定。上に太さ1pxの線を引く都合で、本来の想定である40pxより1px低くする */
+		padding: 3px 0 0 ;	/* 上に適正なpaddingを挿入。下に入っていたpaddingはなくす */
+		position: relative;
+		border-top: solid 1px rgba(105, 105, 105, 0.2);
+		margin: 0 auto;
+	}
+	/* リストの子要素(サイドメニューを構成するボタン)に対するスタイルシート */
+	.sidemenu ul li {
+		margin: 0;			/* marginは入れない */
+		width: auto;		/* 要素1つにつきcontainerの幅の16%分幅を取る */
+		text-align: center;	/* 文字を中央寄せ */
+		float: left;		/* 左寄せで並べる */
+		display: block;		/* テーブルの要素扱いで表示させる */
+		padding: 0 4px 0;	/* 横に少々のmarginを入れてボタンとして見やすくする */
+		border-radius: 10px;
+	}
+	.sidemenu ul > li:first-child {
+		display: none;		
+	}
+	nav.sidemenu ul li+li:hover{
+		background-color: rgba(153,15,102,0.75);
+		color: #FFF;
+	}
+	/* ナビゲーションバーのリストの子要素の中にある文字と、それに貼られたリンクについてのスタイルシート */
+	.sidemenu ul li a {
+		font-size: 12px;				/* フォントサイズを12pxに設定 */
+		display: inline;
+	}
+	#history table td{
+		padding: 0px;
+	}
+	#history table .historymonth {
+		width: 40px;
+	}
+	#outline table.twotonetable th{
+		width: 80px;
+	}
+	.twotonetable{
+	/*	width: 97%; */
+		margin: 0 0 0 2px;
+		width: 94%;
+	}
+	.twotonetable .historyyear{
+		width: 50px;
+	}
+	/* コンテンツの見出しに関するスタイルシート */
+	.articlehead {
+		/* 下のmarginをPC、タブレットより少々増やす。success(mini).gifとコンテンツの間に少しの間を取る */
+		margin: 0 0 32px 2px;
+		clear: both;		/* 真上のfloat要素であるコンテンツ内メニューバーと重ならないようにする */
+	}
+	/* 社員・研修生の声コンテンツの見出しに関するスタイルシート */
+	#voice .articlehead {
+		/* 社員・研修生の声コンテンツではsuccess(mini).gifの右marginが増すので
+		その分こちらで最小サイズを調整する */
+		min-width: 210px; 
+	}
+	
+	/* 社員の声の記事についてのスタイルシート */
+	#voice section {
+		/* 社員の声の一人分の記事の横幅をコンテンツ幅の94%に伸ばす。同時に
+		2列表示も解消され、1つずつ記事が表示されるようになる */
+		width: 94%;	
+		margin: 0 3% 0;	/* 横marginをそれぞれ3%にし、画面端と記事の間に適切な間隔を取る */
+	}
+	/* 社員の声個別記事見出し部に対するスタイルシート */
+	#voice section .voicehead {
+		margin-top: 20px;	/* 記事の最上部から20pxの間隔を取る */
+	}
+	/* 社員の声記事全体に対するスタイルシート */
+	#voice {
+		width: 100%;	/* 幅を親要素と同じにする */
+	}
+	/* 社員の声の記事見出し部分についてのスタイルシート */
+	#voice section .voicehead {
+		padding-top: 0px;	/* 上paddingをなくし、上に詰める */
+	}
+	#simplearticle {
+		width: 100%;
+		margin: 0;
+	}
+	/* simplearticleのコンテンツ内にあるリストの外枠に対するスタイルシート */
+	#simplearticle ul {
+		width: auto;	/* articleと同じ幅を取る */
+	}
+	/* simplearticleの個別記事見出しのテキスト部に対するスタイルシート */
+	#simplearticle .articlehead2 h3{
+		padding: 0 0 0 1%;;	/* 左に左に1%のpaddingを挿入 */
+		width: 99%;	/* 幅を99%にし、枠いっぱいに下線を伸ばすと同時に左paddingの分は狭く */
+	}
+	/* simplearticleのリストに対するスタイルシート */
+	#simplearticle ul.simpletext {
+		margin: 0 5px 0 10px;	/* 左右に適当なmarginを挿入して端を整える */
+		padding-left: 16px;		/* 構成要素のナンバリング数字に合わせたpaddingを設定 */
+		width: 92%;				/* paddingの分を考慮した幅を設定 */
+	}
+	/* simpletextのリストの構成要素についてのスタイルシート */
+	#simplearticle ul.simpletext li{
+		margin: 0 0 5px;	/* 要素ごとに適度の間隔を空ける */
+		width: 100%;		/* 幅を外枠に合わせる */
+	}
+	/* 行動指針記事の項目に対する内容についてのスタイルシート */
+	#simplearticle .slogan {
+		width: 98%;			/* marginの幅を考慮した上でレスポンシブの幅を設定 */
+	}
+	/* アクセスコンテンツに関するスタイルシート */
+	#access {
+		width: 100%;	/* GoogleMapの幅に合わせて固定幅で記事を展開する */
+		margin: 0;
+	
+	}
+	/* アクセスコンテンツのGoogleMapに関するスタイルシート */
+	#access iframe {
+		width: 250px;	/* GoogleMapの幅を250pxに設定 */
+		height: 210px;	/* GoogleMapの高さを210pxに指定 */
+	}
+	/* GoogleMapを囲む枠へのスタイルシート */
+	#access .mapwrap {
+		width: 280px;		/* 幅を280pxに取る */
+		margin: 0 auto 0;	/* 左右marginを自動調整する */
+	}
+	/* 会社概要の見出し列についてのスタイルシート */
+	#outline table th {
+		width: 30%;	/* 幅を表の横幅の40%に取る */
+	}
+	
+	/* アクセス中のカテゴリーに対するメニューのボタン外枠に関するスタイルシート */
+	#navigation li.on {
+		border-bottom-style: none;	/* ボタンの下罫線を外し、コンテンツ内メニューとのつながりを強調する */
+	}
+	/* 社訓のリストに対するスタイルシート */
+	#motto ul li {
+		margin:0 0 5px;	/* 下に最低限のmarginを取り、見やすい間隔を取る */
+	}/* 大訓に対するスタイルシート */
+	#motto ul #greatermotto {
+		text-align: center;	/* テキストを中央に寄せる */
+		font-weight: bold;	/* テキストを太字にする */
+	}
+	/* ポップアップ形式で表示される研修制度コンテンツに対するスタイルシート */
+	#recruit #ad_sub_disp {
+		clear: both;	/* スマホ向けコンテンツ内メニューの行数が増えると画像が回り込むことがあるので、回り込みを禁止する */
+		paddng: 0px;
+	}
+	/* 求人フォームのコンテンツ領域のスタイルシート */
+	.form {
+		width: 310px;	/* 幅を300pxに取り、残りは自動調整の余白にする */
+		margin: 0 auto 0;	/* 左右の余白を自動調整する */
+	}
+	/* 求人フォームの各フォームに関するスタイルシート */
+	.form section input {
+		max-width: 180px;	/* 各入力エリアの最大幅を180pxに取る */
+	}
+	/* 求人フォームのテキストエリアに関するスタイルシート */
+	.form section textarea {
+		max-width: 180px;	/* 幅の最大値を180pxに指定 */
+		min-width: 180px;	/* 幅の最小値を180pxに指定し、併せて幅をユーザーに操作できないようにする */
+	}
+	/* 募集要項コンテンツの表に対するスタイルシート */
+	#gidelineimg {
+		width: 100%;	/* 画面の横幅に合わせて表を伸ばす */
+	}
+	/* フッターの背景部分に対するスタイルシート */
+	#footer #footerbg {
+		height: 350px;	/* 350pxの高さを取る */
+	}
+	/* フッターの左半分に対するスタイルシート */
+	footer #footerleft{
+		width: 50%;	/* 幅をフッター全体の50%に設定 */
+	}
+	/* フッターの右半分に対するスタイルシート */
+	footer #footerright{
+		/* 幅をフッター全体の48%に設定。左より少し狭くして、窮屈になってスタイルが崩れやすくなるのを阻止する */
+		width: 48%;	
+	}
+	/* フッターの会社名に対するスタイルシート */
+	span.footercompanyname{
+		font-size: 10px;	/* フォントのサイズを10pxに指定 */
+		clear: both;		/* 他の要素に対し回りこまないようにする */
+		padding-top: 0px;	/* paddingを挿入して */
+		margin: 0 0 2px;		/* marginを下にだけ挿入する */
+	}
+	div#success {
+		display: none;
+	}
+	/* 各コンテンツ見出しを囲むdivタグについてのスタイルシート */
+	div#responsivehead{
+		width: 100%;	/* 横幅をページいっぱいに取る */
+		height: auto;	/* 高さを自動調整 */
+	}
+	/* articleheadの横に配備されるsuccess(mini).gifについてのスタイルシート*/
+	img#successmini{
+		float: right;	/* 右に寄せる */
+		display: block;	/* 表示する */
+	}
+	/* accessコンテンツの会社情報部分についてのスタイルシート */
+	#access div.accessbaseinfomation{
+		width: 96%;		/* 幅を外枠の96%に取る */
+		height: auto;	/* 内包する要素の高さに合わせる */
+		padding: 0;		/* paddingをなくす */
+		background-image: none;	/* 吹き出しは不適当となるので表示しない */
+	}
+	/* accessコンテンツの各記事に対するスタイルシート */
+	#access section{
+		padding: 0 2% 0 2%;		/* 画面の端との間に間隔を取る */
+	}
+	/* 新宿本社についてのスタイルシート */
+	#access div.accessbaseinfomation#shinjuku{
+		background-image: none;	/* 背景を明示的に消す */
+	}
+	/* 相模原事業所についてのスタイルシート */
+	#access div.accessbaseinfomation#sagamihara{
+		background-image: none;	/* 背景を明示的に消す */.
+	}
+	/* GoogleMapに対するスタイルシート */
+	#access .mapwrap iframe{
+		width: 310px;	/* 幅を310pxに指定 */
+		height: 300px;	/* 高さを250pxに指定 */
+	}
+	/* 社員･研修生の声の背景画像についてのスタイルシート */
+	.voice img#backgroundgif{
+		top: -120px;	/* ヘッダー部分に重ねる */
+	}
+	/* 組織図についてのスタイルシート */
+	#outline div#enlargeableimg img{
+		margin: 0;	/* 余白をなくす */
+	}
+	#index{
+		width: 320px;
+	}
+	#index img#backgroundgif{
+		width: 319px;
+		top: 0px;			/* articleからのy座標。長期研修制度のボタン画像より下に配置 */
+		left: 0px;	/* 適切なx座標を指定 */
+	}
+	/* トップページ用の支柱に対するスタイルシート */
+	#index img#prop{
+		height: 300px;			/* 高さを295pxに設定 */
+	}
+	/* 長期研修制度のボタン画像についてのスタイルシート */
+	#index #longtermtraining{
+		top: 63px;			/* articleの開始y座標から計算したこの画像のy座標 */
+		left: 80px;		/* 同様のx座標 */
+		width: 156px;
+		height: 66px;
+	}
+	/* 研修生の声のボタン画像についてのスタイルシート */
+	#index #thevoice{
+		top: 135px;			/* articleからのy座標。長期研修制度のボタン画像より下に配置 */
+		left: 86px;	/* 適切なx座標を指定 */
+		width: 139px;
+		height: 50px;
+	}
+	/* トップページの背景画像に対するスタイルシート */
+	#index img#backgroundgif{
+		top: -37px;		/* y座標。ヘッダー部分へ突き抜ける */
+	}
+	/* トップページのコンテンツ高さを司る画像のスタイルシート */
+	#index img#prop{
+		height: 220px;	/* 高さをバルーンが多少フッター、ヘッダーに進入する程度に調整 */
+	}
+	/* ヘッダーについてのスタイルシート */
+	header.baseinfo{
+		width: 100%;	/* 画面横いっぱいに伸ばす */
+	}
+	/* ヘッダー内コンテンツについてのスタイルシート */
+	#headercontents{
+		width: 100%;	/* 画面横いっぱいに伸ばす */
+	}
+	/* フッターについてのスタイルシート */
+	footer.baseinfo{
+		width: 100%;	/* 画面横いっぱいに伸ばす */
+	}
+	/* ヘッダー内のモットー部分についてのスタイルシート */
+	header h4{
+		width: 100%;	/* 画面横いっぱいに伸ばす */
+	}
+	/* フッター内の会社ロゴについてのスタイルシート */
+	span.footerlogo{
+		font-size: 24px;	/* フォントのサイズを24pxに指定 */
+		font-family: Impact, "メイリオ", "ＭＳ Ｐゴシック";	/* フォントをImpactに指定 */
+		font-weight: normal;	/* フォントを通常サイズにする */
+		color: #800000;			/* フォントの色をmaroon(ダークレッド系)にする */
+		width: auto;		/* 幅を自動調整する */
+	}
+	.baseaddress{
+		clear: both;
+	}
+	footer{
+		background-color: rgba(105, 105, 105,0.5);			/* 背景色を透過した灰色にする */
+		z-index: 1;
+		position: relative;
+	}
+	#footerbg{
+		display: none;
+	}
+	#navigationbg{
+		display: none;
+	}
+	#simplearticle section{
+		width: 99%;
+		margin: 0;
+	}
+	#ssn-d2124{
+		background-color: rgba(245, 245, 220, 0.7);
+	}
+	/* 開発サービスページの記事部分に関するスタイルシート */
+	/* 開発サービスの記事に関するスタイルシート */
+	#service img#servicebg{
+		width: 320px;
+		top: 60px;
+		margin: 0 auto 0;
+	}
+	#service img#prop{
+		height: 260px;
+	}
+	#service {
+		width: 320px;
+		margin: 0 auto 0;
+		position: relative;
+	}
+	#service section{
+		width: 320px;
+	}
+	img#i0.servicebutton{
+		width: 120px;
+		height: 120px;
+		top: 165px;
+		left: 168px;
+	}
+	img#i1.servicebutton{
+		width: 75px;
+		height: 75px;
+		top: 113px;
+		left: 85px;
+	}
+	img#i2.servicebutton{
+		width: 92px;
+		height: 92px;
+		top: 258px;
+		left: 17px;
+	}
+	#service .articlehead{
+		max-width: 200px;
+	}
+	.form .articlehead{
+		max-width: 200px;
+	}
+	span.formcontent{
+		width: 100px;
+	}
+	/* 求人フォームの項目を囲むタグに対するスタイルシート */
+	.form dl{
+		/* 横幅を設定。formタグが横のmarginを自動調整することで発生するずれを、320pxから引いて314pxに設定 */
+		width: 314px;	
+	}
+	/* 求人フォームの項目に対するスタイルシート */
+	.form dt{
+		float: left;		/* 内容と共に左寄せで横に並べる */
+		clear: both;		/* 回り込みをさせない */
+		/* -50px分字を上げる。これを適切に設定することで項目と内容の間隔を崩さずにならべることができる */
+		text-indent: -80px;
+		display: block;		/* ブロックとして扱う */
+		margin-left: 80px;	/* 左にtext-indentと同じ分のmarginを挿入 */
+		line-height: 20px;	/* 文字の高さを20pxに設定 */
+		width: 30px;
+		font-size: 14px;
+	}
+	/* 求人フォームの項目に対する内容部分に対するスタイルシート */
+	.form dd{
+		padding-left: 10px;			/* 線と内容との間に間隔を取る。他レイアウトより狭くなる */
+		padding-bottom: 15px;		/* 下に15pxの間隔を空け、次の項目との間に隙間を空ける 
+	*/
+		margin-left: 0;	/* 左のmarginをなくしてコンテンツを詰める */
+	}
+	.form dd .text{
+		width: 180px;
+	}
+	/* 自身の名前でクラスを設定したformタグについてのスタイルシート */
+	.form{
+		margin: 0 auto 0;	/* formタグと、その中にある要素を中央に寄せる */
+	}
+	/* 問い合わせコンテンツの見出しに対するスタイルシート */
+	#contact .articlehead{
+		margin-top: 20px;	/* そのままの設定では見出しとトップメニューがくっついてしまうのでmarginを挿入 */
+	}
+	/* articleの幅を320pxに固定するためのクラスに対するスタイルシート */
+	article.content-320fix{
+		width: 320px;		/* 幅を320pxに設定 */
+		margin: 0 auto 0;	/* コンテンツを中央に寄せる */
+	}
+	/* 問い合わせページのコンテンツについてのスタイルシート */
+	#contact{
+		width: 100%;	/* 固定幅から自動調整の幅に切り替える */
+	}
+	/* コピーライトについてのスタイルシート */
+	footer small{
+		font-size: 10px;	/* スマフォ表示で改行されないように小さいフォントにする */
+	}
+	/* 求人フォームの注意書き欄についてのスタイルシート */
+	#entry div.supplement{
+		margin-top: 2px;	/* 上に少々のmarginを挿入し、 */
+	}
+	/* 幅固定でsuccess(mini).gifを表示するコンテンツの見出しに対するスタイルシート */
+	article.content-320fix div#responsivehead div.articlehead{
+		/* 常にsuccess(mini)が見出しと隣接している状態)になるため、隣接しても
+		親要素の幅を超えないようにするために最大幅を218pxに設定 */
+		max-width: 218px;	
+	}
+	
+	/* Serviceコンテンツのスマホレイアウトであるが、実際にスマホレイアウトとするのは
+		320px以下のときだけであり、それまではPC、タブレットと同様のレイアウトを取る */
+	/* containerにserviceクラスを与えることで、smartphone.cssが適用されていてもPC
+	、タブレットのレイアウトと同様になるようにする */
+	div#container.service{
+		max-width: 768px;	/* 最大幅を768pxにする */
+		min-width: 768px;	/* 最小幅も768pxにする */
+		width: 100%;		/* 幅そのものも100%にし、serviceクラスがあるときは768pxで不動にする */
+	}
+	/* メインコンテンツ領域 */
+	div#container.service div#maincontents{
+		width: 100%;		/* 外枠の幅に合わせる */
+		max-width: 600px;	/* 最大幅をタブレットのものと合わせる */
+		margin-left: 3px;	/* タブレット同様左3pxのmarginを入れる */
+	}
+	/* articleタグ */
+	div#container.service article#service{
+		width: 600px;		/* 明示的に幅600pxに指定 */
+		margin: 0px;		/* marginをなくし、ぴったりと600pxの幅にする */
+	}
+	/* 見出し */
+	div#container.service .articlehead{
+		max-width: 318px;	/* 最大幅318px。固定幅にする */
+		min-width: 318px;	/* 最低幅も318px */
+		/* 上に6pxのmarginを挿入し、PC、タブレットレイアウト時の間隔を再現する */
+		margin: 6px 0 0 0;
+	}
+	
+	/* 背景画像 */
+	div#container.service #service img#servicebg{
+		min-width: 600px;	/* 幅600px固定 */
+		left: 0px;			/* はっきりとコンテンツ左端から表示を開始させる */
+		top: -68px;			/* ヘッダーのほうまで画像をずらす */
+	}
+	/* コンテンツ表示ボタン。開発内容について */
+	div#container.service img#i0.servicebutton{
+		width: 220px;	/* 幅220px */
+		height: 220px;	/* 高さも220px */
+		top: 135px;		/* 上から135pxの地点に表示 */
+		left: 315px;	/* 左から315pxの地点に表示 */
+	}
+	/* コンテンツ表示ボタン。開発スキルについて */
+	div#container.service img#i1.servicebutton{
+		width: 150px;	/* 幅150px */
+		height: 150px;	/* 高さも150px */
+		top: 27px;		/* 上から27pxの地点に表示 */
+		left: 155px;	/* 左から155pxの地点に表示 */
+	}
+	/* コンテンツ表示ボタン。開発実績について */
+	div#container.service img#i2.servicebutton{
+		width: 175px;	/* 幅175px */
+		height: 175px;	/* 高さも175px */
+		top: 305px;		/* 上から305pxの地点に表示 */
+		left: 30px;		/* 左から30pxの地点に表示 */
+	}
+	/* 高さを調整する画像 */
+	div#container.service 
+	#service img#prop{
+		height: 375px;	/* 高さ375px */
+	}
+	/* スマフォで表示するsuccess(mini).gif */
+	div#container.service #successmini{
+		display: none;	/* PC、タブレット準拠であるからして、表示しない */
+	}
+	/* PC、タブレットで表示するsuccess.gif */
+	div#container.service #success{
+		display: block;	/* こちらを表示する */
+	}
+	/* トップメニュー */
+	div#container.service #navigation{
+		margin: 0 0 14px;	/* スマフォcssで消えたmarginを再設定 */
+	}
+	
+	 /* 子ページにおけるサイドナビゲーションバーを構成するリストの外箱に対するスタイルシート */
+	div#container.service .sidemenu {
+		float: right;	/* 右floatを設定、横並べを可能にする */
+		width: 100%;	/* 幅を制限内でウィンドウにあわせ伸縮させる */
+		margin: 2px 5px 0 8px;
+		max-width: 136px;	/* 最大幅を136pxとする */
+		height: 148px;		/* 高さを指定 */
+	}
+	div#container.service .sidemenu ul {
+		width: auto;	/* 子要素に合わせて幅を調節する */
+		height: 146px;	/* 高さを設定 */
+		padding: 0 0 8px;			/* 左に挿入されていたpaddinを無効にし、全体の左端に合わせる。同時に最下部に余白を追加して余裕を持たせる */
+		margin: 0;		/* marginを消す */
+		background-color: rgba(153,15,102,0.5);	/* 背景色を透過した紫にする */
+	}
+	/* 子ページにおけるコンテンツ内メニューを構成するリストの子要素のテキスト部に対するスタイルシート */
+	div#container.service .sidemenu ul li a {
+		display: block;	/* ブロックとして扱い、高さの調整が利くようにする */
+	}
+	/* 子ページにおけるコンテンツ内メニューの子要素に対するスタイルシート */
+	div#container.service .sidemenu ul li {
+		list-style-type: none;			/* 本来リストのテキスト先頭につく点を消す */
+		text-align: center;				/* テキストを左寄せにする */
+		text-decoration: none;			/* リンク付きテキスト下の線を消す */
+		overflow: hidden;				/* 幅を超えたテキストを非表示にする */
+		line-height: 34px;	/* ボタン1個あたりの高さを40pxにする */
+		width: 129px;		/* 外枠の幅220pxに対し、幅を210pxに設定 */
+		height: 34px;
+		margin: 2px 3px 2px;
+		border-radius: 10px;	/* ボックスの角に丸みを加える */
+		display: inline-block;
+		padding: 0;
+	}
+	div#container.service .sidemenu ul > li:first-child {
+		display: block;
+	}
+	div#container.service span.footercompanyname{
+		margin: 0 0 3px 6px;	/*  */
+		float: left;
+		font-size: 15px;		/* フォントのサイズを15pxに指定 */
+		padding-top: 8px;		/* paddingを挿入して */
+	}
+	
+	/* 
+	 * セレクタ:.guidlineContentOutline
+	 * 概要   :募集要項メインコンテンツ全体領域
+	 * 作成者 :T.Yamamoto
+	 * 作成日 :2015.12.05
+	 */
+	.guidlineContentOutline {
+	    margin: 0 auto;		/* 左から幅を消す */
+	    width: 92%;		/* コンテンツの幅を調整する */
+	    font-size: 13px;
+	}
+	
+	/* 
+	 * セレクタ:.guideTitle
+	 * 概要   :募集要項タイトル領域
+	 * 作成者 :T.Yamamoto
+	 * 作成日 :2015.12.05
+	 */
+	.guideTitle {
+	    margin-left: 104px;	/* 左からの幅を調節する */
+	    padding-left: 10px;	/* 左からの幅を調節する */
+	    width: 75%;			/* 幅を調節する */
+	}
+	
+	/* 
+	 * セレクタ:.guideTitle
+	 * 概要   :募集要項タイトル詳細領域
+	 * 作成者 :T.Yamamoto
+	 * 作成日 :2015.12.05
+	 */
+	.guideTitle li {
+	    padding: 5px 0 5px 5px;		/* 要素を広げる幅を調節する */
+	    text-indent: 0;		/* インデントをなくす */
+	}
+	
+	/* 
+	 * セレクタ:.contentExplain
+	 * 概要   :研修制度、「内容」部分
+	 * 作成者 :T.Yamamoto
+	 * 作成日 :2015.12.23
+	 */
+	.contentExplain {
+	    padding-right: 8px; /* 右に余白を空ける */
+	}
+	
+	/* 
+	 * セレクタ:.addTable
+	 * 概要   :研修制度、「内容」table全体
+	 * 作成者 :T.Yamamoto
+	 * 作成日 :2015.12.23
+	 */
+	.addTable {
+		font-size: 12px;	/* フォントサイズを指定する */
+	}
+	
+	/* 
+	 * セレクタ:.guidelineRowDetail
+	 * 概要   :テーブルの「業務」部分
+	 * 作成者 :T.Yamamoto
+	 * 作成日 :2015.12.23
+	 */
+	.guidelineRowDetail {
+		padding: 0 3px;	/* 左右に余白を入れる */
+	}
+	
+	/* 
+	 * セレクタ:.guidelineRowDetail
+	 * 概要   :研修制度、「内容」td部分
+	 * 作成者 :T.Yamamoto
+	 * 作成日 :2015.12.23
+	 */
+	.guidelineTitle {
+		height: 40px;		/* 高さを少し小さくする */
+	}
+	
+	/* 
+	 * セレクタ:.guidelineRowDetail
+	 * 概要   :テーブルの詳細内容部分
+	 * 作成者 :T.Yamamoto
+	 * 作成日 :2015.12.23
+	 */
+	.guidelineDetail,
+	.guidelineDetailTh,
+	.guidelineDetailTd {
+		font-size: 11px;	/* fontを小さ目で設定する */
+	}
+	
+	/* 
+	 * セレクタ:.guidelineDetailTh
+	 * 概要   :テーブルの詳細内容見出し部分
+	 * 作成者 :T.Yamamoto
+	 * 作成日 :2015.12.23
+	 */
+	.guidelineDetailTh {
+		padding: 5px 0 5px 3px;	/* 余白を少し小さめにする */
+	}
+	
+	/* 
+	 * セレクタ:.guidelineDetailTd
+	 * 概要   :テーブルの詳細内容データ部分
+	 * 作成者 :T.Yamamoto
+	 * 作成日 :2015.12.23
+	 */
+	.guidelineDetailTd {
+		padding: 4px 0 4px 3px;/* 余白を少し小さめにする */
+	}
+	
+	/* 
+	 * セレクタ:.logoText
+	 * 概要   :研修制度「Long-term・・・」部分
+	 * 作成者 :T.Yamamoto
+	 * 作成日 :2015.12.23
+	 */
+	.logoText {
+		/* エミュレータ表示 */
+		/*padding-top: 2px;*/		/* 余白をとる */
+		/*padding-bottom: 2px;*/		/* 余白をとる */
+		/* スマホ実機 */
+		padding-top: 5px;		/* 余白をとる */
+		padding-bottom: 5px;		/* 余白をとる */
+	}
+	
+	/* 
+	 * セレクタ:.welfareTable
+	 * 概要   :福利厚生テーブル
+	 * 作成者 :T.Yamamoto
+	 * 作成日 :2015.12.23
+	 */
+	.guidelineContent .welfareTable {
+	    margin-top: 20px;
+	}
+	
+	/* 
+	 * セレクタ:.guidelineContent .guideTitle .guideTitleDetail2
+	 * 概要   :福利厚生ロゴの右側部分2行目
+	 * 作成者 :T.Yamamoto
+	 * 作成日 :2015.12.23
+	 */
+	.guidelineContent .guideTitle .guideTitleDetail2 {
+		font-size: 11px;
+		line-height: 14px;
+	}
+	
+	/* 
+	 * セレクタ:.main .lineHeightAjast
+	 * 概要   :行間を調整する
+	 * 作成者 :T.Yamamoto
+	 * 作成日 :2015.12.26
+	 */
+	.guidelineTable {
+		/* エミュレータ表示 */
+		/*margin-top: 20px;*/
+		/* スマホ実機 */
+		margin-top: 10px;
+		line-height: 15px;
+	}
+	
+	.mid-career, .work, .money {
+	    margin-top: 25px;
+	}
+		@media(max-width:620px){
+			/* 
+			 * セレクタ:.guidlineContentOutline
+			 * 概要   :募集要項メインコンテンツ全体領域
+			 * 作成者 :T.Yamamoto
+			 * 作成日 :2015.12.05
+			 */
+			.guidlineContentOutline {
+			    width: 98%;		/* コンテンツの幅を調整する */
+			}
+	
+			/* 
+			 * セレクタ:.guideTitle
+			 * 概要   :募集要項タイトル領域
+			 * 作成者 :T.Yamamoto
+			 * 作成日 :2015.12.05
+			 */
+			.guideTitle {
+			    width: 59%;			/* 幅を調節する */
+			}
+	}
+}

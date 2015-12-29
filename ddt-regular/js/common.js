@@ -59,4 +59,40 @@ function common(){
 	    }
 	 }
 
+	/* 
+	 * 関数名:addSiteRootPath
+	 * 概要  :指定したタグの属性値にサイトルートのパスを追加する
+	 * 引数  :String selector : 指定するタグのセレクタ
+	 * 　　  :String attrName : 指定する属性
+	 * 作成者:T.Masuda
+	 * 作成日:2015.01.09
+	 */
+	 this.addSiteRootPath = function(selector, attrName) {
+		 //対象を走査する
+		 $(selector).each(function(){
+			 var path = $(this).attr(attrName);
+			 //ローカルのパスであれば
+			 if (path !== void(0)
+					 && (path.indexOf(SITE_ROOT_DIRECTORY) != -1 
+					 || path.indexOf(HTTP) == -1
+					 || path.indexOf(HTTPS) == -1)) {
+				 //パスを追記する。既にパスにサイトルートが記述されている場合は一度その部分を抜く。
+				 $(this).attr(attrName, SITE_ROOT_DIRECTORY + path.replace(SITE_ROOT_DIRECTORY, EMPTY_STRING));
+			 }
+		 });
+	 }
+	 
+	/* 
+	 * 関数名:addSiteRootPathTogether
+	 * 概要  :一括で属性値にサイトルートのパスの追加を行う
+	 * 引数  :なし
+	 * 作成者:T.Masuda
+	 * 作成日:2015.01.09
+	 */
+	this.addSiteRootPathTogether = function(selector, attrName) {
+		//一括でaddSiteRootPathをコールする。(現状a,img,formタグに対して行う)
+		this.addSiteRootPath(IMG_TAG , ATTR_SRC);
+		this.addSiteRootPath(ANCHOR_TAG , ATTR_HREF);
+		this.addSiteRootPath(FORM_TAG , ATTR_ACTION);
+	}
 }

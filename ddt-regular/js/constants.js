@@ -67,3 +67,40 @@ VALUE_STYLESHEET		= 'stylesheet';
 ATTR_REL				= 'rel';
 //trueの文字列
 STR_TRUE				= 'true';
+//現状メインのタグの前に置かれている要素のセレクタ
+BEFORE_MAIN_TAG_ELEM	= 'header.baseinfo';
+//デフォルトのエントリを指すキー
+KEY_DEFAULT				= 'default';
+SELECTOR_CONTENT_IMGS	= '#main img';
+SELECTOR_CONTENT_ANCHOR	= '#main a';
+//画像タグ
+IMG_TAG					= 'img';
+//インターネットURLの先頭部分2パターン
+HTTP					= 'http://';
+HTTPS					= 'https://';
+//トップメニューのボタンのセレクター
+SELECTOR_TOPMENU_BUTTON	= '#navigation ul li a';
+//サイドメニューのボタン
+SELECTOR_SIDEMENU_BUTTON = 'nav.sidemenu li';
+//トップメニュー領域内リンク要素のセレクタ
+SELECTOR_TOPMENU_ANCHOR	= '#navigation a';
+//トップメニュープルダウン用のデータのXMLファイルのパス
+PATH_PULLDOWNMENU_XML = "ddt-regular/assets/pulldownmenu.xml";
+//ワイルドカード
+WILDCARD				= '*';
+//トップメニューのボタン外枠のセレクタ
+SELECTOR_TOPMENU_BUTTON_OUTSIDE	= '#navigation ul li';
+//トップメニューのボタン全てのセレクタ
+SELECTOR_TOPMENU_BUTTON_ALL	= '#navigation ul li *';
+//フォームタグ
+FORM_TAG					= 'form';
+//フォームタグ
+SELECTOR_CONTENT_FORM		= '#main form';
+//action属性
+ATTR_ACTION					= 'action';
+//serviceクラス
+CLASS_SERVICE				= 'service';
+//CSS読み込み開始からロゴサイズ修正関数コールまでのディレイ
+LOGOSIZE_FIX_DELAY			= 30;
+//HTTPリクエストのGETメソッド
+METHOD_GET					= "GET";

@@ -45,7 +45,7 @@ function pageControl() {
 				}
 				
 				//コンテンツ領域のDOMを取得したHTMLデータのコンテンツ領域のDOMで書き換える
-				$(target).html($content);
+				$(target).append($content);
 			},
 			//通信失敗時の処理。引数に通信状態を表すデータが入る
 			error : function (xhr, status, error) {

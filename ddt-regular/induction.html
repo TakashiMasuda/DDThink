@@ -1,11 +1,30 @@
-﻿<!-- InstanceBegin template="/ddt-regular/Templates/recruit.dwt" codeOutsideHTMLIsLocked="false" --><head>
+﻿<!-- HTMLによるコード -->
+<!doctype html>
+<!-- 最も外のタグ -->
+<html>
+<!-- 予め仕様等を記すヘッダータグ -->
+<head>
+<!-- UTF-8でエンコード -->
+<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
 <meta charset="utf-8">
-<!-- InstanceBeginEditable name="headerregion" --><!-- InstanceEndEditable -->
+<!-- デフォルトの画面サイズを機器に依存する -->
+<meta name="viewport" content="width=device-width">
+<!-- キャッシュ無効のためのメタタグ * 3 -->
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+
+<!-- 表示用タイトル -->
+<title>DDThink - 株式会社デジタルデザインシンク</title>
+<!-- jQueryの本体ファイルを読み込む -->
+<script src="http://localhost/DDThinkHP/ddt-regular/js/jquery-1.11.0.min.js"></script>
+<script src="http://localhost/DDThinkHP/ddt-regular/js/constants.js" charset="utf-8"></script>
+<script src="http://localhost/DDThinkHP/ddt-regular/js/global.js" charset="utf-8"></script>
+<!--[if lt IE 9]><script src="http://localhost/DDThinkHP/ddt-regular/js/html5shiv.js"></script><![endif]-->
 </head>
-
-
-<!-- InstanceParam name="contentname" type="text" value="body" -->
+<!-- コンテンツを表示する領域 -->
 <body id="base">
+
 <!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
 <div id="main" class="body">
 <!-- 子ページ用のコンテンツ内メニュー -->
@@ -58,71 +77,74 @@
 <div id="success" class="sidemenu">
 <a href="ddt-regular/induction.html"><img src="ddt-regular/img/success.gif" alt=""></a>
 </div>
-
+<script>
+	//ドキュメント読み込み後
+	$(document).ready(function(){
+		//初期化処理を行う
+		init(KEY_DEFAULT);
+		//createTagのscriptファイルをロードする。直後にcreateTagクラスのインスタンスを生成する
+		loadScriptFile('createTag', STR_TRUE);
+		//createTagのクラスインスタンスを生成する
+		var creator = new createTag();
+	
+	    creator.getJsonFile(SITE_ROOT_DIRECTORY + 'ddt-regular/json/induction.json');          // ファイルのデータをjsonを用いて持ってくる
+	    creator.getDomFile(SITE_ROOT_DIRECTORY + 'ddt-regular/template/induction.html');          // 共通パーツのDOMを取得する。
+	    //コンテンツの外枠を作る
+	    creator.outputTag('guidlineContentOutline', 'guidlineContentOutline', '#onlyimg-content');
+	
+	    //研修制度説明部分のタイトル部分を作る
+	    creator.outputTag('Long-termTrainingMethod', 'guidelineContent', '.guidlineContentOutline');
+	    //研修制度説明部分コンテントテーブルを作る
+	    creator.outputTag('traineeGuideline', 'guidelineTable', '.guidelineContent');
+	
+	    //研修終了後の業務についてタイトル部分を作る
+	    creator.outputTag('work', 'guidelineContent', '.guidlineContentOutline');
+	    //研修終了後の業務について部分コンテントテーブルを作る
+	    creator.outputTag('workGuideline', 'guidelineTable', '.work');
+	
+	    //研修手当および給与についてタイトル部分を作る
+	    creator.outputTag('money', 'guidelineContent', '.guidlineContentOutline');
+	    //研修手当および給与について部分コンテントテーブルを作る
+	    creator.outputTag('moneyGuideline', 'guidelineTable', '.money');
+	
+	    //fantasyフォントがないブラウザではフォントを調節する
+	    commonFuncs.fontAdjustment();
+	
+	    //iPhoneの場合はコンテンツの高さを調整する
+	    commonFuncs.guideThemeAdjustment();
+	
+	    //URLハッシュに応じてスクロールする
+	    var hash = location.hash;   //URLからハッシュ部分を取得する
+	    
+	    //研修制度ページのハッシュが含まれていれば
+	    if (hash.indexOf('recruit_induction') != -1) {
+	        //スクロール位置の変数を用意する
+	        var scrollTo = 0;
+	        //スクロール位置の補正値
+	        var scrollFix = -150;
+	        
+	        //研修の流れについて項目であれば
+	        if (hash.indexOf('Long-termTrainingMethod') != -1) {
+	            //その座標を取得する
+	            scrollTo = $('.guidelineContent.Long-termTrainingMethod').offset().top;
+	        //研修終了後の業務について項目であれば
+	        } else if (hash.indexOf('work') != -1) {
+	            //その座標を取得する
+	            scrollTo = $('.guidelineContent.work').offset().top;
+	        //研修手当および給与について項目であれば
+	        } else if (hash.indexOf('money') != -1) {
+	            //その座標を取得する
+	            scrollTo = $('.guidelineContent.money').offset().top;
+	        }
+	        
+	    //スクロールを行う
+	     $('html, body').animate({ scrollTop : scrollTo + scrollFix}, 0);       
+	    }
+	});
+</script>
 <!-- コンテンツ記述を終える -->
 </div>
-
-<script>
-    //createTagクラスのインスタンスを生成する
-    var creator = new createTag();
-    creator.getJsonFile('ddt-regular/json/induction.json');          // ファイルのデータをjsonを用いて持ってくる
-    creator.getDomFile('ddt-regular/template/induction.html');          // 共通パーツのDOMを取得する。
-    //コンテンツの外枠を作る
-    creator.outputTag('guidlineContentOutline', 'guidlineContentOutline', '#onlyimg-content');
-
-    //研修制度説明部分のタイトル部分を作る
-    creator.outputTag('Long-termTrainingMethod', 'guidelineContent', '.guidlineContentOutline');
-    //研修制度説明部分コンテントテーブルを作る
-    creator.outputTag('traineeGuideline', 'guidelineTable', '.guidelineContent');
-
-    //研修終了後の業務についてタイトル部分を作る
-    creator.outputTag('work', 'guidelineContent', '.guidlineContentOutline');
-    //研修終了後の業務について部分コンテントテーブルを作る
-    creator.outputTag('workGuideline', 'guidelineTable', '.work');
-
-    //研修手当および給与についてタイトル部分を作る
-    creator.outputTag('money', 'guidelineContent', '.guidlineContentOutline');
-    //研修手当および給与について部分コンテントテーブルを作る
-    creator.outputTag('moneyGuideline', 'guidelineTable', '.money');
-
-    //fantasyフォントがないブラウザではフォントを調節する
-    commonFuncs.fontAdjustment();
-
-    //iPhoneの場合はコンテンツの高さを調整する
-    commonFuncs.guideThemeAdjustment();
-
-    //URLハッシュに応じてスクロールする
-    var hash = location.hash;   //URLからハッシュ部分を取得する
-    
-    //研修制度ページのハッシュが含まれていれば
-    if (hash.indexOf('recruit_induction') != -1) {
-        //スクロール位置の変数を用意する
-        var scrollTo = 0;
-        //スクロール位置の補正値
-        var scrollFix = -150;
-        
-        //研修の流れについて項目であれば
-        if (hash.indexOf('Long-termTrainingMethod') != -1) {
-            //その座標を取得する
-            scrollTo = $('.guidelineContent.Long-termTrainingMethod').offset().top;
-        //研修終了後の業務について項目であれば
-        } else if (hash.indexOf('work') != -1) {
-            //その座標を取得する
-            scrollTo = $('.guidelineContent.work').offset().top;
-        //研修手当および給与について項目であれば
-        } else if (hash.indexOf('money') != -1) {
-            //その座標を取得する
-            scrollTo = $('.guidelineContent.money').offset().top;
-        }
-        
-    //スクロールを行う
-     $('html, body').animate({ scrollTop : scrollTo + scrollFix}, 0);       
-    }
-
-
-</script>
-
-
 <!-- bodyタグを閉じる -->
 </body>
 <!-- InstanceEnd -->
+</html>
