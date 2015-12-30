@@ -718,7 +718,15 @@ div#paging{
 a.pager{
 	padding: 0 5px 0;	/* ボタンごとに5pxに間隔を空ける */
 	display: inline;	/* インライン要素として扱う */
+	color : #0015F8;	/* 青字にする */
 }
+
+/* 選択されたページャ */
+a.pager.selected{
+	color : #FF0000;	/* 赤字にする */
+}
+
+
 .twotonetable{
 	border-collapse: collapse;
 	border: solid 1px rgba(169, 169,169, 1.0);

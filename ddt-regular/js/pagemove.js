@@ -107,7 +107,8 @@
 
 
  	function pagemove(e, url) {	//Ajaxによる画面遷移を挟まないコンテンツ切り替えの関数記述し、変数pagemoveに格納する
-		var voicebutton = $(this);
+ 		//社員の声でページャをクリックした場合、ページャのテキスト(番号)を利用するためイベント発火元の要素を取得する
+		var voicebutton = $(e.target);
 		//URLが取得できれば設定する。できなければ第二引数を利用する。
  		contenturl = url !== void(0) ? url : $(this).attr('href');
 
@@ -149,157 +150,6 @@
 			e.preventDefault();
 		}
 	}
-	
-	//研修生の声のコンテンツを作成するメソッドcreateVoice
-	 var createVoice = function(voicebutton){
-		var pagenum = !$(voicebutton).attr('id') ? 1 : $(voicebutton).attr('id');	//ページ番号を変数pagenumに格納
-		//研修生の声記事のソースファイルのパスを変数xmlurlに格納
-		var xmlurl = 'ddt-regular/assets/voice.xml';
-		$.ajax({			//ajax関数によるajax通信を開始
-	       	type: 'GET',	//データを取得する
-			url: xmlurl,	//xmlurlに格納されたパスからデータを取得
-  	        dataType: 'xml',	//xml形式のデータを取得する
-			cache : false,				//通信結果をキャッシュしない
- 			success: function(xml) {		//ajax通信に成功した時の処理の記述
-				//1～2桁目に男性、3～4桁目に女性の画像番号を示す数値を格納する変数sexcountを宣言
-				var sexcount = 0;
-				//現在imgフォルダにある男性用の人物画像の枚数を変数numberofmenimgに格納
-				var numberofmenimg = 2;
-				//同様に女性用の人物画像の枚数を変数numberofwomimgに格納
-				var numberofwomimg = 2;
-				//文字列に変換された画像番号を格納する変数imgnumを宣言、空文字で初期化	
-				var imgnum = "";
-				var portrait ="";	//人物画像のパスを格納する変数portraitを宣言、空文字で初期化
-				var sextext = ['男性', '女性'];
-				//取得したXMLから1人1人のデータをデータを取り出して処理する
-				var memberelem = "";
-				//読み込んだテキストの大きさを順次ためていく変数textsize
-				var textsize = 0;
-				//1度に表示する記事の大きさの限界
-				var pagesize = 4000;
-				//表示するページの大きさの限界を表す変数pagelimit
-				var pagelimit = pagenum * pagesize - pagesize;
-				//記事作成が始まったら、作成回数をカウントするための変数counter
-				var counter = 1;
-
-				//ページング出力対象key一覧配列
-				var exportVoiceKeyList = new Array();
-				//ページングのkey
-				var paging_key = 1;
-				//デフォルトで配列を作っておく
-				exportVoiceKeyList[paging_key] = new Array();
-				//1つのページに表示する人数の数。1ページに2人ずつの社員の声を表示するように設定
-				var display_voice_count = 2;
-				//社員の声に登録されている数を取得し、ループの最終値として使う
-				var members_count = $(xml).find('member').length;
-				for(var j=0; j<members_count; j++) {
-					//対象値を指定する
-					exportVoiceKeyList[paging_key].push(j);
-					counter++;
-					//1ページに最大人数まで表示したならkeyをインクリメントする
-					if (counter > display_voice_count) {
-						paging_key++;
-						//新しい配列を作る
-						exportVoiceKeyList[paging_key] = new Array();
-						//カウンターをリセットする
-						counter = 1;
-					}
-				}
-
-				var members = $(xml).find('member');
-
-				//xmlの中から個別記事を1つずつ拾い上げ、順次処理していく。
-	    		$(xml).find('member').each(function(i) {
-	    			//表示対象でない人はループを飛ばす
-	    			if($.inArray(i, exportVoiceKeyList[pagenum]) == -1 ) {
-	    				//contiueの代わりeachのときの書き方;
-	    				return true;
-	    			}
-						//今指しているthisのセレクターをmemberelemに保存する
-						memberelem = $(this);
-						//現在の対象が男性ならば
-						if($('sex', this).text() == '1'){
-							sexcount += 1;	//男性の番号カウントを増やす
-							//男性の番号カウントが男性の画像の数を上回ったら
-							if(sexcount % 100 > numberofmenimg){
-								sexcount -= numberofmenimg;	//番号のカウントを0にする
-							}
-							if(sexcount% 100 < 10){				//カウントが1桁であれば
-							//カウントの頭に0をつけて文字列にした後imgnumに格納
-								imgnum = "0" + String(sexcount % 100);	
-							} else {							//カウントが2桁ならば
-								imgnum = String(sexcount % 100);	//カウントを文字列にしてimgnumに格納
-							}
-							//男性の画像名に番号を付け足して、変数portraitに格納
-							portrait = 'ddt-regular/img/theVoice(men'+ imgnum +').gif';
-						} else {
-							sexcount += 100;
-							//女性の番号カウントが男性の画像の数を上回ったら
-							if(sexcount / 100 > numberofmenimg){
-								sexcount -= numberofmenimg * 100;	//番号のカウントを0にする
-							}
-							if(sexcount/ 100 < 10){				//カウントが1桁であれば
-							//カウントの頭に0をつけて文字列にした後imgnumに格納
-								imgnum = "0" + String(parseInt(sexcount / 100));	
-							} else {							//カウントが2桁ならば
-								//カウントを文字列にしてimgnumに格納
-								imgnum = String(sexcount / 100);	
-							}
-							//女性の画像名に番号を付け足して、変数portraitに格納
-							portrait = 'ddt-regular/img/theVoice(wom'+ imgnum +').gif';
-						}
-						//articleタグに記事を囲むsectionタグを追加
-						$('article#voice').append($('<section></section>')	
-										.append($('<img>')			//画像タグを追加し
-											.attr('src', portrait))	//画像ソースのパスを与える
-										.append($('<div></div>')	//記事見出しに来る個人情報を格納する
-											.addClass('voicehead')	//divタグに記事見出しとしてのクラスを追加
-											.append($('<div></div>')	//画像内に滑り込ませる文章を格納するdivタグを格納
-												.addClass('intoimg')	//それを示すintoimgクラスを追加
-												.append($('<span></span>')	//性別を格納するspanタグを追加
-													.addClass('membersex')	//そのタグを示すこととなるmembersexクラスを追加
-													//配列sextextから性別に対応する文字列を取得し格納する
-													.append(sextext[parseInt($('sex', memberelem).text()) - 1])
-													.append('<br>'))		//改行タグを挿入
-												.append($('<span></span>')	//年齢を格納するspanタグを追加
-													.addClass('memberage')	//年齢を示すmemberageクラスを追加
-													.append($('age', memberelem).text())	//年齢を取得して格納する
-													.append('<br>'))		//改行タグを挿入
-												.append($('<span></span')	//名前(イニシャル)を格納するタグを追加
-													.addClass('membername')	//名前を表すmembernameクラスを追加
-													.append($('initial', memberelem).text()))	//取得したイニシャルを格納
-													))
-										.append($('<p></p>')		//本文を格納するpタグを追加
-											.addClass('voicetext')	//本文を表すvoicetextクラスを追加
-											.append($('text', memberelem).text()))	//本文を取得して格納
-						); 
-//					}
-					textsize += $(this).text().length;		//textsizeに今回読み込んだ情報量を足す
-
-				});			//voice登録人数についてのループend
-
-				//ページングのための領域を確保するため、idをpagingにしたdivタグをarticleタグの最後に追加
-				$('article#voice').append($('<div></div>').attr('id', 'paging'));
-				var pagernumber = 1;	//ページ尾の番号を表す変数pagernumを宣言、1で初期化
-				//ページングをループで作る
-				for (pagernumber; pagernumber<=paging_key; pagernumber++) {
-					//次のページにコンテンツがある時のみ次のページングを作る
-					if (exportVoiceKeyList[pagernumber].length > 0){
-						$('#paging')				//ページング領域に
-						.append($('<a></a>')		//アンカータグを追加して
-						.append(pagernumber)		//ページ番号を格納
-						.addClass('pager')			//ページャを表すpagerクラスを追加し
-						.attr('href', 'ddt-regular/voice.html')	//研修生の声ページのアドレスを格納し
-						.attr('id', pagernumber));	//idにもページ番号を格納
-					}
-				}
-
-			},
-			error: function(){		//通信エラー時の処理
-				alert("データのロードに失敗しました。");	//ロード失敗の旨を出力
-			}
-		});
-	 }
 	
 
 	if (e != null) {
@@ -522,9 +372,167 @@
 			$('.articlehead').css('width', newheadWidth);	//算出した数値を見出しの幅に設定
 		}
 		
+		//研修生の声のコンテンツを作成するメソッドcreateVoice
+		 var createVoice = function(voicebutton){
+			var pagenum = !$(voicebutton).attr('id') ? 1 : $(voicebutton).attr('id');	//ページ番号を変数pagenumに格納
+			console.log(voicebutton);
+			console.log(pagenum);
+			//研修生の声記事のソースファイルのパスを変数xmlurlに格納
+			var xmlurl = SITE_ROOT_DIRECTORY + 'ddt-regular/assets/voice.xml';
+			$.ajax({			//ajax関数によるajax通信を開始
+		       	type: 'GET',	//データを取得する
+				url: xmlurl,	//xmlurlに格納されたパスからデータを取得
+	  	        dataType: 'xml',	//xml形式のデータを取得する
+				cache : false,				//通信結果をキャッシュしない
+	 			success: function(xml) {		//ajax通信に成功した時の処理の記述
+					//1～2桁目に男性、3～4桁目に女性の画像番号を示す数値を格納する変数sexcountを宣言
+					var sexcount = 0;
+					//現在imgフォルダにある男性用の人物画像の枚数を変数numberofmenimgに格納
+					var numberofmenimg = 2;
+					//同様に女性用の人物画像の枚数を変数numberofwomimgに格納
+					var numberofwomimg = 2;
+					//文字列に変換された画像番号を格納する変数imgnumを宣言、空文字で初期化	
+					var imgnum = "";
+					//性別の文字列配列
+					var sextext = ['男性', '女性'];
+					//取得したXMLから1人1人のデータをデータを取り出して処理する
+					var memberelem = "";
+					//読み込んだテキストの大きさを順次ためていく変数textsize
+					var textsize = 0;
+					//1度に表示する記事の大きさの限界
+					var pagesize = 4000;
+					//表示するページの大きさの限界を表す変数pagelimit
+					var pagelimit = pagenum * pagesize - pagesize;
+					//記事作成が始まったら、作成回数をカウントするための変数counter
+					var counter = 1;
+
+					//ページング出力対象key一覧配列
+					var exportVoiceKeyList = new Array();
+					//ページングのkey
+					var paging_key = 1;
+					//デフォルトで配列を作っておく
+					exportVoiceKeyList[paging_key] = new Array();
+					//1つのページに表示する人数の数。1ページに2人ずつの社員の声を表示するように設定
+					var display_voice_count = 2;
+					//社員の声に登録されている数を取得し、ループの最終値として使う
+					var members_count = $(xml).find('member').length;
+					for(var j=0; j<members_count; j++) {
+						//対象値を指定する
+						exportVoiceKeyList[paging_key].push(j);
+						counter++;
+						//1ページに最大人数まで表示したならkeyをインクリメントする
+						if (counter > display_voice_count) {
+							paging_key++;
+							//新しい配列を作る
+							exportVoiceKeyList[paging_key] = new Array();
+							//カウンターをリセットする
+							counter = 1;
+						}
+					}
+
+					var members = $(xml).find('member');
+
+					//xmlの中から個別記事を1つずつ拾い上げ、順次処理していく。
+		    		$(xml).find('member').each(function(i) {
+						//人物画像のパスを格納する変数portraitを宣言、サイトルートパスで初期化する
+						var portrait = SITE_ROOT_DIRECTORY;
+
+		    			//表示対象でない人はループを飛ばす
+		    			if($.inArray(i, exportVoiceKeyList[pagenum]) == -1 ) {
+		    				//contiueの代わりeachのときの書き方;
+		    				return true;
+		    			}
+							//今指しているthisのセレクターをmemberelemに保存する
+							memberelem = $(this);
+							//現在の対象が男性ならば
+							if($('sex', this).text() == '1'){
+								sexcount += 1;	//男性の番号カウントを増やす
+								//男性の番号カウントが男性の画像の数を上回ったら
+								if(sexcount % 100 > numberofmenimg){
+									sexcount -= numberofmenimg;	//番号のカウントを0にする
+								}
+								if(sexcount% 100 < 10){				//カウントが1桁であれば
+								//カウントの頭に0をつけて文字列にした後imgnumに格納
+									imgnum = "0" + String(sexcount % 100);	
+								} else {							//カウントが2桁ならば
+									imgnum = String(sexcount % 100);	//カウントを文字列にしてimgnumに格納
+								}
+								//男性の画像名に番号を付け足して、変数portraitに格納
+								portrait += 'ddt-regular/img/theVoice(men'+ imgnum +').gif';
+							} else {
+								sexcount += 100;
+								//女性の番号カウントが男性の画像の数を上回ったら
+								if(sexcount / 100 > numberofmenimg){
+									sexcount -= numberofmenimg * 100;	//番号のカウントを0にする
+								}
+								if(sexcount/ 100 < 10){				//カウントが1桁であれば
+								//カウントの頭に0をつけて文字列にした後imgnumに格納
+									imgnum = "0" + String(parseInt(sexcount / 100));	
+								} else {							//カウントが2桁ならば
+									//カウントを文字列にしてimgnumに格納
+									imgnum = String(sexcount / 100);	
+								}
+								//女性の画像名に番号を付け足して、変数portraitに格納
+								portrait += 'ddt-regular/img/theVoice(wom'+ imgnum +').gif';
+							}
+							//articleタグに記事を囲むsectionタグを追加
+							$('article#voice').append($('<section></section>')	
+											.append($('<img>')			//画像タグを追加し
+												.attr('src', portrait))	//画像ソースのパスを与える
+											.append($('<div></div>')	//記事見出しに来る個人情報を格納する
+												.addClass('voicehead')	//divタグに記事見出しとしてのクラスを追加
+												.append($('<div></div>')	//画像内に滑り込ませる文章を格納するdivタグを格納
+													.addClass('intoimg')	//それを示すintoimgクラスを追加
+													.append($('<span></span>')	//性別を格納するspanタグを追加
+														.addClass('membersex')	//そのタグを示すこととなるmembersexクラスを追加
+														//配列sextextから性別に対応する文字列を取得し格納する
+														.append(sextext[parseInt($('sex', memberelem).text()) - 1])
+														.append('<br>'))		//改行タグを挿入
+													.append($('<span></span>')	//年齢を格納するspanタグを追加
+														.addClass('memberage')	//年齢を示すmemberageクラスを追加
+														.append($('age', memberelem).text())	//年齢を取得して格納する
+														.append('<br>'))		//改行タグを挿入
+													.append($('<span></span')	//名前(イニシャル)を格納するタグを追加
+														.addClass('membername')	//名前を表すmembernameクラスを追加
+														.append($('initial', memberelem).text()))	//取得したイニシャルを格納
+														))
+											.append($('<p></p>')		//本文を格納するpタグを追加
+												.addClass('voicetext')	//本文を表すvoicetextクラスを追加
+												.append($('text', memberelem).text()))	//本文を取得して格納
+							); 
+//						}
+						textsize += $(this).text().length;		//textsizeに今回読み込んだ情報量を足す
+
+					});			//voice登録人数についてのループend
+
+					//ページングのための領域を確保するため、idをpagingにしたdivタグをarticleタグの最後に追加
+					$('article#voice').append($('<div></div>').attr('id', 'paging'));
+					var pagernumber = 1;	//ページ尾の番号を表す変数pagernumを宣言、1で初期化
+					//ページングをループで作る
+					for (pagernumber; pagernumber<=paging_key; pagernumber++) {
+						//次のページにコンテンツがある時のみ次のページングを作る
+						if (exportVoiceKeyList[pagernumber].length > 0){
+							$('#paging')				//ページング領域に
+							.append($('<a></a>')		//アンカータグを追加して
+							.append(pagernumber)		//ページ番号を格納
+							.addClass(pagernumber == pagenum ? 'pager selected' : 'pager')			//ページャを表すpagerクラスを追加し
+							.attr('href', SITE_ROOT_DIRECTORY + 'ddt-regular/voice.html')	//研修生の声ページのアドレスを格納し
+							.attr('id', pagernumber));	//idにもページ番号を格納
+						}
+					}
+
+				},
+				error: function(){		//通信エラー時の処理
+					alert("データのロードに失敗しました。");	//ロード失敗の旨を出力
+				}
+			});
+		 }
+		
 		//リサーズイベントコールバックをまとめて登録する
 		$(window).resize(sidemenuSize);		//ウィンドウサイズ変更時にsidemenuSizeを呼び出す
 		$(window).resize(articleheadSize);	//ウインドウの大きさの変更に合わせてarticleheadSizeを呼び出す	
 		$(window).resize(logoSize);			//ウィンドウのサイズ変更時にlogoSizeを呼び出す
 		$(window).resize(serviceSize);		//serviceページのcontainerの幅の変化具合を変える
 	    $(window).resize(imgSize);			//画面サイズを変更したときにimgSizeを呼び出す
+
+	
