@@ -239,8 +239,6 @@
 				return false;					//処理に入らず終了する
 			}
        var allwindowWidth = window.innerWidth;	//画面サイズを取得し変数windowWidthに格納。これを基準に条件分岐する
-       console.log(new Date());
-       console.log(allwindowWidth);
        if(allwindowWidth >= pcWidth) {						//PCレイアウトであれば
 			//画像のタグのsrc属性の値となるソースパスを書き換えPC用画像を設定する
             $('.switch').attr('src',$('.switch').attr('src')
@@ -375,8 +373,6 @@
 		//研修生の声のコンテンツを作成するメソッドcreateVoice
 		 var createVoice = function(voicebutton){
 			var pagenum = !$(voicebutton).attr('id') ? 1 : $(voicebutton).attr('id');	//ページ番号を変数pagenumに格納
-			console.log(voicebutton);
-			console.log(pagenum);
 			//研修生の声記事のソースファイルのパスを変数xmlurlに格納
 			var xmlurl = SITE_ROOT_DIRECTORY + 'ddt-regular/assets/voice.xml';
 			$.ajax({			//ajax関数によるajax通信を開始

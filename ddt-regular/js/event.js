@@ -20,7 +20,6 @@
 		
 		//画面遷移用のボタンをクリックした時のイベントコールバック
 		$(document).on(EVENT_CLICK, ANCHOR_TAG, function(event) {
-			console.log("clicked");
 			//画面遷移をキャンセルする
 			event.preventDefault();
 			//URLを取り出す
