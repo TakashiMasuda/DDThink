@@ -46,13 +46,14 @@ function addLoadedCSSFileList(cssName, value) {
  * 関数名:loadScriptFile
  * 概要  :スクリプトファイルを読み込む。一度ロードしたファイルを読み込まない。
  * 引数  :String scriptName : スクリプト名。拡張子やパスはない。
+ * 　　  :String dir : ファイルのディレクトリ
  * 　　  :? value : 読み込み済みリストに登録するエントリの値
  * 　　  :Function callback : スクリプト取得後のコールバック関数
  * 返却値:boolean : 読み込みを行ったか否かの判定
  * 作成日　:2016.0104
  * 作成者　:T.Masuda
  */
-function loadScriptFile (scriptName, value, callback) {
+function loadScriptFile (scriptName, dir, value, callback) {
 	//引数に文字列に該当するファイルの読み込みを行っていたなら
 	if (scriptName in loadedScriptFile) {
 		return false;	//二度読みをしないためここで処理を終える
@@ -61,7 +62,7 @@ function loadScriptFile (scriptName, value, callback) {
 	//先んじてスクリプトファイルを取得する
 	$.ajax({
 			//URLを指定
-			url : SITE_ROOT_DIRECTORY + DIR_SCRIPT_FILES + SLASH + scriptName + EXTEND_JS,
+			url : SITE_ROOT_DIRECTORY + dir + SLASH + scriptName + EXTEND_JS,
 			dataType : SCRIPT_TAG,	//スクリプトを取得する設定
 			async : false,			//同期通信
 			//通信終了後
@@ -74,15 +75,6 @@ function loadScriptFile (scriptName, value, callback) {
 				}
 			}
 	});
-	
-//	var url = SITE_ROOT_DIRECTORY + DIR_SCRIPT_FILES + SLASH + scriptName + EXTEND_JS;
-//	var req = new XMLHttpRequest();
-//	req.open(METHOD_GET, url, false);
-//	req.send(EMPTY_STRING);
-//	 
-//	// 上のreq.openでは同期通信(false)を指定しているので以下はレスポンスを待ってから実行される。
-//	// 文字列をjavascriptとして実行。
-//	eval(req.responseText);
 	
 	return true;	//成功を返す
 }
@@ -123,7 +115,7 @@ function loadCSSFile (cssName, value) {
  * 関数名:init
  * 概要  :ウェブサイト準備の初期処理
  * 引数  :なし
- * 返却値:なし
+ * 返却値:boolean : 初回実行判定
  * 作成日　:2016.0109
  * 作成者　:T.Masuda
  */
@@ -131,17 +123,17 @@ function init(pageName) {
 	
 	//初回実行でなければ
 	if(!isInit()) {
-		return;	//処理を終了する
+		return false;	//処理を終了し非初回処理判定を返す
 	}
 	
 	//まずは必要なファイルを読み込む
 	$.when(
 		//読み込み済みスクリプト一覧にJSファイルの名を登録して二度読み込まないようにする
-		loadScriptFile('common', STR_TRUE),
-		loadScriptFile("pagemove", STR_TRUE),
-		loadScriptFile("pageControl", STR_TRUE),
-		loadScriptFile("event", STR_TRUE),
-		loadScriptFile("categorypulldown", STR_TRUE),
+		loadScriptFile('common', DIR_SCRIPT_FILES, STR_TRUE),
+		loadScriptFile("pagemove", DIR_SCRIPT_FILES, STR_TRUE),
+		loadScriptFile("pageControl", DIR_SCRIPT_FILES, STR_TRUE),
+		loadScriptFile("event", DIR_SCRIPT_FILES, STR_TRUE),
+		loadScriptFile("categorypulldown", DIR_SCRIPT_FILES, STR_TRUE),
 		//必要なCSSファイルを読み込む
 		loadCSSFile(STYLE_CSS),
 		loadCSSFile(DESKTOP_CSS),
@@ -169,6 +161,8 @@ function init(pageName) {
 		//ロゴのサイズの調整を行う。CSSの展開にラグがあるため
 		setTimeout(function(){logoSize();}, LOGOSIZE_FIX_DELAY);
 	});
+	
+	return true;	//初回処理判定を返す
 }
 
 /* 

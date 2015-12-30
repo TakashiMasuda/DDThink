@@ -20,7 +20,7 @@ DATATYPE_HTML				= 'HTML';
 //通信エラー時のメッセージ前部                                                  
 ALERT_CONNECT_ERROR_FRONT = 'connect error.¥ncause...¥nstatus : ';
 //通信エラー時のメッセージ後部                                                  
-ALERT_CONNECT_ERROR_REAR = '¥nerror : ';                          
+ALERFT_CONNECT_ERROR_REAR = '¥nerror : ';                          
 //コンテンツ領域のセレクタ                                                    
 SELECTOR_MAIN			= '#main';                                
 //空文字                                                             
@@ -104,3 +104,5 @@ CLASS_SERVICE				= 'service';
 LOGOSIZE_FIX_DELAY			= 30;
 //HTTPリクエストのGETメソッド
 METHOD_GET					= "GET";
+//DDTFlowers流用スクリプトファイルのディレクトリ
+FLOWER_SCRIPT_DIR			= 'flower/js';

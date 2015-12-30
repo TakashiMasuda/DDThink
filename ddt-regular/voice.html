@@ -75,7 +75,15 @@
 <div id="success" class="sidemenu">
 <a href="ddt-regular/induction.html"><img src="ddt-regular/img/success.gif" alt=""></a>
 </div>
-
+<script>
+	//ドキュメント読み込み後
+	$(document).ready(function(){
+		//初期化処理を行う
+		if (init(KEY_DEFAULT)) {
+			createVoice();	//初回処理時は記事を作る
+		}
+	});
+</script>
 <!-- コンテンツ記述を終える -->
 </div>
 <!-- bodyタグを閉じる -->
