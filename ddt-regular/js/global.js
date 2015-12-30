@@ -62,7 +62,7 @@ function loadScriptFile (scriptName, dir, value, callback) {
 	//先んじてスクリプトファイルを取得する
 	$.ajax({
 			//URLを指定
-			url : SITE_ROOT_DIRECTORY + dir + SLASH + scriptName + EXTEND_JS,
+			url : SITE_ROOT_DIRECTORY + dir + scriptName + EXTEND_JS,
 			dataType : SCRIPT_TAG,	//スクリプトを取得する設定
 			async : false,			//同期通信
 			//通信終了後
@@ -134,6 +134,8 @@ function init(pageName) {
 		loadScriptFile("pageControl", DIR_SCRIPT_FILES, STR_TRUE),
 		loadScriptFile("event", DIR_SCRIPT_FILES, STR_TRUE),
 		loadScriptFile("categorypulldown", DIR_SCRIPT_FILES, STR_TRUE),
+		loadScriptFile("imagemove", DIR_SCRIPT_FILES, STR_TRUE),
+		loadScriptFile("decorator", DIR_SCRIPT_FILES, STR_TRUE),
 		//必要なCSSファイルを読み込む
 		loadCSSFile(STYLE_CSS),
 		loadCSSFile(DESKTOP_CSS),
@@ -142,9 +144,10 @@ function init(pageName) {
 		//必要なJSファイルを読み込む※初期処理時は読み込み順序の都合でloadScriptFile関数を使わない
 	//ファイルの読み込みが完了したら
 	).always(function (a){
+		
 		//クラスインスタンスを作っていく
-		commonFuncs = new common();		//共通関数クラス
-		pControl = new pageControl(); 	//画面操作クラス
+		commonFuncs = new common();			//共通関数クラス
+		pControl = new pageControl(); 		//画面操作クラス
 		
 		//フレームを読み込む
 		loadFrame();
@@ -158,8 +161,13 @@ function init(pageName) {
 		//aタグ、IMGタグ、formタグのソースパスにサイトルートパスを追加する
 		commonFuncs.addSiteRootPathTogether();
 		
-		//ロゴのサイズの調整を行う。CSSの展開にラグがあるため
-		setTimeout(function(){logoSize();}, LOGOSIZE_FIX_DELAY);
+		//ロゴのサイズの調整を行う。(CSSの展開にラグがあるため)調整が終わったコンテナを表示する
+		setTimeout(function(){
+			hilightSelectedCategory(); 
+			hilightSelectedSidemenuItem(); 
+			$(SELECTOR_CONTAINER).show(); 
+			logoSize(); 
+		}, INIT_LASTPROCDDURE_DELAY);
 	});
 	
 	return true;	//初回処理判定を返す
@@ -209,4 +217,40 @@ function isInit() {
 	
 	//初回処理でのスクリプトの読み込みを判定のキーとする
 	return nowScriptNum == initLoadedScriptNum;
+}
+
+/* 
+ * 関数名:hilightSelectedCategory
+ * 概要  :選択中のページのカテゴリに対応したトップメニューのボタンをハイライトする
+ * 引数  :なし
+ * 返却値:なし
+ * 作成日　:2016.0110
+ * 作成者　:T.Masuda
+ */
+function hilightSelectedCategory() {
+	//サイトのカテゴリとコンテンツの一覧を取得する
+	var siteCategory = commonFuncs.getJSONFile(SITE_ROOT_DIRECTORY + 'ddt-regular/json/siteCategory.json');
+	//現在のコンテンツ名を取得する
+	var contentName = commonFuncs.getCurrentContentName();
+	//カテゴリ名を取得する
+	var categoryName = commonFuncs.getConetntNameFromCategory(siteCategory, contentName);
+	//カテゴリ名を実際に使われているURLと同じ様に加工する
+	categoryName = categoryName == CATEGORY_TOP ? EMPTY_STRING : categoryName + EXTEND_HTML;
+	var dc = new decorator();	//レイアウト変更クラスインスタンスを生成する
+	//カテゴリ名をハイライトする
+	dc.hilightSelectedElement(SELECTOR_TOPMENU_BUTTON, ATTR_HREF, categoryName);
+}
+
+/* 
+ * 関数名:hilightSelectedSidemenuItem
+ * 概要  :選択中のページに対応した再度メニューのボタンをハイライトする
+ * 引数  :なし
+ * 返却値:なし
+ * 作成日　:2016.0110
+ * 作成者　:T.Masuda
+ */
+function hilightSelectedSidemenuItem() {
+	var dc = new decorator();	//レイアウト変更クラスインスタンスを生成する
+	//カテゴリ名をハイライトする
+	dc.hilightSelectedElement(SELECTOR_SIDEMENU_BUTTON_LINK, ATTR_HREF, commonFuncs.getLastValue(location.href, SLASH), LI_TAG);
 }

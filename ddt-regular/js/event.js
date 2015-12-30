@@ -20,13 +20,21 @@
 		
 		//画面遷移用のボタンをクリックした時のイベントコールバック
 		$(document).on(EVENT_CLICK, ANCHOR_TAG, function(event) {
-			//画面遷移をキャンセルする
-			event.preventDefault();
 			//URLを取り出す
 			var url = $(this).attr(ATTR_HREF);
-			//画面遷移を行う
-			pagemove(event, url);
+			console.log(url);
+			//外部リンクなら
+			if(url !== void(0)
+					&& (url.indexOf(HTTP) != -1 
+					|| url.indexOf(HTTPS) != -1)) {
+				return;	//ここで処理を終えてそのまま外部リンクを開く
+			}
+			
+			//画面遷移をキャンセルする
+			event.preventDefault();
 			//pushStateに履歴を追加する
 			pControl.addPushState(url, EMPTY_STRING);
+			//画面遷移を行う
+			pagemove(event, url);
 		});
 	});

@@ -6,7 +6,7 @@
  */                                                               
                                                                   
 //サイトルートのディレクトリ                                                   
-SITE_ROOT_DIRECTORY = 'http://localhost/DDThinkHP/';                
+SITE_ROOT_DIRECTORY = '/DDThinkHP/';                
 //HREF属性                                                          
 ATTR_HREF = 'href';                                               
 //制御用ボタンのセレクタ                                                     
@@ -34,9 +34,9 @@ ANCHOR_TAG				= 'A';
 //jQueryコアファイル名
 JQUERY_CORE				= 'jquery-1.11.0.min';
 //スクリプトファイルのディレクトリ
-DIR_SCRIPT_FILES		= 'ddt-regular/js';
+DIR_SCRIPT_FILES		= 'ddt-regular/js/';
 //CSSファイルのディレクトリ
-DIR_CSS_FILES			= 'ddt-regular/css';
+DIR_CSS_FILES			= 'ddt-regular/css/';
 //CSSファイル名
 STYLE_CSS				= 'style';
 DESKTOP_CSS				= 'desktop';
@@ -82,6 +82,8 @@ HTTPS					= 'https://';
 SELECTOR_TOPMENU_BUTTON	= '#navigation ul li a';
 //サイドメニューのボタン
 SELECTOR_SIDEMENU_BUTTON = 'nav.sidemenu li';
+//サイドメニューのボタンのリンク部分
+SELECTOR_SIDEMENU_BUTTON_LINK = 'nav.sidemenu li a';
 //トップメニュー領域内リンク要素のセレクタ
 SELECTOR_TOPMENU_ANCHOR	= '#navigation a';
 //トップメニュープルダウン用のデータのXMLファイルのパス
@@ -100,9 +102,30 @@ SELECTOR_CONTENT_FORM		= '#main form';
 ATTR_ACTION					= 'action';
 //serviceクラス
 CLASS_SERVICE				= 'service';
-//CSS読み込み開始からロゴサイズ修正関数コールまでのディレイ
-LOGOSIZE_FIX_DELAY			= 30;
+//CSS読み込み開始から初期化処理の要ディレイ関数コールまでのディレイ
+INIT_LASTPROCDDURE_DELAY			= 30;
 //HTTPリクエストのGETメソッド
 METHOD_GET					= "GET";
 //DDTFlowers流用スクリプトファイルのディレクトリ
-FLOWER_SCRIPT_DIR			= 'flower/js';
+FLOWER_SCRIPT_DIR			= 'flower/js/';
+//角括弧の前後
+SQUARE_BRACKET_FRONT		= '[';
+SQUARE_BRACKET_REAR			= ']';
+//「選択済み」を指すクラス
+CLASS_SELECTED				= 'selected';
+//カテゴリなしの文字列
+NO_CATEGORY					= 'no category';
+//ドット
+DOT							= '.';
+//トップのカテゴリ
+CATEGORY_TOP				= 'top';
+//HTMLファイルの拡張子
+EXTEND_HTML					= '.html';
+//liタグ
+LI_TAG						= 'li';
+//フッター背景
+FOOTER_BACKGROUND			= '#footerbg';
+//CSSスタイルheight
+STYLE_HEIGHT				= 'height';
+//フッタータグ
+FOOTER_TAG					= 'footer';

@@ -17,11 +17,12 @@ $(function(){
 		}
 		
 		$.ajax({
-	          type: 'GET',
-	          url: 'ddt-regular/outline.html',
-	          dataType: 'html',
+			type: 'GET',
+			url: 'ddt-regular/outline.html',
+			dataType: 'html',
+			async : false,				//同期通信を行う
 			cache : false,				//通信結果をキャッシュしない
-	          success: function(data) {
+			success: function(data) {
 	          $('#main').html($(data));
 	        },
 			  error: function(){
@@ -51,6 +52,7 @@ var closeupService = function(e){		//Serviceコンテンツの項目紹介サー
 		case 2: contentname += 'ddt-regular/img/service(results).gif';		//2であれば開発実績のパスを
 				break;															//contentnameに格納
 	}
+	
 	/* スマフォレイアウト時ではコンテンツ幅が画像幅以下になるので別個に調整する */
 	if($('article').width() <= imgwidth){	
 		// 画像の幅の半分をcontentwidthに格納。座標設定時に0になるようにする
@@ -58,6 +60,7 @@ var closeupService = function(e){		//Serviceコンテンツの項目紹介サー
 		// 画像の高さの半分をcontentheightに格納。こちらも座標設定時に0になるようにする
 		contentheight = imgheight / 2;
 	}
+	
 	$('#textcircle').attr('src', contentname);		//項目紹介サークルの画像にパスを与える
 	$('#servicebg').animate({						//背景の歯車画像をゆっくり透過していく
 		opacity :'0.7'

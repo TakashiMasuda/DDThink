@@ -118,6 +118,7 @@
           type: 'GET',						//データを取得する
           url: contenturl,					//コンテンツのURLを設定
           dataType: 'html',					//htmlを取得する
+          async : false,				//同期通信を行う
 　 		  cache : false,				//通信結果をキャッシュしない
           success: function(data) {		//データの取得に成功したら
         	  //メインのタグを取得する
@@ -136,6 +137,14 @@
 				imgSize();
 			}
 			 
+			//トップメニュー、サイドメニューの選択済み項目から選択済みを指すクラスを除去する
+			$(SELECTOR_TOPMENU_BUTTON).removeClass(CLASS_SELECTED);
+			$(SELECTOR_SIDEMENU_BUTTON).removeClass(CLASS_SELECTED);
+			
+			//トップメニュー、サイドメニューの選択済みの項目をハイライトする
+			hilightSelectedCategory();
+			hilightSelectedSidemenuItem();
+			
 		    //aタグ、IMGタグ、formタグのソースパスにサイトルートパスを追加する
 		    commonFuncs.addSiteRootPath(SELECTOR_CONTENT_IMGS , ATTR_SRC);
 		    commonFuncs.addSiteRootPath(SELECTOR_CONTENT_ANCHOR , ATTR_HREF);
@@ -315,6 +324,7 @@
 	       	type: 'GET',	//データを取得する
 			url: xmlurl,	//xmlurlに格納されたパスからデータを取得
  	        dataType: 'xml',	//xml形式のデータを取得する
+ 	        async : false,		//同期通信を行う
 			cache : false,				//通信結果をキャッシュしない
 			success: function(xml) {		//ajax通信に成功した時の処理の記述
 				var atopic = '';			//現在指すtopicタグのセレクタを格納する変数atopic
@@ -372,7 +382,9 @@
 		
 		//研修生の声のコンテンツを作成するメソッドcreateVoice
 		 var createVoice = function(voicebutton){
-			var pagenum = !$(voicebutton).attr('id') ? 1 : $(voicebutton).attr('id');	//ページ番号を変数pagenumに格納
+			 //ページャの場合はIDがページ番号になっているため、クリックしたものがある場合は対象のIDを取り出す
+			var pagenumText = $(voicebutton).attr('id');
+			var pagenum = pagenumText && !isNaN(pagenumText) ? $(voicebutton).attr('id'): 1;	//ページ番号を変数pagenumに格納
 			//研修生の声記事のソースファイルのパスを変数xmlurlに格納
 			var xmlurl = SITE_ROOT_DIRECTORY + 'ddt-regular/assets/voice.xml';
 			$.ajax({			//ajax関数によるajax通信を開始
@@ -524,11 +536,20 @@
 			});
 		 }
 		
+		 //フッター背景の高さを再調整する
+		function footerBackgroundResize() {
+			console.log($(FOOTER_TAG).height());
+			//フッター背景の高さをフッターと同じにする
+			$(FOOTER_BACKGROUND).css(STYLE_HEIGHT, $(FOOTER_TAG).height());
+		}
+		 
 		//リサーズイベントコールバックをまとめて登録する
 		$(window).resize(sidemenuSize);		//ウィンドウサイズ変更時にsidemenuSizeを呼び出す
 		$(window).resize(articleheadSize);	//ウインドウの大きさの変更に合わせてarticleheadSizeを呼び出す	
 		$(window).resize(logoSize);			//ウィンドウのサイズ変更時にlogoSizeを呼び出す
 		$(window).resize(serviceSize);		//serviceページのcontainerの幅の変化具合を変える
 	    $(window).resize(imgSize);			//画面サイズを変更したときにimgSizeを呼び出す
+	  //画面サイズを変更したときにフッター背景の高さをフッターに合わせて調整する
+	    $(window).resize(footerBackgroundResize);			
 
 	
