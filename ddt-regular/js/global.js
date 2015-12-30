@@ -160,13 +160,12 @@ function init(pageName) {
 
 		//aタグ、IMGタグ、formタグのソースパスにサイトルートパスを追加する
 		commonFuncs.addSiteRootPathTogether();
-		
 		//ロゴのサイズの調整を行う。(CSSの展開にラグがあるため)調整が終わったコンテナを表示する
 		setTimeout(function(){
-			hilightSelectedCategory(); 
-			hilightSelectedSidemenuItem(); 
-			$(SELECTOR_CONTAINER).show(); 
-			logoSize(); 
+			hilightSelectedCategory(); 		//選択済みのトップメニューのボタンをハイライトする
+			hilightSelectedSidemenuItem(); 	//選択済みのサイドメニューのボタンをハイライトする
+			$(SELECTOR_CONTAINER).show(); 	//隠していたコンテンツを表示する
+			logoSize();						//ロゴのサイズを修正する 
 		}, INIT_LASTPROCDDURE_DELAY);
 	});
 	

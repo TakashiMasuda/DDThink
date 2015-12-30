@@ -129,7 +129,7 @@ var showSSN = function(){
 		$('.ssnintroduction').animate({
 			display: 'block'
 		}, 500);
-		$(document).on('click', '.ssnintroduction', function(){
+		$(document).on(EVENT_CLICK, '.ssnintroduction', function(){
 			$('.ssnintroduction').remove();
 		});
 	}
@@ -145,13 +145,14 @@ var movetoStore = function(e){
 	}
 };
 
-$(document).on('click', '#testimg', imgClick);
-$(document).on('click', '.servicebutton', closeupService);
+$(document).on(EVENT_CLICK, '#testimg', imgClick);
+$(document).on(EVENT_CLICK, '.servicebutton', closeupService);
+//serviceページでサイドメニューのボタンをクリックした時に詳細を出す
+$(SELECTOR_CONTAINER).on(EVENT_CLICK, '.servicesidebutton', closeupService);
 $(document).on('mouseleave', '#textcircle', hideService);
-$(document).on('click', '#textcircle', hideService);
-$(document).on('click', '.servicesidebutton', closeupService);
+$(document).on(EVENT_CLICK, '#textcircle', hideService);
 $(document).on('mouseenter', '.ssnimg', ssnhover);
 $(document).on('mouseleave', '.ssnimg', ssnleave);
-$(document).on('click', '#ssnmain', showSSN);
-$(document).on('click', '.ssnimg', movetoStore);
+$(document).on(EVENT_CLICK, '#ssnmain', showSSN);
+$(document).on(EVENT_CLICK, '.ssnimg', movetoStore);
 });
