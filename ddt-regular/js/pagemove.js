@@ -538,7 +538,6 @@
 		
 		 //フッター背景の高さを再調整する
 		function footerBackgroundResize() {
-			console.log($(FOOTER_TAG).height());
 			//フッター背景の高さをフッターと同じにする
 			$(FOOTER_BACKGROUND).css(STYLE_HEIGHT, $(FOOTER_TAG).height());
 		}

@@ -22,7 +22,6 @@
 		$(document).on(EVENT_CLICK, ANCHOR_TAG, function(event) {
 			//URLを取り出す
 			var url = $(this).attr(ATTR_HREF);
-			console.log(url);
 			//外部リンクなら
 			if(url !== void(0)
 					&& (url.indexOf(HTTP) != -1 
