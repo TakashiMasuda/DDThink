@@ -101,7 +101,7 @@ ATTR_ACTION					= 'action';
 //serviceクラス
 CLASS_SERVICE				= 'service';
 //CSS読み込み開始から初期化処理の要ディレイ関数コールまでのディレイ
-INIT_LASTPROCDDURE_DELAY			= 30;
+INIT_LASTPROCDDURE_DELAY			= 175;
 //HTTPリクエストのGETメソッド
 METHOD_GET					= "GET";
 //DDTFlowers流用スクリプトファイルのディレクトリ

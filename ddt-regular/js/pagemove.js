@@ -137,9 +137,7 @@
 			 $('#container').removeClass('service');
 			  if(contenturl.indexOf('ddt-regular/voice.html') != -1){	//研修生の声コンテンツであったら
 				  createVoice(voicebutton);		//クリックしたボタンの要素を引数に研修生の声を生成するメソッドを呼び出す
-		 	 } else if(contenturl.indexOf('philosophy.html') != -1) {	//企業理念コンテンツであれば
-				  createPhilosophy();			//企業理念の記事を生成するメソッドを呼び出す
-		  	} else if(contenturl.indexOf('ddt-regular/toppage.html') != -1){
+		 	 } else if(contenturl.indexOf('ddt-regular/toppage.html') != -1){
 				imgSize();
 			}
 			 
@@ -341,9 +339,9 @@
 							.append($(xml).find('articlehead').text())))
 					//success(mini).gifを見出し横に置くためのimgタグ
 					.append($('<a></a>')									//画像はアンカータグで囲む
-					.attr('href', 'ddt-regular/induction.html')				//研修制度コンテンツへのリンクを与える
+					.attr('href', siteRootPath + 'ddt-regular/induction.html')				//研修制度コンテンツへのリンクを与える
 						.append($('<img>')									//画像タグを追加
-						.attr('src', 'ddt-regular/img/success(mini).gif')	//success(mini).gifのパスを追加
+						.attr('src', siteRootPath + 'ddt-regular/img/success(mini).gif')	//success(mini).gifのパスを追加
 						.attr('id', 'successmini')))						//スタイル指定のためのIDを追加
 				);
 				//xmlの中から個別記事を1つずつ拾い上げ、順次処理していく。

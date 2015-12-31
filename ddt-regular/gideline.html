@@ -9,7 +9,7 @@
 <script src="http://localhost/DDThinkHP/ddt-regular/js/constants.js" charset="utf-8"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/global.js" charset="utf-8"></script>
 <!--[if lt IE 9]><script src="http://localhost/DDThinkHP/ddt-regular/js/html5shiv.js"></script><![endif]-->
-<div id="container">
+<div id="container" style="display:none;">
 <div id="main">
 <script>
 	//ドキュメント読み込み後
@@ -18,8 +18,6 @@
 		//初期化処理を行う
 		init(KEY_DEFAULT);
 		
-	    //ヘッダータグの内容を書き換える
-	    creator.createTag(creator.json.head, $(HEAD_TAG));
 
 	    //createTagクラスのインスタンスを生成する
 	    var creator = new createTag();
@@ -28,6 +26,9 @@
 	    creator.getJsonFile(siteRootPath + 'ddt-regular/json/guideline.json');          // ファイルのデータをjsonを用いて持ってくる
 	    creator.getDomFile(siteRootPath + 'ddt-regular/template/guideline.html');          // 共通パーツのDOMを取得する。
 
+	    //ヘッダータグの内容を書き換える
+	    creator.createTag(creator.json.head, $(HEAD_TAG));
+	    
 	    //ページのメインコンテンツ領域を作る
 	    creator.outputTag('guidelineContentArea', 'pageContentArea', '#main');
 	    //recruitのサイドメニューを作る

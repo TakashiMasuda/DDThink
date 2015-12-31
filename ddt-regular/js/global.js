@@ -144,6 +144,13 @@ function init(pageName) {
 
 	//まずは必要なファイルを読み込む
 	$.when(
+		$(HEAD_TAG).remove(),	//自動生成されているheadタグを消す
+		createHeadTag(),		//headタグを作り直す
+		//必要なCSSファイルを読み込む
+		loadCSSFile(STYLE_CSS),
+		loadCSSFile(DESKTOP_CSS),
+		loadCSSFile(SMARTPHONE_CSS),
+		loadCSSFile(TABLET_CSS),
 		//読み込み済みスクリプト一覧にJSファイルの名を登録して二度読み込まないようにする
 		loadScriptFile('common', DIR_SCRIPT_FILES, STR_TRUE),
 		loadScriptFile("pagemove", DIR_SCRIPT_FILES, STR_TRUE),
@@ -157,17 +164,6 @@ function init(pageName) {
 	//ファイルの読み込みが完了したら
 	).always(function (a){
 
-		//自動生成されているheadタグを消す
-		$(HEAD_TAG).remove();
-		
-		createHeadTag();				//headタグを作り直す
-		
-		//必要なCSSファイルを読み込む
-		loadCSSFile(STYLE_CSS);
-		loadCSSFile(DESKTOP_CSS);
-		loadCSSFile(SMARTPHONE_CSS);
-		loadCSSFile(TABLET_CSS);
-		
 		//クラスインスタンスを作っていく
 		commonFuncs = new common();			//共通関数クラス
 		pControl = new pageControl(); 		//画面操作クラス

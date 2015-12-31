@@ -9,7 +9,7 @@
 <script src="http://localhost/DDThinkHP/ddt-regular/js/constants.js" charset="utf-8"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/global.js" charset="utf-8"></script>
 <!--[if lt IE 9]><script src="http://localhost/DDThinkHP/ddt-regular/js/html5shiv.js"></script><![endif]-->
-<div id="container">
+<div id="container" style="display:none;">
 <!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
 <div id="main" class="base">
 <script>
@@ -18,18 +18,16 @@
 		updateSiteRootPath();	//各ファイルロードの前準備としてサイトルートパスを更新する
 		//初期化処理を行う
 		init(KEY_DEFAULT);
-		//コンテンツを作る
-		createPhilosophy();
 
-	    //ヘッダータグの内容を書き換える
-	    creator.createTag(creator.json.head, $(HEAD_TAG));
-	    
         //createTagクラスのインスタンスを生成する
         var creator = new createTag();
         creator.getJsonFile(siteRootPath + 'ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
         creator.getJsonFile(siteRootPath + 'ddt-regular/json/recruitphilosophy.json');          // 個別パーツのjsonを取得する。
         creator.getDomFile(siteRootPath + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
 
+	    //ヘッダータグの内容を書き換える
+	    creator.createTag(creator.json.head, $(HEAD_TAG));
+        
         //ページのメインコンテンツ領域を作る
         creator.outputTag('recruitphilosophyContentArea', 'pageContentArea', '#main');
         //recruitのサイドメニューを作る
@@ -41,6 +39,10 @@
 
         //研修制度リンク(PC版)領域を作る
         creator.outputTag('inductionPcLinkArea', 'inductionPcLinkArea', '#main');
+
+		//コンテンツを作る
+		createPhilosophy();
+
 	});
 </script>
 <!-- サイトルートパスを指し示す要素 -->

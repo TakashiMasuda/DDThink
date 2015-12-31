@@ -70,7 +70,6 @@ function common(){
 	 this.addSiteRootPath = function(elems, attrName) {
 		 //対象を走査する
 		 $(elems).filter(SQUARE_BRACKET_FRONT + attrName + SQUARE_BRACKET_REAR).each(function(){
-			 console.log(this);
 			 var path = $(this).attr(attrName);
 			 //ローカルのパスであれば(サイトルート、HTTP形式のURLのヘッダー部分が含まれない)
 			 if (path !== void(0)

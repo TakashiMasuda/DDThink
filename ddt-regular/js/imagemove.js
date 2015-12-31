@@ -94,11 +94,19 @@ var hideService = function(){
 }
 	var mouseenterd = '-push)';
 	var mouseleft = ')';
+//潜水艦ゲームの画像にマウスオーバーしたとき
 var ssnhover = function(e){	
-		$(this).attr('src',$(this).attr('src').replace(mouseleft,mouseenterd));
+		//サイトルートパスを抜いた状態でソースパスを取得する
+		var src = $(this).attr('src').replace(/\.\.\/|\.\//g, EMPTY_STRING);
+		//マウスオーバー時の画像に変化させる。サイトルートパスは一旦抜いて再度付ける
+		$(this).attr('src', siteRootPath + src.replace(mouseleft,mouseenterd));
 }
+//マウスが離れた時
 var ssnleave = function(e){
-		$(this).attr('src',$(this).attr('src').replace(mouseenterd,mouseleft));
+		//サイトルートパスを抜いた状態でソースパスを取得する
+		var src = $(this).attr('src').replace(/\.\.\/|\.\//g, EMPTY_STRING);
+		//マウスオーバー時の画像パスを元に戻す
+		$(this).attr('src', siteRootPath + src.replace(mouseenterd,mouseleft));
 };
 var showSSN = function(){
 	if ($('.ssnintroduction')[0]){
@@ -108,13 +116,9 @@ var showSSN = function(){
 		.prepend($('<div></div>')
 			.addClass('ssnintroduction')
 			.append($('<img>')
-				.attr('src', 'ddt-regular/img/ssn-d2124(ad).gif')
+				.attr('src', siteRootPath + 'ddt-regular/img/ssn-d2124(ad).gif')
 			));
-//		var contentheight = $('#main').height() / 2;
 		var contentheight = 200;
-//		if(contentheight == 0){
-//			contentheight = $('#main > #maincontents').height() / 2;
-//		}
 		var contentwidth = $('#main').width() / 2;
 
 		$('.ssnintroduction').css({
@@ -143,7 +147,7 @@ var showSSN = function(){
 var movetoStore = function(e){
 	var imgid = $(this).attr('id');
 	if(imgid == 'ssnandroid'){
-		window.location.href = 'ddt-regular/app/android/SSN_D2124.apk';
+		window.location.href = siteRootPath + 'ddt-regular/app/android/SSN_D2124.apk';
 	} else if(imgid == 'ssniphone'){
 //		window.location.href = '';
 		alert('大変申し訳ありませんが、現在App Storeへの登録申請中のためダウンロードできません。もうしばらくお待ちください。');		
@@ -173,8 +177,8 @@ $(document).on(EVENT_CLICK, '.servicebutton', closeupService);
 $(SELECTOR_CONTAINER).on(EVENT_CLICK, '.servicesidebutton', serviceSidemenuButtonClicked);
 $(document).on('mouseleave', '#textcircle', hideService);
 $(document).on(EVENT_CLICK, '#textcircle', hideService);
-$(document).on('mouseenter', '.ssnimg', ssnhover);
-$(document).on('mouseleave', '.ssnimg', ssnleave);
+$(document).on('mouseenter', '.ssnimg:not(#ssncopy)', ssnhover);
+$(document).on('mouseleave', '.ssnimg:not(#ssncopy)', ssnleave);
 $(document).on(EVENT_CLICK, '#ssnmain', showSSN);
 $(document).on(EVENT_CLICK, '.ssnimg', movetoStore);
 });
