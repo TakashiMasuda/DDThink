@@ -1,0 +1,66 @@
+{
+    "profileSideMenu":{
+        "id":"sidemenulist",
+        "class":"sidemenulist",
+        "listHead":{
+            "text":"Profile"
+        },
+        "listCopyTarget":[
+            {
+                "id":"linkoutline",
+                "href":"ddt-regular/outline.html",
+                "text": "会社概要"
+            },
+            {
+                "id":"linkphilo",
+                "href":"ddt-regular/profilephilosophy.html",
+                "text": "企業理念"
+            },
+            {
+                "id":"linkvpolicy",
+                "href":"ddt-regular/policy.html",
+                "text": "行動指針"
+            },
+            {
+                "id":"linkmotto",
+                "href":"ddt-regular/motto.html",
+                "text": "社訓"
+            },
+            {
+                "id":"linkhistory",
+                "href":"ddt-regular/history.html",
+                "text": "会社沿革"
+            },
+            {
+                "id":"linkaccess",
+                "href":"ddt-regular/access.html",
+                "text": "アクセス"
+            }
+        ]
+    },
+    "pageSubtitle":{
+        "id":"responsivehead",
+        "articlehead":{
+            "subtitleText":{
+                "text":""
+            }
+        },
+        "inductionLink":{
+            "href":"ddt-regular/induction.html",
+            "inductionLinkImg":{
+                "id":"successmini",
+                "src":"ddt-regular/img/success(mini).gif"
+            }
+        }
+    },
+    "inductionPcLinkArea":{
+        "class":"sidemenu",
+        "id":"success",
+        "inductionPcLink":{
+            "href":"ddt-regular/induction.html",
+            "inductionPcImg":{
+                "src":"ddt-regular/img/success.gif"
+            }
+        }
+    }
+}

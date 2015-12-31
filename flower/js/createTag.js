@@ -159,7 +159,7 @@ function createTag(){
 	 * 作成日:2015.02.19
 	 */
 	this.createTag = function(curMapNode, curDomNode){
-		
+
 		//マップ、DOMが取得できていなかったら
 		if(curMapNode == null || curDomNode == undefined){
 			//処理を終える。

@@ -67,7 +67,7 @@
     //createTagクラスのインスタンスを生成する
     var creator = new createTag();
     creator.getJsonFile('ddt-regular/json/welfare.json');          // ファイルのデータをjsonを用いて持ってくる
-    creator.getDomFile('ddt-regular/template/templateContent.html');          // 共通パーツのDOMを取得する。
+    creator.getDomFile('ddt-regular/template/common.html');          // 共通パーツのDOMを取得する。
     creator.getDomFile('ddt-regular/template/welfare.html');          // 共通パーツのDOMを取得する。
     //コンテンツの外枠を作る
     creator.outputTag('guidlineContentOutline', 'guidlineContentOutline', '#onlyimg-content');

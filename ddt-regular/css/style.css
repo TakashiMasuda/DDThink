@@ -1189,6 +1189,8 @@ span.text-red{
  */
 .titleInTable {
     margin: 0 auto;		/* ブロック要素を左右について中央寄せにする */
+    font-weight: normal;
+    line-height: 11px;
 }
 
 /* 
@@ -1210,16 +1212,6 @@ span.text-red{
 .logoText {
 	padding-left: 7px;		/* 余白をとる */
 	display: block;			/* ブロック要素にして余白を他の行の文字にも反映するようにする */
-}
-
-/* 
- * セレクタ:.titleInTable
- * 概要   :研修制度「内容」右側部分
- * 作成者 :T.Yamamoto
- * 作成日 :2015.12.23
- */
-.titleInTable {
-	font-weight: normal;
 }
 
 /* 
