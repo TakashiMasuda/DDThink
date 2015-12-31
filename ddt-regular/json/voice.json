@@ -1,4 +1,17 @@
 {
+ 	"head" : {
+	    "headPageTitlePrivate":{
+	        "text":"DDThink - 株式会社デジタルデザインシンク | 社員 研修生の声"
+	    },
+	    "seoKeyWordPrivate":{
+	        "name":"keyword",
+	        "content":"新宿,デジタルデザインシンク,社員 研修生の声,	"
+	    },
+	    "seoDescriptionPrivate":{
+	        "name":"description",
+	        "content":"株式会社デジタルデザインシンクの研修を経て入社した社員の感想をご紹介します。"
+	    }
+    },
     "voiceContentArea":{
         "id":"main",
         "class":"voice",

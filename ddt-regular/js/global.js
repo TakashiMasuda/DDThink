@@ -152,16 +152,22 @@ function init(pageName) {
 		loadScriptFile("categorypulldown", DIR_SCRIPT_FILES, STR_TRUE),
 		loadScriptFile("imagemove", DIR_SCRIPT_FILES, STR_TRUE),
 		loadScriptFile("decorator", DIR_SCRIPT_FILES, STR_TRUE),
-		loadScriptFile("createTag", FLOWER_SCRIPT_DIR, STR_TRUE),
-		//必要なCSSファイルを読み込む
-		loadCSSFile(STYLE_CSS),
-		loadCSSFile(DESKTOP_CSS),
-		loadCSSFile(SMARTPHONE_CSS),
-		loadCSSFile(TABLET_CSS)
+		loadScriptFile("createTag", FLOWER_SCRIPT_DIR, STR_TRUE)
 		//必要なJSファイルを読み込む※初期処理時は読み込み順序の都合でloadScriptFile関数を使わない
 	//ファイルの読み込みが完了したら
 	).always(function (a){
 
+		//自動生成されているheadタグを消す
+		$(HEAD_TAG).remove();
+		
+		createHeadTag();				//headタグを作り直す
+		
+		//必要なCSSファイルを読み込む
+		loadCSSFile(STYLE_CSS);
+		loadCSSFile(DESKTOP_CSS);
+		loadCSSFile(SMARTPHONE_CSS);
+		loadCSSFile(TABLET_CSS);
+		
 		//クラスインスタンスを作っていく
 		commonFuncs = new common();			//共通関数クラス
 		pControl = new pageControl(); 		//画面操作クラス
@@ -171,6 +177,8 @@ function init(pageName) {
 		creator_top.getJsonFile(siteRootPath + 'ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
 		creator_top.getDomFile(siteRootPath + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
 
+		createMetaTags(creator_top);	//metaタグを追加する
+		
 		//ページのヘッダーを作る
 		creator_top.outputTag('pageHeader', 'pageHeader', '#container');
 
@@ -281,4 +289,48 @@ function hilightSelectedSidemenuItem() {
 	var dc = new decorator();	//レイアウト変更クラスインスタンスを生成する
 	//カテゴリ名をハイライトする
 	dc.hilightSelectedElement(SELECTOR_SIDEMENU_BUTTON_LINK, ATTR_HREF, commonFuncs.getLastValue(location.href, SLASH), LI_TAG);
+}
+
+/* 
+ * 関数名:createHeadTag
+ * 概要  :headタグを作る
+ * 引数  :なし
+ * 返却値:なし
+ * 作成日　:2016.0110
+ * 作成者　:T.Masuda
+ */
+function createHeadTag() {
+	var doc = document;	//サイトのドキュメント全体を取得する
+	//HTMLタグを取得する
+	var html = doc.getElementsByTagName("html")[0];
+	//headタグを作る
+	var head = doc.createElement("head");
+	//HTMLの先頭の子としてheadタグを追加する
+	html.insertBefore(head, html.firstChild);
+}
+
+/* 
+ * 関数名:createMetaTags
+ * 概要  :metaタグを作る
+ * 引数  :createTag create_tag:createTagクラスインスタンス 
+ * 返却値:なし
+ * 作成日　:2016.0112
+ * 作成者　:T.Masuda
+ */
+function createMetaTags(create_tag) {
+	//metaタグをheadタグに追加する
+	//コンテントタイプ
+	create_tag.outputTag("httpEquivContentType", "httpEquivContentType", HEAD_TAG);
+	//文字コード
+	create_tag.outputTag("charset", "charset", HEAD_TAG);
+	//画面サイズ設定
+	create_tag.outputTag("viewport", "viewport", HEAD_TAG);
+	//以下3個キャッシュしない設定
+	create_tag.outputTag("httpEquivPragma", "httpEquivPragma", HEAD_TAG);
+	create_tag.outputTag("httpEquivCacheControl", "httpEquivCacheControl", HEAD_TAG);
+	create_tag.outputTag("httpEquivExpires", "httpEquivExpires", HEAD_TAG);
+	//以下3個SEO対策タグ
+	create_tag.outputTag("headPageTitlePrivate", "headPageTitlePrivate", HEAD_TAG);
+	create_tag.outputTag("seoKeyWordPrivate", "seoKeyWordPrivate", HEAD_TAG);
+	create_tag.outputTag("seoDescriptionPrivate", "seoDescriptionPrivate", HEAD_TAG);
 }

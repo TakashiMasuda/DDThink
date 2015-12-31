@@ -1,14 +1,16 @@
 {
-    "headPageTitlePrivate":{
-        "text":"DDThink - 株式会社デジタルデザインシンク | 求人応募"
-    },
-    "seoKeyWordPrivate":{
-        "name":"keyword",
-        "content":"新宿,デジタルデザインシンク,応募,求人,エンジニア,長期研修,中途採用"
-    },
-    "seoDescriptionPrivate":{
-        "name":"description",
-        "content":"株式会社デジタルデザインシンクへ求人応募のご案内です"
+	"head" : {
+	    "headPageTitlePrivate":{
+	        "text":"DDThink - 株式会社デジタルデザインシンク | 求人応募"
+	    },
+	    "seoKeyWordPrivate":{
+	        "name":"keyword",
+	        "content":"新宿,デジタルデザインシンク,応募,求人,エンジニア,長期研修,中途採用"
+	    },
+	    "seoDescriptionPrivate":{
+	        "name":"description",
+	        "content":"株式会社デジタルデザインシンクへ求人応募のご案内です"
+	    }
     },
     "entryContentArea":{
         "id":"main",

@@ -2,28 +2,13 @@
 <!doctype html>
 <!-- 最も外のタグ -->
 <html>
-<!-- 予め仕様等を記すヘッダータグ -->
-<head>
-<!-- UTF-8でエンコード -->
-<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
-<meta charset="utf-8">
-<!-- デフォルトの画面サイズを機器に依存する -->
-<meta name="viewport" content="width=device-width">
-<!-- キャッシュ無効のためのメタタグ * 3 -->
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="cache-control" content="no-cache" />
-<meta http-equiv="expires" content="0" />
-
-<!-- 表示用タイトル -->
-<title>DDThink - 株式会社デジタルデザインシンク</title>
+<!-- コンテンツを表示する領域 -->
+<body id="base">
 <!-- jQueryの本体ファイルを読み込む -->
 <script src="http://localhost/DDThinkHP/ddt-regular/js/jquery-1.11.0.min.js"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/constants.js" charset="utf-8"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/global.js" charset="utf-8"></script>
 <!--[if lt IE 9]><script src="http://localhost/DDThinkHP/ddt-regular/js/html5shiv.js"></script><![endif]-->
-</head>
-<!-- コンテンツを表示する領域 -->
-<body id="base">
 <div id="container">
 <!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
 <div id="main">
@@ -40,6 +25,10 @@
 	    creator.getDomFile(siteRootPath + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
 	    creator.getJsonFile(siteRootPath + 'ddt-regular/json/induction.json');          // ファイルのデータをjsonを用いて持ってくる
 	    creator.getDomFile(siteRootPath + 'ddt-regular/template/induction.html');          // 共通パーツのDOMを取得する。
+
+	    //ヘッダータグの内容を書き換える
+	    creator.createTag(creator.json.head, $(HEAD_TAG));
+
 	    //ページのメインコンテンツ領域を作る
 	    creator.outputTag('inductionContentArea', 'pageContentArea', '#main');
 	    //recruitのサイドメニューを作る

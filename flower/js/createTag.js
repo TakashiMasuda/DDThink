@@ -126,9 +126,13 @@ function createTag(){
 		//JSONの先頭のキーの連想配列と、DOMの先頭を取得する。
 		mapNode = this.filteredMap == null?this.getMapNode(key):this.filteredMap[key];			//マップの先頭を取得する。
 		domNode = this.getDomNode(domNodeName);	//DOMの先頭を取得する。
-
+		console.log(key);
+//		console.log(mapNode);
+//		console.log(domNode);
+//		console.log(this.dom);
 		// createTagでキーに対応したHTMLのパーツを作成し、変数tagに格納する。
 		var tag = this.createTag(mapNode, domNode);
+		console.log("createTagSuccerss");
 		// パーツの作成に成功したならば
 		if(tag != null){
 			commonFuncs.addSiteRootPath($(IMG_TAG, tag) , ATTR_SRC);
@@ -168,11 +172,13 @@ function createTag(){
 			//処理を終える。
 			return null;
 		}
-				
+		console.log(curDomNode);
+
 		//連想配列に子がいる限りループする。
 		for(key in curMapNode){
 			var mapNode = curMapNode[key];	//mapNodeの内容をcurMapNode内のmapNodeの参照に切り替える。
 			var attribute = false;				//属性値を格納する変数
+			console.log(key);
 			
 			//キーがtextであれば
 			if(key == 'text'){

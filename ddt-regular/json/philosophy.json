@@ -1,4 +1,17 @@
 {
+	"head" : {
+	    "headPageTitlePrivate":{
+	        "text":"DDThink - 株式会社デジタルデザインシンク | 企業理念"
+	    },
+	    "seoKeyWordPrivate":{
+	        "name":"keyword",
+	        "content":"新宿,デジタルデザインシンク,企業理念,	"
+	    },
+	    "seoDescriptionPrivate":{
+	        "name":"description",
+	        "content":"株式会社デジタルデザインシンクの企業理念をご紹介します。"
+	    }
+    },
     "philosophyParagraph1":{
         "articlehead2":{
             "articleH3":{
