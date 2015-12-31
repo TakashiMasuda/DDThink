@@ -7,16 +7,28 @@
 
 	//HTML配置終了後の処理
 	$(document).ready(function() {
-		//popstateイベントを感知したら
-		window.onpopstate= function(event) {
-			//popstateに履歴が入っていたら
-			if (window.history.state){
-				//履歴からURLを取得する
-				var url = window.history.state;
-				//画面遷移を行う
-				pagemove(event, url);
-			}
-		};
+
+		//popStateに変動があれば
+	    $(window).on("popstate",function(event){
+	        //初回アクセスであれば何もしない。
+	    	if (!event.originalEvent.state){
+	    		return; // 処理を終える。
+	    	}
+	    	
+	        var url = event.originalEvent.state; 	//stateオブジェクトを取得する。
+	        //サイトルートパスを書き換えるので予め抜いておく
+	        url = url.replace(/\.\.\/|\.\//g, EMPTY_STRING);
+
+	        //URLをバラす
+	        var pathArray = url.split(SLASH);
+	        //サイトルートを計算して更新する
+	        siteRootPath = pControl.calcSiteRootDirectory(pathArray.length);
+	        console.log(siteRootPath);
+	        console.log(url);
+	        //履歴からページを読み込む。
+			pagemove(event, siteRootPath + url, true);
+	  });
+		
 		
 		//画面遷移用のボタンをクリックした時のイベントコールバック
 		$(document).on(EVENT_CLICK, ANCHOR_TAG, function(event) {

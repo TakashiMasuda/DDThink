@@ -131,7 +131,13 @@ FOOTER_TAG					= 'footer';
 SELECTOR_SITEROOT_PATH		= '#siteRootPath';
 //ヘッダータグ
 HEADER_TAG					= 'header';
-HEADER_FOOTER_IMG		= 'header img, footer img';
+HEADER_FOOTER_IMG			= 'header img, footer img';
 //ヘッダー、フッター内のaタグ、imgタグ
-HEADER_FOOTER_ANCHOR	= 'header a, footer a';
+HEADER_FOOTER_ANCHOR		= 'header a, footer a';
 SELECTOR_SERVICE_SIDEMENU_BUTTON = 'nav.sidemenu.serviceSidemenu li a';
+//#
+SHARP						= '#';
+//カレントのディレクトリ
+CURRENT_DIRECTORY		= './';
+//ひとつ上のディレクトリ
+PREV_DIRECTORY			= '../';

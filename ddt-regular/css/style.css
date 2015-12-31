@@ -488,6 +488,16 @@ header h3 {
 	color: #800000;			/* フォントの色をmaroon(ダークレッド系)にする */
 	width: auto;		/* 幅を自動調整する */
 }
+/* 大ロゴ */
+.biglogo-substitute {
+	font-family:Impact, 'メイリオ', 'ＭＳ Ｐゴシック'; 
+	font-size: 28px; 
+	color: #800000; 
+	display: block; 
+	float:left; 
+	margin:-2px 2px 0 0;
+}
+
 span.footerlogo{
 	font-size: 24px;	/* フォントのサイズを24pxに指定 */
 	font-family: Impact, "メイリオ", "ＭＳ Ｐゴシック";	/* フォントをImpactに指定 */
@@ -609,7 +619,7 @@ header #navigationbg{
 #footerbg{
 	background-color: rgba(105, 105, 105,0.5);			/* 背景色を透過した紫にする */
 	position: absolute;	/* 絶対位置で配置 */
-	height: 275px;		/* フッターと同じ程度の高さを指定する */
+	height: 258px;		/* フッターと同じ程度の高さを指定する */
 	width: 100%;	/* 画面の端から端まで帯を伸ばす */
 	left: 0;		/* 画面左端から描画する */
 	z-index: 1;		/* 他の操作の邪魔をしないように後ろにどける */

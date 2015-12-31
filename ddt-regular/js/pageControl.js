@@ -13,7 +13,8 @@
  */
 function pageControl() {
 
-	this.siteRootPath = EMPTY_STRING;	//カレントディレクトリからサイトルートへのパス
+	this.siteRootPath 	= EMPTY_STRING;		//カレントディレクトリからサイトルートへのパス
+	this.currentUrl		= location.href;	//カレントのURL
 	
 	/* 
 	 * 関数名:callPage
@@ -69,5 +70,37 @@ function pageControl() {
 	this.addPushState = function (url, arg) {
 		//pushStateに履歴を追加する
 		history.pushState(url, arg, url);
+		this.currentUrl = url;	//カレントのURLを更新する(相対パス)
 	}
+
+	/* 
+	 * 関数名:calcSiteRootDirectory
+	 * 概要  :パスの構成要素数からサイトルートパスの文字列を割り出し返す
+	 * 引数  :int pathLength: パスの構成要素数
+	 * 返却値:String : サイトルートパスの文字列
+	 * 作成日　:2016.0104
+	 * 作成者　:T.Masuda
+	 */
+    this.calcSiteRootDirectory = function(pathLength) {
+    	var retPath = EMPTY_STRING;	//返却用の変数を用意する
+    	console.log(pathLength);
+        //カレントディレクトリがサイトルートであれば
+        if(pathLength == 1) {
+        	retPath = CURRENT_DIRECTORY;	//サイトルートパスを現在の階層で更新する
+        //ルートよりネストしていたら
+        } else {
+        	//ネストしている数 - 2を割り出す
+        	var nestNum = pathLength - 2;
+        	var newSiteRoot = PREV_DIRECTORY;	//新たなサイトルートパスを作るための変数を用意する
+        	
+        	//走査を行う
+        	for (var i = 0; i < nestNum; i++) {
+        		newSiteRoot += PREV_DIRECTORY;	//ネストしている分だけディレクトリを上がっていく文字列を増やす
+        	}
+        	
+        	retPath = newSiteRoot;	//サイトルートを更新する
+        }
+        
+        return retPath;		//算出したサイトルートパスを返す
+    }
 }
