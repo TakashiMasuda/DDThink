@@ -11,26 +11,7 @@
 <div id="main" class="body">
 <!-- 子ページ用のコンテンツ内メニュー -->
 <!-- 編集可能領域を編集不可にする記述。これを消すことで再びテンプレートで作成されたページのこの編集可能領域を編集できるようになる -->
-
-<nav class="sidemenu">
-  <!-- リストの外枠 -->
-  <ul id="sidemenulist">
-    <!-- Recruitカテゴリーを指す -->
-    <li>Recruit</li>
-    <!-- 募集要項ページへのリンク -->
-    <li><a href="ddt-regular/gideline.html">募集要項</a></li>
-    <!-- 企業理念ページへのリンク -->
-    <li><a href="ddt-regular/recruitphilosophy.html">企業理念</a></li>
-    <!-- 研修制度ページへのリンク -->
-    <li><a href="ddt-regular/induction.html">研修制度</a></li>
-    <!-- 福利厚生ページへのリンク -->
-    <li><a href="ddt-regular/welfare.html">福利厚生</a></li>
-    <!-- 社員&研修生の声ページへのリンク -->
-    <li><a href="ddt-regular/voice.html">社員の声</a></li>
-    <!-- 申し込みフォームページへのリンク -->
-    <li><a href="ddt-regular/entry.html">応募</a></li>
-    <!-- リストを閉じる -->
-  </ul>
+<nav class="sidemenu recruitSideMenu">
 <!-- コンテンツ内メニューを閉じる -->
 </nav>
 <!-- InstanceBeginEditable name="maincontents" -->
@@ -38,26 +19,10 @@
 <div id="maincontents">
 <!-- 研修制度の記事を開始 -->
 <article id="onlyimg-content">
-<!-- レスポンシブレイアウトにおけるsuccess(mini).gifの表示のためのdivタグ -->
-<div id="responsivehead">
-<!-- ページの大見出し -->
-<div class="articlehead">
-<!-- 大見出しのテキスト部 -->
-<h3>福利厚生</h3>
-<!-- 大見出し終了 -->
-</div>
-<!-- 研修生募集画像 -->
-<a href="ddt-regular/induction.html"><img id="successmini" src="ddt-regular/img/success(mini).gif"></a>
-<!-- レスポンシブレイアウト用見出しdivを終える -->
-</div>
 <!-- メインコンテンツ画像 -->
 <!-- <img id="mainimg" src="ddt-regular/img/training(method-w600).gif"> -->
 </article>
 <!-- メインコンテンツ記述終了 -->
-</div>
-<!-- InstanceEndEditable -->
-<div id="success" class="sidemenu">
-<a href="ddt-regular/induction.html"><img src="ddt-regular/img/success.gif" alt=""></a>
 </div>
 
 <!-- コンテンツ記述を終える -->
@@ -66,12 +31,18 @@
 <script>
     //createTagクラスのインスタンスを生成する
     var creator = new createTag();
-    creator.getJsonFile('ddt-regular/json/welfare.json');          // ファイルのデータをjsonを用いて持ってくる
-    creator.getDomFile('ddt-regular/template/common.html');          // 共通パーツのDOMを取得する。
+    creator.getJsonFile('ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
+    creator.getDomFile('ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
+    creator.getJsonFile('ddt-regular/json/welfare.json');          // 共通パーツのDOMを取得する。
     creator.getDomFile('ddt-regular/template/welfare.html');          // 共通パーツのDOMを取得する。
+    //recruitのサイドメニューを作る
+    creator.outputTag('recruitSideMenu', 'sidemenulist', '.recruitSideMenu');
+    //ページのサブタイトル部分を作る
+    creator.outputTag('pageSubtitle', 'pageSubtitle', '#onlyimg-content');
+    //ページのサブタイトルを設定する
+    $('.subtitleText').text('福利厚生');
     //コンテンツの外枠を作る
     creator.outputTag('guidlineContentOutline', 'guidlineContentOutline', '#onlyimg-content');
-
     //研修制度説明部分のタイトル部分を作る
     creator.outputTag('welfare', 'guidelineContent', '.guidlineContentOutline');
     //研修制度説明部分コンテントテーブルを作る
@@ -81,6 +52,9 @@
     creator.outputTag('birthLink', 'link', '.linkToBirth');
     //ベネフィット・ワンのリンクを作る
     creator.outputTag('benefitOneLink', 'link', '.linkToBenefit');
+
+    //研修制度リンク(PC版)領域を作る
+    creator.outputTag('inductionPcLinkArea', 'inductionPcLinkArea', '#main');
 
     //リンクをクリックしたときにページ遷移するようにする
     $('.link').on('click', function() {

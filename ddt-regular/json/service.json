@@ -1,0 +1,27 @@
+{
+    "serviceSection":{
+        "serviceBaseImg":{
+            "id":"servicebg",
+            "src":"ddt-regular/img/service.gif"
+        },
+        "imgPillar":{
+            "id":"prop",
+            "src":"ddt-regular/img/blank.png"
+        },
+        "developmentContent":{
+            "class":"servicebutton",
+            "src":"ddt-regular/img/clearbutton.png",
+            "id":"i0"
+        },
+        "developmentSkill":{
+            "class":"servicebutton",
+            "src":"ddt-regular/img/clearbutton.png",
+            "id":"i1"
+        },
+        "Achievement":{
+            "class":"servicebutton",
+            "src":"ddt-regular/img/clearbutton.png",
+            "id":"i2"
+        }
+    }
+}

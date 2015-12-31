@@ -62,5 +62,87 @@
                 "src":"ddt-regular/img/success.gif"
             }
         }
+    },
+    "serviceSideMenu":{
+        "id":"sidemenulist",
+        "class":"sidemenulist",
+        "listHead":{
+            "text":"Service"
+        },
+        "listCopyTarget":[
+            {
+                "id":"i0side",
+                "class":"servicesidebutton",
+                "text": "開発内容"
+            },
+            {
+                "id":"i1side",
+                "class":"servicesidebutton",
+                "text": "開発スキル"
+            },
+            {
+                "id":"i2side",
+                "class":"servicesidebutton",
+                "text": "開発実績"
+            }
+        ]
+    },
+    "recruitSideMenu":{
+        "id":"sidemenulist",
+        "class":"sidemenulist",
+        "listHead":{
+            "text":"Recruit"
+        },
+        "listCopyTarget":[
+            {
+                "href":"ddt-regular/gideline.html",
+                "text": "募集要項"
+            },
+            {
+                "href":"ddt-regular/recruitphilosophy.html",
+                "text": "企業理念"
+            },
+            {
+                "href":"ddt-regular/induction.html",
+                "text": "研修制度"
+            },
+            {
+                "href":"ddt-regular/welfare.html",
+                "text": "福利厚生"
+            },
+            {
+                "href":"ddt-regular/voice.html",
+                "text": "社員の声"
+            },
+            {
+                "href":"ddt-regular/entry.html",
+                "text": "応募"
+            }
+        ]
+    },
+    "pageSubtitle":{
+        "id":"responsivehead",
+        "articlehead":{
+            "subtitleText":{
+                "text":""
+            }
+        },
+        "inductionLink":{
+            "href":"ddt-regular/induction.html",
+            "inductionLinkImg":{
+                "id":"successmini",
+                "src":"ddt-regular/img/success(mini).gif"
+            }
+        }
+    },
+    "inductionPcLinkArea":{
+        "class":"sidemenu",
+        "id":"success",
+        "inductionPcLink":{
+            "href":"ddt-regular/induction.html",
+            "inductionPcImg":{
+                "src":"ddt-regular/img/success.gif"
+            }
+        }
     }
 }

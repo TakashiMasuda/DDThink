@@ -12,10 +12,8 @@
 <nav class="sidemenu profileSidemenu"></nav>
 <!-- InstanceBeginEditable name="maincontents" -->
 <div id="maincontents">
-<!-- Accessページのコンテンツを開始 -->
-<article id="access">
-
-</article>
+    <!-- Accessページのコンテンツを開始 -->
+    <article id="access"></article>
 </div>
 
 <!-- コンテンツ記述を終える -->
@@ -35,6 +33,7 @@
     creator.outputTag('pageSubtitle', 'pageSubtitle', '#access');
     //ページのサブタイトルを設定する
     $('.subtitleText').text('アクセス');
+    $('#sidemenulist li:contains("アクセス")').addClass('selected');
 
     //新宿本社アクセス内容部分を作る
     creator.outputTag('sinjukuAccess', 'accessInfo', '#access');
