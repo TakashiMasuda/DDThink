@@ -35,25 +35,17 @@ $(function() {							//jQueryを開始
 		//onクラスを外してプル団メニューを消す
 		$(WILDCARD, this).removeClass('on');
 	});
-	
-	//サイドメニューのボタンへマウスポインタを重ねたときのボタンの色を変化させる処理
-	$(document)	//サイドメニューに対し
-	.on('mouseenter', SELECTOR_SIDEMENU_BUTTON, function(e){	//ボタンの部分にマウスポインタを重ねたら
-	})
-	.on(EVENT_CLICK, SELECTOR_SIDEMENU_BUTTON, function(e) {				//ボタンをクリックしたら
-		$('li').removeClass('selected');	//selectedクラスを全てのアンカータグから外し
-		$(this).addClass('selected');		//クリックしたボタンにselectedクラスを追加してボタンの色を変える
-	});
-	
+		
 	//Ajax通信を利用してXMLからデータを引き出しプルダウンメニューを生成する
 	$.ajax({	//Ajax通信でXMLからデータを取り出して処理する
-   		url: SITE_ROOT_DIRECTORY + PATH_PULLDOWNMENU_XML,	//pulldownmenu.xmlを読み込む
+   		url: siteRootPath + PATH_PULLDOWNMENU_XML,	//pulldownmenu.xmlを読み込む
         type:'get',					//XMLからデータを取得する
         dataType:'xml',  			//XMLデータを扱う
+        async : false,				//同期通信を行う
 		cache : false,				//通信結果をキャッシュしない
         timeout:1000, 				//1000ミリ秒以内に通信が成立しなければ通信を切る
   		error: function(){			//通信に失敗した場合の処理を設定
-       	 console.log('Error loading XML document');	/* XMLの取得に失敗したということをコンソールに出力 */
+       	 //console.log('Error loading XML document');	/* XMLの取得に失敗したということをコンソールに出力 */
     	},
 	    success: function(xml){	//通信に成功した場合の処理を設定
 			//トップメニュー直下のulタグに対するセレクタを指定したjQueryオブジェクトを変数topmenuに格納
@@ -72,7 +64,7 @@ $(function() {							//jQueryを開始
 						$(':nth-child(' + counter + ') > ul', topmenu)	//対象となるプルダウンメニューに対し
 						.append($('<li></li>')							//ボタンとなるliタグを追加
 							.append($('<a></a>')							//更にアンカータグを入れて
-							.attr('href', SITE_ROOT_DIRECTORY + $('url', elem).text())	//urlを設定し
+							.attr('href', siteRootPath + $('url', elem).text())	//urlを設定し
 							.append($('content', this).text())				//ボタンのテキストを挿入してボタンが完成する
 						));
 					})

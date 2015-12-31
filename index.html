@@ -19,50 +19,51 @@
 <!-- jQueryの本体ファイルを読み込む -->
 <script src="http://localhost/DDThinkHP/ddt-regular/js/jquery-1.11.0.min.js"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/constants.js" charset="utf-8"></script>
-<!-- JSONとHTMLテンプレートから画面パーツを作るクラスのファイル -->
-<script type="text/javascript" src="flower/js/createTag.js"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/global.js" charset="utf-8"></script>
 <!--[if lt IE 9]><script src="http://localhost/DDThinkHP/ddt-regular/js/html5shiv.js"></script><![endif]-->
 </head>
 <!-- コンテンツを表示する領域 -->
 <body id="base">
-    <!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
-    <div id="main" class="base"><!-- InstanceBeginEditable name="Main" --><!-- articleタグでトップ画像と提供サービスのリンク付き画像をマークアップ -->
-        <article id="index">
-            <img id="prop" src="ddt-regular/img/blank.png">
-            <img id="backgroundgif" class="switch" src="">
-        <a href="ddt-regular/induction.html"><img id="longtermtraining" src="ddt-regular/img/long-termTraining.gif"></a>
-        <a href="ddt-regular/voice.html"><img id="thevoice"src="ddt-regular/img/theVoice.gif"></a>
-    <!-- 画像サイズ変更スクリプト -->
-    <script>
-    // 各要素ロード後
-    $(document).ready(function() {
-    	//初期化処理を行う
-    	init(KEY_DEFAULT);
-    	
-    	//ウィンドウのサイズを取得する
-    	var windowSize = $(window).width();
-    	if(windowSize >= 950) {	//画面サイズがPCサイズなら
-    		//風船画像を最大のものにする
-    		$('#backgroundgif').attr('src', 'ddt-regular/img/balloon(w950).gif');
-    	//タブレットサイズなら
-    	} else if(windowSize < 950 && windowSize >= 768){
-    		//タブレットに合うサイズにする
-    	  	$('#backgroundgif').attr('src', 'ddt-regular/img/balloon(w600).gif');
-    	//スマホサイズなら
-    	} else {
-    		//スマホに合うサイズの画像にする
-    		$('#backgroundgif').attr('src', 'ddt-regular/img/balloon(w320).gif');
-    	}
-    	
-    	//画像伸縮のスクリプトを読み込む
-    	loadScriptFile('imagemove', STR_TRUE);
-    });
+<div id="container">
+<!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
+<div id="main" class="base"><!-- InstanceBeginEditable name="Main" --><!-- articleタグでトップ画像と提供サービスのリンク付き画像をマークアップ -->
+<article id="index">
+<img id="prop" src="ddt-regular/img/blank.png">
+<img id="backgroundgif" class="switch" src="">
+<a href="ddt-regular/induction.html"><img id="longtermtraining" src="ddt-regular/img/long-termTraining.gif"></a>
+<a href="ddt-regular/voice.html"><img id="thevoice"src="ddt-regular/img/theVoice.gif"></a>
+<!-- 画像サイズ変更スクリプト -->
+	<script>
+		// 各要素ロード後
+		$(document).ready(function() {
+			updateSiteRootPath();	//各ファイルロードの前準備としてサイトルートパスを更新する
+
+			//初期化処理を行う
+			init(KEY_DEFAULT);
+			
+			//ウィンドウのサイズを取得する
+			var windowSize = $(window).width();
+			if(windowSize >= 950) {	//画面サイズがPCサイズなら
+				//風船画像を最大のものにする
+				$('#backgroundgif').attr('src', 'ddt-regular/img/balloon(w950).gif');
+			//タブレットサイズなら
+			} else if(windowSize < 950 && windowSize >= 768){
+				//タブレットに合うサイズにする
+			  	$('#backgroundgif').attr('src', 'ddt-regular/img/balloon(w600).gif');
+			//スマホサイズなら
+			} else {
+				//スマホに合うサイズの画像にする
+				$('#backgroundgif').attr('src', 'ddt-regular/img/balloon(w320).gif');
+			}
+		});
 
     </script>
     </article><!-- InstanceEndEditable -->
+    <!-- サイトルートパスを指し示す要素 -->
+    <span id = "siteRootPath" href = "./"></span>
     <!-- コンテンツ記述を終える -->
     </div>
+</div>
 <!-- bodyタグを閉じる -->
 </body>
 <!-- InstanceEnd -->

@@ -131,6 +131,9 @@ function createTag(){
 		var tag = this.createTag(mapNode, domNode);
 		// パーツの作成に成功したならば
 		if(tag != null){
+			commonFuncs.addSiteRootPath($(IMG_TAG, tag) , ATTR_SRC);
+			commonFuncs.addSiteRootPath($(ANCHOR_TAG, tag) , ATTR_HREF);
+			commonFuncs.addSiteRootPath($(FORM_TAG, tag) , ATTR_ACTION);
 			//@mod 2015.03.10 T.Masuda 第三引数appendToに対応しました。
 			//appendToが入力されていれば
 			if(appendTo != null){

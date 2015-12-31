@@ -1,4 +1,4 @@
-﻿<!-- HTMLによるコード -->
+<!-- HTMLによるコード -->
 <!doctype html>
 <!-- 最も外のタグ -->
 <html>
@@ -24,21 +24,22 @@
 </head>
 <!-- コンテンツを表示する領域 -->
 <body id="base">
-
+<div id="container">
 <!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
 <div id="main">
 
 <script>
 	//ドキュメント読み込み後
 	$(document).ready(function(){
+		updateSiteRootPath();	//各ファイルロードの前準備としてサイトルートパスを更新する
 		//初期化処理を行う
 		init(KEY_DEFAULT);
         //createTagクラスのインスタンスを生成する
         var creator = new createTag();
-        creator.getJsonFile(SITE_ROOT_DIRECTORY + 'ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
-        creator.getDomFile(SITE_ROOT_DIRECTORY + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
-        creator.getJsonFile(SITE_ROOT_DIRECTORY + 'ddt-regular/json/access.json');          // 個別パーツのjsonを取得する。
-        creator.getDomFile(SITE_ROOT_DIRECTORY + 'ddt-regular/template/access.html');       // 個別パーツのDOMを取得する。
+        creator.getJsonFile(siteRootPath + 'ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
+        creator.getDomFile(siteRootPath + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
+        creator.getJsonFile(siteRootPath + 'ddt-regular/json/access.json');          // 個別パーツのjsonを取得する。
+        creator.getDomFile(siteRootPath + 'ddt-regular/template/access.html');       // 個別パーツのDOMを取得する。
 
         //ページのメインコンテンツ領域を作る
         creator.outputTag('accessContentArea', 'pageContentArea', '#main');
@@ -62,12 +63,13 @@
 
         //研修制度リンク(PC版)領域を作る
         creator.outputTag('inductionPcLinkArea', 'inductionPcLinkArea', '#main');
-
 	});
 </script>
+<!-- サイトルートパスを指し示す要素 -->
+<span id = "siteRootPath" href = "../"></span>
 <!-- コンテンツ記述を終える -->
 </div>
-
+</div>
 <!-- bodyタグを閉じる -->
 </body>
 <!-- InstanceEnd -->

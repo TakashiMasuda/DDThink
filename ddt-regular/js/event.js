@@ -20,14 +20,24 @@
 		
 		//画面遷移用のボタンをクリックした時のイベントコールバック
 		$(document).on(EVENT_CLICK, ANCHOR_TAG, function(event) {
-			console.log("clicked");
-			//画面遷移をキャンセルする
-			event.preventDefault();
 			//URLを取り出す
 			var url = $(this).attr(ATTR_HREF);
+			//外部リンクなら
+			if(url !== void(0)
+					&& (url.indexOf(HTTP) != -1 
+					|| url.indexOf(HTTPS) != -1)) {
+				return;	//ここで処理を終えてそのまま外部リンクを開く
+			}
+			
+			//画面遷移をキャンセルする
+			event.preventDefault();
 			//画面遷移を行う
 			pagemove(event, url);
-			//pushStateに履歴を追加する
-			pControl.addPushState(url, EMPTY_STRING);
 		});
 	});
+
+	//サイドメニューのボタンへマウスポインタを重ねたときのボタンの色を変化させる処理
+	$(document)	//サイドメニューに対し
+	.on('mouseenter', SELECTOR_SIDEMENU_BUTTON, function(e){	//ボタンの部分にマウスポインタを重ねたら
+	});
+	

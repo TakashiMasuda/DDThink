@@ -752,6 +752,12 @@
 	.mid-career, .work, .money {
 	    margin-top: 25px;
 	}
+	
+	/* フッター裏の帯に対するスタイルシート */
+	#footerbg{
+		height: 350px;		/* スマホレイアウト用の高さを設定する */
+	}
+	
 		@media(max-width:620px){
 			/* 
 			 * セレクタ:.guidlineContentOutline

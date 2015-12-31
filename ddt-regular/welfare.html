@@ -1,4 +1,4 @@
-﻿<!-- HTMLによるコード -->
+<!-- HTMLによるコード -->
 <!doctype html>
 <!-- 最も外のタグ -->
 <html>
@@ -24,75 +24,80 @@
 </head>
 <!-- コンテンツを表示する領域 -->
 <body id="base">
+<div id="container">
 <!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
 <div id="main">
 
 <script>
 	//ドキュメント読み込み後
 	$(document).ready(function(){
+		updateSiteRootPath();	//各ファイルロードの前準備としてサイトルートパスを更新する
 		//初期化処理を行う
 		init(KEY_DEFAULT);
 		
-    //createTagクラスのインスタンスを生成する
-    var creator = new createTag();
-    creator.getJsonFile(SITE_ROOT_DIRECTORY + 'ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
-    creator.getDomFile(SITE_ROOT_DIRECTORY + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
-    creator.getJsonFile(SITE_ROOT_DIRECTORY + 'ddt-regular/json/welfare.json');          // 共通パーツのDOMを取得する。
-    creator.getDomFile(SITE_ROOT_DIRECTORY + 'ddt-regular/template/welfare.html');          // 共通パーツのDOMを取得する。
-    //ページのメインコンテンツ領域を作る
-    creator.outputTag('welfareContentArea', 'pageContentArea', '#main');
-    //recruitのサイドメニューを作る
-    creator.outputTag('recruitSideMenu', 'sidemenulist', '.recruitSideMenu');
-    //ページのサブタイトル部分を作る
-    creator.outputTag('pageSubtitle', 'pageSubtitle', '#onlyimg-content');
-    //ページのサブタイトルを設定する
-    $('.subtitleText').text('福利厚生');
-    //コンテンツの外枠を作る
-    creator.outputTag('guidlineContentOutline', 'guidlineContentOutline', '#onlyimg-content');
-    //研修制度説明部分のタイトル部分を作る
-    creator.outputTag('welfare', 'guidelineContent', '.guidlineContentOutline');
-    //研修制度説明部分コンテントテーブルを作る
-    creator.outputTag('welfareTable', 'welfareTable', '.guidelineContent');
-
-    //出産育児一時金のリンクを作る
-    creator.outputTag('birthLink', 'link', '.linkToBirth');
-    //ベネフィット・ワンのリンクを作る
-    creator.outputTag('benefitOneLink', 'link', '.linkToBenefit');
-
-    //研修制度リンク(PC版)領域を作る
-    creator.outputTag('inductionPcLinkArea', 'inductionPcLinkArea', '#main');
-
-    //リンクをクリックしたときにページ遷移するようにする
-    $('.link').on('click', function() {
-        //リンクのURLを取得する
-        var url = $(this).attr('href');
-        //別タブでリンクを開く
-        window.open(url, '_blank');
-    });
-    //fantasyフォントがないブラウザではフォントを調節する
-    commonFuncs.fontAdjustment();
+	    //createTagクラスのインスタンスを生成する
+	    var creator = new createTag();
+	    creator.getJsonFile(siteRootPath + 'ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
+	    creator.getDomFile(siteRootPath + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
+	    creator.getJsonFile(siteRootPath + 'ddt-regular/json/welfare.json');          // 共通パーツのDOMを取得する。
+	    creator.getDomFile(siteRootPath + 'ddt-regular/template/welfare.html');          // 共通パーツのDOMを取得する。
+	    //ページのメインコンテンツ領域を作る
+	    creator.outputTag('welfareContentArea', 'pageContentArea', '#main');
+	    //recruitのサイドメニューを作る
+	    creator.outputTag('recruitSideMenu', 'sidemenulist', '.recruitSideMenu');
+	    //ページのサブタイトル部分を作る
+	    creator.outputTag('pageSubtitle', 'pageSubtitle', '#onlyimg-content');
+	    //ページのサブタイトルを設定する
+	    $('.subtitleText').text('福利厚生');
+	    //コンテンツの外枠を作る
+	    creator.outputTag('guidlineContentOutline', 'guidlineContentOutline', '#onlyimg-content');
+	    //研修制度説明部分のタイトル部分を作る
+	    creator.outputTag('welfare', 'guidelineContent', '.guidlineContentOutline');
+	    //研修制度説明部分コンテントテーブルを作る
+	    creator.outputTag('welfareTable', 'welfareTable', '.guidelineContent');
 	
-	    //URLハッシュに応じてスクロールする
-	    var hash = location.hash;   //URLからハッシュ部分を取得する
-	    
-	    //研修制度ページのハッシュが含まれていれば
-	    if (hash.indexOf('recruit_welfare') != -1) {
-	        //スクロール位置の変数を用意する
-	        var scrollTo = 0;
-	        //スクロール位置の補正値
-	        var scrollFix = -150;
-	        
-	        //研修の流れについて項目であれば
-	        if (hash.indexOf('welfare') != -1) {
-	            //その座標を取得する
-	            scrollTo = $('.guidelineContent.welfare').offset().top;
-	        }
-	    //スクロールを行う
-	     $('html, body').animate({ scrollTop : scrollTo + scrollFix}, 0);       
-	    }
+	    //出産育児一時金のリンクを作る
+	    creator.outputTag('birthLink', 'link', '.linkToBirth');
+	    //ベネフィット・ワンのリンクを作る
+	    creator.outputTag('benefitOneLink', 'link', '.linkToBenefit');
+	
+	    //研修制度リンク(PC版)領域を作る
+	    creator.outputTag('inductionPcLinkArea', 'inductionPcLinkArea', '#main');
+	
+	    //リンクをクリックしたときにページ遷移するようにする
+	    $('.link').on('click', function() {
+	        //リンクのURLを取得する
+	        var url = $(this).attr('href');
+	        //別タブでリンクを開く
+	        window.open(url, '_blank');
+	    });
+	    //fantasyフォントがないブラウザではフォントを調節する
+	    commonFuncs.fontAdjustment();
+		
+		    //URLハッシュに応じてスクロールする
+		    var hash = location.hash;   //URLからハッシュ部分を取得する
+		    
+		    //研修制度ページのハッシュが含まれていれば
+		    if (hash.indexOf('recruit_welfare') != -1) {
+		        //スクロール位置の変数を用意する
+		        var scrollTo = 0;
+		        //スクロール位置の補正値
+		        var scrollFix = -150;
+		        
+		        //研修の流れについて項目であれば
+		        if (hash.indexOf('welfare') != -1) {
+		            //その座標を取得する
+		            scrollTo = $('.guidelineContent.welfare').offset().top;
+		        }
+		    //スクロールを行う
+		     $('html, body').animate({ scrollTop : scrollTo + scrollFix}, 0);       
+		 }
 	});
 </script>
+<!-- サイトルートパスを指し示す要素 -->
+<span id = "siteRootPath" href = "../"></span>
 <!-- コンテンツ記述を終える -->
+</div>
 </div>
 <!-- bodyタグを閉じる -->
 </body>
