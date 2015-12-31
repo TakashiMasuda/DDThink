@@ -6,9 +6,7 @@
  */
 
 //読み込んだ事があるスクリプトファイルのリスト。当該ファイルの必須ファイル分は最初から用意しておく
-var loadedScriptFile = {"global" : STR_TRUE, "constants" : STR_TRUE, "jquery-1.11.0.min" : STR_TRUE};
-//当該スクリプトファイルを読み込んだ時点で読み込まれている最低限のスクリプト数(条件つき読み込みのスクリプトは除外する)
-var initLoadedScriptNum = Object.keys(loadedScriptFile).length;
+var loadedScriptFile = {};
 //読み込んだ事があるCSSファイルのリスト
 var loadedCSSFile = {};
 //ページ独自の初期化後処理
@@ -248,7 +246,7 @@ function isInit() {
 	var nowScriptNum = Object.keys(loadedScriptFile).length;
 	
 	//初回処理でのスクリプトの読み込みを判定のキーとする
-	return nowScriptNum == initLoadedScriptNum;
+	return nowScriptNum == 0;
 }
 
 /* 
