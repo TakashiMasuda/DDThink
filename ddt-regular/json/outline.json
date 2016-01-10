@@ -1,4 +1,17 @@
 {
+    "outlineContentArea":{
+        "id":"main",
+        "class":"profiletable",
+        "pageSideMenu":{
+            "class":"sidemenu profileSidemenu"
+        },
+        "maincontents":{
+            "id":"maincontents",
+            "pageArticle":{
+                "id":"outline"
+            }
+        }
+    },
     "twotonetable":{
         "border":"1",
         "outlineRecord1":{
@@ -97,6 +110,9 @@
                 "text":"TEL 042-759-7312　FAX 042-759-7313<"
             }
         }
+    },
+    "outlineSubtitle":{
+        "text":"会社概要"
     },
     "enlargeable":{
         "id":"enlargeableimg",

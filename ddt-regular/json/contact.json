@@ -4,17 +4,18 @@
             "html": "<span class='text-red'>*</span>は必須入力項目です。"
         }
     },
-    "form": {
+    "contactForm": {
+        "class":"form",
         "action": "ddt-regular/postmail/postmail.cgi",
         "method": "post",
         "value":"1",
+        "hiddenData":{
+            "type":"hidden",
+            "name":"subject",
+            "size":"20",
+            "value":"1"
+        },
         "entryFormContent": {
-            "hiddenData":{
-                "type":"hidden",
-                "name":"subject",
-                "size":"20",
-                "value":"1"
-            },
             "nameHead": {
                 "name": {
                     "class": "formcontent",

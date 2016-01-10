@@ -4,8 +4,13 @@
 <!-- テンプレート領域 -->
 <div>
 
+    <!-- コンテンツを置くid="main"のdivタグ -->
+    <div id="" class="main">
+    <!-- コンテンツを置く部分はここまで -->
+    </div>
+
     <!-- 各ページ共通で企業ロゴ画像とナビゲーションバーを置くheaderタグ。各ページに必ず表示することを考慮し、footerタグと同じ"baseinfoクラスを設定" -->
-    <header class="baseinfo">
+    <header class="pageHeader">
         <div id="" class="mottobg">
         </div>
         <div id="" class="toppagemotto">
@@ -38,38 +43,44 @@
 	    </nav>
     </header>
 
-	<!-- ページの共通フッターを領域 -->
-    <div id="" class="footerwrap">
-        <div id="" class="footerleft">
-            <span class="footerlogo"></span>
-            <span class="footercompanyname"></span>
-            <address class="sinjukuAddress">
-	            <span class="basename"></span><br>
-	            <span class="basepostal"></span><br>
-	            <span class="baseaddressinfo"></span><br>
-	            <span class="basetell"></span>
-	            <span class="basefax"></span>
-            </address>
-            <address class="sagamiharaAddress">
-	            <span class="basename"></span><br>
-	            <span class="basepostal"></span><br>
-	            <span class="baseaddressinfo"></span><br>
-	            <span class="basetell"></span>
-	            <span class="basefax"></span>
-	        </address>
-            <span class="baseemail"></span>
-        </div>
-	    <div id="" class="footerright">
-	        <navigation id="" class="contentlinks">
-		        <ul class="contentlinksUl">
-		            <li class="contentlinksLi"><a href=""></a></li>
-		        </ul>
-	        </navigation>
+    <!-- コピーライトの表示をするfooterタグ -->
+    <footer id="" class="pageFooter">
+		<!-- ページの共通フッターを領域 -->
+	    <div id="" class="footerwrap">
+	        <div id="" class="footerleft">
+	            <span class="footerlogo"></span>
+	            <span class="footercompanyname"></span>
+	            <address class="sinjukuAddress">
+		            <span class="basename"></span><br>
+		            <span class="basepostal"></span><br>
+		            <span class="baseaddressinfo"></span><br>
+		            <span class="basetell"></span>
+		            <span class="basefax"></span>
+	            </address>
+	            <address class="sagamiharaAddress">
+		            <span class="basename"></span><br>
+		            <span class="basepostal"></span><br>
+		            <span class="baseaddressinfo"></span><br>
+		            <span class="basetell"></span>
+		            <span class="basefax"></span>
+		        </address>
+	            <span class="baseemail"></span>
+	        </div>
+		    <div id="" class="footerright">
+		        <navigation id="" class="contentlinks">
+			        <ul class="contentlinksUl">
+			            <li class="contentlinksLi"><a href=""></a></li>
+			        </ul>
+		        </navigation>
+		    </div>
+		    <!-- コピーライトの文を書く -->
+		    <br>
+		    <small class="copyright"></small>
+	    <!-- footerタグを閉じる -->
 	    </div>
-	    <!-- コピーライトの文を書く -->
-	    <br>
-	    <small class="copyright"></small>
-    <!-- footerタグを閉じる -->
+	</footer>
+
+    <div id="" class="footerbg">
     </div>
 
 	<!-- 募集要項外側領域-->
@@ -90,6 +101,19 @@
 		</div>
 	</div>
 
+	<!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
+	<div id="" class="pageContentArea">
+	    <!-- 子ページ用のコンテンツ内メニュー -->
+	    <nav class="pageSideMenu"></nav>
+	    <!-- InstanceBeginEditable name="maincontents" -->
+	    <!-- メインコンテンツの記述を開始 -->
+	    <div id="" class="maincontents">
+	      <!-- 会社概要の記事を開始 -->
+	      <article id="" class="pageArticle"></article>
+	    <!-- メインコンテンツ部を終える -->
+	    </div>
+	<!-- コンテンツ記述を終える -->
+	</div>
 
 	<!-- 募集要項テーブル -->
 	<table class="guidelineTable">

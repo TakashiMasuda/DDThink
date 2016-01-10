@@ -6,26 +6,16 @@
 
 <!-- InstanceParam name="contentname" type="text" value="base" -->
 <body id="base">
-<!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
-<div id="main" class="base">
-<!-- 子ページ用のコンテンツ内メニュー -->
-<nav class="sidemenu profileSidemenu"></nav>
-<!-- InstanceBeginEditable name="maincontents" -->
-<!-- メインコンテンツの記述を開始 -->
-<div id="maincontents">
-<!-- フィロソフィーの紹介を開始 -->
-<article id="simplearticle">
-</article>
-</div>
 
-
-<!-- コンテンツ記述を終える -->
-</div>
 <script>
     //createTagクラスのインスタンスを生成する
     var creator = new createTag();
     creator.getJsonFile('ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
+    creator.getJsonFile('ddt-regular/json/profilephilosophy.json');          // 個別パーツのjsonを取得する。
     creator.getDomFile('ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
+
+    //ページのメインコンテンツ領域を作る
+    creator.outputTag('profilephilosophyContentArea', 'pageContentArea', '#main');
 
     //profileのサイドメニューを作る
     creator.outputTag('profileSideMenu', 'sidemenulist', '.profileSidemenu');

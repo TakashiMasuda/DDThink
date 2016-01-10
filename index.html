@@ -46,16 +46,6 @@
     <!-- ウェブサイトの横幅の基準となる -->
     <div id="container">
 
-        <div id="pageHeader"></div>
-        <!-- コンテンツを置くid="main"のdivタグ -->
-        <div id="main">
-        <!-- コンテンツを置く部分はここまで -->
-        </div>
-        <!-- コピーライトの表示をするfooterタグ -->
-        <footer id="footer" class="baseinfo">
-        </footer>
-        <div id="footerbg">
-        </div>
     <!-- idをcontainerに指定したdivタグを閉じる -->
     </div>
     <script>
@@ -67,10 +57,16 @@
             creator.getDomFile('ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
 
             //ページのヘッダーを作る
-            creator.outputTag('baseinfo', 'baseinfo', '#pageHeader');
+            creator.outputTag('pageHeader', 'pageHeader', '#container');
+
+            //ページのメインコンテンツ部分を作る
+            creator.outputTag('main', 'main', '#container');
 
             //ページのフッターを作る
-            creator.outputTag('footerwrap', 'footerwrap', '#footer');
+            creator.outputTag('pageFooter', 'pageFooter', '#container');
+
+            //ページのフッターを作る
+            creator.outputTag('footerbg', 'footerbg', '#container');
 
     		var hash = location.hash;	//URLからハッシュ部分を取得する
     		//募集要項ページのハッシュが含まれていれば

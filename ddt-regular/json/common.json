@@ -1,6 +1,13 @@
 {
-    "baseinfo": {
+    "main":{
+        "id":"main"
+    },
+    "pageHeader": {
         "id": "mottobg",
+        "class":"baseinfo",
+        "mottobg":{
+            "id":"mottobg"
+        },
         "toppagemotto": {
             "id": "toppagemotto",
             "corporationMotto": {
@@ -70,92 +77,99 @@
             }
         }
     },
-    "footerwrap": {
-        "id": "footerwrap",
-        "footerleft": {
-            "id": "footerleft",
-            "footerlogo": {
-                "text": "DDThink"
-            },
-            "footercompanyname": {
-                "text": "株式会社デジタルデザインシンク"
-            },
-            "sinjukuAddress": {
-                "class": "baseaddress",
-                "basename": {
-                    "text": "本社"
+    "pageFooter":{
+        "id":"footer",
+        "class":"baseinfo",
+        "footerwrap": {
+            "id": "footerwrap",
+            "footerleft": {
+                "id": "footerleft",
+                "footerlogo": {
+                    "text": "DDThink"
                 },
-                "basepostal": {
-                    "text": "〒160-0022"
+                "footercompanyname": {
+                    "text": "株式会社デジタルデザインシンク"
                 },
-                "baseaddressinfo": {
-                    "text": "東京都新宿区新宿2-12-4アコード新宿ビル4F"
+                "sinjukuAddress": {
+                    "class": "baseaddress",
+                    "basename": {
+                        "text": "本社"
+                    },
+                    "basepostal": {
+                        "text": "〒160-0022"
+                    },
+                    "baseaddressinfo": {
+                        "text": "東京都新宿区新宿2-12-4アコード新宿ビル4F"
+                    },
+                    "basetell": {
+                        "text": "03-6413-1225"
+                    },
+                    "basefax": {
+                        "text": " fax 03-6413-1226 "
+                    }
                 },
-                "basetell": {
-                    "text": "03-6413-1225"
+                "sagamiharaAddress": {
+                    "class": "baseaddress",
+                    "basename": {
+                        "text": "相模原事業所"
+                    },
+                    "basepostal": {
+                        "text": "〒252-0231"
+                    },
+                    "baseaddressinfo": {
+                        "text": "神奈川県相模原市中央区相模原3-7-1フェリッシュ相模原2F"
+                    },
+                    "basetell": {
+                        "text": "042-759-7312"
+                    },
+                    "basefax": {
+                        "text": " fax 042-759-7313 "
+                    }
                 },
-                "basefax": {
-                    "text": " fax 03-6413-1226 "
+                "baseemail": {
+                    "text": "E-mail info@ddthink.com"
                 }
             },
-            "sagamiharaAddress": {
-                "class": "baseaddress",
-                "basename": {
-                    "text": "相模原事業所"
-                },
-                "basepostal": {
-                    "text": "〒252-0231"
-                },
-                "baseaddressinfo": {
-                    "text": "神奈川県相模原市中央区相模原3-7-1フェリッシュ相模原2F"
-                },
-                "basetell": {
-                    "text": "042-759-7312"
-                },
-                "basefax": {
-                    "text": " fax 042-759-7313 "
+            "footerright": {
+                "id": "footerright",
+                "contentlinks": {
+                    "id": "contentlinks",
+                    "contentlinksUl": {
+                        "contentlinksLi": [{
+                            "href": "ddt-regular/outline.html",
+                            "text": "会社概要"
+                        }, {
+                            "href": "ddt-regular/profilephilosophy.html",
+                            "text": "企業理念"
+                        }, {
+                            "href": "ddt-regular/service.html",
+                            "text": "事業内容"
+                        }, {
+                            "href": "ddt-regular/gideline.html",
+                            "text": "求人情報"
+                        }, {
+                            "href": "ddt-regular/induction.html",
+                            "text": "研修制度"
+                        }, {
+                            "href": "ddt-regular/welfare.html",
+                            "text": "福利厚生"
+                        }, {
+                            "href": "dddt-regular/voice.html",
+                            "html": "社員&amp;研修生の声"
+                        }, {
+                            "href": "ddt-regular/contact.html",
+                            "text": "お問合せ"
+                        }]
+                    }
                 }
             },
-            "baseemail": {
-                "text": "E-mail info@ddthink.com"
+            "copyright": {
+                "html": "Copyright &copy; digital design think corporation All Rights Reserved."
             }
-        },
-        "footerright": {
-            "id": "footerright",
-            "contentlinks": {
-                "id": "contentlinks",
-                "contentlinksUl": {
-                    "contentlinksLi": [{
-                        "href": "ddt-regular/outline.html",
-                        "text": "会社概要"
-                    }, {
-                        "href": "ddt-regular/profilephilosophy.html",
-                        "text": "企業理念"
-                    }, {
-                        "href": "ddt-regular/service.html",
-                        "text": "事業内容"
-                    }, {
-                        "href": "ddt-regular/gideline.html",
-                        "text": "求人情報"
-                    }, {
-                        "href": "ddt-regular/induction.html",
-                        "text": "研修制度"
-                    }, {
-                        "href": "ddt-regular/welfare.html",
-                        "text": "福利厚生"
-                    }, {
-                        "href": "dddt-regular/voice.html",
-                        "html": "社員&amp;研修生の声"
-                    }, {
-                        "href": "ddt-regular/contact.html",
-                        "text": "お問合せ"
-                    }]
-                }
-            }
-        },
-        "copyright": {
-            "html": "Copyright &copy; digital design think corporation All Rights Reserved."
         }
+    },
+    "footerbg":{
+        "id":"footerbg"
     },
     "profileSideMenu": {
         "id": "sidemenulist",
@@ -163,31 +177,33 @@
         "listHead": {
             "text": "Profile"
         },
-        "listCopyTarget": [{
-            "id": "linkoutline",
-            "href": "ddt-regular/outline.html",
-            "text": "会社概要"
-        }, {
-            "id": "linkphilo",
-            "href": "ddt-regular/profilephilosophy.html",
-            "text": "企業理念"
-        }, {
-            "id": "linkvpolicy",
-            "href": "ddt-regular/policy.html",
-            "text": "行動指針"
-        }, {
-            "id": "linkmotto",
-            "href": "ddt-regular/motto.html",
-            "text": "社訓"
-        }, {
-            "id": "linkhistory",
-            "href": "ddt-regular/history.html",
-            "text": "会社沿革"
-        }, {
-            "id": "linkaccess",
-            "href": "ddt-regular/access.html",
-            "text": "アクセス"
-        }]
+        "listCopyTarget": [
+            {
+                "id": "linkoutline",
+                "href": "ddt-regular/outline.html",
+                "text": "会社概要"
+            }, {
+                "id": "linkphilo",
+                "href": "ddt-regular/profilephilosophy.html",
+                "text": "企業理念"
+            }, {
+                "id": "linkvpolicy",
+                "href": "ddt-regular/policy.html",
+                "text": "行動指針"
+            }, {
+                "id": "linkmotto",
+                "href": "ddt-regular/motto.html",
+                "text": "社訓"
+            }, {
+                "id": "linkhistory",
+                "href": "ddt-regular/history.html",
+                "text": "会社沿革"
+            }, {
+                "id": "linkaccess",
+                "href": "ddt-regular/access.html",
+                "text": "アクセス"
+            }
+        ]
     },
     "pageSubtitle": {
         "id": "responsivehead",
