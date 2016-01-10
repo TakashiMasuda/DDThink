@@ -1,4 +1,17 @@
 {
+    "accessContentArea":{
+        "id":"main",
+        "class":"base",
+        "pageSideMenu":{
+            "class":"sidemenu profileSidemenu"
+        },
+        "maincontents":{
+            "id":"maincontents",
+            "pageArticle":{
+                "id":"access"
+            }
+        }
+    },
     "sinjukuAccess":{
         "accessbaseinfomation":{
             "id":"shinjuku",

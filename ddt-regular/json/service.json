@@ -1,4 +1,17 @@
 {
+    "serviceContentArea":{
+        "id":"main",
+        "class":"softwaredevelopment",
+        "pageSideMenu":{
+            "class":"sidemenu serviceSidemenu"
+        },
+        "maincontents":{
+            "id":"maincontents",
+            "pageArticle":{
+                "id":"service"
+            }
+        }
+    },
     "serviceSection":{
         "serviceBaseImg":{
             "id":"servicebg",

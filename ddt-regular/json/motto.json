@@ -1,4 +1,17 @@
 {
+    "mottoContentArea":{
+        "id":"main",
+        "class":"base",
+        "pageSideMenu":{
+            "class":"sidemenu profileSidemenu"
+        },
+        "maincontents":{
+            "id":"maincontents",
+            "pageArticle":{
+                "id":"motto"
+            }
+        }
+    },
     "mottoList":{
         "mottoHead":{
             "mottoStrong":{

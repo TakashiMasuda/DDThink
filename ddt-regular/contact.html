@@ -25,64 +25,39 @@
 <!-- コンテンツを表示する領域 -->
 <body id="base">
 
-<div id="main" class="base"><!-- InstanceBeginEditable name="Main" -->
-<article id="contact" class="content-320fix">
-<div class="articlehead">
-<h3>お問い合わせフォーム</h3>
-</div>
-<!-- 注意書き部分を開始 -->
-<div class="supplement">
-	<!-- 注意書き本文 -->
-	<p><span class="text-red">*</span>は必須入力項目です。</p>
-<!-- 注意書き部分終了 -->
-</div>
-<form class="form" action="ddt-regular/postmail/postmail.cgi" method="post" value="1">
-<input type="hidden" name="subject" size="20" value="1"/>
-	<dl>
-    	<!-- 氏名 -->
-		<dt>
-        	<span class="formcontent">氏名<span class="text-red">*</span></span>
-        	<span class="formruby">Name</span>
-        </dt>
-        <!-- 氏名を入力するテキストボックス -->
-        <dd><input type="text" class="text" name="name" size="40" required></dd>
-        <!-- 性別 -->
-		<dt>
-        	<span class="formcontent">性別<span class="text-red">*</span></span>
-        	<span class="formruby">sex</span>
-        </dt>
-        <!-- 性別を選択するラジオボタン -->
-        <dd>
-        	<input type="radio" name="sex" value="男" checked>男
-            <input type="radio" name="sex" value="女">女
-        </dd>
-                <!-- メールアドレス -->
-        <dt>
-        	<span class="formcontent">メールアドレス<span class="text-red">*</span></span>
-        	<span class="formruby">E-mail</span>
-        </dt>
-        <!-- メールアドレスを入力するテキストボックス -->
-        <dd><input type="email" class="text" name="mailaddress" size="40" required></dd>
-		<dt>
-        	<span class="formcontent">問い合わせ内容<span class="text-red">*</span></span>
-        	<span class="formruby"></span>
-        </dt>
-        <dd><textarea class="textarea text" name="question" cols="40" rows="10" required> </textarea></dd>
-    </dl>
-    	<p class="submitbuttonarea">
-        <button type="submit" class="submitbutton">送信内容の確認</button>
-        </p>
-</form>
-</article><!-- InstanceEndEditable -->
-<!-- コンテンツ記述を終える -->
-</div>
+<div id="main"><!-- InstanceBeginEditable name="Main" -->
 <script>
 	//ドキュメント読み込み後
 	$(document).ready(function(){
 		//初期化処理を行う
 		init(KEY_DEFAULT);
+        //createTagクラスのインスタンスを生成する
+        var creator = new createTag();
+        creator.getJsonFile(SITE_ROOT_DIRECTORY + 'ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
+        creator.getDomFile(SITE_ROOT_DIRECTORY + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
+        creator.getJsonFile(SITE_ROOT_DIRECTORY + 'ddt-regular/json/contact.json');          // 共通パーツのjsonを取得する。
+        creator.getDomFile(SITE_ROOT_DIRECTORY + 'ddt-regular/template/contact.html');       // 共通パーツのDOMを取得する。
+
+        //ページのメインコンテンツ領域を作る
+        creator.outputTag('contactContentArea', 'contactContentArea', '#main');
+        //ページのサブタイトル部分を作る
+        creator.outputTag('pageSubtitle', 'pageSubtitle', '#contact');
+        //ページのサブタイトルを設定する
+        $('.subtitleText').text('お問い合わせフォーム');
+
+        $('.inductionLink').remove();
+
+        //必須注記部分を作る
+        creator.outputTag('supplement', 'supplement', '#contact');
+
+        //form部分を作る
+        creator.outputTag('contactForm', 'contactForm', '#contact');
+
 	});
 </script>
+<!-- コンテンツ記述を終える -->
+</div>
+
 <!-- bodyタグを閉じる -->
 </body>
 <!-- InstanceEnd -->

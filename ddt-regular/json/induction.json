@@ -1,4 +1,17 @@
 {
+    "inductionContentArea":{
+        "id":"main",
+        "class":"body",
+        "pageSideMenu":{
+            "class":"sidemenu recruitSideMenu"
+        },
+        "maincontents":{
+            "id":"maincontents",
+            "pageArticle":{
+                "id":"onlyimg-content"
+            }
+        }
+    },
     "guidlineContentOutline": {},
     "Long-termTrainingMethod": {
         "class":"guidelineContent Long-termTrainingMethod",

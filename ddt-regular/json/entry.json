@@ -1,4 +1,17 @@
 {
+    "entryContentArea":{
+        "id":"main",
+        "class":"entryform",
+        "pageSideMenu":{
+            "class":"sidemenu recruitSideMenu"
+        },
+        "maincontents":{
+            "id":"maincontents",
+            "pageArticle":{
+                "id":"entry"
+            }
+        }
+    },
     "supplement": {
         "supplementP": {
             "html": "<span class='text-red'>*</span>は必須入力項目です。"
