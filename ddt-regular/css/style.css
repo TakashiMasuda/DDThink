@@ -609,7 +609,7 @@ header #navigationbg{
 #footerbg{
 	background-color: rgba(105, 105, 105,0.5);			/* 背景色を透過した紫にする */
 	position: absolute;	/* 絶対位置で配置 */
-	height: 250px;		/* 高さを全体の33%に設定 */
+	height: 275px;		/* フッターと同じ程度の高さを指定する */
 	width: 100%;	/* 画面の端から端まで帯を伸ばす */
 	left: 0;		/* 画面左端から描画する */
 	z-index: 1;		/* 他の操作の邪魔をしないように後ろにどける */
@@ -718,7 +718,15 @@ div#paging{
 a.pager{
 	padding: 0 5px 0;	/* ボタンごとに5pxに間隔を空ける */
 	display: inline;	/* インライン要素として扱う */
+	color : #0015F8;	/* 青字にする */
 }
+
+/* 選択されたページャ */
+a.pager.selected{
+	color : #FF0000;	/* 赤字にする */
+}
+
+
 .twotonetable{
 	border-collapse: collapse;
 	border: solid 1px rgba(169, 169,169, 1.0);

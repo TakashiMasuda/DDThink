@@ -17,11 +17,12 @@ $(function(){
 		}
 		
 		$.ajax({
-	          type: 'GET',
-	          url: 'ddt-regular/outline.html',
-	          dataType: 'html',
+			type: 'GET',
+			url: 'ddt-regular/outline.html',
+			dataType: 'html',
+			async : false,				//同期通信を行う
 			cache : false,				//通信結果をキャッシュしない
-	          success: function(data) {
+			success: function(data) {
 	          $('#main').html($(data));
 	        },
 			  error: function(){
@@ -51,6 +52,7 @@ var closeupService = function(e){		//Serviceコンテンツの項目紹介サー
 		case 2: contentname += 'ddt-regular/img/service(results).gif';		//2であれば開発実績のパスを
 				break;															//contentnameに格納
 	}
+	
 	/* スマフォレイアウト時ではコンテンツ幅が画像幅以下になるので別個に調整する */
 	if($('article').width() <= imgwidth){	
 		// 画像の幅の半分をcontentwidthに格納。座標設定時に0になるようにする
@@ -58,6 +60,7 @@ var closeupService = function(e){		//Serviceコンテンツの項目紹介サー
 		// 画像の高さの半分をcontentheightに格納。こちらも座標設定時に0になるようにする
 		contentheight = imgheight / 2;
 	}
+	
 	$('#textcircle').attr('src', contentname);		//項目紹介サークルの画像にパスを与える
 	$('#servicebg').animate({						//背景の歯車画像をゆっくり透過していく
 		opacity :'0.7'
@@ -126,7 +129,7 @@ var showSSN = function(){
 		$('.ssnintroduction').animate({
 			display: 'block'
 		}, 500);
-		$(document).on('click', '.ssnintroduction', function(){
+		$(document).on(EVENT_CLICK, '.ssnintroduction', function(){
 			$('.ssnintroduction').remove();
 		});
 	}
@@ -142,13 +145,14 @@ var movetoStore = function(e){
 	}
 };
 
-$(document).on('click', '#testimg', imgClick);
-$(document).on('click', '.servicebutton', closeupService);
+$(document).on(EVENT_CLICK, '#testimg', imgClick);
+$(document).on(EVENT_CLICK, '.servicebutton', closeupService);
+//serviceページでサイドメニューのボタンをクリックした時に詳細を出す
+$(SELECTOR_CONTAINER).on(EVENT_CLICK, '.servicesidebutton', closeupService);
 $(document).on('mouseleave', '#textcircle', hideService);
-$(document).on('click', '#textcircle', hideService);
-$(document).on('click', '.servicesidebutton', closeupService);
+$(document).on(EVENT_CLICK, '#textcircle', hideService);
 $(document).on('mouseenter', '.ssnimg', ssnhover);
 $(document).on('mouseleave', '.ssnimg', ssnleave);
-$(document).on('click', '#ssnmain', showSSN);
-$(document).on('click', '.ssnimg', movetoStore);
+$(document).on(EVENT_CLICK, '#ssnmain', showSSN);
+$(document).on(EVENT_CLICK, '.ssnimg', movetoStore);
 });
