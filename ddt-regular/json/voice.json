@@ -1,0 +1,19 @@
+{
+    "voiceContentArea":{
+        "id":"main",
+        "class":"voice",
+        "pageSideMenu":{
+            "class":"sidemenu profileSidemenu"
+        },
+        "maincontents":{
+            "id":"maincontents",
+            "pageArticle":{
+                "id":"voice"
+            }
+        }
+    },
+    "voiceBgImg":{
+        "id":"backgroundgif",
+        "src":"ddt-regular/img/theVoice(header-back).gif"
+    }
+}

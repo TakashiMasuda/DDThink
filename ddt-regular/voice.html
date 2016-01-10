@@ -8,24 +8,6 @@
 
 <!-- InstanceParam name="contentname" type="text" value="voice" -->
 <body id="base">
-<!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
-<div id="main" class="voice">
-<!-- 子ページ用のコンテンツ内メニュー -->
-<!-- 編集可能領域を編集不可にする記述。これを消すことで再びテンプレートで作成されたページのこの編集可能領域を編集できるようになる -->
-
-<nav class="sidemenu recruitSideMenu">
-<!-- コンテンツ内メニューを閉じる -->
-</nav>
-<!-- InstanceBeginEditable name="maincontents" -->
-<!-- メインコンテンツ記述部 -->
-<div id="maincontents">
-	<!-- 社員の声の記事を開始 -->
-	<article id="voice">
-    	<!-- 背景画像 -->
-        <img id="backgroundgif" src="ddt-regular/img/theVoice(header-back).gif">
-	</article>
-<!-- メインコンテンツ記述終了 -->
-</div>
 
 <!-- コンテンツ記述を終える -->
 </div>
@@ -34,6 +16,12 @@
     var creator = new createTag();
     creator.getJsonFile('ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
     creator.getDomFile('ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
+    creator.getJsonFile('ddt-regular/json/voice.json');          // 個別パーツのjsonを取得する。
+    creator.getDomFile('ddt-regular/template/voice.html');       // 個別パーツのDOMを取得する。
+    //ページのメインコンテンツ領域を作る
+    creator.outputTag('voiceContentArea', 'pageContentArea', '#main');
+    //ページの背景画像を作る
+    creator.outputTag('voiceBgImg', 'voiceBgImg', '#voice');
     //recruitのサイドメニューを作る
     creator.outputTag('recruitSideMenu', 'sidemenulist', '.recruitSideMenu');
     //ページのサブタイトル部分を作る

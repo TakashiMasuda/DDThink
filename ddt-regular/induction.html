@@ -6,25 +6,6 @@
 
 <!-- InstanceParam name="contentname" type="text" value="body" -->
 <body id="base">
-<!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
-<div id="main" class="body">
-<!-- 子ページ用のコンテンツ内メニュー -->
-<!-- 編集可能領域を編集不可にする記述。これを消すことで再びテンプレートで作成されたページのこの編集可能領域を編集できるようになる -->
-<nav class="sidemenu recruitSideMenu">
-<!-- コンテンツ内メニューを閉じる -->
-</nav><!-- InstanceBeginEditable name="maincontents" -->
-<!-- メインコンテンツ記述部 -->
-<div id="maincontents">
-<!-- 研修制度の記事を開始 -->
-<article id="onlyimg-content">
-<!-- メインコンテンツ画像 -->
-<!-- <img id="mainimg" src="ddt-regular/img/training(method-w600).gif"> -->
-</article>
-<!-- メインコンテンツ記述終了 -->
-</div>
-
-<!-- コンテンツ記述を終える -->
-</div>
 
 <script>
     //createTagクラスのインスタンスを生成する
@@ -33,6 +14,8 @@
     creator.getDomFile('ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
     creator.getJsonFile('ddt-regular/json/induction.json');          // ファイルのデータをjsonを用いて持ってくる
     creator.getDomFile('ddt-regular/template/induction.html');          // 共通パーツのDOMを取得する。
+    //ページのメインコンテンツ領域を作る
+    creator.outputTag('inductionContentArea', 'pageContentArea', '#main');
     //recruitのサイドメニューを作る
     creator.outputTag('recruitSideMenu', 'sidemenulist', '.recruitSideMenu');
     //ページのサブタイトル部分を作る

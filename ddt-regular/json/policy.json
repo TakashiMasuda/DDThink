@@ -1,4 +1,17 @@
 {
+    "policyContentArea":{
+        "id":"main",
+        "class":"base",
+        "pageSideMenu":{
+            "class":"sidemenu profileSidemenu"
+        },
+        "maincontents":{
+            "id":"maincontents",
+            "pageArticle":{
+                "id":"simplearticle"
+            }
+        }
+    },
     "missionStatement":{
         "articlehead2":{
             "article2head":{

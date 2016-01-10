@@ -6,24 +6,6 @@
 
 <!-- InstanceParam name="contentname" type="text" value="softwaredevelopment" -->
 <body id="base">
-<!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
-<div id="main" class="softwaredevelopment">
-<!-- 子ページ用のコンテンツ内メニュー -->
-<!-- 編集可能領域を編集不可にする記述。これを消すことで再びテンプレートで作成されたページのこの編集可能領域を編集できるようになる -->
-<nav class="sidemenu serviceSidemenu"></nav>
-
-<!-- メインコンテンツを記述 -->
-<div id="maincontents">
-<!-- コンテンツを記述 -->
-<article id="service"><!-- InstanceBeginEditable name="articlehead" -->
-
-<!-- 記事を閉じる -->
-</article>
-<!-- メインコンテンツの記述を終了する -->
-</div>
-
-<!-- コンテンツ記述を終える -->
-</div>
 <script>
     //createTagクラスのインスタンスを生成する
     var creator = new createTag();
@@ -31,6 +13,9 @@
     creator.getDomFile('ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
     creator.getJsonFile('ddt-regular/json/service.json');          // 個別パーツのjsonを取得する。
     creator.getDomFile('ddt-regular/template/service.html');       // 個別パーツのDOMを取得する。
+
+    //ページのメインコンテンツ領域を作る
+    creator.outputTag('serviceContentArea', 'pageContentArea', '#main');
 
     //serviceのサイドメニューを作る
     creator.outputTag('serviceSideMenu', 'sidemenulist', '.serviceSidemenu');

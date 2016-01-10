@@ -1,4 +1,17 @@
 {
+    "historyContentArea":{
+        "id":"main",
+        "class":"profiletable",
+        "pageSideMenu":{
+            "class":"sidemenu profileSidemenu"
+        },
+        "maincontents":{
+            "id":"maincontents",
+            "pageArticle":{
+                "id":"history"
+            }
+        }
+    },
     "twotonetable":{
         "border":"1",
         "tableRow1":{

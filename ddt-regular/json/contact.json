@@ -1,4 +1,11 @@
 {
+    "contactContentArea":{
+        "id":"main",
+        "class":"base",
+        "content-320fix":{
+            "id":"contact"
+        }
+    },
     "supplement": {
         "supplementP": {
             "html": "<span class='text-red'>*</span>は必須入力項目です。"

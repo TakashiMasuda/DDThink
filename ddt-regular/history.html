@@ -4,17 +4,6 @@
 </head>
 
 
-<!-- InstanceParam name="contentname" type="text" value="profiletable" -->
-<body id="base">
-<!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
-<div id="main" class="profiletable">
-<!-- 子ページ用のコンテンツ内メニュー -->
-<nav class="sidemenu profileSidemenu"></nav>
-<!-- InstanceBeginEditable name="maincontents" -->
-<div id="maincontents">
-<article id="history"></article>
-</div>
-
 <!-- コンテンツ記述を終える -->
 </div>
 <script>
@@ -24,6 +13,9 @@
     creator.getDomFile('ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
     creator.getJsonFile('ddt-regular/json/history.json');          // 個別パーツのjsonを取得する。
     creator.getDomFile('ddt-regular/template/history.html');       // 個別パーツのDOMを取得する。
+
+    //ページのメインコンテンツ領域を作る
+    creator.outputTag('historyContentArea', 'pageContentArea', '#main');
 
     //profileのサイドメニューを作る
     creator.outputTag('profileSideMenu', 'sidemenulist', '.profileSidemenu');

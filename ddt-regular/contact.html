@@ -6,12 +6,7 @@
 
 <!-- InstanceParam name="contentname" type="text" value="base" -->
 <body id="base">
-<!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
-<div id="main" class="base"><!-- InstanceBeginEditable name="Main" -->
-<article id="contact" class="content-320fix">
-</article><!-- InstanceEndEditable -->
-<!-- コンテンツ記述を終える -->
-</div>
+
 <script>
     //createTagクラスのインスタンスを生成する
     var creator = new createTag();
@@ -20,6 +15,8 @@
     creator.getJsonFile('ddt-regular/json/contact.json');          // 共通パーツのjsonを取得する。
     creator.getDomFile('ddt-regular/template/contact.html');       // 共通パーツのDOMを取得する。
 
+    //ページのメインコンテンツ領域を作る
+    creator.outputTag('contactContentArea', 'contactContentArea', '#main');
     //ページのサブタイトル部分を作る
     creator.outputTag('pageSubtitle', 'pageSubtitle', '#contact');
     //ページのサブタイトルを設定する
