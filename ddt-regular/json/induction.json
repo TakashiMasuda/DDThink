@@ -1,4 +1,15 @@
 {
+    "headPageTitlePrivate":{
+        "text":"DDThink - 株式会社デジタルデザインシンク | 会社沿革"
+    },
+    "seoKeyWordPrivate":{
+        "name":"keyword",
+        "content":"新宿,デジタルデザインシンク,エンジニア,プログラマー,研修,未経験可"
+    },
+    "seoDescriptionPrivate":{
+        "name":"description",
+        "content":"株式会社デジタルデザインシンクのエンジニア・プログラマー教育研修制度をご紹介します。"
+    },
     "inductionContentArea":{
         "id":"main",
         "class":"body",

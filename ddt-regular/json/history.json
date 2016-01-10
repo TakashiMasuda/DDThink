@@ -1,4 +1,15 @@
 {
+    "headPageTitlePrivate":{
+        "text":"DDThink - 株式会社デジタルデザインシンク | 会社沿革"
+    },
+    "seoKeyWordPrivate":{
+        "name":"keyword",
+        "content":"新宿,デジタルデザインシンク,会社沿革,会社情報,会社概要"
+    },
+    "seoDescriptionPrivate":{
+        "name":"description",
+        "content":"株式会社デジタルデザインシンクの1995年創業から今日までの歩みをご紹介します。"
+    },
     "historyContentArea":{
         "id":"main",
         "class":"profiletable",

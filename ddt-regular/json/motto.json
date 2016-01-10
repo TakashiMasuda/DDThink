@@ -1,4 +1,15 @@
 {
+    "headPageTitlePrivate":{
+        "text":"DDThink - 株式会社デジタルデザインシンク | 社訓"
+    },
+    "seoKeyWordPrivate":{
+        "name":"keyword",
+        "content":"新宿,デジタルデザインシンク,社訓,モットー,会社,メッセージ"
+    },
+    "seoDescriptionPrivate":{
+        "name":"description",
+        "content":"株式会社デジタルデザインシンクの社訓・モットーをご紹介します。"
+    },
     "mottoContentArea":{
         "id":"main",
         "class":"base",

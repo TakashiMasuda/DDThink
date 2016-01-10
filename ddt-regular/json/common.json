@@ -1,4 +1,15 @@
 {
+    "headPageTitle":{
+        "text":"DDThink - 株式会社デジタルデザインシンク"
+    },
+    "seoKeyWord":{
+        "name":"keyword",
+        "content":"ddt,デジタルデザインシンク,新宿,エンジニア,プログラム,研修,募集"
+    },
+    "seoDescription":{
+        "name":"description",
+        "content":"株式会社デジタルデザインのWebサイトです。本サイトでは、当社の会社情報やや開発実績、求人情報などをご紹介しています。"
+    },
     "container":{
         "id":"container"
     },

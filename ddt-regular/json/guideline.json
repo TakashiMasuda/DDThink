@@ -1,4 +1,15 @@
 {
+    "headPageTitlePrivate":{
+        "text":"DDThink - 株式会社デジタルデザインシンク | 募集要項"
+    },
+    "seoKeyWordPrivate":{
+        "name":"keyword",
+        "content":"新宿,デジタルデザインシンク,募集,求人,未経験,長期研修,中途採用"
+    },
+    "seoDescriptionPrivate":{
+        "name":"description",
+        "content":"株式会社デジタルデザインシンクの求人採用情報のご案内です"
+    },
     "guidelineContentArea":{
         "id":"main",
         "class":"body",
