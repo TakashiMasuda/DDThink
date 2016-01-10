@@ -3,7 +3,7 @@
         "id":"main",
         "class":"voice",
         "pageSideMenu":{
-            "class":"sidemenu profileSidemenu"
+            "class":"sidemenu recruitSideMenu"
         },
         "maincontents":{
             "id":"maincontents",
