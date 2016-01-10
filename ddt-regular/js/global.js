@@ -168,7 +168,7 @@ function init(pageName) {
 		creator_top.outputTag('pageHeader', 'pageHeader', '#container');
 
 		//ページのメインコンテンツ部分を作る
-		creator_top.outputTag('main', 'main', '#container');
+		//creator_top.outputTag('main', 'main', '#container');
 
 		//ページのフッターを作る
 		creator_top.outputTag('pageFooter', 'pageFooter', '#container');

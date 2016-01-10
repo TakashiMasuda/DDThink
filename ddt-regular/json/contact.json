@@ -1,0 +1,108 @@
+{
+    "supplement": {
+        "supplementP": {
+            "html": "<span class='text-red'>*</span>は必須入力項目です。"
+        }
+    },
+    "contactForm": {
+        "class":"form",
+        "action": "ddt-regular/postmail/postmail.cgi",
+        "method": "post",
+        "value":"1",
+        "hiddenData":{
+            "type":"hidden",
+            "name":"subject",
+            "size":"20",
+            "value":"1"
+        },
+        "entryFormContent": {
+            "nameHead": {
+                "name": {
+                    "class": "formcontent",
+                    "html": "氏名<span class='text-red'>*</span>"
+                },
+                "nameruby": {
+                    "class": "formruby",
+                    "text": "Name"
+                }
+            },
+            "nameContent": {
+                "nameInput": {
+                    "class": "text",
+                    "type": "text",
+                    "name": "name",
+                    "size": "40"
+                }
+            },
+            "sexHead": {
+                "sex": {
+                    "class": "formcontent",
+                    "html": "性別<span class='text-red'>*</span>"
+                },
+                "sexruby": {
+                    "class": "formruby",
+                    "text": "sex"
+                }
+            },
+            "sexContent": {
+                "sexRadio1": {
+                    "type": "radio",
+                    "name": "sex",
+                    "value": "男"
+                },
+                "men": {
+                    "text": "男"
+                },
+                "sexRadio2": {
+                    "type": "radio",
+                    "name": "sex",
+                    "value": "女"
+                },
+                "women": {
+                    "text": "女"
+                }
+            },
+            "emailHead": {
+                "email": {
+                    "class": "formcontent",
+                    "html": "メールアドレス<span class='text-red'>*</span>"
+                },
+                "emailruby": {
+                    "class": "formruby",
+                    "text": "E-mail"
+                }
+            },
+            "emailContent": {
+                "emailInput": {
+                    "class": "text",
+                    "type": "email",
+                    "name": "mailaddress",
+                    "size": "40"
+                }
+            },
+            "questionHead": {
+                "question": {
+                    "class": "formcontent",
+                    "html": "問い合わせ内容<span class='text-red'>*</span>"
+                },
+                "questionruby": {
+                    "class": "formruby"
+                }
+            },
+            "questionContent": {
+                "textareaInput": {
+                    "class": "textarea text",
+                    "name": "question",
+                    "cols": "40",
+                    "rows": "10"
+                }
+            }
+        },
+        "submitbuttonarea": {
+            "submitbutton": {
+                "type": "submit",
+                "text": "送信内容の確認"
+            }
+        }
+    }
+}

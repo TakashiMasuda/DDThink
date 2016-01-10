@@ -1,0 +1,124 @@
+{
+    "outlineContentArea":{
+        "id":"main",
+        "class":"profiletable",
+        "pageSideMenu":{
+            "class":"sidemenu profileSidemenu"
+        },
+        "maincontents":{
+            "id":"maincontents",
+            "pageArticle":{
+                "id":"outline"
+            }
+        }
+    },
+    "twotonetable":{
+        "border":"1",
+        "outlineRecord1":{
+            "tableHead":{
+                "text":"商号"
+            },
+            "tableData":{
+                "text":"株式会社デジタルデザインシンク"
+            }
+        },
+        "outlineRecord2":{
+            "tableHead":{
+                "text":"創業"
+            },
+            "tableData":{
+                "text":"平成7年(1995年)　11月"
+            }
+        },
+        "outlineRecord3":{
+            "tableHead":{
+                "text":"代表者"
+            },
+            "tableData":{
+                "text":"代表取締役　金子博志"
+            }
+        },
+        "outlineRecord4":{
+            "tableHead":{
+                "text":"資本金"
+            },
+            "tableData":{
+                "text":"1000万円"
+            }
+        },
+        "outlineRecord5":{
+            "tableHead":{
+                "text":"従業員数"
+            },
+            "tableData":{
+                "text":"20名"
+            }
+        },
+        "outlineRecord6":{
+            "tableHead":{
+                "text":"主な取引先"
+            },
+            "tableData":{
+                "text":"オリンパス、NTT東日本、NTTコムウェア、ユニシス、日立ソフト、日立情報システムズ"
+            }
+        },
+        "outlineRecord7":{
+            "tableHead":{
+                "text":"所在地"
+            },
+            "tableData":{
+                "html":"■新宿本社<a class='gotoaccess' href='ddt-regular/access.html#shinjuku'>map"
+            }
+        },
+        "outlineRecord8":{
+            "tableHead":{
+                "text":""
+            },
+            "tableData":{
+                "text":"東京都新宿区新宿2-12-4　アコードビル4F"
+            }
+        },
+        "outlineRecord9":{
+            "tableHead":{
+                "text":""
+            },
+            "tableData":{
+                "text":"TEL 03-6413-1225　FAX 03-6413-1226"
+            }
+        },
+        "outlineRecord10":{
+            "tableHead":{
+                "text":""
+            },
+            "tableData":{
+                "html":"■相模原事業所<a class='gotoaccess' href='ddt-regular/access.html#sagamihara'>map"
+            }
+        },
+        "outlineRecord11":{
+            "tableHead":{
+                "text":""
+            },
+            "tableData":{
+                "text":"神奈川県相模原市中央区相模原3-7-1フェリッシュ相模原2F"
+            }
+        },
+        "outlineRecord12":{
+            "tableHead":{
+                "text":""
+            },
+            "tableData":{
+                "text":"TEL 042-759-7312　FAX 042-759-7313<"
+            }
+        }
+    },
+    "outlineSubtitle":{
+        "text":"会社概要"
+    },
+    "enlargeable":{
+        "id":"enlargeableimg",
+        "enlargeableimg":{
+            "src":"ddt-regular/img/organizationmap.png"
+        }
+
+    }
+}

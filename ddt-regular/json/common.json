@@ -62,7 +62,7 @@
             "id": "navigation",
             "navigationUl": {
                 "navigationLi": [{
-                    "href": "ddt-regular/top.html",
+                    "href": "",
                     "text": "Top"
                 }, {
                     "href": "ddt-regular/outline.html",
