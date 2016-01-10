@@ -1,14 +1,33 @@
-﻿<!-- InstanceBegin template="/ddt-regular/Templates/recruit.dwt" codeOutsideHTMLIsLocked="false" --><head>
+﻿<!-- HTMLによるコード -->
+<!doctype html>
+<!-- 最も外のタグ -->
+<html>
+<!-- 予め仕様等を記すヘッダータグ -->
+<head>
+<!-- UTF-8でエンコード -->
+<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
 <meta charset="utf-8">
-<!-- InstanceBeginEditable name="headerregion" --><!-- InstanceEndEditable -->
+<!-- デフォルトの画面サイズを機器に依存する -->
+<meta name="viewport" content="width=device-width">
+<!-- キャッシュ無効のためのメタタグ * 3 -->
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
 
+<!-- 表示用タイトル -->
+<title>DDThink - 株式会社デジタルデザインシンク</title>
+<!-- jQueryの本体ファイルを読み込む -->
+<script src="http://localhost/DDThinkHP/ddt-regular/js/jquery-1.11.0.min.js"></script>
+<script src="http://localhost/DDThinkHP/ddt-regular/js/constants.js" charset="utf-8"></script>
+<script src="http://localhost/DDThinkHP/ddt-regular/js/global.js" charset="utf-8"></script>
+<!--[if lt IE 9]><script src="http://localhost/DDThinkHP/ddt-regular/js/html5shiv.js"></script><![endif]-->
 </head>
-
-
-<!-- InstanceParam name="contentname" type="text" value="body" -->
+<!-- コンテンツを表示する領域 -->
 <body id="base">
+
 <!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
 <div id="main" class="body">
+
 <!-- 子ページ用のコンテンツ内メニュー -->
 <!-- 編集可能領域を編集不可にする記述。これを消すことで再びテンプレートで作成されたページのこの編集可能領域を編集できるようになる -->
 
@@ -35,7 +54,6 @@
   <div id="success" class="sidemenu">
     <a href="ddt-regular/induction.html"><img src="ddt-regular/img/success.gif" alt=""></a>
   </div>
-
 <!-- コンテンツ内メニューを閉じる -->
 </nav>
 <!-- InstanceBeginEditable name="maincontents" -->
@@ -57,74 +75,82 @@
 <!-- <img id="mainimg" src="ddt-regular/img/guidelines(w600).gif"> -->
 <!-- コンテンツ記事を終える -->
 </article>
+<script>
+	//ドキュメント読み込み後
+	$(document).ready(function(){
+		//初期化処理を行う
+		init(KEY_DEFAULT);
+		
+		//createTagのscriptファイルをロードする。直後にcreateTagクラスのインスタンスを生成する
+		loadScriptFile('createTag', STR_TRUE);
+		//createTagのインスタンスを生成する
+		var creator = new createTag();
+    
+	    creator.getJsonFile(SITE_ROOT_DIRECTORY + 'ddt-regular/json/guideline.json');          // ファイルのデータをjsonを用いて持ってくる
+	    creator.getDomFile(SITE_ROOT_DIRECTORY + 'ddt-regular/template/guideline.html');          // 共通パーツのDOMを取得する。
+	    //募集要項の外側を作る
+	    creator.outputTag('guidlineContentOutline', 'guidlineContentOutline', '#onlyimg-content');
+	    //研修生の募集要項コンテントを作る
+	    creator.outputTag('trainee', 'guidelineContent', '.guidlineContentOutline');
+	    //研修生の募集要項コンテントテーブルを作る
+	    creator.outputTag('traineeGuideline', 'guidelineTable', '.guidelineContent');
+	
+	    //中途採用の募集コンテントを作る
+	    creator.outputTag('mid-career', 'guidelineContent', '.guidlineContentOutline');
+	    //エンジニアの募集要項コンテントテーブルを作る
+	    creator.outputTag('engineerGuideline', 'guidelineTable', '.mid-career');
+	    //営業の募集要項コンテントテーブルを作る
+	    creator.outputTag('salesGuideline', 'guidelineTable', '.mid-career');
+		//研修制度ページへのリンクを追加する
+	    creator.outputTag('linkToTrainee', 'link', '.guidelineTable.trainee .guidelineDetailTd5 .guidelineDetailTd');
+	
+	    //mid-careerの線の色を変えて線を補足する
+	    $('.mid-career .guideTitleDetail1').css('border-bottom', '1px solid #DB8887');
+	
+	    //fantasyフォントがないブラウザではフォントを調節する
+	    commonFuncs.fontAdjustment();
+	
+	    //iPhoneの場合はコンテンツの高さを調整する
+	    commonFuncs.guideThemeAdjustment();
+		
+		//URLハッシュに応じてスクロールする
+		var hash = location.hash;	//URLからハッシュ部分を取得する
+	
+		//募集要項ページのハッシュが含まれていれば
+		if (hash.indexOf('recruit_guideline') != -1) {
+			//スクロール位置の変数を用意する
+			var scrollTo = 0;
+			//スクロール位置の補正値
+			var scrollFix = -150;
+			
+			//研修生項目であれば
+			if (hash.indexOf('trainee_engineer') != -1) {
+				//その座標を取得する
+				scrollTo = $('.guidelineTable.trainee').offset().top;
+			//エンジニアであれば
+			} else if (hash.indexOf('midcareer_engineer') != -1) {
+				//その座標を取得する
+				scrollTo = $('.guidelineTable.engineer').offset().top;
+			//営業項目であれば
+			} else if (hash.indexOf('midcareer_sales') != -1) {
+				//その座標を取得する
+				scrollTo = $('.guidelineTable.sales').offset().top;
+			}
+			
+		//スクロールを行う
+		 $('html, body').animate({ scrollTop : scrollTo + scrollFix}, 0);
+		}
+	});
+</script>
 <!-- メインコンテンツ記述終了 -->
 </div>
 
 <!-- コンテンツ記述を終える -->
 </div>
 
-<script>
-    //createTagクラスのインスタンスを生成する
-    var creator = new createTag();
-    creator.getJsonFile('ddt-regular/json/guideline.json');          // ファイルのデータをjsonを用いて持ってくる
-    creator.getDomFile('ddt-regular/template/guideline.html');          // 共通パーツのDOMを取得する。
-    //募集要項の外側を作る
-    creator.outputTag('guidlineContentOutline', 'guidlineContentOutline', '#onlyimg-content');
-    //研修生の募集要項コンテントを作る
-    creator.outputTag('trainee', 'guidelineContent', '.guidlineContentOutline');
-    //研修生の募集要項コンテントテーブルを作る
-    creator.outputTag('traineeGuideline', 'guidelineTable', '.guidelineContent');
 
-    //中途採用の募集コンテントを作る
-    creator.outputTag('mid-career', 'guidelineContent', '.guidlineContentOutline');
-    //エンジニアの募集要項コンテントテーブルを作る
-    creator.outputTag('engineerGuideline', 'guidelineTable', '.mid-career');
-    //営業の募集要項コンテントテーブルを作る
-    creator.outputTag('salesGuideline', 'guidelineTable', '.mid-career');
-	//研修制度ページへのリンクを追加する
-    creator.outputTag('linkToTrainee', 'link', '.guidelineTable.trainee .guidelineDetailTd5 .guidelineDetailTd');
-
-    //mid-careerの線の色を変えて線を補足する
-    $('.mid-career .guideTitleDetail1').css('border-bottom', '1px solid #DB8887');
-
-    var commonFuncs = new common();                     //汎用共通関数定義クラスインスタンスを生成する
-    //fantasyフォントがないブラウザではフォントを調節する
-    commonFuncs.fontAdjustment();
-
-    //iPhoneの場合はコンテンツの高さを調整する
-    commonFuncs.guideThemeAdjustment();
-	
-	//URLハッシュに応じてスクロールする
-	var hash = location.hash;	//URLからハッシュ部分を取得する
-
-	//募集要項ページのハッシュが含まれていれば
-	if (hash.indexOf('recruit_guideline') != -1) {
-		//スクロール位置の変数を用意する
-		var scrollTo = 0;
-		//スクロール位置の補正値
-		var scrollFix = -150;
-		
-		//研修生項目であれば
-		if (hash.indexOf('trainee_engineer') != -1) {
-			//その座標を取得する
-			scrollTo = $('.guidelineTable.trainee').offset().top;
-		//エンジニアであれば
-		} else if (hash.indexOf('midcareer_engineer') != -1) {
-			//その座標を取得する
-			scrollTo = $('.guidelineTable.engineer').offset().top;
-		//営業項目であれば
-		} else if (hash.indexOf('midcareer_sales') != -1) {
-			//その座標を取得する
-			scrollTo = $('.guidelineTable.sales').offset().top;
-		}
-		
-	//スクロールを行う
-	 $('html, body').animate({ scrollTop : scrollTo + scrollFix}, 0);		
-	}
-
-
-</script>
 
 <!-- bodyタグを閉じる -->
 </body>
 <!-- InstanceEnd -->
+</html>

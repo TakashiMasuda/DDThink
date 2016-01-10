@@ -6,5 +6,6 @@ $(function(e){
 		} else {												//enlargedクラスがあれば
 			$(this).removeClass();								//クラスをを削除し画像を元の大きさに戻す
 		}
+		console.log(this);
 	});
 });

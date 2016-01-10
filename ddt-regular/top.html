@@ -35,6 +35,7 @@
 <script>
 // 各要素ロード後
 $(document).ready(function() {
+	alert("toploaded");
 	//初期化処理を行う
 	init(KEY_DEFAULT);
 	
@@ -52,9 +53,6 @@ $(document).ready(function() {
 		//スマホに合うサイズの画像にする
 		$('#backgroundgif').attr('src', 'ddt-regular/img/balloon(w320).gif');
 	}
-	
-	//画像伸縮のスクリプトを読み込む
-	loadScriptFile('imagemove', STR_TRUE);
 });
 
 </script>

@@ -1,262 +1,263 @@
 ﻿@charset "utf-8";
-/* bodyタグに対するスタイルシート。全ページに影響を及ぼす */
-body {
-	margin: 0;	/* marginをなくし、ページの横端と画面端の隙間ができないようにする */
-}
-/* メインコンテンツ領域に対するスタイルシート */
-/* 画像タグに対するスタイルシート */
-img {
-	max-width: 100%;	/* 横の最大拡大率を100%に設定する */
-	height: auto;		/* 高さを伸縮に応じて自動に調節する */
-}
-/* ページの幅に対するスタイルシート */
-#main{
-	width: 100%;
-	position: relative;
-}
-#maincontents{
-	width: 600px;
-}
-#footerbg{
-	min-width: 320px;
-}
-header #mottobg{
-	min-width: 320px;
-}
-header #navigationbg{
-	min-width: 320px;
-}
-.baseinfo{
-	width: 100%;
-}
-/* ヘッダー領域に対するスタイルシート */
-header.baseinfo{
-	margin: 0px;	/* PCレイアウトでは下に挿入されいるmarginがサイドメニューとくっつけるに当たって邪魔となるので、それを消す */
-}
-#navigation{
-	width: 100%;
-}
-article {
-	width: 100%;
-}
-/* メニューのリスト外枠に対するスタイルシート */
-#navigation ul {
-	margin: 0;	/* メニューのmarginを削除し、下に回り込むサイドメニューと隣接させる */
-	border-color: #c0c0c0;	/* 灰色の線で囲む */
-	position: relative;	/* 相対位置で表示し、絶対位置で表示されるコンテンツに対して座標を認識させる */
-	width: 100%;
-}
-/* トップメニューのボタンに対するスタイルシート */
-#navigation ul li {
-	width: 18%;	/* ボタンの領域を5等分する */
-	max-width: 100px;
-}
-/* コンテンツの見出しに関するスタイルシート */
-.articlehead {
-	margin-bottom: 30px;
-}
-/* 社員の声の記事についてのスタイルシート */
-#voice section {
-	width: 94%;	/* 社員の声の一人分の記事の横幅をコンテンツ幅の94%に伸ばす。同時に2列表示も解消され、1つずつ記事が表示されるようになる */
-	margin: 0 3% 0;	/* 横marginをそれぞれ3%にし、画面端と記事の間に適切な間隔を取る */
-}
-/* 社員の声個別記事見出し部に対するスタイルシート */
-#voice section .voicehead {
-	margin-top: 20px;	/* 記事の最上部から20pxの間隔を取る */
-}
-/* 社員の声記事全体に対するスタイルシート */
-#voice {
-	width: 100%;	/* 幅を親要素と同じにする */
-}
-/* 社員の声の記事見出し部分についてのスタイルシート */
-#voice section .voicehead {
-	padding-top: 0px;	/* 上paddingをなくし、上に詰める */
-}
-#simplearticle {
-	width: 100%;
-	margin: 0;
-}
-/* simplearticleのコンテンツ内にあるリストの外枠に対するスタイルシート */
-#simplearticle ul {
-	width: auto;	/* articleと同じ幅を取る */
-}
-/* simplearticleの個別記事の見出しに対するスタイルシート */
-#simplearticle .articlehead2 {
-	margin-top: 15px;	/* 上部に15pxのmarginを挿入 */
-}
-/* simplearticleの個別記事見出しのテキスト部に対するスタイルシート */
-#simplearticle .articlehead2 h3{
-	padding: 0 0 0 1%;;	/* 左に左に1%のpaddingを挿入 */
-	width: 99%;	/* 幅を99%にし、枠いっぱいに下線を伸ばすと同時に左paddingの分は狭く */
-}
-/* simplearticleのリストに対するスタイルシート */
-#simplearticle ul.simpletext {
-	margin: 0 5px 0 10px;	/* 左右に適当なmarginを挿入して端を整える */
-	padding-left: 16px;		/* 構成要素のナンバリング数字に合わせたpaddingを設定 */
-	width: 95%;				/* 行動指針の1項目ごとにある区切りの線にあわせた幅を取る */
-}
-/* simpletextのリストの構成要素についてのスタイルシート */
-#simplearticle ul.simpletext li{
-	margin: 0 0 5px;	/* 要素ごとに適度の間隔を空ける */
-	width: 100%;		/* 幅を外枠に合わせる */
-}
-/* 行動指針記事の項目に対する内容についてのスタイルシート */
-#simplearticle .slogan {
-	width: 98%;			/* marginの幅を考慮した上でレスポンシブの幅を設定 */
-}
-/* 開発サービスページの記事部分に関するスタイルシート */
-/* 開発サービスの記事に関するスタイルシート */
-#service {
-	width: 100%;	/* 幅を100%に設定して画面いっぱいに伸ばす */
-}
-#service img#servicebg{
-	margin: 0 auto 0;
-}
-/* アクセス中のカテゴリーに対するメニューのボタン外枠に関するスタイルシート */
-#navigation li.on {
-	border-bottom-style: none;	/* ボタンの下罫線を外し、コンテンツ内メニューとのつながりを強調する */
-}
-/* 社訓のリストに対するスタイルシート */
-#motto ul li {
-	margin:0 0 5px;	/* 下に最低限のmarginを取り、見やすい間隔を取る */
-}
-/* 大訓に対するスタイルシート */
-#motto ul #greatermotto {
-	text-align: center;	/* テキストを中央に寄せる */
-	font-weight: bold;	/* テキストを太字にする */
-}
-/* 開発サービスページの最上部の画像に対するスタイルシート */
-#service #devtopimg {
-	margin: 0;	/* marginをなくし、コンテンツ内メニューと隣接させる */
-}
-/* 開発サービスページの煽り文に対するスタイルシート */
-#service h4 {
-	margin:10px;	/* 全方位に10pxのmarginを挿入し、強調する */
-}
-/* 求人フォームの各フォームに関するスタイルシート */
-#entry section input {
-	max-width: 180px;	/* 各入力エリアの最大幅を180pxに取る */
-}
-/* 求人フォームのテキストエリアに関するスタイルシート */
-#entry section textarea {
-	max-width: 180px;	/* 幅の最大値を180pxに指定 */
-	min-width: 180px;	/* 幅の最小値を180pxに指定し、併せて幅をユーザーに操作できないようにする */
-}
-#induction #inductionlist {
-	padding: 0 5px 0;
-}
-#footer #footerbg {
-	height: 350px;
-}
-footer #footerleft{
-	width: 50%;
-}
-footer #footerright{
-	width: 48%;
-}
-img#servicebg{
-	margin: auto;
-}
-/* アクセスコンテンツに関するスタイルシート */
-#access {
-	width: 100%;	/* GoogleMapの幅に合わせて固定幅で記事を展開する */
-	margin: 0;
 
+@media screen and (min-width:768px) and (max-width:949px){
+	/* bodyタグに対するスタイルシート。全ページに影響を及ぼす */
+	body {
+		margin: 0;	/* marginをなくし、ページの横端と画面端の隙間ができないようにする */
+	}
+	/* メインコンテンツ領域に対するスタイルシート */
+	/* 画像タグに対するスタイルシート */
+	img {
+		max-width: 100%;	/* 横の最大拡大率を100%に設定する */
+		height: auto;		/* 高さを伸縮に応じて自動に調節する */
+	}
+	/* ページの幅に対するスタイルシート */
+	#main{
+		width: 100%;
+		position: relative;
+	}
+	#maincontents{
+		width: 600px;
+	}
+	#footerbg{
+		min-width: 320px;
+	}
+	header #mottobg{
+		min-width: 320px;
+	}
+	header #navigationbg{
+		min-width: 320px;
+	}
+	.baseinfo{
+		width: 100%;
+	}
+	/* ヘッダー領域に対するスタイルシート */
+	header.baseinfo{
+		margin: 0px;	/* PCレイアウトでは下に挿入されいるmarginがサイドメニューとくっつけるに当たって邪魔となるので、それを消す */
+	}
+	#navigation{
+		width: 100%;
+	}
+	article {
+		width: 100%;
+	}
+	/* メニューのリスト外枠に対するスタイルシート */
+	#navigation ul {
+		margin: 0;	/* メニューのmarginを削除し、下に回り込むサイドメニューと隣接させる */
+		border-color: #c0c0c0;	/* 灰色の線で囲む */
+		position: relative;	/* 相対位置で表示し、絶対位置で表示されるコンテンツに対して座標を認識させる */
+		width: 100%;
+	}
+	/* トップメニューのボタンに対するスタイルシート */
+	#navigation ul li {
+		width: 18%;	/* ボタンの領域を5等分する */
+		max-width: 100px;
+	}
+	/* コンテンツの見出しに関するスタイルシート */
+	.articlehead {
+		margin-bottom: 30px;
+	}
+	/* 社員の声の記事についてのスタイルシート */
+	#voice section {
+		width: 94%;	/* 社員の声の一人分の記事の横幅をコンテンツ幅の94%に伸ばす。同時に2列表示も解消され、1つずつ記事が表示されるようになる */
+		margin: 0 3% 0;	/* 横marginをそれぞれ3%にし、画面端と記事の間に適切な間隔を取る */
+	}
+	/* 社員の声個別記事見出し部に対するスタイルシート */
+	#voice section .voicehead {
+		margin-top: 20px;	/* 記事の最上部から20pxの間隔を取る */
+	}
+	/* 社員の声記事全体に対するスタイルシート */
+	#voice {
+		width: 100%;	/* 幅を親要素と同じにする */
+	}
+	/* 社員の声の記事見出し部分についてのスタイルシート */
+	#voice section .voicehead {
+		padding-top: 0px;	/* 上paddingをなくし、上に詰める */
+	}
+	#simplearticle {
+		width: 100%;
+		margin: 0;
+	}
+	/* simplearticleのコンテンツ内にあるリストの外枠に対するスタイルシート */
+	#simplearticle ul {
+		width: auto;	/* articleと同じ幅を取る */
+	}
+	/* simplearticleの個別記事の見出しに対するスタイルシート */
+	#simplearticle .articlehead2 {
+		margin-top: 15px;	/* 上部に15pxのmarginを挿入 */
+	}
+	/* simplearticleの個別記事見出しのテキスト部に対するスタイルシート */
+	#simplearticle .articlehead2 h3{
+		padding: 0 0 0 1%;;	/* 左に左に1%のpaddingを挿入 */
+		width: 99%;	/* 幅を99%にし、枠いっぱいに下線を伸ばすと同時に左paddingの分は狭く */
+	}
+	/* simplearticleのリストに対するスタイルシート */
+	#simplearticle ul.simpletext {
+		margin: 0 5px 0 10px;	/* 左右に適当なmarginを挿入して端を整える */
+		padding-left: 16px;		/* 構成要素のナンバリング数字に合わせたpaddingを設定 */
+		width: 95%;				/* 行動指針の1項目ごとにある区切りの線にあわせた幅を取る */
+	}
+	/* simpletextのリストの構成要素についてのスタイルシート */
+	#simplearticle ul.simpletext li{
+		margin: 0 0 5px;	/* 要素ごとに適度の間隔を空ける */
+		width: 100%;		/* 幅を外枠に合わせる */
+	}
+	/* 行動指針記事の項目に対する内容についてのスタイルシート */
+	#simplearticle .slogan {
+		width: 98%;			/* marginの幅を考慮した上でレスポンシブの幅を設定 */
+	}
+	/* 開発サービスページの記事部分に関するスタイルシート */
+	/* 開発サービスの記事に関するスタイルシート */
+	#service {
+		width: 100%;	/* 幅を100%に設定して画面いっぱいに伸ばす */
+	}
+	#service img#servicebg{
+		margin: 0 auto 0;
+	}
+	/* アクセス中のカテゴリーに対するメニューのボタン外枠に関するスタイルシート */
+	#navigation li.on {
+		border-bottom-style: none;	/* ボタンの下罫線を外し、コンテンツ内メニューとのつながりを強調する */
+	}
+	/* 社訓のリストに対するスタイルシート */
+	#motto ul li {
+		margin:0 0 5px;	/* 下に最低限のmarginを取り、見やすい間隔を取る */
+	}
+	/* 大訓に対するスタイルシート */
+	#motto ul #greatermotto {
+		text-align: center;	/* テキストを中央に寄せる */
+		font-weight: bold;	/* テキストを太字にする */
+	}
+	/* 開発サービスページの最上部の画像に対するスタイルシート */
+	#service #devtopimg {
+		margin: 0;	/* marginをなくし、コンテンツ内メニューと隣接させる */
+	}
+	/* 開発サービスページの煽り文に対するスタイルシート */
+	#service h4 {
+		margin:10px;	/* 全方位に10pxのmarginを挿入し、強調する */
+	}
+	/* 求人フォームの各フォームに関するスタイルシート */
+	#entry section input {
+		max-width: 180px;	/* 各入力エリアの最大幅を180pxに取る */
+	}
+	/* 求人フォームのテキストエリアに関するスタイルシート */
+	#entry section textarea {
+		max-width: 180px;	/* 幅の最大値を180pxに指定 */
+		min-width: 180px;	/* 幅の最小値を180pxに指定し、併せて幅をユーザーに操作できないようにする */
+	}
+	#induction #inductionlist {
+		padding: 0 5px 0;
+	}
+	#footer #footerbg {
+		height: 350px;
+	}
+	footer #footerleft{
+		width: 50%;
+	}
+	footer #footerright{
+		width: 48%;
+	}
+	img#servicebg{
+		margin: auto;
+	}
+	/* アクセスコンテンツに関するスタイルシート */
+	#access {
+		width: 100%;	/* GoogleMapの幅に合わせて固定幅で記事を展開する */
+		margin: 0;
+	
+	}
+	/* 住所の吹き出しに対するスタイルシート */
+	#access div.accessbaseinfomation{
+		width: 270px;			/* 300px以内でのレイアウトを行う */
+		padding: 5px 5px 0;		/* 上、左右に5pxのpaddingを挿入 */
+		font-size: 96%;			/* 字を小さくする */
+	}
+	/* 最寄り駅記述部についてのスタイルシート */
+	#access div.accessbaseinfomation dd{
+		font-size: 90%;	/* 文字を少しだけ小さくする */
+	}
+	/* GoogleMapに対するスタイルシート */
+	#access .mapwrap iframe{
+		width: 310px;	/* 幅を310pxに指定 */
+	}
+	.voice img#backgroundgif{
+		top: -120px;
+	}
+	#index{
+		width: 600px;
+	}
+	#index img#backgroundgif{
+		width: 599px;
+	}
+	/* 長期研修制度のボタン画像についてのスタイルシート */
+	#index #longtermtraining{
+		top: 119px;			/* articleの開始y座標から計算したこの画像のy座標 */
+		left: 144px;		/* 同様のx座標 */
+	}
+	/* 研修生の声のボタン画像についてのスタイルシート */
+	#index #thevoice{
+		top: 252px;			/* articleからのy座標。長期研修制度のボタン画像より下に配置 */
+		left: 160px;	/* 適切なx座標を指定 */
+	}
+	.baseinfo{
+		width: 100%;
+	}
+	#headercontents{
+		width: 100%;
+	}
+	footer.baseinfo{
+		width: 100%
+	}
+	header h4{
+		width: 100%
+	}
+	#simplearticle{
+		width: 100%;
+	}
+	#ssn-d2124{
+		background-color: rgba(245, 245, 220, 0.7);
+	}
+	footer{
+		position: relative;
+		z-index: 1;
+	}
+	img#i0.servicebutton{
+		width: 220px;
+		height: 220px;
+		top: 135px;
+		left: 315px;
+	}
+	img#i1.servicebutton{
+		width: 150px;
+		height: 150px;
+		top: 27px;
+		left: 155px;
+	}
+	img#i2.servicebutton{
+		width: 175px;
+		height: 175px;
+		top: 305px;
+		left: 30px;
+	}
+	/* 求人フォームの項目を囲むタグに対するスタイルシート */
+	.entryform #entry dl{
+		margin: 0 auto 0;
+		width: 530px;
+	}
+	#entry{
+		margin: 0 auto 0;
+	}
+	/* 求人フォームの項目に対するスタイルシート */
+	.entryform #entry dt{
+		text-indent: -75px;
+		margin-left: 80px;	/* 左にtext-indentと同じ分のmarginを挿入 */
+	}
+	/* サイドメニューのボタンにマウスカーソルを当てたときのスタイルシート */
+	.sidemenu ul > li+li:hover {
+		background-color: rgba(153,15,102,0.75);		/* ボタンの背景色を透過した紫にする */
+		color: #FFF;	/* 文字を白抜きにする */
+	}
+	/* 二色テーブルについてのスタイルシート */
+	.twotonetable{
+		margin-left: 3px;	/* 左に見出しと同じだけのmarginを挿入 */
+	}
 }
-/* 住所の吹き出しに対するスタイルシート */
-#access div.accessbaseinfomation{
-	width: 270px;			/* 300px以内でのレイアウトを行う */
-	padding: 5px 5px 0;		/* 上、左右に5pxのpaddingを挿入 */
-	font-size: 96%;			/* 字を小さくする */
-}
-/* 最寄り駅記述部についてのスタイルシート */
-#access div.accessbaseinfomation dd{
-	font-size: 90%;	/* 文字を少しだけ小さくする */
-}
-/* GoogleMapに対するスタイルシート */
-#access .mapwrap iframe{
-	width: 310px;	/* 幅を310pxに指定 */
-}
-.voice img#backgroundgif{
-	top: -120px;
-}
-#index{
-	width: 600px;
-}
-#index img#backgroundgif{
-	width: 599px;
-}
-/* 長期研修制度のボタン画像についてのスタイルシート */
-#index #longtermtraining{
-	top: 119px;			/* articleの開始y座標から計算したこの画像のy座標 */
-	left: 144px;		/* 同様のx座標 */
-}
-/* 研修生の声のボタン画像についてのスタイルシート */
-#index #thevoice{
-	top: 252px;			/* articleからのy座標。長期研修制度のボタン画像より下に配置 */
-	left: 160px;	/* 適切なx座標を指定 */
-}
-.baseinfo{
-	width: 100%;
-}
-#headercontents{
-	width: 100%;
-}
-footer.baseinfo{
-	width: 100%
-}
-header h4{
-	width: 100%
-}
-#simplearticle{
-	width: 100%;
-}
-#ssn-d2124{
-	background-color: rgba(245, 245, 220, 0.7);
-}
-footer{
-	position: relative;
-	z-index: 1;
-}
-img#i0.servicebutton{
-	width: 220px;
-	height: 220px;
-	top: 135px;
-	left: 315px;
-}
-img#i1.servicebutton{
-	width: 150px;
-	height: 150px;
-	top: 27px;
-	left: 155px;
-}
-img#i2.servicebutton{
-	width: 175px;
-	height: 175px;
-	top: 305px;
-	left: 30px;
-}
-/* 求人フォームの項目を囲むタグに対するスタイルシート */
-.entryform #entry dl{
-	margin: 0 auto 0;
-	width: 530px;
-}
-#entry{
-	margin: 0 auto 0;
-}
-/* 求人フォームの項目に対するスタイルシート */
-.entryform #entry dt{
-	text-indent: -75px;
-	margin-left: 80px;	/* 左にtext-indentと同じ分のmarginを挿入 */
-}
-/* サイドメニューのボタンにマウスカーソルを当てたときのスタイルシート */
-.sidemenu ul > li+li:hover {
-	background-color: rgba(153,15,102,0.75);		/* ボタンの背景色を透過した紫にする */
-	color: #FFF;	/* 文字を白抜きにする */
-}
-/* 二色テーブルについてのスタイルシート */
-.twotonetable{
-	margin-left: 3px;	/* 左に見出しと同じだけのmarginを挿入 */
-}
-
-

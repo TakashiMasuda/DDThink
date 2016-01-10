@@ -7,8 +7,6 @@
  * パス :/js/createTag.js
  */
 
-SELECTOR_MAIN									= '.main';
-
 /* 
  * クラス名:createTag
  * 概要  :JSONとテンプレート用HTMLから画面パーツを作るクラス

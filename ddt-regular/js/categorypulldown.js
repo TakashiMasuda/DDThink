@@ -1,7 +1,7 @@
 //トップメニューのボタンにマウスカーソルをあわせることで対応したカテゴリーのページのリストをプルダウンメニューで表示する
 $(function() {							//jQueryを開始
-	$('#navigation ul li')
-	.on('mouseenter', 'a', function(e){	//トップメニューのボタンにマウスポインタを重ねたら
+	$(document)
+	.on('mouseenter', SELECTOR_TOPMENU_BUTTON, function(e){	//トップメニューのボタンにマウスポインタを重ねたら
 		if($(window).width() < 768 && $('#container').attr('class') != 'service') {	/* PCレイアウトでなければ */
 			return;		//プルダウンメニューを表示せずイベントを終える
 		}
@@ -12,37 +12,42 @@ $(function() {							//jQueryを開始
 		.end()			//セレクタを初期状態に戻す
 		.addClass('on');	//ボタンにonクラスを追加してマウスポインタを乗せたときに色が変わる仕組みを適用する
   	})
-	.on('click', function(e){		//ボタンをクリックしたら
+	.on(EVENT_CLICK, SELECTOR_TOPMENU_BUTTON, function(e){		//ボタンをクリックしたら
 		$('ul',this)	//プルダウンメニューから
-		.removeClass();	//onクラスを外してdisplay属性をnoneにし隠す
-		$('#navigation ul li a').removeClass();		//クリック時に一旦全てのクラスを削除し、selectedクラスを付ける対象をなくす
+			.removeClass();	//onクラスを外してdisplay属性をnoneにし隠す
+		//onクラスを外してダウンメニューを消す
+		$(SELECTOR_TOPMENU_BUTTON_ALL).removeClass('on');
 		$(':first', this).addClass('selected');	//そして、その後に選択したカテゴリートップメニューのボタンにselectedクラスを追加して色を変化させる
 	})
-	.on('mouseleave', function(e){			//マウスポインタがカテゴリーのボタンから離れたら
+	.on('mouseleave', SELECTOR_TOPMENU_BUTTON, function(e){			//マウスポインタがカテゴリーのボタンから離れたら
 		$('ul',this)						//表示中のプルダウンメニューから
 		.removeClass('on');	//onクラスを外してdisplay属性をnoneにし隠す
   	});
-	//トップメニュー、プルダウンメニューからマウスポインタが外れたら
-	$('#navigation').on('mouseleave', 'a', function(e){
-		$(this).removeClass('on');			//onクラスを外してmouseenterマウスポインタを重ねたときの色の変化を戻す
+	
+	//トップメニュー、プルダウンメニューのボタンからマウスポインタが外れたら
+	$(document).on('mouseleave', SELECTOR_TOPMENU_ANCHOR, function(e){
+		//onクラスを外してmouseenterマウスポインタを重ねたときの色の変化を戻す
+		$(this).removeClass('on');
 	});
 
+	//トップメニュー、プルダウンメニューからマウスポインタが外れたら
+	$(document).on('mouseleave', SELECTOR_TOPMENU_BUTTON_OUTSIDE, function(e){
+		//onクラスを外してプル団メニューを消す
+		$(WILDCARD, this).removeClass('on');
+	});
+	
 	//サイドメニューのボタンへマウスポインタを重ねたときのボタンの色を変化させる処理
-	$('nav.sidemenu')	//サイドメニューに対し
-	.on('mouseenter', 'li', function(e){	//ボタンの部分にマウスポインタを重ねたら
-//		$(this)	.addClass('on');			//そのボタンのアンカータグにonクラスを追加して色を変える
+	$(document)	//サイドメニューに対し
+	.on('mouseenter', SELECTOR_SIDEMENU_BUTTON, function(e){	//ボタンの部分にマウスポインタを重ねたら
 	})
-//	.on('#mouseleave', function(e){
-//			$(this).removeClass('on');
-//	})
-	.on('click', function(e) {				//ボタンをクリックしたら
+	.on(EVENT_CLICK, SELECTOR_SIDEMENU_BUTTON, function(e) {				//ボタンをクリックしたら
 		$('li').removeClass('selected');	//selectedクラスを全てのアンカータグから外し
 		$(this).addClass('selected');		//クリックしたボタンにselectedクラスを追加してボタンの色を変える
 	});
 	
 	//Ajax通信を利用してXMLからデータを引き出しプルダウンメニューを生成する
 	$.ajax({	//Ajax通信でXMLからデータを取り出して処理する
-   		url: "ddt-regular/assets/pulldownmenu.xml",	//pulldownmenu.xmlを読み込む
+   		url: SITE_ROOT_DIRECTORY + PATH_PULLDOWNMENU_XML,	//pulldownmenu.xmlを読み込む
         type:'get',					//XMLからデータを取得する
         dataType:'xml',  			//XMLデータを扱う
 		cache : false,				//通信結果をキャッシュしない
@@ -67,7 +72,7 @@ $(function() {							//jQueryを開始
 						$(':nth-child(' + counter + ') > ul', topmenu)	//対象となるプルダウンメニューに対し
 						.append($('<li></li>')							//ボタンとなるliタグを追加
 							.append($('<a></a>')							//更にアンカータグを入れて
-							.attr('href', $('url', elem).text())			//urlを設定し
+							.attr('href', SITE_ROOT_DIRECTORY + $('url', elem).text())	//urlを設定し
 							.append($('content', this).text())				//ボタンのテキストを挿入してボタンが完成する
 						));
 					})
