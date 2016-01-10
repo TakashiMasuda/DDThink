@@ -154,9 +154,28 @@ function init(pageName) {
 		commonFuncs = new common();		//共通関数クラス
 		pControl = new pageControl(); 	//画面操作クラス
 		
-		//フレームを読み込む
-		loadFrame();
-		
+		//フレームを読み込む ページのヘッダ、フッタはcreateTagで読み込むように変更するため、コメント化
+		//loadFrame();
+
+		//createTagクラスのインスタンスを生成する
+		var creator_top = new createTag();
+		creator_top.getJsonFile('ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
+		creator_top.getDomFile('ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
+
+		//ページの表示領域を作る
+		creator_top.outputTag('container', 'container', 'body');
+		//ページのヘッダーを作る
+		creator_top.outputTag('pageHeader', 'pageHeader', '#container');
+
+		//ページのメインコンテンツ部分を作る
+		creator_top.outputTag('main', 'main', '#container');
+
+		//ページのフッターを作る
+		creator_top.outputTag('pageFooter', 'pageFooter', '#container');
+
+		//ページのフッターを作る
+		creator_top.outputTag('footerbg', 'footerbg', '#container');
+
 		//ページ名が入力されてかつ、該当するコールバック関数が用意されているなら
 		if (pageName && pageName in initFuncs) {
 			//ページごとの初期化関数をコールする
