@@ -106,12 +106,12 @@
 	
 
 
- 	function pagemove(e, url) {	//Ajaxによる画面遷移を挟まないコンテンツ切り替えの関数記述し、変数pagemoveに格納する
+ 	function pagemove(e, url, isPopstate) {	//Ajaxによる画面遷移を挟まないコンテンツ切り替えの関数記述し、変数pagemoveに格納する
  		//社員の声でページャをクリックした場合、ページャのテキスト(番号)を利用するためイベント発火元の要素を取得する
 		var voicebutton = $(e.target);
 		//URLが取得できれば設定する。できなければ第二引数を利用する。
  		contenturl = url !== void(0) ? url : $(this).attr('href');
-
+ 		console.log(contenturl);
  		if(contenturl){
   		$('#navigation').after('<div id="temporary"></div>');	//トップメニューの部分の次にHTMLを一時的に保存する領域を作る
 		$.ajax({							//Ajax通信を開始
@@ -121,8 +121,12 @@
           async : false,				//同期通信を行う
 　 		  cache : false,				//通信結果をキャッシュしない
           success: function(data) {		//データの取得に成功したら
-  			 //pushStateに履歴を追加する
-  			 pControl.addPushState(url, EMPTY_STRING);
+        	  
+        	  //popstateによるブラウザバック・フォワードに対応した当該関数のコールでなければ
+        	  if (!isPopstate){
+       			 //pushStateに履歴を追加する
+       			 pControl.addPushState(url, EMPTY_STRING);
+        	  }
 
         	  //メインのタグを取得する
         	  var mainElem = $(SELECTOR_MAIN, data);

@@ -9,8 +9,6 @@
 var loadedScriptFile = {};
 //読み込んだ事があるCSSファイルのリスト
 var loadedCSSFile = {};
-//ページ独自の初期化後処理
-var initFuncs = {default : setMainContent};
 
 //サイトルートパス
 var siteRootPath = EMPTY_STRING;
@@ -217,18 +215,14 @@ function loadFrame () {
 }
 
 /* 
- * 関数名:setMainContent
- * 概要  :メインのコンテンツをセットする
+ * 関数名:resizeContents
+ * 概要  :コンテンツのサイズを直す
  * 引数  :なし
  * 返却値:なし
  * 作成日　:2016.0109
  * 作成者　:T.Masuda
  */
-function setMainContent () {
-//	//コンテナ内のメインのタグを消す
-//	$(SELECTOR_MAIN, $(SELECTOR_CONTAINER)).remove();
-//	//ページに元々あったメインのタグを移動する
-//	$(BEFORE_MAIN_TAG_ELEM).after($(SELECTOR_MAIN));
+function resizeContents () {
 	//サイドメニューのサイズを直す
 	sidemenuSize();
 }
@@ -273,7 +267,7 @@ function hilightSelectedCategory() {
 
 /* 
  * 関数名:hilightSelectedSidemenuItem
- * 概要  :選択中のページに対応した再度メニューのボタンをハイライトする
+ * 概要  :選択中のページに対応したサイドメニューのボタンをハイライトする
  * 引数  :なし
  * 返却値:なし
  * 作成日　:2016.0110
@@ -281,8 +275,10 @@ function hilightSelectedCategory() {
  */
 function hilightSelectedSidemenuItem() {
 	var dc = new decorator();	//レイアウト変更クラスインスタンスを生成する
-	//カテゴリ名をハイライトする
-	dc.hilightSelectedElement(SELECTOR_SIDEMENU_BUTTON_LINK, ATTR_HREF, commonFuncs.getLastValue(location.href, SLASH), LI_TAG);
+	//ページのファイル名を取得する
+	var fileName = commonFuncs.getLastValue(location.href, SLASH);
+	//ページ名をハイライトする
+	dc.hilightSelectedElement(SELECTOR_SIDEMENU_BUTTON_LINK, ATTR_HREF, fileName.substring(0, fileName.indexOf(SHARP)), LI_TAG);
 }
 
 /* 
@@ -328,3 +324,6 @@ function createMetaTags(create_tag) {
 	create_tag.outputTag("seoKeyWordPrivate", "seoKeyWordPrivate", HEAD_TAG);
 	create_tag.outputTag("seoDescriptionPrivate", "seoDescriptionPrivate", HEAD_TAG);
 }
+
+//ページ独自の初期化後処理
+var initFuncs = {default : resizeContents};

@@ -8,7 +8,7 @@
 <script src="../ddt-regular/js/jquery-1.11.0.min.js"></script>
 <script src="../ddt-regular/js/constants.js" charset="utf-8"></script>
 <script src="../ddt-regular/js/global.js" charset="utf-8"></script>
-<!--[if lt IE 9]><script src="http://localhost/DDThinkHP/ddt-regular/js/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="../ddt-regular/js/html5shiv.js"></script><![endif]-->
 <div id="container" style="display:none;">
 <!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
 <div id="main">
@@ -23,8 +23,10 @@
         //createTagクラスのインスタンスを生成する
         var creator = new createTag();
         creator.getJsonFile(siteRootPath + 'ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
+        creator.getJsonFile(siteRootPath + 'ddt-regular/json/philosophy.json');          // 個別パーツのjsonを取得する。
         creator.getJsonFile(siteRootPath + 'ddt-regular/json/profilephilosophy.json');          // 個別パーツのjsonを取得する。
         creator.getDomFile(siteRootPath + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
+        creator.getDomFile(siteRootPath + 'ddt-regular/template/philosophy.html');       // 共通パーツのDOMを取得する。
 
 	    //ヘッダータグの内容を書き換える
 	    creator.createTag(creator.json.head, $(HEAD_TAG));
@@ -35,10 +37,20 @@
         //profileのサイドメニューを作る
         creator.outputTag('profileSideMenu', 'sidemenulist', '.profileSidemenu');
 
+	    //ページのサブタイトル部分を作る
+	    creator.outputTag('pageSubtitle', 'pageSubtitle', '.pageArticle');
+	    //ページのサブタイトルを設定する
+	    $('.subtitleText').text('企業理念');
+	    
         //研修制度リンク(PC版)領域を作る
         creator.outputTag('inductionPcLinkArea', 'inductionPcLinkArea', '#main');
-		//コンテンツを作る
-		createPhilosophy();
+        
+        //5つの企業理念項目を作る
+        creator.outputTag('philosophyParagraph1', 'philosophyParagraph', '.pageArticle');
+        creator.outputTag('philosophyParagraph2', 'philosophyParagraph', '.pageArticle');
+        creator.outputTag('philosophyParagraph3', 'philosophyParagraph', '.pageArticle');
+        creator.outputTag('philosophyParagraph4', 'philosophyParagraph', '.pageArticle');
+        creator.outputTag('philosophyParagraph5', 'philosophyParagraph', '.pageArticle');
 	});
 </script>
 

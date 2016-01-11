@@ -48,7 +48,6 @@
 					"id": "companylogo",
 					"biglogo-substitute": {
 						"id": "biglogo-substitute",
-						"style": "font-family:Impact, 'メイリオ', 'ＭＳ Ｐゴシック'; font-size: 28px; color: #800000; display: block; float:left; margin:-2px 2px 0 0;",
 						"text": "DDThink"
 					},
 					"smalllogo": {
