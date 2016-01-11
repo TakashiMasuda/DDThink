@@ -1,189 +1,63 @@
-﻿<!-- HTMLによるコード -->
+<!-- HTMLによるコード -->
 <!doctype html>
 <!-- 最も外のタグ -->
 <html>
-<!-- 予め仕様等を記すヘッダータグ -->
-<head>
-<!-- UTF-8でエンコード -->
-<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
-<meta charset="utf-8">
-<!-- デフォルトの画面サイズを機器に依存する -->
-<meta name="viewport" content="width=device-width">
-<!-- キャッシュ無効のためのメタタグ * 3 -->
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="cache-control" content="no-cache" />
-<meta http-equiv="expires" content="0" />
-
-<!-- 表示用タイトル -->
-<title>DDThink - 株式会社デジタルデザインシンク</title>
+<!-- コンテンツを表示する領域 -->
+<body id="base">
 <!-- jQueryの本体ファイルを読み込む -->
 <script src="http://localhost/DDThinkHP/ddt-regular/js/jquery-1.11.0.min.js"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/constants.js" charset="utf-8"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/global.js" charset="utf-8"></script>
 <!--[if lt IE 9]><script src="http://localhost/DDThinkHP/ddt-regular/js/html5shiv.js"></script><![endif]-->
-</head>
-<!-- コンテンツを表示する領域 -->
-<body id="base">
+<div id="container" style="display:none;">
 <!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
-<div id="main" class="profiletable">
-<!-- 子ページ用のコンテンツ内メニュー -->
-<nav class="sidemenu">
-<!-- メニューの外枠 -->
-  <ul id="sidemenulist">
-  <!-- Profileカテゴリーの子ページ -->
-    <li>Profile</li>
-    <!-- 会社概要のページへのリンク -->
-    <li><a id="linkoutline" href="ddt-regular/outline.html">会社概要</a></li>
-    <!-- 企業理念のページへのリンク -->
-    <li><a id="linkphilo" href="ddt-regular/profilephilosophy.html">企業理念</a></li>
-    <!-- 行動指針紹介のページ -->
-    <li><a id="linkvpolicy" href="ddt-regular/policy.html">行動指針</a></li>
-    <!-- 社訓紹介のページ -->
-    <li><a id="linkmotto" href="ddt-regular/motto.html">社訓</a></li>
-    <!-- 会社沿革紹介のページ -->
-    <li><a id="linkhistory" href="ddt-regular/history.html">会社沿革</a></li>
-    <!-- アクセスを載せたページへのリンク -->
-    <li><a id="linkaccess" href="ddt-regular/access.html">アクセス</a></li>
-  </ul>
-</nav>
-<!-- InstanceBeginEditable name="maincontents" -->
-<!-- メインコンテンツの記述を開始 -->
-<div id="maincontents">
-<!-- 会社概要の記事を開始 -->
-<article id="outline">
-<!-- レスポンシブレイアウトにおけるsuccess(mini).gifの表示のためのdivタグ -->
-<div id="responsivehead">
-<!-- ページの大見出し -->
-<div class="articlehead">
-<!-- 大見出しのテキスト部 -->
-<h3>会社概要</h3>
-<!-- 大見出し終了 -->
-</div>
-<a href="ddt-regular/induction.html"><img id="successmini" src="ddt-regular/img/success(mini).gif"></a>
-<!-- レスポンシブレイアウト用見出しdivを終える -->
-</div>
-<!-- 左側となる1つ目の会社概要の表を開始 -->
-<table border="1" class="twotonetable">
-  <!-- 商号の行 -->
-  <tr>
-    <!-- 商号の見出し -->
-    <th>商号</th>
-    <!-- 会社名 -->
-    <td>株式会社デジタルデザインシンク</td>
-    <!-- 商号の行を終了 -->
-  </tr>
-  <!-- 創業時期の行 -->
-  <tr>
-    <!-- 創業の見出し -->
-    <th>創業</th>
-    <!-- 創業時期 -->
-    <td>平成7年(1995年)　11月</td>
-    <!-- 創業時期の行を終了 -->
-  </tr>
-  <!-- 代表者の行 -->
-  <tr>
-    <!-- 代表者の見出し -->
-    <th>代表者</th>
-    <!-- 代表者を書く -->
-    <td>代表取締役　金子博志</td>
-  <!-- 代表者の行を終了 -->
-  </tr>
-  <!-- 資本金の行 -->
-  <tr>
-    <!-- 資本金の部分 -->
-    <th>資本金</th>
-    <!-- 資本金を書く -->
-    <td>1000万円</td>
-  <!-- 資本金の行を終了 -->
-  </tr>
-  <!-- 従業員数の行を開始 -->
-  <tr>
-    <!-- 従業員数の見出し -->
-    <th>従業員数</th>
-    <!-- 従業員数を書く -->
-    <td>20名</td>
-  <!-- 従業員巣の行を終了 -->
-  </tr>
-  <!-- 取引先紹介の行 -->
-  <tr>
-    <!-- 取引先紹介の見出し -->
-    <th>主な取引先</th>
-    <!-- 取引先を書く -->
-    <td>オリンパス、NTT東日本、NTTコムウェア、ユニシス、日立ソフト、日立情報システムズ</td>
-  <!-- 取引先紹介の行を終了 -->
-  </tr>
- <tr>
-	<!-- 所在地の見出し -->
-    <th>所在地</th>
-    <!-- 新宿本社の記述開始とアクセスページの新宿本社の項目へのリンクボタン -->
-    <td>■新宿本社<a class="gotoaccess" href="ddt-regular/access.html#shinjuku">map</td>
-<!-- 所在地の見出しを閉じる -->
-</tr>
-<!-- 住所の行 -->
-<tr>
-	<!-- 空白の要素 -->
-    <th></th>
-    <td>東京都新宿区新宿2-12-4　アコードビル4F</td>
-<!-- 住所の行を閉じる -->
-</tr>
-<!-- 電話、FAX番号の行 -->
-<tr>
-    <!-- 空白の要素 -->
-    <th>　</th>
-    <!-- 電話、FAX番号を記述 -->
-    <td>TEL 03-6413-1225　FAX 03-6413-1226</td>
-<!-- 電話番号の行を閉じる -->
-</tr>
-<!-- 相模原事業所の記述開始の行 -->
-<tr>
-    <!-- 空白の要素 -->
-    <th>　</th>
-    <!-- 相模原事業所の記述、アクセスページの相模原事業所の項目へのリンクボタン -->
-    <td>■相模原事業所<a class="gotoaccess" href="ddt-regular/access.html#sagamihara">map</td>
-<!-- 相模原事業所の記述開始の行を閉じる -->
-</tr>
-<!-- 相模原事業所の住所の行 -->
-<tr>
-	<!-- 空白の要素 -->
-    <th>　</th>
-    <!-- 相模原事業所の住所を記述 -->
-    <td>神奈川県相模原市中央区相模原3-7-1フェリッシュ相模原2F</td>
-<!-- 相模原事業所の住所の行を閉じる -->
-</tr>
-<!-- 相模原事業所の電話、FAX番号の行 -->
-<tr>
-    <!-- 空白の要素 -->
-    <th>　</th>
-    <!-- 空白の要素 -->
-    <td>TEL 042-759-7312　FAX 042-759-7313</td>
-<!-- 空白の列を閉じる -->
-</tr>
-<!-- 左側の会社概要の表を終了 -->
-</table>
-<!-- 組織図の画像領域。クリックすることで原寸大表示となる -->
-<div id="enlargeableimg">
-	<!-- 組織図の画像 -->
-	<img src="ddt-regular/img/organizationmap.png">
-<!-- ポップアップ画像の記述領域を閉じる -->
-</div>
-<!-- 記事部を閉じる -->
-</article>
-<!-- メインコンテンツ部を終える -->
-</div>
-<!-- InstanceEndEditable -->
-<div id="success" class="sidemenu">
-<a href="ddt-regular/induction.html"><img src="ddt-regular/img/success.gif" alt=""></a>
-</div>
+<div id="main">
+
 <script>
 	//ドキュメント読み込み後
 	$(document).ready(function(){
+		updateSiteRootPath();	//各ファイルロードの前準備としてサイトルートパスを更新する
 		//初期化処理を行う
 		init(KEY_DEFAULT);
 		//画像大小切り替えスクリプトを読み込む
 		loadScriptFile('enlargeimg', DIR_SCRIPT_FILES, STR_TRUE);
+
+	    //createTagクラスのインスタンスを生成する
+	    var creator = new createTag();
+	    creator.getJsonFile(siteRootPath + 'ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
+	    creator.getDomFile(siteRootPath + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
+	    creator.getJsonFile(siteRootPath + 'ddt-regular/json/outline.json');          // ファイルのデータjsoを取得する。
+	    creator.getDomFile(siteRootPath + 'ddt-regular/template/outline.html');       // ファイルのデータDOMを取得する。
+	
+	    //ヘッダータグの内容を書き換える
+	    creator.createTag(creator.json.head, $(HEAD_TAG));
+	    
+	    //ページのメインコンテンツ領域を作る
+	    creator.outputTag('outlineContentArea', 'pageContentArea', '#main');
+	
+	    //profileのサイドメニューを作る
+	    creator.outputTag('profileSideMenu', 'sidemenulist', '.profileSidemenu');
+	
+	    //ページのサブタイトル部分を作る
+	    creator.outputTag('pageSubtitle', 'pageSubtitle', '#outline');
+	    //ページのサブタイトルを設定する
+	    $('.subtitleText').text('会社概要');
+	
+	    //会社概要のtableを作る
+	    creator.outputTag('twotonetable', 'twotonetable', '#outline');
+	
+	    //組織図の画像領域を作る
+	    creator.outputTag('enlargeable', 'enlargeable', '#outline');
+	
+	    //研修制度リンク(PC版)領域を作る
+	    creator.outputTag('inductionPcLinkArea', 'inductionPcLinkArea', '#main');
+
 	});
 </script>
+<!-- サイトルートパスを指し示す要素 -->
+<span id = "siteRootPath" href = "../"></span>
 <!-- コンテンツ記述を終える -->
+</div>
 </div>
 <!-- bodyタグを閉じる -->
 </body>

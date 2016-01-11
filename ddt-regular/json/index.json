@@ -1,0 +1,40 @@
+{
+	"head": {
+		"headPageTitlePrivate": {
+			"text": "DDThink - 株式会社デジタルデザインシンク"
+		},
+		"seoKeyWordPrivate": {
+			"name": "keyword",
+			"content": "新宿,デジタルデザインシンク"
+		},
+		"seoDescriptionPrivate": {
+			"name": "description",
+			"content": "株式会社デジタルデザインシンク"
+		}
+	},
+	"topPageContent": {
+		"id": "index",
+		"prop": {
+			"id": "prop",
+			"src": "ddt-regular/img/blank.png"
+		},
+		"switch": {
+			"id": "backgroundgif",
+			"src": "ddt-regular/img/blank.png"
+		},
+		"inductionLink": {
+			"href": "ddt-regular/induction.html",
+			"longtermtraining": {
+				"id": "longtermtraining",
+				"src": "ddt-regular/img/long-termTraining.gif"
+			}
+		},
+		"voiceLink": {
+			"href": "ddt-regular/voice.html",
+			"thevoice": {
+				"id": "thevoice",
+				"src": "ddt-regular/img/theVoice.gif"
+			}
+		}
+	}
+}

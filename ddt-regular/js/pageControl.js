@@ -12,6 +12,8 @@
  * 作成者　:T.Masuda
  */
 function pageControl() {
+
+	this.siteRootPath = EMPTY_STRING;	//カレントディレクトリからサイトルートへのパス
 	
 	/* 
 	 * 関数名:callPage
@@ -25,7 +27,7 @@ function pageControl() {
 	 */
 	this.callPage = function (url, target, getFrom) {
 		//取得するファイルの絶対URLを作る
-		var absoluteUrl = SITE_ROOT_DIRECTORY + url;
+		var absoluteUrl = siteRootPath + url;
 		//ajax通信でHTMLファイルを取得する
 		$.ajax({
 			url : absoluteUrl,	//絶対URLでファイルを取得する
@@ -68,5 +70,4 @@ function pageControl() {
 		//pushStateに履歴を追加する
 		history.pushState(url, arg, url);
 	}
-	
 }

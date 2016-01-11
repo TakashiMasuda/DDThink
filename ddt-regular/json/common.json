@@ -1,0 +1,331 @@
+{
+	"httpEquivContentType": {
+		"http-equiv": "Content-Type",
+		"content": "text/html; charset=UTF-8"
+	},
+	"charset": {
+		"charset": "utf-8"
+	},
+	"viewport": {
+		"name": "viewport",
+		"content": "width=device-width"
+	},
+	"httpEquivPragma": {
+		"http-equiv": "Pragma",
+		"content": "no-cache"
+	},
+	"httpEquivCacheControl": {
+		"http-equiv": "cache-control",
+		"content": "no-cache"
+	},
+	"httpEquivExpires": {
+		"http-equiv": "expires",
+		"content": "0"
+	},
+	"headPageTitlePrivate":{},
+	"seoKeyWordPrivate":{},
+	"seoDescriptionPrivate":{},
+	"container": {
+		"id": "container"
+	},
+	"main": {
+		"id": "main"
+	},
+	"pageHeader": {
+		"id": "mottobg",
+		"class": "baseinfo",
+		"mottobg": {
+			"id": "mottobg"
+		},
+		"toppagemotto": {
+			"id": "toppagemotto",
+			"corporationMotto": {
+				"text": "もっと速く もっとシンプルに More Quickly More Simply"
+			},
+			"headercontents": {
+				"id": "headercontents",
+				"companylogo": {
+					"id": "companylogo",
+					"biglogo-substitute": {
+						"id": "biglogo-substitute",
+						"style": "font-family:Impact, 'メイリオ', 'ＭＳ Ｐゴシック'; font-size: 28px; color: #800000; display: block; float:left; margin:-2px 2px 0 0;",
+						"text": "DDThink"
+					},
+					"smalllogo": {
+						"id": "smalllogo",
+						"src": "ddt-regular/img/logo(DDTfull).gif"
+					}
+				},
+				"ssn-d2124": {
+					"id": "ssn-d2124",
+					"ssnimg1": {
+						"id": "ssnmain",
+						"class": "ssnimg",
+						"src": "ddt-regular/img/ssn-d2124(57).gif"
+					},
+					"ssnimg2": {
+						"id": "ssncopy",
+						"class": "ssnimg",
+						"src": "ddt-regular/img/download(freeApp).gif"
+					},
+					"ssnimg3": {
+						"id": "ssniphone",
+						"class": "ssnimg",
+						"src": "ddt-regular/img/button(iphone).gif"
+					},
+					"ssnimg4": {
+						"id": "ssnandroid",
+						"class": "ssnimg",
+						"src": "ddt-regular/img/button(Android).gif"
+					}
+				}
+			}
+		},
+		"navigationbg": {
+			"id": "navigationbg"
+		},
+		"navigation": {
+			"id": "navigation",
+			"navigationUl": {
+				"navigationLi": [{
+					"href": "",
+					"text": "Top"
+				}, {
+					"href": "ddt-regular/outline.html",
+					"text": "Profile"
+				}, {
+					"href": "ddt-regular/service.html",
+					"text": "Service"
+				}, {
+					"href": "ddt-regular/gideline.html",
+					"text": "Recruit"
+				}, {
+					"href": "ddt-regular/contact.html",
+					"text": "Contact"
+				}]
+			}
+		}
+	},
+	"pageFooter": {
+		"id": "footer",
+		"class": "baseinfo",
+		"footerwrap": {
+			"id": "footerwrap",
+			"footerleft": {
+				"id": "footerleft",
+				"footerlogo": {
+					"text": "DDThink"
+				},
+				"footercompanyname": {
+					"text": "株式会社デジタルデザインシンク"
+				},
+				"sinjukuAddress": {
+					"class": "baseaddress",
+					"basename": {
+						"text": "本社"
+					},
+					"basepostal": {
+						"text": "〒160-0022"
+					},
+					"baseaddressinfo": {
+						"text": "東京都新宿区新宿2-12-4アコード新宿ビル4F"
+					},
+					"basetell": {
+						"text": "03-6413-1225"
+					},
+					"basefax": {
+						"text": " fax 03-6413-1226 "
+					}
+				},
+				"sagamiharaAddress": {
+					"class": "baseaddress",
+					"basename": {
+						"text": "相模原事業所"
+					},
+					"basepostal": {
+						"text": "〒252-0231"
+					},
+					"baseaddressinfo": {
+						"text": "神奈川県相模原市中央区相模原3-7-1フェリッシュ相模原2F"
+					},
+					"basetell": {
+						"text": "042-759-7312"
+					},
+					"basefax": {
+						"text": " fax 042-759-7313 "
+					}
+				},
+				"baseemail": {
+					"text": "E-mail info@ddthink.com"
+				}
+			},
+			"footerright": {
+				"id": "footerright",
+				"contentlinks": {
+					"id": "contentlinks",
+					"contentlinksUl": {
+						"contentlinksLi": [{
+							"href": "ddt-regular/outline.html",
+							"text": "会社概要"
+						}, {
+							"href": "ddt-regular/profilephilosophy.html",
+							"text": "企業理念"
+						}, {
+							"href": "ddt-regular/service.html",
+							"text": "事業内容"
+						}, {
+							"href": "ddt-regular/gideline.html",
+							"text": "求人情報"
+						}, {
+							"href": "ddt-regular/induction.html",
+							"text": "研修制度"
+						}, {
+							"href": "ddt-regular/welfare.html",
+							"text": "福利厚生"
+						}, {
+							"href": "ddt-regular/voice.html",
+							"html": "社員&amp;研修生の声"
+						}, {
+							"href": "ddt-regular/contact.html",
+							"text": "お問合せ"
+						}]
+					}
+				}
+			},
+			"copyright": {
+				"html": "Copyright &copy; digital design think corporation All Rights Reserved."
+			}
+		}
+	},
+	"footerbg": {
+		"id": "footerbg"
+	},
+	"profileSideMenu": {
+		"id": "sidemenulist",
+		"class": "sidemenulist",
+		"listHead": {
+			"text": "Profile"
+		},
+		"listCopyTarget": [{
+			"id": "linkoutline",
+			"href": "ddt-regular/outline.html",
+			"text": "会社概要"
+		}, {
+			"id": "linkphilo",
+			"href": "ddt-regular/profilephilosophy.html",
+			"text": "企業理念"
+		}, {
+			"id": "linkvpolicy",
+			"href": "ddt-regular/policy.html",
+			"text": "行動指針"
+		}, {
+			"id": "linkmotto",
+			"href": "ddt-regular/motto.html",
+			"text": "社訓"
+		}, {
+			"id": "linkhistory",
+			"href": "ddt-regular/history.html",
+			"text": "会社沿革"
+		}, {
+			"id": "linkaccess",
+			"href": "ddt-regular/access.html",
+			"text": "アクセス"
+		}]
+	},
+	"pageSubtitle": {
+		"id": "responsivehead",
+		"articlehead": {
+			"subtitleText": {
+				"text": ""
+			}
+		},
+		"inductionLink": {
+			"href": "ddt-regular/induction.html",
+			"inductionLinkImg": {
+				"id": "successmini",
+				"src": "ddt-regular/img/success(mini).gif"
+			}
+		}
+	},
+	"inductionPcLinkArea": {
+		"class": "sidemenu",
+		"id": "success",
+		"inductionPcLink": {
+			"href": "ddt-regular/induction.html",
+			"inductionPcImg": {
+				"src": "ddt-regular/img/success.gif"
+			}
+		}
+	},
+	"serviceSideMenu": {
+		"id": "sidemenulist",
+		"class": "sidemenulist",
+		"listHead": {
+			"text": "Service"
+		},
+		"listCopyTarget": [{
+			"id": "i0side",
+			"class": "servicesidebutton",
+			"text": "開発内容"
+		}, {
+			"id": "i1side",
+			"class": "servicesidebutton",
+			"text": "開発スキル"
+		}, {
+			"id": "i2side",
+			"class": "servicesidebutton",
+			"text": "開発実績"
+		}]
+	},
+	"recruitSideMenu": {
+		"id": "sidemenulist",
+		"class": "sidemenulist",
+		"listHead": {
+			"text": "Recruit"
+		},
+		"listCopyTarget": [{
+			"href": "ddt-regular/gideline.html",
+			"text": "募集要項"
+		}, {
+			"href": "ddt-regular/recruitphilosophy.html",
+			"text": "企業理念"
+		}, {
+			"href": "ddt-regular/induction.html",
+			"text": "研修制度"
+		}, {
+			"href": "ddt-regular/welfare.html",
+			"text": "福利厚生"
+		}, {
+			"href": "ddt-regular/voice.html",
+			"text": "社員の声"
+		}, {
+			"href": "ddt-regular/entry.html",
+			"text": "応募"
+		}]
+	},
+	"pageSubtitle": {
+		"id": "responsivehead",
+		"articlehead": {
+			"subtitleText": {
+				"text": ""
+			}
+		},
+		"inductionLink": {
+			"href": "ddt-regular/induction.html",
+			"inductionLinkImg": {
+				"id": "successmini",
+				"src": "ddt-regular/img/success(mini).gif"
+			}
+		}
+	},
+	"inductionPcLinkArea": {
+		"class": "sidemenu",
+		"id": "success",
+		"inductionPcLink": {
+			"href": "ddt-regular/induction.html",
+			"inductionPcImg": {
+				"src": "ddt-regular/img/success.gif"
+			}
+		}
+	}
+}

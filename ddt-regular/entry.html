@@ -1,164 +1,61 @@
-﻿<!-- HTMLによるコード -->
+<!-- HTMLによるコード -->
 <!doctype html>
 <!-- 最も外のタグ -->
 <html>
-<!-- 予め仕様等を記すヘッダータグ -->
-<head>
-<!-- UTF-8でエンコード -->
-<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
-<meta charset="utf-8">
-<!-- デフォルトの画面サイズを機器に依存する -->
-<meta name="viewport" content="width=device-width">
-<!-- キャッシュ無効のためのメタタグ * 3 -->
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="cache-control" content="no-cache" />
-<meta http-equiv="expires" content="0" />
-
-<!-- 表示用タイトル -->
-<title>DDThink - 株式会社デジタルデザインシンク</title>
+<!-- コンテンツを表示する領域 -->
+<body id="base">
 <!-- jQueryの本体ファイルを読み込む -->
 <script src="http://localhost/DDThinkHP/ddt-regular/js/jquery-1.11.0.min.js"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/constants.js" charset="utf-8"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/global.js" charset="utf-8"></script>
 <!--[if lt IE 9]><script src="http://localhost/DDThinkHP/ddt-regular/js/html5shiv.js"></script><![endif]-->
-</head>
-<!-- コンテンツを表示する領域 -->
-<body id="base">
-
+<div id="container" style="display:none;">
 <!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
-<div id="main" class="entryform">
-<!-- 子ページ用のコンテンツ内メニュー -->
-<!-- 編集可能領域を編集不可にする記述。これを消すことで再びテンプレートで作成されたページのこの編集可能領域を編集できるようになる -->
+<div id="main">
 
-<nav class="sidemenu">
-  <!-- リストの外枠 -->
-  <ul id="sidemenulist">
-    <!-- Recruitカテゴリーを指す -->
-    <li>Recruit</li>
-    <!-- 募集要項ページへのリンク -->
-    <li><a href="ddt-regular/gideline.html">募集要項</a></li>
-    <!-- 企業理念ページへのリンク -->
-    <li><a href="ddt-regular/recruitphilosophy.html">企業理念</a></li>
-    <!-- 研修制度ページへのリンク -->
-    <li><a href="ddt-regular/induction.html">研修制度</a></li>
-    <!-- 福利厚生ページへのリンク -->
-    <li><a href="ddt-regular/welfare.html">福利厚生</a></li>
-    <!-- 社員&研修生の声ページへのリンク -->
-    <li><a href="ddt-regular/voice.html">社員の声</a></li>
-    <!-- 申し込みフォームページへのリンク -->
-    <li><a href="ddt-regular/entry.html">応募</a></li>
-    <!-- リストを閉じる -->
-  </ul>
-<!-- コンテンツ内メニューを閉じる -->
-</nav>
-<!-- InstanceBeginEditable name="maincontents" -->
-<div id="maincontents">
-<article id="entry">
-<!-- レスポンシブレイアウトにおけるsuccess(mini).gifの表示のためのdivタグ -->
-<div id="responsivehead">
-<!-- ページの大見出し -->
-<div class="articlehead">
-<!-- 大見出しのテキスト部 -->
-<h3>求人応募</h3>
-<!-- 大見出し終了 -->
-</div>
-<a href="ddt-regular/induction.html"><img id="successmini" src="ddt-regular/img/success(mini).gif"></a>
-<!-- レスポンシブレイアウト用見出しdivを終える -->
-</div>
-<!-- 注意書き部分を開始 -->
-<div class="supplement">
-	<!-- 注意書き本文 -->
-	<p><span class="text-red">*</span>は必須入力項目です。</p>
-<!-- 注意書き部分終了 -->
-</div>
-<!-- フォーム部分を開始 -->
-<form class="form" action="ddt-regular/postmail/postmail.cgi" method="post">
-	<!-- フォームの構成要素を囲む -->
-	<dl>
-    	<!-- 氏名 -->
-		<dt>
-        	<span class="formcontent">氏名<span class="text-red">*</span></span>
-        	<span class="formruby">Name</span>
-        </dt>
-        <!-- 氏名を入力するテキストボックス -->
-        <dd><input type="text" class="text" name="name" size="40" required></dd>
-        <!-- カタカナのフリガナ -->
-		<dt>
-        	<span class="formcontent">フリガナ<span class="text-red">*</span></span>
-        	<span class="formruby">Furigana</span>
-        </dt>
-        <!-- フリガナを入力するテキストボックス -->
-        <dd><input type="text" class="text"name="furigana"size="40" required></dd>
-        <!-- 年齢 -->
-		<dt>
-        	<span class="formcontent">年齢<span class="text-red">*</span></span>
-        	<span class="formruby">age</span>
-        </dt>
-        <!-- 年齢を入力するテキストボックス -->
-        <dd><input type="text" class="text"name="age" size="40" required></dd>
-        <!-- 性別 -->
-		<dt>
-        	<span class="formcontent">性別<span class="text-red">*</span></span>
-        	<span class="formruby">sex</span>
-        </dt>
-        <!-- 性別を選択するラジオボタン -->
-        <dd>
-        	<input type="radio" name="sex" value="男" checked>男
-            <input type="radio" name="sex" value="女">女
-        </dd>
-        <!-- 電話番号 -->
-		<dt>
-        	<span class="formcontent">電話番号<span class="text-red">*</span></span>
-        	<span class="formruby">Tel</span>
-        </dt>
-        <!-- 電話番号を入力するテキストボックス -->
-        <dd><input type="text" class="text"name="tel" maxlength="12" pattern="^[0-9]+$"size="40" required></dd>
-        <!-- メールアドレス -->
-        <dt>
-        	<span class="formcontent">メールアドレス<span class="text-red">*</span></span>
-        	<span class="formruby">E-mail</span>
-        </dt>
-        <!-- メールアドレスを入力するテキストボックス -->
-        <dd><input type="email" class="text" name="mailaddress" size="40" required></dd>
-		<dt>
-        	<span class="formcontent">郵便番号<span class="text-red">*</span></span>
-        	<span class="formruby">Post Code</span>
-        </dt>
-         <dd><input type="text" class="postcode" name="postcode1" size="40" maxlength="3" required>&nbsp;―&nbsp;
-         	 <input type="text" class="postcode" name="postcode2" size="40" maxlength="4" required></dd>
-		<dt>
-        	<span class="formcontent">住所<span class="text-red">*</span></span>
-        	<span class="formruby">Address</span>
-        </dt>
-        <dd><input type="text" class="text" name="address" size="40" required></dd>
-		<dt>
-        	<span class="formcontent">職務経歴<span class="text-red">*</span></span>
-        	<span class="formruby">Experience</span>
-        </dt>
-        <dd><textarea class="textarea text" name="experience" cols="40" rows="10" required></textarea></dd>
-     </dl>
-		<p class="submitbuttonarea">
-        <button type="submit" class="submitbutton">送信内容の確認</button>
-        </p>
-</form>
-</article>
-</div>
-<!-- InstanceEndEditable -->
-<div id="success" class="sidemenu">
-<a href="ddt-regular/induction.html"><img src="ddt-regular/img/success.gif" alt=""></a>
-</div>
-
-<!-- コンテンツ記述を終える -->
-</div>
 <!-- bodyタグを閉じる -->
 <script>
 	//ドキュメント読み込み後
 	$(document).ready(function(){
+		updateSiteRootPath();	//各ファイルロードの前準備としてサイトルートパスを更新する
 		//初期化処理を行う
 		init(KEY_DEFAULT);
-	
+		
+		//createTagクラスインスタンスを生成する
+        var creator = new createTag();
+        creator.getJsonFile(siteRootPath + 'ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
+        creator.getDomFile(siteRootPath + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
+        creator.getJsonFile(siteRootPath + 'ddt-regular/json/entry.json');          // 共通パーツのjsonを取得する。
+        creator.getDomFile(siteRootPath + 'ddt-regular/template/entry.html');       // 共通パーツのDOMを取得する。
+
+	    //ヘッダータグの内容を書き換える
+	    creator.createTag(creator.json.head, $(HEAD_TAG));
+        
+        //ページのメインコンテンツ領域を作る
+        creator.outputTag('entryContentArea', 'pageContentArea', '#main');
+        //recruitのサイドメニューを作る
+        creator.outputTag('recruitSideMenu', 'sidemenulist', '.recruitSideMenu');
+        //ページのサブタイトル部分を作る
+        creator.outputTag('pageSubtitle', 'pageSubtitle', '#entry');
+        //ページのサブタイトルを設定する
+        $('.subtitleText').text('求人応募');
+
+        //必須注記部分を作る
+        creator.outputTag('supplement', 'supplement', '#entry');
+
+        //必須注記部分を作る
+        creator.outputTag('entryForm', 'entryForm', '#entry');
+
+        //研修制度リンク(PC版)領域を作る
+        creator.outputTag('inductionPcLinkArea', 'inductionPcLinkArea', '#main');
+
 	});
 </script>
+<!-- サイトルートパスを指し示す要素 -->
+<span id = "siteRootPath" href = "../"></span>
+<!-- コンテンツ記述を終える -->
+</div>
+</div>
 </body>
 <!-- InstanceEnd -->
 </html>

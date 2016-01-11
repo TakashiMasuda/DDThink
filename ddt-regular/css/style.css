@@ -231,10 +231,10 @@ ul {
 	background-repeat: no-repeat;
 }
 #access div.accessbaseinfomation#shinjuku{
-	background-image: url(../img/table-commonred.gif);
+	background-image: url(../../img/table-commonred.gif);
 }
 #access div.accessbaseinfomation#sagamihara{
-	background-image: url(../img/table-commonblue.gif);
+	background-image: url(../../img/table-commonblue.gif);
 }
 /* アクセスコンテンツの1つ1つの記事を囲むタグのスタイルシート */
 #access section{

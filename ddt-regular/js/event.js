@@ -31,9 +31,13 @@
 			
 			//画面遷移をキャンセルする
 			event.preventDefault();
-			//pushStateに履歴を追加する
-			pControl.addPushState(url, EMPTY_STRING);
 			//画面遷移を行う
 			pagemove(event, url);
 		});
 	});
+
+	//サイドメニューのボタンへマウスポインタを重ねたときのボタンの色を変化させる処理
+	$(document)	//サイドメニューに対し
+	.on('mouseenter', SELECTOR_SIDEMENU_BUTTON, function(e){	//ボタンの部分にマウスポインタを重ねたら
+	});
+	

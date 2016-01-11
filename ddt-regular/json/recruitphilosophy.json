@@ -1,0 +1,15 @@
+{
+    "recruitphilosophyContentArea":{
+        "id":"main",
+        "class":"base",
+        "pageSideMenu":{
+            "class":"sidemenu recruitSideMenu"
+        },
+        "maincontents":{
+            "id":"maincontents",
+            "pageArticle":{
+                "id":"simplearticle"
+            }
+        }
+    }
+}

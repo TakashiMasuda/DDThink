@@ -1,90 +1,58 @@
-﻿<!-- HTMLによるコード -->
+<!-- HTMLによるコード -->
 <!doctype html>
 <!-- 最も外のタグ -->
 <html>
-<!-- 予め仕様等を記すヘッダータグ -->
-<head>
-<!-- UTF-8でエンコード -->
-<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
-<meta charset="utf-8">
-<!-- デフォルトの画面サイズを機器に依存する -->
-<meta name="viewport" content="width=device-width">
-<!-- キャッシュ無効のためのメタタグ * 3 -->
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="cache-control" content="no-cache" />
-<meta http-equiv="expires" content="0" />
-
-<!-- 表示用タイトル -->
-<title>DDThink - 株式会社デジタルデザインシンク</title>
+<!-- コンテンツを表示する領域 -->
+<body id="base">
 <!-- jQueryの本体ファイルを読み込む -->
 <script src="http://localhost/DDThinkHP/ddt-regular/js/jquery-1.11.0.min.js"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/constants.js" charset="utf-8"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/global.js" charset="utf-8"></script>
 <!--[if lt IE 9]><script src="http://localhost/DDThinkHP/ddt-regular/js/html5shiv.js"></script><![endif]-->
-</head>
-<!-- コンテンツを表示する領域 -->
-<body id="base">
+<div id="container" style="display:none;">
 <!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
-<div id="main" class="voice">
-<!-- 子ページ用のコンテンツ内メニュー -->
-<!-- 編集可能領域を編集不可にする記述。これを消すことで再びテンプレートで作成されたページのこの編集可能領域を編集できるようになる -->
-
-<nav class="sidemenu">
-  <!-- リストの外枠 -->
-  <ul id="sidemenulist">
-    <!-- Recruitカテゴリーを指す -->
-    <li>Recruit</li>
-    <!-- 募集要項ページへのリンク -->
-    <li><a href="ddt-regular/gideline.html">募集要項</a></li>
-    <!-- 企業理念ページへのリンク -->
-    <li><a href="ddt-regular/recruitphilosophy.html">企業理念</a></li>
-    <!-- 研修制度ページへのリンク -->
-    <li><a href="ddt-regular/induction.html">研修制度</a></li>
-    <!-- 福利厚生ページへのリンク -->
-    <li><a href="ddt-regular/welfare.html">福利厚生</a></li>
-    <!-- 社員&研修生の声ページへのリンク -->
-    <li><a href="ddt-regular/voice.html">社員の声</a></li>
-    <!-- 申し込みフォームページへのリンク -->
-    <li><a href="ddt-regular/entry.html">応募</a></li>
-    <!-- リストを閉じる -->
-  </ul>
-<!-- コンテンツ内メニューを閉じる -->
-</nav>
-<!-- InstanceBeginEditable name="maincontents" -->
-<!-- メインコンテンツ記述部 -->
-<div id="maincontents">
-	<!-- 社員の声の記事を開始 -->
-	<article id="voice">
-    	<!-- 背景画像 -->
-        <img id="backgroundgif" src="ddt-regular/img/theVoice(header-back).gif">
-<!-- レスポンシブレイアウトにおけるsuccess(mini).gifの表示のためのdivタグ -->
-<div id="responsivehead">
-<!-- ページの大見出し -->
-<div class="articlehead">
-<!-- 大見出しのテキスト部 -->
-<h3>社員&amp;研修生の声</h3>
-<!-- 大見出し終了 -->
-</div>
-<a href="ddt-regular/induction.html"><img id="successmini" src="ddt-regular/img/success(mini).gif"></a>
-<!-- レスポンシブレイアウト用見出しdivを終える -->
-</div>
-	</article>
-<!-- メインコンテンツ記述終了 -->
-</div>
-<!-- InstanceEndEditable -->
-<div id="success" class="sidemenu">
-<a href="ddt-regular/induction.html"><img src="ddt-regular/img/success.gif" alt=""></a>
-</div>
+<div id="main">
 <script>
 	//ドキュメント読み込み後
 	$(document).ready(function(){
+		updateSiteRootPath();	//各ファイルロードの前準備としてサイトルートパスを更新する
 		//初期化処理を行う
-		if (init(KEY_DEFAULT)) {
-			createVoice();	//初回処理時は記事を作る
+		var inited =	init(KEY_DEFAULT);
+	
+	    //createTagクラスのインスタンスを生成する
+	    var creator = new createTag();
+	    creator.getJsonFile(siteRootPath + 'ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
+	    creator.getDomFile(siteRootPath + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
+	    creator.getJsonFile(siteRootPath + 'ddt-regular/json/voice.json');          // 個別パーツのjsonを取得する。
+	    creator.getDomFile(siteRootPath + 'ddt-regular/template/voice.html');       // 個別パーツのDOMを取得する。
+
+	    //ヘッダータグの内容を書き換える
+	    creator.createTag(creator.json.head, $(HEAD_TAG));
+	    
+	    //ページのメインコンテンツ領域を作る
+	    creator.outputTag('voiceContentArea', 'pageContentArea', '#main');
+	    //ページの背景画像を作る
+	    creator.outputTag('voiceBgImg', 'voiceBgImg', '#voice');
+	    //recruitのサイドメニューを作る
+	    creator.outputTag('recruitSideMenu', 'sidemenulist', '.recruitSideMenu');
+	    //ページのサブタイトル部分を作る
+	    creator.outputTag('pageSubtitle', 'pageSubtitle', '#voice');
+	    //ページのサブタイトルを設定する
+	    $('.subtitleText').html('社員&amp;研修生の声');
+	
+	    //研修制度リンク(PC版)領域を作る
+	    creator.outputTag('inductionPcLinkArea', 'inductionPcLinkArea', '#main');
+	
+		//初期化処理後であれば
+		if (inited) {
+			createVoice();	//社員の声コンテンツを作る
 		}
 	});
 </script>
+<!-- サイトルートパスを指し示す要素 -->
+<span id = "siteRootPath" href = "../"></span>
 <!-- コンテンツ記述を終える -->
+</div>
 </div>
 <!-- bodyタグを閉じる -->
 </body>

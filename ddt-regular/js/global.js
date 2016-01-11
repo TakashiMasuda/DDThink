@@ -14,6 +14,22 @@ var loadedCSSFile = {};
 //ページ独自の初期化後処理
 var initFuncs = {default : setMainContent};
 
+//サイトルートパス
+var siteRootPath = EMPTY_STRING;
+
+/* 
+ * 関数名:updateSiteRootPath
+ * 概要  :ウェブサイトのルートパスを更新する
+ * 引数  :なし
+ * 返却値:なし
+ * 作成日　:2016.0111
+ * 作成者　:T.Masuda
+ */
+function updateSiteRootPath() {
+	//サイトルートへのパスを特定のタグから取得する
+	siteRootPath = $(SELECTOR_SITEROOT_PATH).attr(ATTR_HREF);
+}
+
 /* 
  * 関数名:addLoadedScriptFileList
  * 概要  :読み込んだ事があるスクリプトファイルのリストに追加を行う
@@ -62,7 +78,7 @@ function loadScriptFile (scriptName, dir, value, callback) {
 	//先んじてスクリプトファイルを取得する
 	$.ajax({
 			//URLを指定
-			url : SITE_ROOT_DIRECTORY + dir + scriptName + EXTEND_JS,
+			url : siteRootPath + dir + scriptName + EXTEND_JS,
 			dataType : SCRIPT_TAG,	//スクリプトを取得する設定
 			async : false,			//同期通信
 			//通信終了後
@@ -101,7 +117,7 @@ function loadCSSFile (cssName, value) {
 	//linkタグにこのlinkタグがCSS用であるという記述を追加する
 	linkTag.setAttribute(ATTR_REL, VALUE_STYLESHEET);
 	//linkタグにCSSファイルへのパスを追加する
-	linkTag.setAttribute(ATTR_HREF, SITE_ROOT_DIRECTORY + DIR_CSS_FILES + SLASH + cssName + EXTEND_CSS);
+	linkTag.setAttribute(ATTR_HREF, siteRootPath + DIR_CSS_FILES + SLASH + cssName + EXTEND_CSS);
 	//headタグにscriptタグを追加する
 	headTag[0].appendChild(linkTag);
 	
@@ -125,9 +141,16 @@ function init(pageName) {
 	if(!isInit()) {
 		return false;	//処理を終了し非初回処理判定を返す
 	}
-	
+
 	//まずは必要なファイルを読み込む
 	$.when(
+		$(HEAD_TAG).remove(),	//自動生成されているheadタグを消す
+		createHeadTag(),		//headタグを作り直す
+		//必要なCSSファイルを読み込む
+		loadCSSFile(STYLE_CSS),
+		loadCSSFile(DESKTOP_CSS),
+		loadCSSFile(SMARTPHONE_CSS),
+		loadCSSFile(TABLET_CSS),
 		//読み込み済みスクリプト一覧にJSファイルの名を登録して二度読み込まないようにする
 		loadScriptFile('common', DIR_SCRIPT_FILES, STR_TRUE),
 		loadScriptFile("pagemove", DIR_SCRIPT_FILES, STR_TRUE),
@@ -136,21 +159,33 @@ function init(pageName) {
 		loadScriptFile("categorypulldown", DIR_SCRIPT_FILES, STR_TRUE),
 		loadScriptFile("imagemove", DIR_SCRIPT_FILES, STR_TRUE),
 		loadScriptFile("decorator", DIR_SCRIPT_FILES, STR_TRUE),
-		//必要なCSSファイルを読み込む
-		loadCSSFile(STYLE_CSS),
-		loadCSSFile(DESKTOP_CSS),
-		loadCSSFile(SMARTPHONE_CSS),
-		loadCSSFile(TABLET_CSS)
+		loadScriptFile("createTag", FLOWER_SCRIPT_DIR, STR_TRUE)
 		//必要なJSファイルを読み込む※初期処理時は読み込み順序の都合でloadScriptFile関数を使わない
 	//ファイルの読み込みが完了したら
 	).always(function (a){
-		
+
 		//クラスインスタンスを作っていく
 		commonFuncs = new common();			//共通関数クラス
 		pControl = new pageControl(); 		//画面操作クラス
+
+		//createTagクラスのインスタンスを生成する
+		var creator_top = new createTag();
+		creator_top.getJsonFile(siteRootPath + 'ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
+		creator_top.getDomFile(siteRootPath + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
+
+		createMetaTags(creator_top);	//metaタグを追加する
 		
-		//フレームを読み込む
-		loadFrame();
+		//ページのヘッダーを作る
+		creator_top.outputTag('pageHeader', 'pageHeader', '#container');
+
+		//ページのフッターを作る
+		creator_top.outputTag('pageFooter', 'pageFooter', '#container');
+
+		//ページのフッターを作る
+		creator_top.outputTag('footerbg', 'footerbg', '#container');
+
+		//メインのタグをヘッダー次に配置する
+		$(SELECTOR_MAIN).insertAfter(HEADER_TAG);
 		
 		//ページ名が入力されてかつ、該当するコールバック関数が用意されているなら
 		if (pageName && pageName in initFuncs) {
@@ -158,8 +193,6 @@ function init(pageName) {
 			initFuncs[pageName]();
 		}
 
-		//aタグ、IMGタグ、formタグのソースパスにサイトルートパスを追加する
-		commonFuncs.addSiteRootPathTogether();
 		//ロゴのサイズの調整を行う。(CSSの展開にラグがあるため)調整が終わったコンテナを表示する
 		setTimeout(function(){
 			hilightSelectedCategory(); 		//選択済みのトップメニューのボタンをハイライトする
@@ -194,10 +227,10 @@ function loadFrame () {
  * 作成者　:T.Masuda
  */
 function setMainContent () {
-	//コンテナ内のメインのタグを消す
-	$(SELECTOR_MAIN, $(SELECTOR_CONTAINER)).remove();
-	//ページに元々あったメインのタグを移動する
-	$(BEFORE_MAIN_TAG_ELEM).after($(SELECTOR_MAIN));
+//	//コンテナ内のメインのタグを消す
+//	$(SELECTOR_MAIN, $(SELECTOR_CONTAINER)).remove();
+//	//ページに元々あったメインのタグを移動する
+//	$(BEFORE_MAIN_TAG_ELEM).after($(SELECTOR_MAIN));
 	//サイドメニューのサイズを直す
 	sidemenuSize();
 }
@@ -228,7 +261,7 @@ function isInit() {
  */
 function hilightSelectedCategory() {
 	//サイトのカテゴリとコンテンツの一覧を取得する
-	var siteCategory = commonFuncs.getJSONFile(SITE_ROOT_DIRECTORY + 'ddt-regular/json/siteCategory.json');
+	var siteCategory = commonFuncs.getJSONFile(siteRootPath + 'ddt-regular/json/siteCategory.json');
 	//現在のコンテンツ名を取得する
 	var contentName = commonFuncs.getCurrentContentName();
 	//カテゴリ名を取得する
@@ -252,4 +285,48 @@ function hilightSelectedSidemenuItem() {
 	var dc = new decorator();	//レイアウト変更クラスインスタンスを生成する
 	//カテゴリ名をハイライトする
 	dc.hilightSelectedElement(SELECTOR_SIDEMENU_BUTTON_LINK, ATTR_HREF, commonFuncs.getLastValue(location.href, SLASH), LI_TAG);
+}
+
+/* 
+ * 関数名:createHeadTag
+ * 概要  :headタグを作る
+ * 引数  :なし
+ * 返却値:なし
+ * 作成日　:2016.0110
+ * 作成者　:T.Masuda
+ */
+function createHeadTag() {
+	var doc = document;	//サイトのドキュメント全体を取得する
+	//HTMLタグを取得する
+	var html = doc.getElementsByTagName("html")[0];
+	//headタグを作る
+	var head = doc.createElement("head");
+	//HTMLの先頭の子としてheadタグを追加する
+	html.insertBefore(head, html.firstChild);
+}
+
+/* 
+ * 関数名:createMetaTags
+ * 概要  :metaタグを作る
+ * 引数  :createTag create_tag:createTagクラスインスタンス 
+ * 返却値:なし
+ * 作成日　:2016.0112
+ * 作成者　:T.Masuda
+ */
+function createMetaTags(create_tag) {
+	//metaタグをheadタグに追加する
+	//コンテントタイプ
+	create_tag.outputTag("httpEquivContentType", "httpEquivContentType", HEAD_TAG);
+	//文字コード
+	create_tag.outputTag("charset", "charset", HEAD_TAG);
+	//画面サイズ設定
+	create_tag.outputTag("viewport", "viewport", HEAD_TAG);
+	//以下3個キャッシュしない設定
+	create_tag.outputTag("httpEquivPragma", "httpEquivPragma", HEAD_TAG);
+	create_tag.outputTag("httpEquivCacheControl", "httpEquivCacheControl", HEAD_TAG);
+	create_tag.outputTag("httpEquivExpires", "httpEquivExpires", HEAD_TAG);
+	//以下3個SEO対策タグ
+	create_tag.outputTag("headPageTitlePrivate", "headPageTitlePrivate", HEAD_TAG);
+	create_tag.outputTag("seoKeyWordPrivate", "seoKeyWordPrivate", HEAD_TAG);
+	create_tag.outputTag("seoDescriptionPrivate", "seoDescriptionPrivate", HEAD_TAG);
 }

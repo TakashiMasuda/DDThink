@@ -62,38 +62,48 @@ function common(){
 	/* 
 	 * 関数名:addSiteRootPath
 	 * 概要  :指定したタグの属性値にサイトルートのパスを追加する
-	 * 引数  :String selector : 指定するタグのセレクタ
+	 * 引数  :array elems : 処理対象の要素。jQueryオブジェクト推奨
 	 * 　　  :String attrName : 指定する属性
 	 * 作成者:T.Masuda
 	 * 作成日:2015.01.09
 	 */
-	 this.addSiteRootPath = function(selector, attrName) {
+	 this.addSiteRootPath = function(elems, attrName) {
 		 //対象を走査する
-		 $(selector + SQUARE_BRACKET_FRONT + attrName + SQUARE_BRACKET_REAR).each(function(){
+		 $(elems).filter(SQUARE_BRACKET_FRONT + attrName + SQUARE_BRACKET_REAR).each(function(){
 			 var path = $(this).attr(attrName);
 			 //ローカルのパスであれば(サイトルート、HTTP形式のURLのヘッダー部分が含まれない)
 			 if (path !== void(0)
-					&& (path.indexOf(SITE_ROOT_DIRECTORY) == -1 
+					&& (path.indexOf(siteRootPath) == -1 
 					&& path.indexOf(HTTP) == -1 
 					&& path.indexOf(HTTPS) == -1)) {
 				 //パスを追記する。既にパスにサイトルートが記述されている場合は一度その部分を抜く。
-				 $(this).attr(attrName, SITE_ROOT_DIRECTORY + path.replace(SITE_ROOT_DIRECTORY, EMPTY_STRING));
+				 $(this).attr(attrName, siteRootPath + path.replace(siteRootPath, EMPTY_STRING));
 			 }
 		 });
 	 }
 
 	/* 
 	 * 関数名:addSiteRootPathTogether
-	 * 概要  :一括で属性値にサイトルートのパスの追加を行う
+	 * 概要  :ヘッダー、フッターといった枠部分の要素にサイトルートのパスの追加を行う
 	 * 引数  :なし
 	 * 作成者:T.Masuda
 	 * 作成日:2015.01.09
 	 */
-	this.addSiteRootPathTogether = function(selector, attrName) {
-		//一括でaddSiteRootPathをコールする。(現状a,img,formタグに対して行う)
-		this.addSiteRootPath(IMG_TAG , ATTR_SRC);
-		this.addSiteRootPath(ANCHOR_TAG , ATTR_HREF);
-		this.addSiteRootPath(FORM_TAG , ATTR_ACTION);
+	this.addSiteRootPathForFrame = function() {
+		var $headerFooterAnchors = $(HEADER_FOOTER_ANCHOR);	//ヘッダー、フッター内のAタグを取得する
+		
+		//取得した要素を走査して処理する
+		$headerFooterAnchors.each(function() {
+			//走査対象の要素から現在のパスを取得する
+			var nowPath = $(this).attr(ATTR_HREF);
+			//パスから相対パス指定の記述を抜く
+			basePath = nowPath.replace(/\.\.\/|\.\//g, EMPTY_STRING);
+			//捜査対象に生成したパスを設定する
+			$(this).attr(ATTR_HREF, basePath);
+		});
+
+		//フレーム内要素のAタグのサイトルートを更新する
+		this.addSiteRootPath(HEADER_FOOTER_ANCHOR , ATTR_HREF);
 	}
 	
 	/* 

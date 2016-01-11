@@ -5,8 +5,6 @@
  * 場所　　:js/constants.js                                           
  */                                                               
                                                                   
-//サイトルートのディレクトリ                                                   
-SITE_ROOT_DIRECTORY = '/DDThinkHP/';                
 //HREF属性                                                          
 ATTR_HREF = 'href';                                               
 //制御用ボタンのセレクタ                                                     
@@ -103,7 +101,7 @@ ATTR_ACTION					= 'action';
 //serviceクラス
 CLASS_SERVICE				= 'service';
 //CSS読み込み開始から初期化処理の要ディレイ関数コールまでのディレイ
-INIT_LASTPROCDDURE_DELAY			= 30;
+INIT_LASTPROCDDURE_DELAY			= 175;
 //HTTPリクエストのGETメソッド
 METHOD_GET					= "GET";
 //DDTFlowers流用スクリプトファイルのディレクトリ
@@ -129,3 +127,11 @@ FOOTER_BACKGROUND			= '#footerbg';
 STYLE_HEIGHT				= 'height';
 //フッタータグ
 FOOTER_TAG					= 'footer';
+//サイトルートパスを持たせておく要素のセレクタ
+SELECTOR_SITEROOT_PATH		= '#siteRootPath';
+//ヘッダータグ
+HEADER_TAG					= 'header';
+HEADER_FOOTER_IMG		= 'header img, footer img';
+//ヘッダー、フッター内のaタグ、imgタグ
+HEADER_FOOTER_ANCHOR	= 'header a, footer a';
+SELECTOR_SERVICE_SIDEMENU_BUTTON = 'nav.sidemenu.serviceSidemenu li a';

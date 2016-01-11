@@ -126,11 +126,13 @@ function createTag(){
 		//JSONの先頭のキーの連想配列と、DOMの先頭を取得する。
 		mapNode = this.filteredMap == null?this.getMapNode(key):this.filteredMap[key];			//マップの先頭を取得する。
 		domNode = this.getDomNode(domNodeName);	//DOMの先頭を取得する。
-
 		// createTagでキーに対応したHTMLのパーツを作成し、変数tagに格納する。
 		var tag = this.createTag(mapNode, domNode);
 		// パーツの作成に成功したならば
 		if(tag != null){
+			//タグのソースパスにサイトルートパスを追加する
+			this.addSiteRootPath(tag);
+			
 			//@mod 2015.03.10 T.Masuda 第三引数appendToに対応しました。
 			//appendToが入力されていれば
 			if(appendTo != null){
@@ -165,7 +167,7 @@ function createTag(){
 			//処理を終える。
 			return null;
 		}
-				
+
 		//連想配列に子がいる限りループする。
 		for(key in curMapNode){
 			var mapNode = curMapNode[key];	//mapNodeの内容をcurMapNode内のmapNodeの参照に切り替える。
@@ -964,5 +966,25 @@ function createTag(){
 		//DBから会員情報を取得してpersonInformationの各フォームにデータを格納する。
 		getMemberInformation('.specialReservedDialog');
 	}
+	
+	/*
+	 * 関数名:addSiteRootPath
+	 * 概要  :まとめてタグ自身とその子孫要素のソースパスにサイトルートパスを追記する
+	 * 引数  :Element tag:処理対象の要素
+	 * 返却値  :なし
+	 * 作成者:T.Masuda
+	 * 作成日:2016.01.12
+	 */
+	this.addSiteRootPath = function(tag) {
+		//タグ自身にサイトルートパスの追記を行う
+		commonFuncs.addSiteRootPath($(tag) , ATTR_SRC);
+		commonFuncs.addSiteRootPath($(tag) , ATTR_HREF);
+		commonFuncs.addSiteRootPath($(tag) , ATTR_ACTION);
+		//タグの子孫要素にサイトルートパスの追記を行う
+		commonFuncs.addSiteRootPath($(IMG_TAG, tag) , ATTR_SRC);
+		commonFuncs.addSiteRootPath($(ANCHOR_TAG, tag) , ATTR_HREF);
+		commonFuncs.addSiteRootPath($(FORM_TAG, tag) , ATTR_ACTION);
+	}
+	
 }
 	

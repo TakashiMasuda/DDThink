@@ -23,21 +23,21 @@
 	//preloadを呼び出す。引数にソースパスをハッシュの形で指定。主に各ページで共通して利用する画像を読み込む
 	preload([
 		//success(mini).gif。あらかじめ読み込まないとスマホからの初回表示時にずれる
-    	'ddt-regular/img/success(mini).gif',
+    	siteRootPath + 'ddt-regular/img/success(mini).gif',
 		//PC、タブレットレイアウトのサイドメニュー下に挿入されるsuccess.gif
-    	'ddt-regular/img/success.gif',
+    	siteRootPath + 'ddt-regular/img/success.gif',
 		//ヘッダーの会社ロゴ
-    	'ddt-regular/img/logo(DDThink).gif',
+    	siteRootPath + 'ddt-regular/img/logo(DDThink).gif',
 		//ヘッダーのフル表示会社名
-    	'ddt-regular/img/logo(DDTfull).gif',
+    	siteRootPath + 'ddt-regular/img/logo(DDTfull).gif',
 		//ヘッダーのゲーム紹介メイン画像
-    	'ddt-regular/img/ssn-d2124(57).gif',
+    	siteRootPath + 'ddt-regular/img/ssn-d2124(57).gif',
 		//ゲーム紹介文章画像
-    	'ddt-regular/img/download(freeApp).gif',
+    	siteRootPath + 'ddt-regular/img/download(freeApp).gif',
 		//ゲーム紹介iphoneアプリリンク画像
-    	'ddt-regular/img/button(iphone).gif',
+    	siteRootPath + 'ddt-regular/img/button(iphone).gif',
 		//ゲーム紹介Androidアプリリンク画像
-		'ddt-regular/img/button(Android).gif'
+		siteRootPath + 'ddt-regular/img/button(Android).gif'
 	]);
 
    
@@ -121,34 +121,35 @@
           async : false,				//同期通信を行う
 　 		  cache : false,				//通信結果をキャッシュしない
           success: function(data) {		//データの取得に成功したら
+  			 //pushStateに履歴を追加する
+  			 pControl.addPushState(url, EMPTY_STRING);
+
         	  //メインのタグを取得する
         	  var mainElem = $(SELECTOR_MAIN, data);
         	  //取得できなかった場合は取得対象の階層を変えて再度取得を試みる
         	  mainElem = mainElem[0] ? mainElem[0] : $(data).filter(SELECTOR_MAIN);
         	  //メインのタグを書き出す	
-	          $('#main').html($(mainElem));	
+	          $(SELECTOR_MAIN).html($(mainElem));	
+	          
+	          updateSiteRootPath();		//サイトルートパスを更新する
+	          
 			  //読み込んだコンテンツに応じて独自の処理を行う
 			 $('#container').removeClass('service');
 			  if(contenturl.indexOf('ddt-regular/voice.html') != -1){	//研修生の声コンテンツであったら
 				  createVoice(voicebutton);		//クリックしたボタンの要素を引数に研修生の声を生成するメソッドを呼び出す
-		 	 } else if(contenturl.indexOf('philosophy.html') != -1) {	//企業理念コンテンツであれば
-				  createPhilosophy();			//企業理念の記事を生成するメソッドを呼び出す
-		  	} else if(contenturl.indexOf('ddt-regular/toppage.html') != -1){
+		 	 } else if(contenturl.indexOf('ddt-regular/toppage.html') != -1){
 				imgSize();
 			}
 			 
-			//トップメニュー、サイドメニューの選択済み項目から選択済みを指すクラスを除去する
+			//トップメニューーの選択済み項目から選択済みを指すクラスを除去する
 			$(SELECTOR_TOPMENU_BUTTON).removeClass(CLASS_SELECTED);
-			$(SELECTOR_SIDEMENU_BUTTON).removeClass(CLASS_SELECTED);
 			
 			//トップメニュー、サイドメニューの選択済みの項目をハイライトする
 			hilightSelectedCategory();
 			hilightSelectedSidemenuItem();
 			
-		    //aタグ、IMGタグ、formタグのソースパスにサイトルートパスを追加する
-		    commonFuncs.addSiteRootPath(SELECTOR_CONTENT_IMGS , ATTR_SRC);
-		    commonFuncs.addSiteRootPath(SELECTOR_CONTENT_ANCHOR , ATTR_HREF);
-		    commonFuncs.addSiteRootPath(SELECTOR_CONTENT_FORM , ATTR_ACTION);
+			//ヘッダー、フッターの内の要素のリンクを書き直す
+			commonFuncs.addSiteRootPathForFrame()
        	 　},
 			  error: function(){				//データの取得に失敗したら
 				  alert("ページのロードに失敗しました。");	//ロード失敗の旨を伝える
@@ -319,7 +320,7 @@
 	//企業理念コンテンツを構築するメソッドcreatePhilosophy
 	 var createPhilosophy = function(){
 		//企業理念コンテンツのソースファイルのパスを変数xmlurlに格納
-		var xmlurl = SITE_ROOT_DIRECTORY + 'ddt-regular/assets/philosophy.xml';
+		var xmlurl = siteRootPath + 'ddt-regular/assets/philosophy.xml';
 		$.ajax({			//ajax関数によるajax通信を開始
 	       	type: 'GET',	//データを取得する
 			url: xmlurl,	//xmlurlに格納されたパスからデータを取得
@@ -338,9 +339,9 @@
 							.append($(xml).find('articlehead').text())))
 					//success(mini).gifを見出し横に置くためのimgタグ
 					.append($('<a></a>')									//画像はアンカータグで囲む
-					.attr('href', 'ddt-regular/induction.html')				//研修制度コンテンツへのリンクを与える
+					.attr('href', siteRootPath + 'ddt-regular/induction.html')				//研修制度コンテンツへのリンクを与える
 						.append($('<img>')									//画像タグを追加
-						.attr('src', 'ddt-regular/img/success(mini).gif')	//success(mini).gifのパスを追加
+						.attr('src', siteRootPath + 'ddt-regular/img/success(mini).gif')	//success(mini).gifのパスを追加
 						.attr('id', 'successmini')))						//スタイル指定のためのIDを追加
 				);
 				//xmlの中から個別記事を1つずつ拾い上げ、順次処理していく。
@@ -386,7 +387,7 @@
 			var pagenumText = $(voicebutton).attr('id');
 			var pagenum = pagenumText && !isNaN(pagenumText) ? $(voicebutton).attr('id'): 1;	//ページ番号を変数pagenumに格納
 			//研修生の声記事のソースファイルのパスを変数xmlurlに格納
-			var xmlurl = SITE_ROOT_DIRECTORY + 'ddt-regular/assets/voice.xml';
+			var xmlurl = siteRootPath + 'ddt-regular/assets/voice.xml';
 			$.ajax({			//ajax関数によるajax通信を開始
 		       	type: 'GET',	//データを取得する
 				url: xmlurl,	//xmlurlに格納されたパスからデータを取得
@@ -443,7 +444,7 @@
 					//xmlの中から個別記事を1つずつ拾い上げ、順次処理していく。
 		    		$(xml).find('member').each(function(i) {
 						//人物画像のパスを格納する変数portraitを宣言、サイトルートパスで初期化する
-						var portrait = SITE_ROOT_DIRECTORY;
+						var portrait = siteRootPath;
 
 		    			//表示対象でない人はループを飛ばす
 		    			if($.inArray(i, exportVoiceKeyList[pagenum]) == -1 ) {
@@ -524,7 +525,7 @@
 							.append($('<a></a>')		//アンカータグを追加して
 							.append(pagernumber)		//ページ番号を格納
 							.addClass(pagernumber == pagenum ? 'pager selected' : 'pager')			//ページャを表すpagerクラスを追加し
-							.attr('href', SITE_ROOT_DIRECTORY + 'ddt-regular/voice.html')	//研修生の声ページのアドレスを格納し
+							.attr('href', siteRootPath + 'ddt-regular/voice.html')	//研修生の声ページのアドレスを格納し
 							.attr('id', pagernumber));	//idにもページ番号を格納
 						}
 					}

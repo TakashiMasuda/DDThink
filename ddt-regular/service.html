@@ -1,103 +1,60 @@
-﻿<!-- HTMLによるコード -->
+<!-- HTMLによるコード -->
 <!doctype html>
 <!-- 最も外のタグ -->
 <html>
-<!-- 予め仕様等を記すヘッダータグ -->
-<head>
-<!-- UTF-8でエンコード -->
-<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
-<meta charset="utf-8">
-<!-- デフォルトの画面サイズを機器に依存する -->
-<meta name="viewport" content="width=device-width">
-<!-- キャッシュ無効のためのメタタグ * 3 -->
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="cache-control" content="no-cache" />
-<meta http-equiv="expires" content="0" />
-
-<!-- 表示用タイトル -->
-<title>DDThink - 株式会社デジタルデザインシンク</title>
+<!-- コンテンツを表示する領域 -->
+<body id="base">
 <!-- jQueryの本体ファイルを読み込む -->
 <script src="http://localhost/DDThinkHP/ddt-regular/js/jquery-1.11.0.min.js"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/constants.js" charset="utf-8"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/global.js" charset="utf-8"></script>
 <!--[if lt IE 9]><script src="http://localhost/DDThinkHP/ddt-regular/js/html5shiv.js"></script><![endif]-->
-</head>
-<!-- コンテンツを表示する領域 -->
-<body id="base">
+<div id="container" style="display:none;">
 <!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
-<div id="main" class="softwaredevelopment">
-<!-- 子ページ用のコンテンツ内メニュー -->
-<!-- 編集可能領域を編集不可にする記述。これを消すことで再びテンプレートで作成されたページのこの編集可能領域を編集できるようになる -->
-<nav class="sidemenu">
-  <!-- リストの外枠 -->
-  <ul id="sidemenulist">
-    <!-- Serviceカテゴリーを指す -->
-    <li>Service</li>
-    <!-- 開発内容コンテンツを出すボタン -->
-    <li><a id="i0side" class="servicesidebutton">開発内容</a></li>
-    <!-- 開発スキルコンテンツを出すボタン -->
-    <li><a id="i1side" class="servicesidebutton">開発スキル</a></li>
-    <!-- 開発実績コンテンツを出すボタン -->
-    <li><a id="i2side" class="servicesidebutton">開発実績</a></li>
-    <!-- リストの外枠を閉じる -->
-  </ul>
-<!-- コンテンツ内メニューを閉じる -->
-</nav>
+<div id="main">
 
-<!-- メインコンテンツを記述 -->
-<div id="maincontents">
-<!-- コンテンツを記述 -->
-<article id="service"><!-- InstanceBeginEditable name="articlehead" -->
-<!-- InstanceEndEditable -->
-<!-- 画像を挿入するセクション -->
-<!-- 画像を表示。ページにより個別に画像を設定する -->
-<!-- InstanceBeginEditable name="devtopimg" -->
-<div id="responsivehead">
-<!-- ページの大見出し -->
-<div class="articlehead">
-<!-- 大見出しのテキスト部 -->
-<h3>Service</h3>
-<!-- 大見出し終了 -->
-</div>
-<a href="ddt-regular/induction.html"><img id="successmini" src="ddt-regular/img/success(mini).gif"></a>
-<!-- レスポンシブレイアウト用見出しdivを終える -->
-</div>
-<!-- InstanceEndEditable -->
-<section><!-- InstanceBeginEditable name="developmenthead" -->
-<!-- レスポンシブレイアウトにおけるsuccess(mini).gifの表示のためのdivタグ -->
-<!-- コンテンツのベースとなる画像 -->
-<img id="servicebg" src="ddt-regular/img/service.gif">
-<!-- 絶対座標の要素で構成されることから、コンテンツの高さを確保するための支柱となる画像を置く -->
-<img id="prop" src="ddt-regular/img/blank.png">
-<!-- idに応じたコンテンツを呼び出す透過画像ボタン3個 -->
-<!-- 開発内容コンテンツのボタン -->
-<img src="ddt-regular/img/clearbutton.png" class="servicebutton" id="i0">
-<!-- 開発スキルコンテンツのボタン -->
-<img src="ddt-regular/img/clearbutton.png" class="servicebutton" id="i1">
-<!-- 開発実績コンテンツのボタン -->
-<img src="ddt-regular/img/clearbutton.png" class="servicebutton" id="i2">
-<img id="textcircle" alt="">
-<!-- /div -->
-<!-- InstanceEndEditable -->
-<!-- セクションを閉じる -->
-</section>
-<!-- 記事を閉じる -->
-</article>
-<!-- メインコンテンツの記述を終了する -->
-</div>
-
-<div id="success" class="sidemenu">
-<a href="ddt-regular/induction.html"><img src="ddt-regular/img/success.gif" alt=""></a>
-</div>
 <script>
 	//ドキュメント読み込み後
 	$(document).ready(function(){
+		updateSiteRootPath();	//各ファイルロードの前準備としてサイトルートパスを更新する
 		//初期化処理を行う
 		init(KEY_DEFAULT);
-		serviceSize();				//serviceページの幅を調整する	
+		serviceSize();		
+		//画像伸縮のスクリプトを読み込む
+		loadScriptFile('imagemove', STR_TRUE);
+
+	    //createTagクラスのインスタンスを生成する
+	    var creator = new createTag();
+	    creator.getJsonFile(siteRootPath + 'ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
+	    creator.getDomFile(siteRootPath + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
+	    creator.getJsonFile(siteRootPath + 'ddt-regular/json/service.json');          // 個別パーツのjsonを取得する。
+	    creator.getDomFile(siteRootPath + 'ddt-regular/template/service.html');       // 個別パーツのDOMを取得する。
+	
+	    //ヘッダータグの内容を書き換える
+	    creator.createTag(creator.json.head, $(HEAD_TAG));
+
+	    //ページのメインコンテンツ領域を作る
+	    creator.outputTag('serviceContentArea', 'pageContentArea', '#main');
+	
+	    //serviceのサイドメニューを作る
+	    creator.outputTag('serviceSideMenu', 'sidemenulist', '.serviceSidemenu');
+	
+	    //ページのサブタイトル部分を作る
+	    creator.outputTag('pageSubtitle', 'pageSubtitle', '#service');
+	    //ページのサブタイトルを設定する
+	    $('.subtitleText').text('Service');
+	
+	    //開発内容の画像がメインのコンテンツを作る
+	    creator.outputTag('serviceSection', 'serviceSection', '#service');
+	
+	    //研修制度リンク(PC版)領域を作る
+	    creator.outputTag('inductionPcLinkArea', 'inductionPcLinkArea', '#main');
 	});
 </script>
+<!-- サイトルートパスを指し示す要素 -->
+<span id = "siteRootPath" href = "../"></span>
 <!-- コンテンツ記述を終える -->
+</div>
 </div>
 <!-- bodyタグを閉じる -->
 </body>

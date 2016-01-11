@@ -2,124 +2,57 @@
 <!doctype html>
 <!-- 最も外のタグ -->
 <html>
-<!-- 予め仕様等を記すヘッダータグ -->
-<head>
-<!-- UTF-8でエンコード -->
-<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
-<meta charset="utf-8">
-<!-- デフォルトの画面サイズを機器に依存する -->
-<meta name="viewport" content="width=device-width">
-<!-- キャッシュ無効のためのメタタグ * 3 -->
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="cache-control" content="no-cache" />
-<meta http-equiv="expires" content="0" />
-
-<!-- 表示用タイトル -->
-<title>DDThink - 株式会社デジタルデザインシンク</title>
+<!-- コンテンツを表示する領域 -->
+<body id="base">
 <!-- jQueryの本体ファイルを読み込む -->
 <script src="http://localhost/DDThinkHP/ddt-regular/js/jquery-1.11.0.min.js"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/constants.js" charset="utf-8"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/global.js" charset="utf-8"></script>
 <!--[if lt IE 9]><script src="http://localhost/DDThinkHP/ddt-regular/js/html5shiv.js"></script><![endif]-->
-</head>
-<!-- コンテンツを表示する領域 -->
-<body id="base">
-
+<div id="container" style="display:none;">
 <!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
-<div id="main" class="profiletable">
-<!-- 子ページ用のコンテンツ内メニュー -->
-<nav class="sidemenu">
-<!-- メニューの外枠 -->
-  <ul id="sidemenulist">
-  <!-- Profileカテゴリーの子ページ -->
-    <li>Profile</li>
-    <!-- 会社概要のページへのリンク -->
-    <li><a id="linkoutline" href="ddt-regular/outline.html">会社概要</a></li>
-    <!-- 企業理念のページへのリンク -->
-    <li><a id="linkphilo" href="ddt-regular/profilephilosophy.html">企業理念</a></li>
-    <!-- 行動指針紹介のページ -->
-    <li><a id="linkvpolicy" href="ddt-regular/policy.html">行動指針</a></li>
-    <!-- 社訓紹介のページ -->
-    <li><a id="linkmotto" href="ddt-regular/motto.html">社訓</a></li>
-    <!-- 会社沿革紹介のページ -->
-    <li><a id="linkhistory" href="ddt-regular/history.html">会社沿革</a></li>
-    <!-- アクセスを載せたページへのリンク -->
-    <li><a id="linkaccess" href="ddt-regular/access.html">アクセス</a></li>
-  </ul>
-</nav>
-<!-- InstanceBeginEditable name="maincontents" -->
-<div id="maincontents">
-<article id="history">
-<!-- レスポンシブレイアウトにおけるsuccess(mini).gifの表示のためのdivタグ -->
-<div id="responsivehead">
-<!-- ページの大見出し -->
-<div class="articlehead">
-<!-- 大見出しのテキスト部 -->
-<h3>会社沿革</h3>
-<!-- 大見出し終了 -->
-</div>
-<a href="ddt-regular/induction.html"><img id="successmini" src="ddt-regular/img/success(mini).gif"></a>
-<!-- レスポンシブレイアウト用見出しdivを終える -->
-</div>
-<table border="1" class="twotonetable">
-  <tr>
-    <th class="historyyear">1995年</th>
-    <th class="historymonth">11月</th>
-    <td class="historyarticle">有限会社として設立</td>
-  </tr>
-    <th class="historyyear">1996年</th>
-    <th class="historymonth">6月</th>
-    <td class="historyarticle">将棋ゲーム「我流」発売</td>
-  </tr>
-    <th class="historyyear">1996年</th>
-    <th class="historymonth">12月</th>
-    <td class="historyarticle">テレビゲーム「パチンココレクション2」発売</td>
-  </tr>
-    <th class="historyyear">1998年</th>
-    <th class="historymonth">3月</th>
-    <td class="historyarticle">インターネットサービスプロバイダ事業に参入</td>
-  </tr>
-    <th class="historyyear">2000年</th>
-    <th class="historymonth">1月</th>
-    <td class="historyarticle">株式会社に変更</td>
-  </tr>
-    <th class="historyyear">2000年</th>
-    <th class="historymonth">2月</th>
-    <td class="historyarticle">神奈川県相模原市橋本へ本社移転</td>
-  </tr>
-    <th class="historyyear">2003年</th>
-    <th class="historymonth">2月</th>
-    <td class="historyarticle">神奈川県相模原市相模原へ本社移転</td>
-  </tr>
-    <th class="historyyear">2004年</th>
-    <th class="historymonth">4月</th>
-    <td class="historyarticle">社名をデジタルデザインシンクに変更</td>
-  </tr>
-    <th class="historyyear">2007年</th>
-    <th class="historymonth">5月</th>
-    <td class="historyarticle">東京都新宿区新宿に本社移転</td>
-  </tr>
-    <th class="historyyear">2007年</th>
-    <th class="historymonth">5月</th>
-    <td class="historyarticle">神奈川県相模原市相模原に相模原事業所設立</td>
-  </tr>
-</table>
-</article>
-</div>
-<!-- InstanceEndEditable -->
-<div id="success" class="sidemenu">
-<a href="ddt-regular/induction.html"><img src="ddt-regular/img/success.gif" alt=""></a>
-</div>
+<div id="main">
 
-<!-- コンテンツ記述を終える -->
-</div>
 <script>
 	//ドキュメント読み込み後
 	$(document).ready(function(){
+		updateSiteRootPath();	//各ファイルロードの前準備としてサイトルートパスを更新する
 		//初期化処理を行う
 		init(KEY_DEFAULT);
+	    //createTagクラスのインスタンスを生成する
+	    var creator = new createTag();
+	    creator.getJsonFile(siteRootPath + 'ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
+	    creator.getDomFile(siteRootPath + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
+	    creator.getJsonFile(siteRootPath + 'ddt-regular/json/history.json');          // 個別パーツのjsonを取得する。
+	    creator.getDomFile(siteRootPath + 'ddt-regular/template/history.html');       // 個別パーツのDOMを取得する。
+	
+	    //ヘッダータグの内容を書き換える
+	    creator.createTag(creator.json.head, $(HEAD_TAG));
+	
+	    //ページのメインコンテンツ領域を作る
+	    creator.outputTag('historyContentArea', 'pageContentArea', '#main');
+	
+	    //profileのサイドメニューを作る
+	    creator.outputTag('profileSideMenu', 'sidemenulist', '.profileSidemenu');
+	
+	    //ページのサブタイトル部分を作る
+	    creator.outputTag('pageSubtitle', 'pageSubtitle', '#history');
+	    //ページのサブタイトルを設定する
+	    $('.subtitleText').text('会社沿革');
+	    $('#sidemenulist li:contains("会社沿革")').addClass('selected');
+	
+	    //会社沿革内容部分を作る
+	    creator.outputTag('twotonetable', 'twotonetable', '#history');
+	
+	    //研修制度リンク(PC版)領域を作る
+	    creator.outputTag('inductionPcLinkArea', 'inductionPcLinkArea', '#main');
 	});
 </script>
+<!-- サイトルートパスを指し示す要素 -->
+<span id = "siteRootPath" href = "../"></span>
+<!-- コンテンツ記述を終える -->
+</div>
+</div>
 <!-- bodyタグを閉じる -->
 </body>
 <!-- InstanceEnd -->

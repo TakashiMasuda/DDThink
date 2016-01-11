@@ -2,164 +2,63 @@
 <!doctype html>
 <!-- 最も外のタグ -->
 <html>
-<!-- 予め仕様等を記すヘッダータグ -->
-<head>
-<!-- UTF-8でエンコード -->
-<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
-<meta charset="utf-8">
-<!-- デフォルトの画面サイズを機器に依存する -->
-<meta name="viewport" content="width=device-width">
-<!-- キャッシュ無効のためのメタタグ * 3 -->
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="cache-control" content="no-cache" />
-<meta http-equiv="expires" content="0" />
-
-<!-- 表示用タイトル -->
-<title>DDThink - 株式会社デジタルデザインシンク</title>
+<!-- コンテンツを表示する領域 -->
+<body id="base">
 <!-- jQueryの本体ファイルを読み込む -->
 <script src="http://localhost/DDThinkHP/ddt-regular/js/jquery-1.11.0.min.js"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/constants.js" charset="utf-8"></script>
 <script src="http://localhost/DDThinkHP/ddt-regular/js/global.js" charset="utf-8"></script>
 <!--[if lt IE 9]><script src="http://localhost/DDThinkHP/ddt-regular/js/html5shiv.js"></script><![endif]-->
-</head>
-<!-- コンテンツを表示する領域 -->
-<body id="base">
+<div id="container" style="display:none;">
 <!-- コンテンツを置くid="main"のdivタグ。クラスにカテゴリーの記述を行う -->
-<div id="main" class="base">
-<!-- 子ページ用のコンテンツ内メニュー -->
-<nav class="sidemenu">
-<!-- メニューの外枠 -->
-  <ul id="sidemenulist">
-  <!-- Profileカテゴリーの子ページ -->
-    <li>Profile</li>
-    <!-- 会社概要のページへのリンク -->
-    <li><a id="linkoutline" href="ddt-regular/outline.html">会社概要</a></li>
-    <!-- 企業理念のページへのリンク -->
-    <li><a id="linkphilo" href="ddt-regular/profilephilosophy.html">企業理念</a></li>
-    <!-- 行動指針紹介のページ -->
-    <li><a id="linkvpolicy" href="ddt-regular/policy.html">行動指針</a></li>
-    <!-- 社訓紹介のページ -->
-    <li><a id="linkmotto" href="ddt-regular/motto.html">社訓</a></li>
-    <!-- 会社沿革紹介のページ -->
-    <li><a id="linkhistory" href="ddt-regular/history.html">会社沿革</a></li>
-    <!-- アクセスを載せたページへのリンク -->
-    <li><a id="linkaccess" href="ddt-regular/access.html">アクセス</a></li>
-  </ul>
-</nav>
-<!-- InstanceBeginEditable name="maincontents" -->
-<!-- メインコンテンツ領域を開始 -->
-<div id="maincontents">
-<article id="simplearticle">
-<!-- レスポンシブレイアウトにおけるsuccess(mini).gifの表示のためのdivタグ -->
-<div id="responsivehead">
-<!-- ページの大見出し -->
-<div class="articlehead">
-<!-- 大見出しのテキスト部 -->
-<h3>行動指針</h3>
-<!-- 大見出し終了 -->
-</div>
-<a href="ddt-regular/induction.html"><img id="successmini" src="ddt-regular/img/success(mini).gif"></a>
-<!-- レスポンシブレイアウト用見出しdivを終える -->
-</div>
-<!-- 社是の記事のセクションを開始 -->
-<section>
-<!-- 記事テキスト部の見出し部 -->
-<div class="articlehead2">
-<!-- 記事見出しのテキスト部 -->
-<h3>社是</h3>
-<!-- 記事本文を開始 -->
-<span class="slogan">
-IT技術を通じ人の笑顔を創造する
-<!-- 補足文を開始 -->
-  <aside>
-  考える力の根源、それはお客様の「笑顔」が見たいから。<br>
-  当社の原点は常に、ここにあります。お客様の「笑顔」は、私たちの燃料タンクを満たし、溢れるほどのエネルギーをもたらします。
-  <!-- 補足文を終了 -->
-  </aside>
-<!-- 記事本文終了 -->
-</span>
-<!-- 記事テキスト部を終了 -->
-</div>
-<!-- 記事セクションを閉じる -->
-</section>
-<!-- モットーの記事のセクションを開始 -->
-<section>
-<!-- 記事テキスト部の見出し部 -->
-<div class="articlehead2">
-<!-- 記事見出しのテキスト部 -->
-<h3>モットー</h3>
-<!-- 記事本文を開始 -->
-<span class="slogan">
-もっと速く、もっとシンプルに　<strong>～ More Quickly　More Simply ～</strong>
-<!-- 補足文を開始 -->
-<aside>
-シンプルなものほど速く、速いものほどシンプルです。シンプルなものほどデバッグが速く、デバッグが速いものほどシンプルです。「複雑なものをシンプルにする」そこに美を感じ、遅いといわれるものを速くする、そこで達成感を得る。このさまざまな事柄に共通する真理を追究する姿勢がデジタルデザインシンクのモットーである「More Simply　More Quickly」です。すべてはお客様の笑顔のために…私たちは「シンプル」と「速さ」への追求を極め続けます。
-<!-- 補足文を終了 -->
-</aside>
-<!-- 記事本文終了 -->
-</span>
-<!-- 記事テキスト部を終了 -->
-</div>
-<!-- 記事セクションを閉じる -->
-</section>
-<!-- 記事セクションを開始 -->
-<section>
-<!-- 記事見出しを開始 -->
-<div class="articlehead2">
-<!-- 見出しテキスト -->
-<h3>行動原則</h3>
-</div>
-<!-- コンテンツ独自の形のリストを開始 -->
-<ul class="simpletext">
-	<!-- 1項目 -->
-	<li>
-	<!-- 1項目見出し -->
-    <h4>お客様本位</h4>
-    <!-- 1項目本文 -->
-    <p>私たちは、独創的な技術の開発により、社会が真に求める製品・サービスを、適正な価格で、かつ、迅速に提供します。</p>
-    </li>
-    <!-- 2項目 -->
-	<li>
-    <!-- 2項目見出し -->
-    <h4>公正・透明な行動</h4>
-	<!-- 2項目本文 -->
-    <p>私たちは、事業活動や個人の生活において、法令およびその他の社会的規範を遵守し、公明かつ公正に行動します。
-    また、政治･行政との健全かつ正常な関係を保つとともに、社会の秩序や企業の健全な活動に悪影響を与える個人･団体に関わるなど、社会的良識に反する行為は行いません。</p>
-    </li>
-  <li>
-    <h4>企業情報の開示 </h4>
-    <p>私たちは、社会通念上企業秘密と認められるものを除き、株主･顧客･取引先･社員･地域社会などのステークホルダー（利害関係者）に、企業の情報をタイムリーにかつ公平・誠実に開示します。 </p></li>
-  <li>
-    <h4>地球環境の保全と人類の健康への貢献</h4>
-    <p>私たちは、環境問題への取り組みが自らの企業の存在と活動に必須の要件であることを認識し、地球環境の保全と人類の健康に貢献するため、自主的、積極的に行動します。</p></li>
-  <li>
-    <h4>社員の創造性と個性の尊重</h4> 
-    <p>私たちは、仕事を通じて社員一人ひとりの創造性と個性が発揮され、生き生きと自己実現を図ることができ、会社にとって高い貢献をし続けることができるような職場環境の維持に努めます。
-    また、個人の人権を尊重し、人種・信条・性別・宗教その他の理由により差別することはしません。</p></li>
-  <li>
-    <h4>企業市民としての社会貢献</h4> 
-    <p>私たちは、長期的かつグローバルな視野に立って、経営基盤を充実し、ステークホルダーに対する責任を果たし続けるとともに、地域社会との協調・融和に努め、良き企業市民として社会貢献活動を行います。</p></li>
-  <li>
-    <h4>国際社会との協調</h4> 
-    <p>私たちは、世界に開かれた企業として、海外における文化や慣習を尊重し、また、国際的な協定などを遵守して、国際社会と協調した企業活動を行います。</p></li>
-</ul>
-</section>
-</article>
-</div>
-<!-- InstanceEndEditable -->
-<div id="success" class="sidemenu">
-<a href="ddt-regular/induction.html"><img src="ddt-regular/img/success.gif" alt=""></a>
-</div>
-
-<!-- コンテンツ記述を終える -->
-</div>
+<div id="main">
 <script>
 	//ドキュメント読み込み後
 	$(document).ready(function(){
+		updateSiteRootPath();	//各ファイルロードの前準備としてサイトルートパスを更新する
 		//初期化処理を行う
 		init(KEY_DEFAULT);
+
+	    //createTagクラスのインスタンスを生成する
+	    var creator = new createTag();
+	    creator.getJsonFile(siteRootPath + 'ddt-regular/json/common.json');          // 共通パーツのjsonを取得する。
+	    creator.getDomFile(siteRootPath + 'ddt-regular/template/common.html');       // 共通パーツのDOMを取得する。
+	    creator.getJsonFile(siteRootPath + 'ddt-regular/json/policy.json');          // 個別パーツのjsonを取得する。
+	    creator.getDomFile(siteRootPath + 'ddt-regular/template/policy.html');       // 個別パーツのDOMを取得する。
+	
+	    //ヘッダータグの内容を書き換える
+	    creator.createTag(creator.json.head, $(HEAD_TAG));
+
+	    //ページのメインコンテンツ領域を作る
+	    creator.outputTag('policyContentArea', 'pageContentArea', '#main');
+	
+	    //profileのサイドメニューを作る
+	    creator.outputTag('profileSideMenu', 'sidemenulist', '.profileSidemenu');
+	
+	    //ページのサブタイトル部分を作る
+	    creator.outputTag('pageSubtitle', 'pageSubtitle', '#simplearticle');
+	    //ページのサブタイトルを設定する
+	    $('.subtitleText').text('行動指針');
+	
+	    //社是部分を作る
+	    creator.outputTag('missionStatement', 'sectionParts1', '#simplearticle');
+	
+	    //モットー部分を作る
+	    creator.outputTag('motto', 'sectionParts1', '#simplearticle');
+	
+	    //行動原則部分を作る
+	    creator.outputTag('actionPrinciple', 'actionPrinciple', '#simplearticle');
+	
+	
+	    //研修制度リンク(PC版)領域を作る
+	    creator.outputTag('inductionPcLinkArea', 'inductionPcLinkArea', '#main');
 	});
 </script>
+<!-- サイトルートパスを指し示す要素 -->
+<span id = "siteRootPath" href = "../"></span>
+<!-- コンテンツ記述を終える -->
+</div>
+</div>
 <!-- bodyタグを閉じる -->
 </body>
 <!-- InstanceEnd -->
