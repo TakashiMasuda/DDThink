@@ -202,19 +202,6 @@ function init(pageName) {
 }
 
 /* 
- * 関数名:loadFrame
- * 概要  :ページのフレーム部分を読み込む
- * 引数  :なし
- * 返却値:なし
- * 作成日　:2016.0109
- * 作成者　:T.Masuda
- */
-function loadFrame () {
-	//フレームを読み込む
-	pControl.callPage(FRAME_HTML, BODY_TAG, SELECTOR_CONTAINER);
-}
-
-/* 
  * 関数名:resizeContents
  * 概要  :コンテンツのサイズを直す
  * 引数  :なし
@@ -277,8 +264,10 @@ function hilightSelectedSidemenuItem() {
 	var dc = new decorator();	//レイアウト変更クラスインスタンスを生成する
 	//ページのファイル名を取得する
 	var fileName = commonFuncs.getLastValue(location.href, SLASH);
+	//ファイル名にハッシュが付いていた場合カレントURLを特定する邪魔となるため除去する
+	fileName = fileName.indexOf(SHARP) == -1 ? fileName : fileName.substring(0, fileName.indexOf(SHARP));
 	//ページ名をハイライトする
-	dc.hilightSelectedElement(SELECTOR_SIDEMENU_BUTTON_LINK, ATTR_HREF, fileName.substring(0, fileName.indexOf(SHARP)), LI_TAG);
+	dc.hilightSelectedElement(SELECTOR_SIDEMENU_BUTTON_LINK, ATTR_HREF, fileName, LI_TAG);
 }
 
 /* 
