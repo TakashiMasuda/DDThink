@@ -111,7 +111,6 @@
 		var voicebutton = $(e.target);
 		//URLが取得できれば設定する。できなければ第二引数を利用する。
  		contenturl = url !== void(0) ? url : $(this).attr('href');
- 		console.log(contenturl);
  		if(contenturl){
   		$('#navigation').after('<div id="temporary"></div>');	//トップメニューの部分の次にHTMLを一時的に保存する領域を作る
 		$.ajax({							//Ajax通信を開始
