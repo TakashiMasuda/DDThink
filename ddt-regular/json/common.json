@@ -39,8 +39,13 @@
 		},
 		"toppagemotto": {
 			"id": "toppagemotto",
-			"corporationMotto": {
-				"text": "もっと速く もっとシンプルに More Quickly More Simply"
+			"corporationMotto1": {
+				"class" : "corporationMotto corporationMotto1",
+				"text": "もっと速く もっとシンプルに "
+			},
+			"corporationMotto2": {
+				"class" : "corporationMotto corporationMotto2",
+				"text": "More Quickly More Simply"
 			},
 			"headercontents": {
 				"id": "headercontents",

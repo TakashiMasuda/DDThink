@@ -2,6 +2,27 @@
 @charset "utf-8";
 /* CSS Document */
 
+/*@font-face {
+   font-family: Teko-Bold;
+   src: url('css/Teko-Bold.ttf') format("truetype");
+}
+@font-face {
+   font-family: Teko;
+   src: url('css/Teko-BoldTeko-Regular.ttf') format("truetype");
+}
+@font-face {
+   font-family: Khand;
+   src: url('css/Teko-BoldKhand-Regular.ttf') format("truetype");
+}
+@font-face {
+   font-family: Khand-Bold;
+   src: url('css/Teko-BoldKhand-Bold.ttf') format("truetype");
+}
+@font-face {
+   font-family: UbuntuCondensed;
+   src: url('css/Teko-BoldBoogaloo-Regular.ttf') format("truetype");
+}*/
+
 /* 画像タグ */
 img {
     border: 0px;	/* IEで出る青枠を消す */
@@ -39,6 +60,16 @@ a {
 /* headerタグに対するスタイルシート */
 header.baseinfo	{
 	margin: 0;
+}
+.corporationMotto {
+	display : inline-block;
+	float: left;
+	width: auto;
+	white-space: pre;
+}
+.corporationMotto2 {
+	font-family :	'Teko' , sans-serif;
+	display : inline-block;
 }
 /* コンテンツを記事見立ててマークアップするarticleタグのマークアップ */
 article {
@@ -483,14 +514,14 @@ header h3 {
 /* ヘッダー、フッター内の会社ロゴについてのスタイル指定 */
 .baseinfo .logo {
 	font-size: 24px;	/* フォントのサイズを24pxに指定 */
-	font-family: Impact, "メイリオ", "ＭＳ Ｐゴシック";	/* フォントをImpactに指定 */
+	font-family: 'Teko', sans-serif;	/* フォントをtekoに指定 */
 	font-weight: normal;	/* フォントを通常サイズにする */
 	color: #800000;			/* フォントの色をmaroon(ダークレッド系)にする */
 	width: auto;		/* 幅を自動調整する */
 }
 /* 大ロゴ */
 .biglogo-substitute {
-	font-family:Impact, 'メイリオ', 'ＭＳ Ｐゴシック'; 
+	font-family: 'Teko', sans-serif; 
 	font-size: 28px; 
 	color: #800000; 
 	display: block; 
@@ -500,7 +531,7 @@ header h3 {
 
 span.footerlogo{
 	font-size: 24px;	/* フォントのサイズを24pxに指定 */
-	font-family: Impact, "メイリオ", "ＭＳ Ｐゴシック";	/* フォントをImpactに指定 */
+	font-family: 'Teko', sans-serif;	/* フォントをImpactに指定 */
 	font-weight: normal;	/* フォントを通常サイズにする */
 	color: #800000;			/* フォントの色をmaroon(ダークレッド系)にする */
 	width: auto;		/* 幅を自動調整する */
@@ -811,7 +842,7 @@ a.pager.selected{
 	padding-right: 95px;
 	display: block;
 	width: 133px;
-}
+	font-family: 'Ubuntu Condensed', sans-serif;}
 section{
 	clear: both;
 }
@@ -1006,7 +1037,7 @@ span.text-red{
     padding: 30px 0;		/* 幅を広げてバランスをとる */
     width: 110px;			/* 幅を設定する */
     /* フォントを設定する */
-	font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+	font-family: 'Teko', sans-serif;
 	/* 大きめのフォントサイズを指定する */
 	font-size: 23px;
     text-align: center;		/* 中央揃えにする */

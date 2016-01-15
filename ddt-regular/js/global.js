@@ -124,6 +124,38 @@ function loadCSSFile (cssName, value) {
 }
 
 /* 
+ * 関数名:loadCSSFile
+ * 概要  :CSSファイルを読み込む。一度ロードしたファイルを読み込まない。
+ * 引数  :String cssName : CSS名。拡張子やパスはない。
+ * 　　  :? value : 読み込み済みリストに登録するエントリの値
+ * 返却値:boolean : 読み込みを行ったか否かの判定
+ * 作成日　:2016.0109
+ * 作成者　:T.Masuda
+ */
+function loadCSSURL (cssName, url, value) {
+	//引数に文字列に該当するファイルの読み込みを行っていたなら
+	if (cssName in loadedCSSFile) {
+		return false;	//二度読みをしないためここで処理を終える
+	}
+	
+	//headタグを取得する
+	var headTag = document.getElementsByTagName(HEAD_TAG);
+	//linkタグを作る
+	var linkTag = document.createElement(LINK_TAG);
+	//linkタグにこのlinkタグがCSS用であるという記述を追加する
+	linkTag.setAttribute(ATTR_REL, VALUE_STYLESHEET);
+	//linkタグにCSSファイルへのパスを追加する
+	linkTag.setAttribute(ATTR_HREF, url);
+	//headタグにscriptタグを追加する
+	headTag[0].appendChild(linkTag);
+	
+	//読み込み済みCSSファイルリストに登録する
+	addLoadedCSSFileList(cssName, value) ;
+	
+	return true;	//成功を返す
+}
+
+/* 
  * 関数名:init
  * 概要  :ウェブサイト準備の初期処理
  * 引数  :なし
@@ -143,6 +175,9 @@ function init(pageName) {
 		$(HEAD_TAG).remove(),	//自動生成されているheadタグを消す
 		createHeadTag(),		//headタグを作り直す
 		//必要なCSSファイルを読み込む
+		loadCSSURL('Teko', 'https://fonts.googleapis.com/css?family=Teko:400,300,500,600,700'),
+		loadCSSURL('UbuntuCondensed', 'https://fonts.googleapis.com/css?family=Ubuntu+Condensed'),
+		loadCSSURL('Khand', 'https://fonts.googleapis.com/css?family=Khand:400,300,500,600,700'),
 		loadCSSFile(STYLE_CSS),
 		loadCSSFile(DESKTOP_CSS),
 		loadCSSFile(SMARTPHONE_CSS),
