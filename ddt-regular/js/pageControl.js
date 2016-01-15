@@ -83,7 +83,6 @@ function pageControl() {
 	 */
     this.calcSiteRootDirectory = function(pathLength) {
     	var retPath = EMPTY_STRING;	//返却用の変数を用意する
-    	console.log(pathLength);
         //カレントディレクトリがサイトルートであれば
         if(pathLength == 1) {
         	retPath = CURRENT_DIRECTORY;	//サイトルートパスを現在の階層で更新する

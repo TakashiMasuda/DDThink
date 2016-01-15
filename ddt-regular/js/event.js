@@ -23,9 +23,7 @@
 	        var pathArray = url.split(SLASH);
 	        //サイトルートを計算して更新する
 	        siteRootPath = pControl.calcSiteRootDirectory(pathArray.length);
-	        console.log(siteRootPath);
-	        console.log(url);
-	        //履歴からページを読み込む。
+å	        //履歴からページを読み込む。
 			pagemove(event, siteRootPath + url, true);
 	  });
 		
