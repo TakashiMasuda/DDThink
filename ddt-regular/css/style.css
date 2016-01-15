@@ -1005,8 +1005,10 @@ span.text-red{
     color: #006835;			/* 文字色を紫にする */
     padding: 30px 0;		/* 幅を広げてバランスをとる */
     width: 110px;			/* 幅を設定する */
-    font-family: fantasy;	
-    font-size: 23px;
+    /* フォントを設定する */
+	font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+	/* 大きめのフォントサイズを指定する */
+	font-size: 23px;
     text-align: center;		/* 中央揃えにする */
     text-indent: 0px;		/* インデントをとらないようにする */
     float: left;			/* 左側に位置し、右側にコンテンツの回り込みを許可する */
