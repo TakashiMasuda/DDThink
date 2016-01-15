@@ -178,6 +178,7 @@ function init(pageName) {
 		loadCSSURL('Teko', 'https://fonts.googleapis.com/css?family=Teko:400,300,500,600,700'),
 		loadCSSURL('UbuntuCondensed', 'https://fonts.googleapis.com/css?family=Ubuntu+Condensed'),
 		loadCSSURL('Khand', 'https://fonts.googleapis.com/css?family=Khand:400,300,500,600,700'),
+		loadCSSURL('OpenSans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic,800,800italic'),
 		loadCSSFile(STYLE_CSS),
 		loadCSSFile(DESKTOP_CSS),
 		loadCSSFile(SMARTPHONE_CSS),

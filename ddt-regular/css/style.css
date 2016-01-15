@@ -68,7 +68,7 @@ header.baseinfo	{
 	white-space: pre;
 }
 .corporationMotto2 {
-	font-family :	'Teko' , sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	display : inline-block;
 }
 /* コンテンツを記事見立ててマークアップするarticleタグのマークアップ */
@@ -522,17 +522,21 @@ header h3 {
 /* 大ロゴ */
 .biglogo-substitute {
 	font-family: 'Teko', sans-serif; 
-	font-size: 28px; 
-	color: #800000; 
+	font-size: 33px; 
+	/* 太字に指定する */
+	font-weight : bold;
+	color: #800000;
 	display: block; 
 	float:left; 
 	margin:-2px 2px 0 0;
+	height : 44px;
 }
 
 span.footerlogo{
-	font-size: 24px;	/* フォントのサイズを24pxに指定 */
+	font-size: 27px;	/* フォントのサイズを24pxに指定 */
 	font-family: 'Teko', sans-serif;	/* フォントをImpactに指定 */
-	font-weight: normal;	/* フォントを通常サイズにする */
+	/* 太字に指定する */
+	font-weight : bold;
 	color: #800000;			/* フォントの色をmaroon(ダークレッド系)にする */
 	width: auto;		/* 幅を自動調整する */
 	float: left;		/* 左に寄せる */
@@ -809,6 +813,7 @@ a.pager.selected{
 	float: left;
 	margin-top: 17px;
 	margin-left: 5px;
+	width: 305px;
 }
 #headercontents{
 	clear: both;
@@ -841,8 +846,12 @@ a.pager.selected{
 	padding: 10px 95px 0 0;
 	padding-right: 95px;
 	display: block;
-	width: 133px;
-	font-family: 'Ubuntu Condensed', sans-serif;}
+	width: auto;
+	font-family: 'Ubuntu Condensed', sans-serif;
+	/* 中太の字に指定する */
+	font-weight: 400;
+	font-size: 16px;	/* 通常サイズの文字にする */
+}
 section{
 	clear: both;
 }
@@ -1037,7 +1046,9 @@ span.text-red{
     padding: 30px 0;		/* 幅を広げてバランスをとる */
     width: 110px;			/* 幅を設定する */
     /* フォントを設定する */
-	font-family: 'Teko', sans-serif;
+	font-family: 'Khand', sans-serif;
+	/* 太字に指定する */
+	font-weight : bold;
 	/* 大きめのフォントサイズを指定する */
 	font-size: 23px;
     text-align: center;		/* 中央揃えにする */
@@ -1220,6 +1231,7 @@ span.text-red{
 .Long-termTrineeLogo {
 	text-align: left;	/* 文字を左寄せにする */
 	padding: 3px 0;		/* 左からの余白をとる */
+	margin-bottom : 10px;	/* 下に10pxのmarginをセットして適切な間隔を取る */
 }
 
 /* 
@@ -1261,6 +1273,7 @@ span.text-red{
 .logoText {
 	padding-left: 7px;		/* 余白をとる */
 	display: block;			/* ブロック要素にして余白を他の行の文字にも反映するようにする */
+	line-height: 34px;		/* １行当たりを適切な高さに調整する */
 }
 
 /* 

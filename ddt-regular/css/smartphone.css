@@ -343,6 +343,18 @@
 	header h4{
 		width: 100%;	/* 画面横いっぱいに伸ばす */
 	}
+	/* 小ロゴに対するスタイルシート */
+	#smalllogo{
+		font-size : 13px;	/* 通常より小さい文字にする */
+		padding-top : 0px;	/* 上paddingをなくす */
+		/* 2つあわせて回り込みを解除する */
+		float : none!important;
+		clear : both;
+	}
+#companylogo{
+	width: 160px;
+}
+	
 	/* フッター内の会社ロゴについてのスタイルシート */
 	span.footerlogo{
 		font-size: 24px;	/* フォントのサイズを24pxに指定 */
@@ -709,10 +721,16 @@
 		/* エミュレータ表示 */
 		/*padding-top: 2px;*/		/* 余白をとる */
 		/*padding-bottom: 2px;*/		/* 余白をとる */
-		/* スマホ実機 */
-		padding-top: 5px;		/* 余白をとる */
-		padding-bottom: 5px;		/* 余白をとる */
 	}
+/* 
+ * セレクタ:.Long-termTrineeLogo
+ * 概要   :研修制度最初のコンテンツのロゴ部分
+ * 作成者 :T.Yamamoto
+ * 作成日 :2015.12.23
+ */
+.Long-termTrineeLogo {
+	margin-bottom : 2px;	/* 下に2pxのmarginをセットして適切な間隔を取る */
+}
 	
 	/* 
 	 * セレクタ:.welfareTable

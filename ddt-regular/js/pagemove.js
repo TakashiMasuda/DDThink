@@ -237,7 +237,7 @@
 					$('#smalllogo').css({	//小ロゴに対しスタイルを指定する
 						float:'left',		//float属性を指定
 						clear: 'none',		//回り込みを通常通りに設定し、大ロゴの右に配置
-						paddingRight: smalllogoPadding + 'px'	//グローバル変数に保存したデフォルトの右marginを設定
+						paddingRight: 0 + 'px'	//グローバル変数に保存したデフォルトの右marginを設定
 					});
 					$('#ssn-d2124').css({		//ゲーム紹介枠のスタイルを指定
 						paddingRight : ssnPadding + 'px',	//デフォルトの右padding
