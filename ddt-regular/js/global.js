@@ -5,13 +5,26 @@
  * 場所　　:js/global.js
  */
 
-//読み込んだ事があるスクリプトファイルのリスト。当該ファイルの必須ファイル分は最初から用意しておく
-var loadedScriptFile = {};
-//読み込んだ事があるCSSファイルのリスト
-var loadedCSSFile = {};
+//IOS Safariでキャッシュ無効にしてもキャッシュしてしまう問題への対処
+window.onunload=function(){};
 
 //サイトルートパス
 var siteRootPath = EMPTY_STRING;
+
+/** クラス名:loadedFileRecorder
+ * 概要　　　:読み込んだファイル名を記録するクラス
+ * 作成日　:2015.0116
+ * 作成者　:T.Masuda
+ */
+function loadedFileRecorder(){
+	//読み込んだ事があるスクリプトファイルのリスト。当該ファイルの必須ファイル分は最初から用意しておく
+	this.loadedScriptFile = {};
+	//読み込んだ事があるCSSファイルのリスト
+	this.loadedCSSFile = {};
+}
+
+/* 読み込みファイル管理クラスインスタンスを生成する */
+var fRecorder = new loadedFileRecorder();	
 
 /* 
  * 関数名:updateSiteRootPath
@@ -37,7 +50,7 @@ function updateSiteRootPath() {
  */
 function addLoadedScriptFileList(scriptName, value) {
 	//リストへのエントリの追加を行う
-	loadedScriptFile[scriptName] = value;
+	fRecorder.loadedScriptFile[scriptName] = value;
 }
 
 /* 
@@ -51,7 +64,7 @@ function addLoadedScriptFileList(scriptName, value) {
  */
 function addLoadedCSSFileList(cssName, value) {
 	//リストへのエントリの追加を行う
-	loadedCSSFile[cssName] = value;
+	fRecorder.loadedCSSFile[cssName] = value;
 }
 
 /* 
@@ -67,7 +80,7 @@ function addLoadedCSSFileList(cssName, value) {
  */
 function loadScriptFile (scriptName, dir, value, callback) {
 	//引数に文字列に該当するファイルの読み込みを行っていたなら
-	if (scriptName in loadedScriptFile) {
+	if (scriptName in fRecorder.loadedScriptFile) {
 		return false;	//二度読みをしないためここで処理を終える
 	}
 
@@ -102,7 +115,7 @@ function loadScriptFile (scriptName, dir, value, callback) {
  */
 function loadCSSFile (cssName, value) {
 	//引数に文字列に該当するファイルの読み込みを行っていたなら
-	if (cssName in loadedCSSFile) {
+	if (cssName in fRecorder.loadedCSSFile) {
 		return false;	//二度読みをしないためここで処理を終える
 	}
 	
@@ -134,7 +147,7 @@ function loadCSSFile (cssName, value) {
  */
 function loadCSSURL (cssName, url, value) {
 	//引数に文字列に該当するファイルの読み込みを行っていたなら
-	if (cssName in loadedCSSFile) {
+	if (cssName in fRecorder.loadedCSSFile) {
 		return false;	//二度読みをしないためここで処理を終える
 	}
 	
@@ -229,8 +242,9 @@ function init(pageName) {
 		setTimeout(function(){
 			hilightSelectedCategory(); 		//選択済みのトップメニューのボタンをハイライトする
 			hilightSelectedSidemenuItem(); 	//選択済みのサイドメニューのボタンをハイライトする
-			$(SELECTOR_CONTAINER).show(); 	//隠していたコンテンツを表示する
 			logoSize();						//ロゴのサイズを修正する 
+			$(SELECTOR_CONTAINER).show(); 	//隠していたコンテンツを表示する
+			articleheadSize();				//コンテンツページタイトル部分の幅を調整する
 		}, INIT_LASTPROCDDURE_DELAY);
 	});
 	
@@ -260,7 +274,7 @@ function resizeContents () {
  */
 function isInit() {
 	//現在読み込んでいるスクリプトファイルの数を取得する
-	var nowScriptNum = Object.keys(loadedScriptFile).length;
+	var nowScriptNum = Object.keys(fRecorder.loadedScriptFile).length;
 	
 	//初回処理でのスクリプトの読み込みを判定のキーとする
 	return nowScriptNum == 0;

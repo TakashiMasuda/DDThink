@@ -350,9 +350,13 @@
 		/* 2つあわせて回り込みを解除する */
 		float : none!important;
 		clear : both;
+		/* 幅を予め設定してフォントロード前にずれない様にする */
+		width : 135px;
+		/* 行サイズを指定して上margin代わりにする */
+		line-height : 19px;
 	}
 #companylogo{
-	width: 160px;
+	width: 135px;
 }
 	
 	/* フッター内の会社ロゴについてのスタイルシート */
