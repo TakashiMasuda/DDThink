@@ -345,14 +345,14 @@
 	}
 	/* 小ロゴに対するスタイルシート */
 	#smalllogo{
-		font-size : 11px;	/* 通常より小さい文字にする */
+		font-size : 13px;	/* 通常より小さい文字にする */
 		padding-top : 0px;	/* 上paddingをなくす */
 		/* 2つあわせて回り込みを解除する */
 		float : none!important;
 		clear : both;
 	}
 #companylogo{
-	width: 135px;
+	width: 160px;
 }
 	
 	/* フッター内の会社ロゴについてのスタイルシート */
