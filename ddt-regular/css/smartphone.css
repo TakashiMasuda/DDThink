@@ -346,8 +346,9 @@
 	/* 小ロゴに対するスタイルシート */
 	#smalllogo{
 		font-size : 13px;	/* 通常より小さい文字にする */
-		padding-top : 0px;	/* 上paddingをなくす */
-		/* 2つあわせて回り込みを解除する */
+		margin-top: 0px;
+		/* 3つあわせて回り込みを解除する */
+		padding-right: 95px;
 		float : none!important;
 		clear : both;
 		/* 幅を予め設定してフォントロード前にずれない様にする */

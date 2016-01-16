@@ -845,8 +845,7 @@ a.pager.selected{
 #smalllogo{
 	float: left;	/* 左に寄せる */
 	margin-top: 10px;
-	padding: 10px 95px 0 0;
-	padding-right: 95px;
+	padding: 0 95px 0 0;
 	display: block;
 	width: auto;
 	font-family: 'Ubuntu Condensed', sans-serif;
@@ -858,6 +857,8 @@ a.pager.selected{
 	width : 195px;
 	/* 改行を必ずしない */
 	white-space: pre;
+	clear: none;
+	padding-right: 0px;
 }
 section{
 	clear: both;
