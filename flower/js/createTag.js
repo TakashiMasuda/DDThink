@@ -4,6 +4,9 @@
 CREATETAG_FIRST = -1;
 
 function createTag(){
+	//Ajax時に通信結果をキャッシュしないための文字列用のクエリ文字列
+	this.QUERY_STRING_NOW = '?nowtime=';
+	
 	this.json = null;			//JSONデータを格納する変数。
 	this.dom = '';				//ひな形のHTMLのDOMを格納する変数。
 	this.numbering = '';		//ブログページのナンバリングのJSON連想配列。
@@ -33,7 +36,7 @@ function createTag(){
 		//Ajax通信でjsonファイルを取得する。
 		$.ajax({
 			//jsonファイルのURLを指定する。
-			url: jsonPath,
+			url: jsonPath  + this.QUERY_STRING_NOW + new Date().getTime(),
 			//取得するファイルの形式をJSONに指定する。
 			dataType: 'JSON',
 			//同期通信を行う。
@@ -80,7 +83,7 @@ function createTag(){
 		//Ajax通信でjsonファイルを取得する。
 		$.ajax({
 			//jsonファイルのURLを指定する。
-			url: htmlPath,
+			url: htmlPath + this.QUERY_STRING_NOW + new Date().getTime(),
 			//取得するファイルの形式をJSONに指定する。
 			dataType: 'HTML',
 			//同期通信を行う。
@@ -853,7 +856,7 @@ function createTag(){
 		//Ajax通信でjsonファイルを取得する。
 		$.ajax({
 			//jsonファイルのURLを指定する。
-			url: jsonPath,
+			url: jsonPath  + this.QUERY_STRING_NOW + new Date().getTime(),
 			//取得するファイルの形式をJSONに指定する。
 			dataType: 'JSON',
 			//同期通信を行う。
@@ -899,7 +902,8 @@ function createTag(){
 		
 		//Ajax通信でJSONをファイルに保存する。
 		$.ajax({
-			url:'savetextfile.php',	//保存するプログラムのパスを指定する。
+			//保存するプログラムのパスを指定する。
+			url:'savetextfile.php'  + this.QUERY_STRING_NOW + new Date().getTime(),	
 			method:'POST',			//POSTメソッドで送信する。
 			//送信するデータを設定する。ファイルのパスとJSON文字列を送信する。
 			data:{text:jsonString, path:'source/' + topNodeName + '.json'},

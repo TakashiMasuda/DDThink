@@ -5,6 +5,12 @@
  * 場所　　:js/global.js
  */
 
+//IOS Safariでキャッシュ無効にしてもキャッシュしてしまう問題への対処
+window.onunload=function(){};
+
+//サイトルートパス
+var siteRootPath = EMPTY_STRING;
+
 /** クラス名:loadedFileRecorder
  * 概要　　　:読み込んだファイル名を記録するクラス
  * 作成日　:2015.0116
@@ -19,10 +25,6 @@ function loadedFileRecorder(){
 
 /* 読み込みファイル管理クラスインスタンスを生成する */
 var fRecorder = new loadedFileRecorder();	
-
-
-//サイトルートパス
-var siteRootPath = EMPTY_STRING;
 
 /* 
  * 関数名:updateSiteRootPath
@@ -242,7 +244,7 @@ function init(pageName) {
 			hilightSelectedSidemenuItem(); 	//選択済みのサイドメニューのボタンをハイライトする
 			logoSize();						//ロゴのサイズを修正する 
 			$(SELECTOR_CONTAINER).show(); 	//隠していたコンテンツを表示する
-			articleheadSize();
+			articleheadSize();				//コンテンツページタイトル部分の幅を調整する
 		}, INIT_LASTPROCDDURE_DELAY);
 	});
 	
