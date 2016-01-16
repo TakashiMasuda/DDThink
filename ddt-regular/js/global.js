@@ -229,8 +229,8 @@ function init(pageName) {
 		setTimeout(function(){
 			hilightSelectedCategory(); 		//選択済みのトップメニューのボタンをハイライトする
 			hilightSelectedSidemenuItem(); 	//選択済みのサイドメニューのボタンをハイライトする
-			$(SELECTOR_CONTAINER).show(); 	//隠していたコンテンツを表示する
 			logoSize();						//ロゴのサイズを修正する 
+			$(SELECTOR_CONTAINER).show(); 	//隠していたコンテンツを表示する
 		}, INIT_LASTPROCDDURE_DELAY);
 	});
 	

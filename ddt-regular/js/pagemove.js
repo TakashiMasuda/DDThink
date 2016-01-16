@@ -235,7 +235,7 @@
 					});
 				} else{						//ウィンドウの幅が一定値を上回れば
 					$('#smalllogo').css({	//小ロゴに対しスタイルを指定する
-						float:'left',		//float属性を指定
+						float:'',			//float属性を指定
 						clear: 'none',		//回り込みを通常通りに設定し、大ロゴの右に配置
 						paddingRight: 0 + 'px'	//グローバル変数に保存したデフォルトの右marginを設定
 					});

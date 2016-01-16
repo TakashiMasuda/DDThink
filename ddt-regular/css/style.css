@@ -529,6 +529,8 @@ header h3 {
 	display: block; 
 	float:left; 
 	margin:-2px 2px 0 0;
+	/* WEBフォント読み込み前は便宜的なサイズが設定されてしまうため、読み込み後と同じサイズを指定しておく */
+	width : 104px;
 	height : 44px;
 }
 
@@ -851,6 +853,9 @@ a.pager.selected{
 	/* 中太の字に指定する */
 	font-weight: 400;
 	font-size: 16px;	/* 通常サイズの文字にする */
+	/* WEBフォント読み込み前後でサイズも異なってしまうため読み込み後のサイズをあらかじめセットしておく */
+	height : 18px;
+	width : 195px;
 }
 section{
 	clear: both;
