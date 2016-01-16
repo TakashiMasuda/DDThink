@@ -32,8 +32,8 @@ function common(){
 	        navigator.userAgent.indexOf('Android') > 0 ||
 	        navigator.userAgent.indexOf("Firefox") != -1
 	        ) {
-	        //フォントをメイリオに変える
-	        $('.guideLogo').css('font-family', 'メイリオ').css('font-size', '18px').css('font-weight', 'bold');
+	        //フォントサイズを変える
+	        $('.guideLogo').css('font-size', '18px');
 	    }
 	}
 
