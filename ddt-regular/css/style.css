@@ -844,6 +844,7 @@ a.pager.selected{
 /* 小ロゴに対するスタイルシート */
 #smalllogo{
 	float: left;	/* 左に寄せる */
+	margin-top: 10px;
 	padding: 10px 95px 0 0;
 	padding-right: 95px;
 	display: block;
@@ -855,6 +856,8 @@ a.pager.selected{
 	/* WEBフォント読み込み前後でサイズも異なってしまうため読み込み後のサイズをあらかじめセットしておく */
 	height : 18px;
 	width : 195px;
+	/* 改行を必ずしない */
+	white-space: pre;
 }
 section{
 	clear: both;
