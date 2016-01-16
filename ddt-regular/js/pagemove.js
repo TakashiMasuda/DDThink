@@ -98,7 +98,7 @@
 	}
 	
 	
-	logoSize();		//ウェブサイト初回ロード時に一度logoSizeを呼び出す
+//	logoSize();		//ウェブサイト初回ロード時に一度logoSizeを呼び出す
 	
   $('#navigation ul li:first a').addClass('selected');	//ページ読み込み時にトップメニューの全体の1つめのアンカータグにselectedクラスを追加。トップページへのリンクボタンが対象となる
   $('#main').load(				//そのアンカータグからURLを抽出し、そのページを表示する
@@ -132,7 +132,7 @@
         	  //取得できなかった場合は取得対象の階層を変えて再度取得を試みる
         	  mainElem = mainElem[0] ? mainElem[0] : $(data).filter(SELECTOR_MAIN);
         	  //メインのタグを書き出す	
-	          $(SELECTOR_MAIN).html($(mainElem));	
+	          $(SELECTOR_MAIN).html($(mainElem));
 	          
 	          updateSiteRootPath();		//サイトルートパスを更新する
 	          
@@ -155,7 +155,7 @@
 			commonFuncs.addSiteRootPathForFrame()
        	 　},
 			  error: function(){				//データの取得に失敗したら
-				  alert("ページのロードに失敗しました。");	//ロード失敗の旨を伝える
+				  alert("ページ「" +contenturl + "」のロードに失敗しました。");	//ロード失敗の旨を伝える
 		　 }
    	  });
 	} else {
@@ -186,7 +186,7 @@
 				articleheadSize();				
 			}
 			//ロゴサイズを調整する関数をコールする
-	        logoSize();
+	        //logoSize();
 	        
 		 });  
   	}
@@ -549,7 +549,7 @@
 		//リサーズイベントコールバックをまとめて登録する
 		$(window).resize(sidemenuSize);		//ウィンドウサイズ変更時にsidemenuSizeを呼び出す
 		$(window).resize(articleheadSize);	//ウインドウの大きさの変更に合わせてarticleheadSizeを呼び出す	
-		$(window).resize(logoSize);			//ウィンドウのサイズ変更時にlogoSizeを呼び出す
+		//$(window).resize(logoSize);			//ウィンドウのサイズ変更時にlogoSizeを呼び出す
 		$(window).resize(serviceSize);		//serviceページのcontainerの幅の変化具合を変える
 	    $(window).resize(imgSize);			//画面サイズを変更したときにimgSizeを呼び出す
 	  //画面サイズを変更したときにフッター背景の高さをフッターに合わせて調整する

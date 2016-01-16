@@ -35,6 +35,11 @@ var fRecorder = new loadedFileRecorder();
  * 作成者　:T.Masuda
  */
 function updateSiteRootPath() {
+	//IOS版Chromeであってかつ初回実行でなければ
+    if (!!navigator.userAgent.match(/crios/i) && !isInit()){
+		return false;
+    }
+
 	//サイトルートへのパスを特定のタグから取得する
 	siteRootPath = $(SELECTOR_SITEROOT_PATH).attr(ATTR_HREF);
 }
@@ -242,7 +247,7 @@ function init(pageName) {
 		setTimeout(function(){
 			hilightSelectedCategory(); 		//選択済みのトップメニューのボタンをハイライトする
 			hilightSelectedSidemenuItem(); 	//選択済みのサイドメニューのボタンをハイライトする
-			logoSize();						//ロゴのサイズを修正する 
+			//logoSize();						//ロゴのサイズを修正する 
 			$(SELECTOR_CONTAINER).show(); 	//隠していたコンテンツを表示する
 			articleheadSize();				//コンテンツページタイトル部分の幅を調整する
 		}, INIT_LASTPROCDDURE_DELAY);
@@ -364,5 +369,11 @@ function createMetaTags(create_tag) {
 	create_tag.outputTag("seoDescriptionPrivate", "seoDescriptionPrivate", HEAD_TAG);
 }
 
-//ページ独自の初期化後処理
-var initFuncs = {default : resizeContents};
+//初回処理
+if(isInit()){
+	//ページ独自の初期化後処理
+	var initFuncs = {default : resizeContents};
+	updateSiteRootPath();	//当ファイル読み込み時にサイトルート更新を試みる
+	//初回ロード用サイトルートパスを消す
+	$('#siteRootPath').remove();
+}
