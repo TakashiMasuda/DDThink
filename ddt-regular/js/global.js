@@ -242,6 +242,7 @@ function init(pageName) {
 			hilightSelectedSidemenuItem(); 	//選択済みのサイドメニューのボタンをハイライトする
 			logoSize();						//ロゴのサイズを修正する 
 			$(SELECTOR_CONTAINER).show(); 	//隠していたコンテンツを表示する
+			articleheadSize();
 		}, INIT_LASTPROCDDURE_DELAY);
 	});
 	
