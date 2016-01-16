@@ -364,6 +364,11 @@ function createMetaTags(create_tag) {
 	create_tag.outputTag("seoDescriptionPrivate", "seoDescriptionPrivate", HEAD_TAG);
 }
 
-//ページ独自の初期化後処理
-var initFuncs = {default : resizeContents};
-updateSiteRootPath();	//当ファイル読み込み時にサイトルート更新を試みる
+//初回処理
+if(isInit()){
+	//ページ独自の初期化後処理
+	var initFuncs = {default : resizeContents};
+	updateSiteRootPath();	//当ファイル読み込み時にサイトルート更新を試みる
+	//初回ロード用サイトルートパスを消す
+	$('#siteRootPath').remove();
+}
