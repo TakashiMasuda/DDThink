@@ -242,7 +242,7 @@ function init(pageName) {
 		setTimeout(function(){
 			hilightSelectedCategory(); 		//選択済みのトップメニューのボタンをハイライトする
 			hilightSelectedSidemenuItem(); 	//選択済みのサイドメニューのボタンをハイライトする
-			logoSize();						//ロゴのサイズを修正する 
+			//logoSize();						//ロゴのサイズを修正する 
 			$(SELECTOR_CONTAINER).show(); 	//隠していたコンテンツを表示する
 			articleheadSize();				//コンテンツページタイトル部分の幅を調整する
 		}, INIT_LASTPROCDDURE_DELAY);

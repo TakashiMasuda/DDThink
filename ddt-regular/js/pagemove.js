@@ -98,7 +98,7 @@
 	}
 	
 	
-	logoSize();		//ウェブサイト初回ロード時に一度logoSizeを呼び出す
+//	logoSize();		//ウェブサイト初回ロード時に一度logoSizeを呼び出す
 	
   $('#navigation ul li:first a').addClass('selected');	//ページ読み込み時にトップメニューの全体の1つめのアンカータグにselectedクラスを追加。トップページへのリンクボタンが対象となる
   $('#main').load(				//そのアンカータグからURLを抽出し、そのページを表示する
@@ -121,8 +121,11 @@
 　 		  cache : false,				//通信結果をキャッシュしない
           success: function(data) {		//データの取得に成功したら
         	  
+        	  //IOS Chromeはpushstateの第三引数によるカレントディレクトの変更のタイミングが違うと
+        	  //思われるため、タイミングをずらす
         	  //popstateによるブラウザバック・フォワードに対応した当該関数のコールでなければ
-        	  if (!isPopstate){
+        	  //加えてIOSSafariでなければ
+        	  if (!isPopstate && !navigator.userAgent.match(/crios/i)){
        			 //pushStateに履歴を追加する
        			 pControl.addPushState(url, EMPTY_STRING);
         	  }
@@ -134,6 +137,13 @@
         	  //メインのタグを書き出す	
 	          $(SELECTOR_MAIN).html($(mainElem));	
 	          
+        	  //popstateによるブラウザバック・フォワードに対応した当該関数のコールでなければ
+        	  //加えてIOSSafariなら
+        	  if (!isPopstate && !!navigator.userAgent.match(/crios/i)){
+       			 //pushStateに履歴を追加する
+       			 pControl.addPushState(url, EMPTY_STRING);
+        	  }
+        	  
 	          updateSiteRootPath();		//サイトルートパスを更新する
 	          
 			  //読み込んだコンテンツに応じて独自の処理を行う
@@ -186,7 +196,7 @@
 				articleheadSize();				
 			}
 			//ロゴサイズを調整する関数をコールする
-	        logoSize();
+	        //logoSize();
 	        
 		 });  
   	}
@@ -549,7 +559,7 @@
 		//リサーズイベントコールバックをまとめて登録する
 		$(window).resize(sidemenuSize);		//ウィンドウサイズ変更時にsidemenuSizeを呼び出す
 		$(window).resize(articleheadSize);	//ウインドウの大きさの変更に合わせてarticleheadSizeを呼び出す	
-		$(window).resize(logoSize);			//ウィンドウのサイズ変更時にlogoSizeを呼び出す
+		//$(window).resize(logoSize);			//ウィンドウのサイズ変更時にlogoSizeを呼び出す
 		$(window).resize(serviceSize);		//serviceページのcontainerの幅の変化具合を変える
 	    $(window).resize(imgSize);			//画面サイズを変更したときにimgSizeを呼び出す
 	  //画面サイズを変更したときにフッター背景の高さをフッターに合わせて調整する
