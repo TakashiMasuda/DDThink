@@ -366,3 +366,4 @@ function createMetaTags(create_tag) {
 
 //ページ独自の初期化後処理
 var initFuncs = {default : resizeContents};
+updateSiteRootPath();	//当ファイル読み込み時にサイトルート更新を試みる
