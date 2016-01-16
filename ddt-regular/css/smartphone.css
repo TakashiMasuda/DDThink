@@ -358,9 +358,6 @@
 	/* フッター内の会社ロゴについてのスタイルシート */
 	span.footerlogo{
 		font-size: 24px;	/* フォントのサイズを24pxに指定 */
-		font-family: Impact, "メイリオ", "ＭＳ Ｐゴシック";	/* フォントをImpactに指定 */
-		font-weight: normal;	/* フォントを通常サイズにする */
-		color: #800000;			/* フォントの色をmaroon(ダークレッド系)にする */
 		width: auto;		/* 幅を自動調整する */
 	}
 	.baseaddress{
@@ -383,6 +380,8 @@
 	}
 	#ssn-d2124{
 		background-color: rgba(245, 245, 220, 0.7);
+		padding-right: 10.5px!important;
+		padding-left: 10.5px!important;
 	}
 	/* 開発サービスページの記事部分に関するスタイルシート */
 	/* 開発サービスの記事に関するスタイルシート */
@@ -729,7 +728,7 @@
  * 作成日 :2015.12.23
  */
 .Long-termTrineeLogo {
-	margin-bottom : 2px;	/* 下に2pxのmarginをセットして適切な間隔を取る */
+	margin-bottom : 5px;	/* 下に4pxのmarginをセットして適切な間隔を取る */
 }
 	
 	/* 

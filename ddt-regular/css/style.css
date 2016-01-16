@@ -519,13 +519,16 @@ header h3 {
 	color: #800000;			/* フォントの色をmaroon(ダークレッド系)にする */
 	width: auto;		/* 幅を自動調整する */
 }
+/* 会社ロゴ */
+.ddthinkLogo {
+ 	font-weight : bold;
+	color: #800000;
+	font-family: 'Teko', sans-serif; 
+	letter-spacing: -1.4px; /* 文字間調整 */
+}
 /* 大ロゴ */
 .biglogo-substitute {
-	font-family: 'Teko', sans-serif; 
 	font-size: 33px; 
-	/* 太字に指定する */
-	font-weight : bold;
-	color: #800000;
 	display: block; 
 	float:left; 
 	margin:-2px 2px 0 0;
@@ -534,10 +537,6 @@ header h3 {
 
 span.footerlogo{
 	font-size: 27px;	/* フォントのサイズを24pxに指定 */
-	font-family: 'Teko', sans-serif;	/* フォントをImpactに指定 */
-	/* 太字に指定する */
-	font-weight : bold;
-	color: #800000;			/* フォントの色をmaroon(ダークレッド系)にする */
 	width: auto;		/* 幅を自動調整する */
 	float: left;		/* 左に寄せる */
 }
@@ -1276,6 +1275,11 @@ span.text-red{
 	line-height: 34px;		/* １行当たりを適切な高さに調整する */
 }
 
+.Long-termTrineeLogo .logoText {
+	line-height: 22px;
+	padding: 10px 0 9px 13px;
+}
+
 /* 
  * セレクタ:.titleInTable
  * 概要   :研修制度「内容」右側部分
@@ -1284,6 +1288,7 @@ span.text-red{
  */
 .titleInTable {
 	font-weight: normal;
+	line-height: 11px;
 }
 
 /* 

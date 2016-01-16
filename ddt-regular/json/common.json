@@ -53,6 +53,7 @@
 					"id": "companylogo",
 					"biglogo-substitute": {
 						"id": "biglogo-substitute",
+						"class":"biglogo-substitute ddthinkLogo",
 						"text": "DDThink"
 					},
 					"smalllogo": {
@@ -118,6 +119,7 @@
 			"footerleft": {
 				"id": "footerleft",
 				"footerlogo": {
+					"class":"footerlogo ddthinkLogo",
 					"text": "DDThink"
 				},
 				"footercompanyname": {
