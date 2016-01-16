@@ -53,7 +53,10 @@ function createTag(){
 			//通信失敗時の処理。
 			error:function(){
 				//エラーのダイアログを出す。
-				alert('通信に失敗しました。');
+				var failMessage = '通信に失敗しました : getJsonFile';
+				var currentDirAlert = 'カレントディレクトリ: ' + window.location;
+				var soutaiUrlAlert = '開こうとしたURL: ' + jsonPath;
+				alert(failMessage +'\n' +  currentDirAlert + '\n' + soutaiUrlAlert);
 			}
 		});
 
@@ -98,7 +101,10 @@ function createTag(){
 			//通信失敗時の処理。
 			error:function(){
 				//エラーのダイアログを出す。
-				alert('通信に失敗しました。');
+				var failMessage = '通信に失敗しました : getDomFile';
+				var currentDirAlert = 'カレントディレクトリ: ' + window.location;
+				var soutaiUrlAlert = '開こうとしたURL: ' + htmlPath;
+				alert(failMessage +'\n' +  currentDirAlert + '\n' + soutaiUrlAlert);
 			}
 		});
 		

@@ -121,11 +121,8 @@
 　 		  cache : false,				//通信結果をキャッシュしない
           success: function(data) {		//データの取得に成功したら
         	  
-        	  //IOS Chromeはpushstateの第三引数によるカレントディレクトの変更のタイミングが違うと
-        	  //思われるため、タイミングをずらす
         	  //popstateによるブラウザバック・フォワードに対応した当該関数のコールでなければ
-        	  //加えてIOSSafariでなければ
-        	  if (!isPopstate && !navigator.userAgent.match(/crios/i)){
+        	  if (!isPopstate){
        			 //pushStateに履歴を追加する
        			 pControl.addPushState(url, EMPTY_STRING);
         	  }
@@ -135,15 +132,8 @@
         	  //取得できなかった場合は取得対象の階層を変えて再度取得を試みる
         	  mainElem = mainElem[0] ? mainElem[0] : $(data).filter(SELECTOR_MAIN);
         	  //メインのタグを書き出す	
-	          $(SELECTOR_MAIN).html($(mainElem));	
+	          $(SELECTOR_MAIN).html($(mainElem));
 	          
-        	  //popstateによるブラウザバック・フォワードに対応した当該関数のコールでなければ
-        	  //加えてIOSSafariなら
-        	  if (!isPopstate && !!navigator.userAgent.match(/crios/i)){
-       			 //pushStateに履歴を追加する
-       			 pControl.addPushState(url, EMPTY_STRING);
-        	  }
-        	  
 	          updateSiteRootPath();		//サイトルートパスを更新する
 	          
 			  //読み込んだコンテンツに応じて独自の処理を行う
@@ -165,7 +155,7 @@
 			commonFuncs.addSiteRootPathForFrame()
        	 　},
 			  error: function(){				//データの取得に失敗したら
-				  alert("ページのロードに失敗しました。");	//ロード失敗の旨を伝える
+				  alert("ページ「" +contenturl + "」のロードに失敗しました。");	//ロード失敗の旨を伝える
 		　 }
    	  });
 	} else {

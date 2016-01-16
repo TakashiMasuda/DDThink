@@ -35,6 +35,11 @@ var fRecorder = new loadedFileRecorder();
  * 作成者　:T.Masuda
  */
 function updateSiteRootPath() {
+	//IOS版Chromeであってかつ初回実行でなければ
+    if (!!navigator.userAgent.match(/crios/i) && !isInit()){
+		return false;
+    }
+
 	//サイトルートへのパスを特定のタグから取得する
 	siteRootPath = $(SELECTOR_SITEROOT_PATH).attr(ATTR_HREF);
 }

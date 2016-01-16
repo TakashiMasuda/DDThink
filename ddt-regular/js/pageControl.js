@@ -68,8 +68,16 @@ function pageControl() {
 	 * 作成者　:T.Masuda
 	 */
 	this.addPushState = function (url, arg) {
+		//pushstateのindex用URLのための変数を用意する
+		var indexUrl = url;
+		//IOS版Chromeであれば
+	    if (!!navigator.userAgent.match(/crios/i)){
+			//ファイル名部分のみをindex用URLにセットする
+			indexUrl = commonFuncs.getLastValue(indexUrl, SLASH);
+	    }
+		
 		//pushStateに履歴を追加する
-		history.pushState(url, arg, url);
+		history.pushState(url, arg, indexUrl);
 		this.currentUrl = url;	//カレントのURLを更新する(相対パス)
 	}
 
