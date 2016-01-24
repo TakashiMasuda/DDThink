@@ -22,9 +22,9 @@
 		"http-equiv": "expires",
 		"content": "0"
 	},
-	"headPageTitlePrivate":{},
-	"seoKeyWordPrivate":{},
-	"seoDescriptionPrivate":{},
+	"headPageTitlePrivate": {},
+	"seoKeyWordPrivate": {},
+	"seoDescriptionPrivate": {},
 	"container": {
 		"id": "container"
 	},
@@ -39,26 +39,18 @@
 		},
 		"toppagemotto": {
 			"id": "toppagemotto",
-			"corporationMotto1": {
-				"class" : "corporationMotto corporationMotto1",
-				"text": "もっと速く もっとシンプルに "
-			},
-			"corporationMotto2": {
-				"class" : "corporationMotto corporationMotto2",
-				"text": "More Quickly More Simply"
-			},
 			"headercontents": {
 				"id": "headercontents",
 				"companylogo": {
 					"id": "companylogo",
 					"biglogo-substitute": {
 						"id": "biglogo-substitute",
-						"class":"biglogo-substitute ddthinkLogo",
+						"class": "biglogo-substitute ddthinkLogo",
 						"text": "DDThink"
 					},
 					"smalllogo": {
 						"id": "smalllogo",
-						"text" : "degital design think corp."
+						"text": "degital design think corp."
 					}
 				},
 				"ssn-d2124": {
@@ -83,6 +75,16 @@
 						"class": "ssnimg",
 						"src": "ddt-regular/img/button(Android).gif"
 					}
+				}
+			},
+			"mottoes": {
+				"corporationMotto1": {
+					"class": "corporationMotto corporationMotto1",
+					"text": "もっと速く もっとシンプルに "
+				},
+				"corporationMotto2": {
+					"class": "corporationMotto corporationMotto2",
+					"text": "More Quickly More Simply"
 				}
 			}
 		},
@@ -119,7 +121,7 @@
 			"footerleft": {
 				"id": "footerleft",
 				"footerlogo": {
-					"class":"footerlogo ddthinkLogo",
+					"class": "footerlogo ddthinkLogo",
 					"text": "DDThink"
 				},
 				"footercompanyname": {

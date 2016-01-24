@@ -343,6 +343,10 @@
 	header h4{
 		width: 100%;	/* 画面横いっぱいに伸ばす */
 	}
+	/* ヘッダー内モットーの枠 */
+	header span.mottoes {
+		width: 100%;		/* 幅をページいっぱいに取る */
+	}
 	/* 小ロゴに対するスタイルシート */
 	#smalllogo{
 		font-size : 13px;	/* 通常より小さい文字にする */
@@ -399,7 +403,7 @@
 		height: 260px;
 	}
 	#service {
-		width: 320px;
+		width: 100%;
 		margin: 0 auto 0;
 		position: relative;
 	}

@@ -9,7 +9,8 @@
    pcWidth		= 950;				//PCレイアウトになる横幅の下限値をpcWidthに格納
    //タブレットレイアウト時のメインコンテンツ領域の幅をtbmaincontentSizwに格納
    tbmaincontentSize = 600;			
-   iPhoneResolution = 320;			//iPhoneのブラウザの横幅をiPhoneResolutionに格納
+   iPhoneResolution = 380;			//iPhone用画面幅。現状Android共用
+   
 	//画面遷移時のコンテンツのURLを格納し、サイドメニューのボタンのURLとの照合を行う変数contenturl
 	var contenturl = location.href;	//	コンテンツのURLを格納する変数contenturl。初期値は現在のURLにする
    
@@ -279,13 +280,20 @@
 		var containerClass = $('#container').attr('class');
 		//コンテナがserviceクラスを持っていて、画面サイズがIPhone適正サイズよりおおきければ
 		if(containerClass == 'service' && $(window).width() <= iPhoneResolution){
+			alert("remove service");
 			//コンテナからserviceクラスを削除してCSSを変更する	
 			 $('#container').removeClass('service');
 		//現在がserviceページであり、画面サイズがIPhone適正サイズの範疇であれば
 		} else if (contenturl.indexOf('ddt-regular/service.html') != -1
 		 && $(window).width() > iPhoneResolution){
-			//コンテナにserviceクラスを追加して固定幅にする
-			$('#container').addClass('service');
+			alert("window : " + $(window).width() + ' iPhoneres : ' + iPhoneResolution);
+			alert(containerClass);
+			//コンテナにserviceクラスがなければ
+			if (containerClass == void(0) || containerClass.indexOf('service') == -1) {
+				alert("addService");
+				//コンテナにserviceクラスを追加して固定幅にする
+				$('#container').addClass('service');
+			}
 		}
 	}
 

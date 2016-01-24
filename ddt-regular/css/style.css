@@ -500,6 +500,12 @@ header h4 {
 	display: block;			/* ブロックとして扱い縦方向の幅調整を効かせる */
 	width: 950px;		/* 幅をページいっぱいに取る */
 }
+/* ヘッダー内モットーの枠 */
+header span.mottoes {
+	margin: 0 auto 0;	/* 下の要素と間隔を取る */
+	display: block;			/* ブロックとして扱い縦方向の幅調整を効かせる */
+	width: 950px;		/* 幅をページいっぱいに取る */
+}
 /* ヘッダー内のh3タグに対するスタイルシート */
 header h3 {
 	font-size: 16px;	/* フォントサイズを12pxに指定 */
