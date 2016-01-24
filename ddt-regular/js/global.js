@@ -209,7 +209,7 @@ function init(pageName) {
 		loadScriptFile("categorypulldown", DIR_SCRIPT_FILES, STR_TRUE),
 		loadScriptFile("imagemove", DIR_SCRIPT_FILES, STR_TRUE),
 		loadScriptFile("decorator", DIR_SCRIPT_FILES, STR_TRUE),
-		loadScriptFile("createTag", FLOWER_SCRIPT_DIR, STR_TRUE)
+		loadScriptFile("createTag", DIR_SCRIPT_FILES, STR_TRUE)
 		//必要なJSファイルを読み込む※初期処理時は読み込み順序の都合でloadScriptFile関数を使わない
 	//ファイルの読み込みが完了したら
 	).always(function (a){
