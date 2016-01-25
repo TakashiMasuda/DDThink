@@ -280,17 +280,13 @@
 		var containerClass = $('#container').attr('class');
 		//コンテナがserviceクラスを持っていて、画面サイズがIPhone適正サイズよりおおきければ
 		if(containerClass == 'service' && $(window).width() <= iPhoneResolution){
-			alert("remove service");
 			//コンテナからserviceクラスを削除してCSSを変更する	
 			 $('#container').removeClass('service');
 		//現在がserviceページであり、画面サイズがIPhone適正サイズの範疇であれば
 		} else if (contenturl.indexOf('ddt-regular/service.html') != -1
 		 && $(window).width() > iPhoneResolution){
-			alert("window : " + $(window).width() + ' iPhoneres : ' + iPhoneResolution);
-			alert(containerClass);
 			//コンテナにserviceクラスがなければ
 			if (containerClass == void(0) || containerClass.indexOf('service') == -1) {
-				alert("addService");
 				//コンテナにserviceクラスを追加して固定幅にする
 				$('#container').addClass('service');
 			}
