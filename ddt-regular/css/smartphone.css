@@ -359,10 +359,16 @@
 		width : 135px;
 		/* 行サイズを指定して上margin代わりにする */
 		line-height : 19px;
+		position: absolute;
+		top:25px;
 	}
-#companylogo{
-	width: 135px;
-}
+	.biglogo-substitute {
+		margin: -10px 2px 0 0;
+	}
+	#companylogo{
+		width: 135px;
+		position: relative;
+	}
 	
 	/* フッター内の会社ロゴについてのスタイルシート */
 	span.footerlogo{
