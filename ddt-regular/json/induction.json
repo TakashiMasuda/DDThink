@@ -4,7 +4,7 @@
 	        "text":"DDThink - 株式会社デジタルデザインシンク | 研修制度"
 	    },
 	    "seoKeyWordPrivate":{
-	        "name":"keyword",
+	        "name":"keywords",
 	        "content":"新宿,デジタルデザインシンク,エンジニア,プログラマー,研修,未経験可"
 	    },
 	    "seoDescriptionPrivate":{
@@ -266,7 +266,7 @@
         ]
     },
     "pageKeyword":{
-        "name":"keyword",
+        "name":"keywords",
         "content":"新宿, 研修, 募集, 未経験, 長期, プログラム"
     }
 }

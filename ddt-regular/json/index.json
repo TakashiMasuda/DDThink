@@ -4,12 +4,12 @@
 			"text": "DDThink 株式会社デジタルデザインシンク"
 		},
 		"seoKeyWordPrivate": {
-			"name": "keyword",
-			"content": "東京都,新宿,エンジニア,募集,C++,Java,Objective-C,PHP,ゲーム開発,システム開発,業務系開発,未経験者,経験者,優遇,歓迎,求人,IOS,Android,Windows,Linux,Unix,MySQL,PostgreSQL,SQLServer,Oracle,Ruby,LAMP,Unity,Cocos2d-x,スマホ,スマートフォン"
+			"name": "keywords",
+			"content": "東京都,新宿,デジタルデザインシンク,エンジニア,募集,C++,Java,Objective-C,PHP,ゲーム開発,システム開発,業務系開発,未経験者,経験者,優遇,歓迎,求人,IOS,Android,Windows,Linux,Unix,MySQL,PostgreSQL,SQLServer,Oracle,Ruby,LAMP,Unity,Cocos2d-x,スマホ,スマートフォン"
 		},
 		"seoDescriptionPrivate": {
 			"name": "description",
-			"content": ""
+			"content": "株式会社デジタルデザインシンク 新宿に拠点を置くソフトウェア開発会社です。"
 		}
 	},
 	"topPageContent": {

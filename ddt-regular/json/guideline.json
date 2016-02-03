@@ -4,7 +4,7 @@
 	        "text":"DDThink - 株式会社デジタルデザインシンク | 募集要項"
 	    },
 	    "seoKeyWordPrivate":{
-	        "name":"keyword",
+	        "name":"keywords",
 	        "content":"新宿,デジタルデザインシンク,募集,求人,未経験,長期研修,中途採用"
 	    },
 	    "seoDescriptionPrivate":{
@@ -376,7 +376,7 @@
 		"onclick" : "$('html body').animate({scrollTop : 0}, 0);"	
 	},
     "pageKeyword":{
-        "name":"keyword",
+        "name":"keywords",
         "content":"新宿,ソフトウェアエンジニア,営業,募集,未経験,中途採用,正社員"
     }
 }
