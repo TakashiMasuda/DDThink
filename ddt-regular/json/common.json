@@ -53,27 +53,37 @@
 						"text": "degital design think corp."
 					}
 				},
-				"ssn-d2124": {
-					"id": "ssn-d2124",
-					"ssnimg1": {
+				"downloadArea": {
+					"id": "downloadArea",
+					"downloadAreaTextBefore": {
+						"id": "downloadAreaTextBefore",
+						"class": "downloadAreaTextBefore",
+						"text": "無料"
+					},
+					"downloadAreaTextAfter": {
+						"id": "downloadAreaTextAfter",
+						"class": "downloadAreaTextAfter",
+						"text": "ゲームアプリダウンロード"
+					},
+					"ssnimg": {
 						"id": "ssnmain",
 						"class": "ssnimg",
-						"src": "ddt-regular/img/ssn-d2124(57).gif"
+						"src": "ddt-regular/img/ssn-d2124(57).gif",
+						"title": "ゲーム：潜水艦ゲーム",
+						"alt": "潜水艦ゲーム"
 					},
-					"ssnimg2": {
-						"id": "ssncopy",
-						"class": "ssnimg",
-						"src": "ddt-regular/img/download(freeApp).gif"
+					"oreExplorationImg": {
+						"id": "oreExplorationMain",
+						"class": "oreExplorationImg",
+						"src": "ddt-regular/img/Ore_exPloration.PNG",
+						"title": "ゲーム：鉱石探索ゲーム",
+						"alt": "鉱石探索ゲーム"
 					},
-					"ssnimg3": {
-						"id": "ssniphone",
-						"class": "ssnimg",
-						"src": "ddt-regular/img/button(iphone).gif"
-					},
-					"ssnimg4": {
-						"id": "ssnandroid",
-						"class": "ssnimg",
-						"src": "ddt-regular/img/button(Android).gif"
+					"downloadDialog": {
+						"class": "downloadDialog",
+						"downloadDialogMessage":{
+							"text": "使用するデバイスを選択してください。"
+						}
 					}
 				}
 			},
@@ -226,10 +236,6 @@
 			"id": "linkvpolicy",
 			"href": "ddt-regular/policy.html",
 			"text": "行動指針"
-		}, {
-			"id": "linkmotto",
-			"href": "ddt-regular/motto.html",
-			"text": "社訓"
 		}, {
 			"id": "linkhistory",
 			"href": "ddt-regular/history.html",

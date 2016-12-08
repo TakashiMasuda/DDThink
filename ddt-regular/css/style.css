@@ -806,14 +806,12 @@ a.pager.selected{
 	margin: 0 auto 0;
 	display: block;
 }
-#ssn-d2124{
+#downloadArea{
 	float: right;
-	margin: 4px 0 0;
-	height: 57px;
-	width: 156px;
+	margin: 1px 0 0;
+	height: 60px;
+	width: 170px;
 	padding: 0 27px 0;
-	background-color: rgba(245, 245, 220, 0.7);
-	border: solid 1px rgb(245, 245, 220);
 	border-radius: 5px;
 }
 #companylogo{
@@ -828,18 +826,33 @@ a.pager.selected{
 	width: 950px;
 	margin: 0 auto 0;
 }
-#ssnmain{
-	float: left;
+#downloadTextArea{
+	height: 30%;
+	width:  170px;
+	margin: -1px 0 3px 0;
+}
+#downloadAreaTextBefore{
+	color: rgb(255,0,0);
+	font-size: 70%;
+	margin: 0 0 3px 0;
+}
+#downloadAreaTextAfter{
+	font-size: 70%;
 	margin: 0 3px 0 0;
 }
-#ssncopy{
-	float: left;
-}
-#ssniphone{
+#downloadImageArea{
+	height: 70%;
 	margin: 5px 0 0 0;
 }
-#ssnandroid{
-	margin: 5px 0 0 3px;
+#ssnmain{
+	margin: 0 15px 0 0;
+	height: 85%;
+	float: left;
+}
+#oreExplorationMain{
+	margin: 0 3px 0 0;
+	height: 85%;
+	float: left;
 }
 /* 大ロゴに対するスタイルシート */
 #biglogo{
@@ -1338,5 +1351,17 @@ span.text-red{
  */
 .strong {
 	color: red;
+}
+
+
+
+/* 
+ * セレクタ:.topicShow:hover, .topicContent:hover
+ * 概要   :要素の透過度を70%にする
+ * 作成者 :R.Shibata
+ * 作成日 :2016.09.25
+ */
+.oreExplorationImg:hover {
+	opacity: 0.7;		/* 表示を70%まで透化する */
 }
 

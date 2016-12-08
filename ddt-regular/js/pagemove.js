@@ -205,10 +205,10 @@
 
 				var smalllogoPadding = parseInt($('#smalllogo').css('padding-right'));		//会社小ロゴの幅を取得
 				var biglogoWidth = parseInt($('#biglogo').width());						//会社大ロゴの幅を取得
-				var ssnWidth =  $('#ssn-d2124').width();									//ゲーム紹介の枠の幅を取得
+				var ssnWidth =  $('#downloadArea').width();									//ゲーム紹介の枠の幅を取得
 				var logoleftmargin =  parseInt($('#companylogo').css('margin-left'));		//会社ロゴ枠の左marginを取得
 				//ゲーム紹介の枠の左marginを取得。このmarginは左右同じ値に指定していなければ不具合が発生する
-				var ssnPadding = parseInt($('#ssn-d2124').css('padding-left'));						
+				var ssnPadding = parseInt($('#downloadArea').css('padding-left'));						
 
 				var smalllogoWidth = $('#smalllogo').width();
 				if(smalllogoWidth == 0){
@@ -224,7 +224,7 @@
 					var variablepaddingSSN = (headerWidth - smalllogoWidth - ssnWidth - scrollbar) / 2 - logoleftmargin;
 					//それがデフォルト設定のゲーム紹介枠の横padding以下であれば(ずれ防止のためロゴ枠左のmarginも計算に入れる)
 					if(variablepaddingSSN - logoleftmargin <= ssnPadding){	
-						$('#ssn-d2124').css({						//ゲーム紹介の枠のスタイルシートを変更
+						$('#downloadArea').css({						//ゲーム紹介の枠のスタイルシートを変更
 						paddingRight : variablepaddingSSN + 'px',	//右paddingを現在のウィンドウサイズにあった大きさにする
 						paddingLeft  : variablepaddingSSN + 'px'	//同様に左paddingも設定
 						});
@@ -240,7 +240,7 @@
 						clear: 'none',		//回り込みを通常通りに設定し、大ロゴの右に配置
 						paddingRight: 0 + 'px'	//グローバル変数に保存したデフォルトの右marginを設定
 					});
-					$('#ssn-d2124').css({		//ゲーム紹介枠のスタイルを指定
+					$('#downloadArea').css({		//ゲーム紹介枠のスタイルを指定
 						paddingRight : ssnPadding + 'px',	//デフォルトの右padding
 						paddingLeft  : ssnPadding + 'px'		//デフォルトの左paddingを設定
 					});

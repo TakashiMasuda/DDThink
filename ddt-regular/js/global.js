@@ -201,7 +201,9 @@ function init(pageName) {
 		loadCSSFile(DESKTOP_CSS),
 		loadCSSFile(SMARTPHONE_CSS),
 		loadCSSFile(TABLET_CSS),
+		loadCSSFile(JQUERY_UI_MIN),
 		//読み込み済みスクリプト一覧にJSファイルの名を登録して二度読み込まないようにする
+		loadScriptFile(JQUERY_UI_MIN, DIR_SCRIPT_FILES, STR_TRUE),
 		loadScriptFile('common', DIR_SCRIPT_FILES, STR_TRUE),
 		loadScriptFile("pagemove", DIR_SCRIPT_FILES, STR_TRUE),
 		loadScriptFile("pageControl", DIR_SCRIPT_FILES, STR_TRUE),

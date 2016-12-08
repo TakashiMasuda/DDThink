@@ -31,14 +31,6 @@
 			<url>ddt-regular/policy.html</url>
 		<!-- 行動指針コンテンツの要素を終了 -->
 		</element>
-		<!-- 社訓コンテンツの要素 -->
-		<element>
-			<!-- 社訓のテキスト -->
-			<content>社訓</content>
-			<!-- 社訓のアドレス -->
-			<url>ddt-regular/motto.html</url>
-		<!-- 社訓コンテンツの用を終える -->
-		</element>
 		<!-- 会社沿革コンテンツの要素 -->
 		<element>
 			<!-- 会社沿革のテキスト -->

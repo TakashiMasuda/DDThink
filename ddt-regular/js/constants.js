@@ -10,11 +10,15 @@ ATTR_HREF = 'href';
 //制御用ボタンのセレクタ                                                     
 SELECTOR_CONTROL_BUTTON = '.controler button';                    
 //クリックイベント名                                                       
-EVENT_CLICK = 'click';                                            
+EVENT_CLICK      = 'click';          
+//マウスエンターイベント名                                                       
+EVENT_MOUSEENTER = 'mouseenter';          
+//マウスリーブイベント名                                                       
+EVENT_MOUSELEAVE = 'mouseleave';
 //popstate変化時の告知文                                                 
 NOTICE_ALTER_POPSTATE = 'popstateの状態が変化しました。';                    
 //ajax通信オプションのデータタイプ:HTML                                         
-DATATYPE_HTML				= 'HTML';                             
+DATATYPE_HTML			  = 'HTML';                             
 //通信エラー時のメッセージ前部                                                  
 ALERT_CONNECT_ERROR_FRONT = 'connect error.¥ncause...¥nstatus : ';
 //通信エラー時のメッセージ後部                                                  
@@ -40,6 +44,7 @@ STYLE_CSS				= 'style';
 DESKTOP_CSS				= 'desktop';
 SMARTPHONE_CSS			= 'smartphone';
 TABLET_CSS				= 'tablet';
+JQUERY_UI_MIN           = 'jquery-ui.min';
 TOP_PAGE				= 'ddt-regular/top.html';
 //フレームのHTMLファイル
 FRAME_HTML				= 'ddt-regular/source/frame.html';
@@ -55,6 +60,10 @@ EXTEND_JS				= '.js';
 EXTEND_CSS				= '.css';
 //src属性
 ATTR_SRC				= 'src';
+//title属性
+ATTR_TITLE				= 'title';
+//alt属性
+ATTR_ALT				= 'alt';
 //linkタグ
 LINK_TAG				= 'link';
 //index.html
@@ -141,3 +150,31 @@ SHARP						= '#';
 CURRENT_DIRECTORY		= './';
 //ひとつ上のディレクトリ
 PREV_DIRECTORY			= '../';
+//ダウンロードダイアログを示すセレクタ
+SELECTOR_DOWNLOAD_DIALOG    = '.downloadDialog';
+//ダウンロードダイアログの可変テキストを示すセレクタ
+SELECTOR_DOWNLOAD_DIALOG_CONTENT = '.downloadDialogContent';
+//iPhoneを示すテキスト
+TEXT_IPHONE                 = 'iPhone';
+//Androidを示すテキスト
+TEXT_ANDROID                = 'Android';
+//PCを示すテキスト
+TEXT_PC                     = 'PC';
+//キャンセルを示すテキスト
+TEXT_CANCEL                 = 'キャンセル';
+//潜水艦ゲームを示すID名
+CLASS_SSNMAIN               = 'ssnmain';
+//潜水艦ゲームを示すセレクタ名(クラス名)
+SELECTOR_SSNIMG             = '.ssnimg';
+//鉱石探索ゲームを示すID名
+CLASS_OREEXPLORATIONMAIN    = 'oreExplorationMain';
+//鉱石探索ゲームを示すセレクタ名(クラス名)
+SELECTOR_OREEXPLORATIONIMG  = '.oreExplorationImg';
+//ダウンロード準備中のメッセージ
+DOWNLOAD_IN_PREPARATION_MEESSAGE = '大変申し訳ありませんが、現在準備中のためダウンロードできません。もうしばらくお待ちください。';
+//jQueryのダイアログ、タイトルバーを示すセレクタ
+SELECTOR_UI_DIALOG_TITLEBAR = '.ui-dialog-titlebar';
+//CSSの設定、display
+CSS_DISPLAY                 = 'display';
+//CSSの設定、none
+CSS_NONE                    = 'none';

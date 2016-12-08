@@ -146,7 +146,7 @@ var showSSN = function(){
 
 var movetoStore = function(e){
 	var imgid = $(this).attr('id');
-	if(imgid == 'ssnandroid'){
+	if(imgid == 'ssnmain'){
 		window.location.href = siteRootPath + 'ddt-regular/app/android/SSN_D2124.apk';
 	} else if(imgid == 'ssniphone'){
 //		window.location.href = '';
@@ -154,6 +154,103 @@ var movetoStore = function(e){
 	}
 };
 
+/* 
+ * 関数名:showDownloadDialog
+ * 概要  :ダウンロードダイアログを表示する。クリックされた画像ID名を条件に開くダイアログ種類を決定する
+ * 引数  :event e: イベントオブジェクト。クリックイベントの結果が格納されている
+ * 返却値:なし
+ * 作成日　:2016.09.23
+ * 作成者　:R.Shibata
+ */
+var showDownloadDialog = function(e){
+	// 画像id名を取得する
+	var imgid = $(this).attr('id');
+	//ダイアログのボタンの設定を読み込む
+	downloadDialogSettings.buttons = downloadDialogButtonSettings[imgid];
+	//ダイアログのテキストにダウンロードするコンテンツ名を設定する
+	$(SELECTOR_DOWNLOAD_DIALOG_CONTENT).text($(this).attr(ATTR_TITLE));
+	//イメージIDに該当するダイアログの設定を読み込む
+	$(SELECTOR_DOWNLOAD_DIALOG).dialog(downloadDialogSettings);
+	//ダイアログを開く
+	$(SELECTOR_DOWNLOAD_DIALOG).dialog('open');
+	//ダイアログのタイトルバーを削除(非表示)にする
+}
+
+/* 
+ * 関数名:showDownloadDialog
+ * 概要  :ダウンロードダイアログを表示する。クリックされた画像ID名を条件に開くダイアログ種類を決定する
+ *        また、コンテンツの内容をイメージのタイトルから値を取得し、設定する
+ * 引数  :event e: イベントオブジェクト。クリックイベントの結果が格納されている
+ * 返却値:なし
+ * 作成日　:2016.09.28
+ * 作成者　:R.Shibata
+ */
+var showDownloadDialogAddContentMessage = function(e){
+	// 画像id名を取得する
+	var imgid = $(this).attr('id');
+	//ダイアログのボタンの設定を読み込む
+	downloadDialogSettings.buttons = downloadDialogButtonSettings[imgid];
+	//ダイアログのテキストにダウンロードするコンテンツ名を設定する
+	$(SELECTOR_DOWNLOAD_DIALOG_CONTENT).text($(this).attr(ATTR_TITLE));
+	//イメージIDに該当するダイアログの設定を読み込む
+	$(SELECTOR_DOWNLOAD_DIALOG).dialog(downloadDialogSettings);
+	//ダイアログを開く
+	$(SELECTOR_DOWNLOAD_DIALOG).dialog('open');
+	//ダイアログのタイトルバーを削除(非表示)にする
+}
+
+/* 
+ * 関数名:dialogClose
+ * 概要  :指定されたダイアログを閉じる
+ * 引数  :selector selector: 閉じる対象のダイアログを指すセレクタを設定する
+ * 返却値:なし
+ * 作成日　:2016.09.23
+ * 作成者　:R.Shibata
+ */
+var dialogClose = function(selector){
+	$(selector).dialog("close")
+}
+
+/* 
+ * 関数名:downloadSSNGame
+ * 概要  :潜水艦ゲームをダウンロードする
+ * 引数  :なし
+ * 返却値:なし
+ * 作成日　:2016.09.23
+ * 作成者　:R.Shibata
+ */
+var downloadSSNGame = function(){
+	window.location.href = siteRootPath + 'ddt-regular/app/android/SSN_D2124.apk';
+}
+
+/* 
+ * 関数名:downloadOreExplorationGame
+ * 概要  :鉱石探索ゲーム(OreExploration)をダウンロードする。
+ * 引数  :string deviceType: ダウンロードするデバイスのタイプを指定する
+ * 返却値:なし
+ * 作成日　:2016.09.23
+ * 作成者　:R.Shibata
+ */
+var downloadOreExplorationGame = function(deviceType){
+	//デバイスのタイプを条件として分岐する
+	switch (deviceType){
+		// デバイス名がPCの場合
+		case TEXT_PC:
+	    	//準備中のメッセージを表示する
+	    	window.location.href = siteRootPath + 'ddt-regular/app/win/Ore_exPloration.zip'
+	    	break;
+	    // デバイス名がAndroidの場合
+		case TEXT_ANDROID:
+	    	//準備中のメッセージを表示する
+	    	window.location.href = siteRootPath + 'ddt-regular/app/android/OreExploration.apk';
+	    	break;
+	    // デバイス名が上記以外の場合
+	    default:
+	    	//準備中のメッセージを表示する
+	    	alert(DOWNLOAD_IN_PREPARATION_MEESSAGE)
+	    	break;
+	}
+};
 /* 
  * 関数名:serviceSidemenuButtonClicked
  * 概要  :serviceページのサイドメニューをクリックしたときの処理
@@ -175,10 +272,46 @@ $(document).on(EVENT_CLICK, '#testimg', imgClick);
 $(document).on(EVENT_CLICK, '.servicebutton', closeupService);
 //serviceページでサイドメニューのボタンをクリックした時に詳細を出す。aタグが発火元なので画面遷移、バブリングを抑止しておく
 $(SELECTOR_CONTAINER).on(EVENT_CLICK, '.servicesidebutton', serviceSidemenuButtonClicked);
-$(document).on('mouseleave', '#textcircle', hideService);
+$(document).on(EVENT_MOUSELEAVE, '#textcircle', hideService);
 $(document).on(EVENT_CLICK, '#textcircle', hideService);
-$(document).on('mouseenter', '.ssnimg:not(#ssncopy)', ssnhover);
-$(document).on('mouseleave', '.ssnimg:not(#ssncopy)', ssnleave);
-$(document).on(EVENT_CLICK, '#ssnmain', showSSN);
-$(document).on(EVENT_CLICK, '.ssnimg', movetoStore);
+$(document).on(EVENT_MOUSEENTER, '.ssnimg:not(#ssncopy)', ssnhover);
+$(document).on(EVENT_MOUSELEAVE, '.ssnimg:not(#ssncopy)', ssnleave);
+
+//鉱石探索ゲームのダウンロード追加による処理の追加 start 2016.09.25 r.shibata 
+//ダイアログの初期設定、自動で開かないように設定する
+$(SELECTOR_DOWNLOAD_DIALOG).dialog({autoOpen:false});
+//ダイアログの初期設定、タイトルバーを表示しないようにする
+$(SELECTOR_UI_DIALOG_TITLEBAR).css(CSS_DISPLAY, CSS_NONE);
+//潜水艦ゲームの画像をクリックしたときのイベントを登録する
+$(document).on(EVENT_CLICK, SELECTOR_SSNIMG, showDownloadDialogAddContentMessage);
+//鉱石探索ゲームの画像をクリックしたときのイベントを登録する
+$(document).on(EVENT_CLICK, SELECTOR_OREEXPLORATIONIMG, showDownloadDialogAddContentMessage);
+//ダイアログのオプション設定を作成する
+var downloadDialogSettings = {
+	autoOpen: false,  // 自動的に開かないように設定
+    width: 310,       // 横幅のサイズを設定
+    modal: true,      // モーダルダイアログにする
+    buttons: []	      // ボタンの設定(デフォルトは無し)
+
+};
+//ダウンロードダイアログ用ボタン設定の連想配列を宣言する
+var downloadDialogButtonSettings = {};
+//潜水艦ゲーム用ダイアログのボタン設定を宣言する
+downloadDialogButtonSettings[CLASS_SSNMAIN] = [
+	//テキスト：Android     クリック時イベント、ダウンロード処理
+	{text:TEXT_ANDROID , click: function(){downloadSSNGame()}},
+	//テキスト：キャンセル     クリック時イベント、ダイアログを閉じる
+	{text:TEXT_CANCEL  , click: function(){dialogClose(this)}}
+];
+//鉱石探索ゲーム用ダイアログのボタン設定を宣言する
+downloadDialogButtonSettings[CLASS_OREEXPLORATIONMAIN] = [
+	//テキスト：PC          クリック時イベント、ダウンロード処理
+	{text:TEXT_PC      , click: function(){downloadOreExplorationGame(TEXT_PC)}},
+	//テキスト：Android     クリック時イベント、ダウンロード処理
+	{text:TEXT_ANDROID , click: function(){downloadOreExplorationGame(TEXT_ANDROID)}},
+	//テキスト：キャンセル     クリック時イベント、ダイアログを閉じる
+	{text:TEXT_CANCEL  , click: function(){dialogClose(this)}}
+];
+//鉱石探索ゲームのダウンロード追加による処理の追加 end 2016.09.25 r.shibata 
+
 });

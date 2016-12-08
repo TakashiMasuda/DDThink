@@ -352,11 +352,11 @@
 		font-size : 13px;	/* 通常より小さい文字にする */
 		margin-top: 0px;
 		/* 3つあわせて回り込みを解除する */
-		padding-right: 95px;
+		padding-right: 0px;
 		float : none!important;
 		clear : both;
 		/* 幅を予め設定してフォントロード前にずれない様にする */
-		width : 135px;
+		width : 100%;
 		/* 行サイズを指定して上margin代わりにする */
 		line-height : 19px;
 		position: absolute;
@@ -393,10 +393,23 @@
 		width: 99%;
 		margin: 0;
 	}
-	#ssn-d2124{
-		background-color: rgba(245, 245, 220, 0.7);
+	#downloadArea{
 		padding-right: 10.5px!important;
 		padding-left: 10.5px!important;
+		width: 45%;
+	}
+	#downloadTextArea{
+		width:  100%;
+	}
+	#downloadAreaTextBefore{
+		color: rgb(255,0,0);
+		margin: 0 0 3px 0;
+		font-size: 50%;
+	}
+	#downloadAreaTextAfter{
+		width: 80%;
+		margin: 0 3px 0 0;
+		font-size: 50%;
 	}
 	/* 開発サービスページの記事部分に関するスタイルシート */
 	/* 開発サービスの記事に関するスタイルシート */
